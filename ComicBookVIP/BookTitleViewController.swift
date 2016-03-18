@@ -19,7 +19,7 @@ class BookTitleViewController: UIViewController,UICollectionViewDelegateFlowLayo
 	
 	
     override func viewDidAppear(animated: Bool) {
-			print("view Did Appear")
+//			print("view Did Appear")
 		    }
 	
 	
