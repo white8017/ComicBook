@@ -443,7 +443,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Mako.ComicBookVIP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/hankagou/Desktop/ComicBookVIP/SMSSDK-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "SMSSDK-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -467,7 +467,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = Mako.ComicBookVIP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/hankagou/Desktop/ComicBookVIP/SMSSDK-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "SMSSDK-Bridging-Header.h";
 			};
 			name = Release;
 		};
