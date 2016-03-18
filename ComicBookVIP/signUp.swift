@@ -23,12 +23,12 @@ class ViewController: UIViewController,NSURLSessionDelegate, NSURLSessionDownloa
     @IBOutlet weak var btnOk: UIButton!
 
     let txtVerificationCode: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 5, y: 35,width:10, height: 40))
-    let txtAdess: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 150, y: Screen.height / 8.5+45*6,width:300, height: 40))
-    let txtPasswd: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 150, y: Screen.height / 8.5+45*5,width:300, height: 40))
-    let txtPasswdCheck: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 150, y: Screen.height / 8.5+45*4,width:300, height: 40))
-    let txtBirthday: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 150, y: Screen.height / 8.5+45*3,width:300, height: 40))
-    let txtPhone: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 150, y: Screen.height / 8.5+45*2,width:300, height: 40))
-    let txtName: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 150, y: Screen.height / 8.5+45,width:300, height: 40))
+    let txtAdess: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 10, y: Screen.height / 8.5+45*6,width:20, height: 40))
+    let txtPasswd: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 10, y: Screen.height / 8.5+45*4,width:20, height: 40))
+    let txtPasswdCheck: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 10, y: Screen.height / 8.5+45*5,width:20, height: 40))
+    let txtBirthday: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 10, y: Screen.height / 8.5+45*3,width:20, height: 40))
+    let txtPhone: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 10, y: Screen.height / 8.5+45*2,width:20, height: 40))
+    let txtName: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 10, y: Screen.height / 8.5+45,width:20, height: 40))
 
     
     
@@ -73,7 +73,7 @@ class ViewController: UIViewController,NSURLSessionDelegate, NSURLSessionDownloa
         
 
         smsStr = txtPhone.text
-        var ns1 = smsStr as NSString
+        let ns1 = smsStr as NSString
         verificationCodeStr = ns1.substringFromIndex(1)
         
         if txtPhone.text != "" {
@@ -120,14 +120,6 @@ class ViewController: UIViewController,NSURLSessionDelegate, NSURLSessionDownloa
                             
                             UIView.transitionWithView(self.view, duration: 0.7, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
 
-//                                self.txtAdess.hidden = true;
-//                                self.txtBirthday.hidden = true; 
-//                                self.txtName.hidden = true
-//                                self.txtPasswd.hidden = true
-//                                self.txtPasswdCheck.hidden = true
-//                                self.txtPhone.hidden = true
-//                                self.btnGo.hidden = true
-                                
                                 self.txtAdess.alpha = 0.0
                                 self.txtBirthday.alpha = 0.0
                                 self.txtName.alpha = 0.0
@@ -147,11 +139,15 @@ class ViewController: UIViewController,NSURLSessionDelegate, NSURLSessionDownloa
                                 self.txtVerificationCode.alpha = 1
                                 
                                 self.border.borderColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.6).CGColor //底線的顏色
+                                
                                 self.border.frame = CGRect(x: 0, y: self.txtVerificationCode.frame.size.height - self.width, width:  self.txtVerificationCode.frame.size.width, height: self.txtVerificationCode.frame.size.height)
                                 
                                 self.border.borderWidth = self.width
+                                self.txtVerificationCode.alpha = 0.7
                                 self.txtVerificationCode.layer.addSublayer(self.border)
                                 self.txtVerificationCode.layer.masksToBounds = true
+                                
+                                self.view.backgroundColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
                                 
                                 }) { (Bool) -> Void in
                                     return true
@@ -230,63 +226,98 @@ class ViewController: UIViewController,NSURLSessionDelegate, NSURLSessionDownloa
     
     
     override func viewDidAppear(animated: Bool) {
-        border.borderColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.6).CGColor //底線的顏色
-        border.frame = CGRect(x: 0, y: txtVerificationCode.frame.size.height - width, width:  txtVerificationCode.frame.size.width, height: txtVerificationCode.frame.size.height)
-        
-        border.borderWidth = width
-        txtVerificationCode.layer.addSublayer(border)
-        txtVerificationCode.layer.masksToBounds = true
-        txtVerificationCode.alpha = 0
-        txtVerificationCode.text = ""
-        txtVerificationCode.placeholder = "簡訊驗證碼"
-        self.view.addSubview(txtVerificationCode)
-        
-        let borderAdess = CALayer()
-        txtAdess.layer.addSublayer(borderAdess)
-        txtAdess.layer.masksToBounds = true
-        txtAdess.placeholder = "住址"
-        self.borderStyle(txtAdess,borderNom: borderAdess)
-        self.view.addSubview(txtAdess)
 
-        let borderName = CALayer()
-        txtName.layer.addSublayer(borderName)
-        txtName.layer.masksToBounds = true
-        txtName.placeholder = "姓名"
-        self.borderStyle(txtName,borderNom: borderName)
-        self.view.addSubview(txtName)
+            self.txtVerificationCode.alpha = 0
+        UIView.transitionWithView(self.view, duration: 1.5, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            self.border.borderColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.6).CGColor //底線的顏色
+            self.border.frame = CGRect(x: 0, y: self.txtVerificationCode.frame.size.height - self.width, width:  self.txtVerificationCode.frame.size.width, height: self.txtVerificationCode.frame.size.height)
+            
+            self.border.borderWidth = self.width
+            self.txtVerificationCode.layer.addSublayer(self.border)
+            self.txtVerificationCode.layer.masksToBounds = true
+            self.txtVerificationCode.text = ""
+            self.txtVerificationCode.textColor = UIColor.whiteColor()
+            self.txtVerificationCode.attributedPlaceholder = NSAttributedString(string: "簡訊驗證碼", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+            self.view.addSubview(self.txtVerificationCode)
+            
+            let borderAdess = CALayer()
+            self.txtAdess.frame = CGRectMake(Screen.width / 2 - 150, Screen.height / 8.5+45*6, 300, 40)
+            self.txtAdess.layer.addSublayer(borderAdess)
+            self.txtAdess.layer.masksToBounds = true
+            self.txtAdess.textColor = UIColor.whiteColor()
+            self.txtAdess.attributedPlaceholder = NSAttributedString(string: "住址", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+            self.txtAdess.alpha = 0.7
+            self.borderStyle(self.txtAdess,borderNom: borderAdess)
+            self.view.addSubview(self.txtAdess)
+            
+            let borderName = CALayer()
+            self.txtName.frame = CGRectMake(Screen.width / 2 - 150, Screen.height / 8.5+45, 300, 40)
+            self.txtName.layer.addSublayer(borderName)
+            self.txtName.layer.masksToBounds = true
+            self.txtName.textColor = UIColor.whiteColor()
+            self.txtName.attributedPlaceholder = NSAttributedString(string: "姓名", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+            self.txtName.alpha = 0.7
+            self.borderStyle(self.txtName,borderNom: borderName)
+            self.view.addSubview(self.txtName)
+            
+            let borderPhone = CALayer()
+            self.txtPhone.frame = CGRectMake(Screen.width / 2 - 150, Screen.height / 8.5+45*2, 300, 40)
+            self.txtPhone.layer.addSublayer(borderPhone)
+            self.txtPhone.layer.masksToBounds = true
+            self.txtPhone.textColor = UIColor.whiteColor()
+            self.txtPhone.attributedPlaceholder = NSAttributedString(string: "電話:0912345678", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+            self.txtPhone.alpha = 0.7
+            self.borderStyle(self.txtPhone,borderNom: borderPhone)
+            self.view.addSubview(self.txtPhone)
+            
+            let borderPasswd = CALayer()
+            self.txtPasswd.frame = CGRectMake(Screen.width / 2 - 150, Screen.height / 8.5+45*4, 300, 40)
+            self.txtPasswd.layer.addSublayer(borderPasswd)
+            self.txtPasswd.layer.masksToBounds = true
+            self.txtPasswd.textColor = UIColor.whiteColor()
+            self.txtPasswd.attributedPlaceholder = NSAttributedString(string: "密碼", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+            self.txtPasswd.alpha = 0.7
+            self.borderStyle(self.txtPasswd,borderNom: borderPasswd)
+            self.view.addSubview(self.txtPasswd)
+            
+            let borderPasswdCheck = CALayer()
+            self.txtPasswdCheck.frame = CGRectMake(Screen.width / 2 - 150, Screen.height / 8.5+45*5, 300, 40)
+            self.txtPasswdCheck.layer.addSublayer(borderPasswdCheck)
+            self.txtPasswdCheck.layer.masksToBounds = true
+            self.txtPasswdCheck.textColor = UIColor.whiteColor()
+            self.txtPasswdCheck.attributedPlaceholder = NSAttributedString(string: "確認密碼", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+            self.txtPasswdCheck.alpha = 0.7
+            self.borderStyle(self.txtPasswdCheck,borderNom: borderPasswdCheck)
+            self.view.addSubview(self.txtPasswdCheck)
+            
+            let borderBirthday = CALayer()
+            self.txtBirthday.frame = CGRectMake(Screen.width / 2 - 150, Screen.height / 8.5+45*3, 300, 40)
+            self.txtBirthday.layer.addSublayer(borderBirthday)
+            self.txtBirthday.layer.masksToBounds = true
+            self.txtBirthday.textColor = UIColor.whiteColor()
+            self.txtBirthday.attributedPlaceholder = NSAttributedString(string: "生日:1992-04-06", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+            self.txtBirthday.alpha = 0.7
+            self.borderStyle(self.txtBirthday,borderNom: borderBirthday)
+            self.view.addSubview(self.txtBirthday)
+            
+            }) { (Bool) -> Void in
+                return true
+        }
 
-        let borderPhone = CALayer()
-        txtPhone.layer.addSublayer(borderPhone)
-        txtPhone.layer.masksToBounds = true
-        txtPhone.placeholder = "電話"
-        self.borderStyle(txtPhone,borderNom: borderPhone)
-        self.view.addSubview(txtPhone)
         
-        let borderPasswd = CALayer()
-        txtPasswd.layer.addSublayer(borderPasswd)
-        txtPasswd.layer.masksToBounds = true
-        txtPasswd.placeholder = "密碼"
-        self.borderStyle(txtPasswd,borderNom: borderPasswd)
-        self.view.addSubview(txtPasswd)
-        
-        let borderPasswdCheck = CALayer()
-        txtPasswdCheck.layer.addSublayer(borderPasswdCheck)
-        txtPasswdCheck.layer.masksToBounds = true
-        txtPasswdCheck.placeholder = "確認密碼"
-        self.borderStyle(txtPasswdCheck,borderNom: borderPasswdCheck)
-        self.view.addSubview(txtPasswdCheck)
-        
-        let borderBirthday = CALayer()
-        txtBirthday.layer.addSublayer(borderBirthday)
-        txtBirthday.layer.masksToBounds = true
-        txtBirthday.placeholder = "生日"
-        self.borderStyle(txtBirthday,borderNom: borderBirthday)
-        self.view.addSubview(txtBirthday)
 
+        
+        UIView.transitionWithView(self.view, duration: 1.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            
+            self.view.backgroundColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
+            
+            }) { (Bool) -> Void in
+                return true
+        }
     }
     
     func borderStyle (txtStyle:UITextField, borderNom:CALayer) {
-        borderNom.borderColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.6).CGColor //底線的顏色
+        borderNom.borderColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.4).CGColor //底線的顏色
         borderNom.frame = CGRect(x: 0, y: txtStyle.frame.size.height - width, width:  txtStyle.frame.size.width, height: txtStyle.frame.size.height)
         borderNom.borderWidth = width
 

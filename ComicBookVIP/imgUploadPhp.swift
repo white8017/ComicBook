@@ -52,7 +52,7 @@ class imgUploadPhp: UIViewController , UIImagePickerControllerDelegate, UINaviga
     }
     
     func pickerImg () {
-        var myPickerController = UIImagePickerController()
+        let myPickerController = UIImagePickerController()
         myPickerController.delegate = self;
         myPickerController.sourceType = UIImagePickerControllerSourceType.PhotoLibrary
         
@@ -85,7 +85,7 @@ class imgUploadPhp: UIViewController , UIImagePickerControllerDelegate, UINaviga
     }
     //
     func documentsDirectory() -> String {
-        let documentsFolderPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] as! String
+        let documentsFolderPath = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.DocumentDirectory, NSSearchPathDomainMask.UserDomainMask, true)[0] 
         return documentsFolderPath
     }
     //
@@ -179,7 +179,7 @@ class imgUploadPhp: UIViewController , UIImagePickerControllerDelegate, UINaviga
     
     
     func createBodyWithParameters(parameters: [String: String]?, filePathKey: String?, imageDataKey: NSData, boundary: String) -> NSData {
-        var body = NSMutableData();
+        let body = NSMutableData();
         
         if parameters != nil {
             for (key, value) in parameters! {
