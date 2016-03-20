@@ -13,6 +13,61 @@ class depositVC: UIViewController, NSURLSessionDelegate  {
     @IBOutlet weak var txtDeposit: UITextField!
     @IBOutlet weak var txtPhone: UITextField!
 
+    var total = 0
+    
+    let img50 = UIImage(named: "50NT") as UIImage?
+    let btn50   = UIButton(type: UIButtonType.Custom) as UIButton
+    
+    let img100 = UIImage(named: "100NT") as UIImage?
+    let btn100   = UIButton(type: UIButtonType.Custom) as UIButton
+    
+    let img200 = UIImage(named: "200NT") as UIImage?
+    let btn200   = UIButton(type: UIButtonType.Custom) as UIButton
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        UIView.transitionWithView(self.view, duration: 1.5, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+                self.view.backgroundColor = UIColor.blackColor()
+            }) { (Bool) -> Void in
+                return true
+        }
+        
+
+        
+        btn50.frame = CGRectMake(Screen.width/2+30, 30, 150, 150)
+        btn50.setImage(img50, forState: .Normal)
+        btn50.addTarget(self, action: "btn50:", forControlEvents:.TouchUpInside)
+        self.view.addSubview(btn50)
+
+        
+        btn100.frame = CGRectMake(Screen.width/2+30, 210, 150, 150)
+        btn100.setImage(img100, forState: .Normal)
+        btn100 .addTarget(self, action: "btn100:", forControlEvents:.TouchUpInside)
+        self.view.addSubview(btn100)
+        
+        
+        btn200.frame = CGRectMake(Screen.width/2+30, 390, 150, 150)
+        btn200.setImage(img200, forState: .Normal)
+        btn200 .addTarget(self, action: "btn200:", forControlEvents:.TouchUpInside)
+        self.view.addSubview(btn200)
+    }
+    
+    func btn50(sender:AnyObject) {
+        total = total + 50
+        txtDeposit.text = String(format: "%d", total)
+    }
+    func btn100(sender:AnyObject) {
+        total = total + 100
+        txtDeposit.text = String(format: "%d", total)
+    }
+    func btn200(sender:AnyObject) {
+        
+        total = total + 200
+        txtDeposit.text = String(format: "%d", total)
+    }
+    
+    
+    
     func alertPg (txt: String) {
         let alert = UIAlertController(title: txt , message:nil , preferredStyle: .Alert)
         let action = UIAlertAction(title: "OK", style: .Default, handler: { (alert:UIAlertAction) -> Void in
@@ -63,7 +118,7 @@ class depositVC: UIViewController, NSURLSessionDelegate  {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Do any additional setup after loading the view.
     }
     

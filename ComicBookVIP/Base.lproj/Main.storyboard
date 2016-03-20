@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< HEAD
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="8Lm-r8-C0K">
+=======
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LEb-Bi-fEd">
+>>>>>>> cbe135f8c991768a46c1a18281b788cb092b8b97
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
@@ -197,18 +201,6 @@
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="tEC-LX-nd3">
-                                <rect key="frame" x="135" y="113" width="94" height="29"/>
-                            </stepper>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hVb-GG-FWZ">
-                                <rect key="frame" x="69" y="194" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="tohome:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="Pe4-5Y-3MR"/>
-                                </connections>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="eA1-gp-lW9">
@@ -883,7 +875,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bX7-JX-9Zm" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2730" y="3852"/>
+            <point key="canvasLocation" x="2602" y="3596"/>
         </scene>
         <!--Page2 View Controller-->
         <scene sceneID="L9g-V9-I3h">
@@ -960,7 +952,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tce-cW-Drt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3440" y="3860"/>
+            <point key="canvasLocation" x="3512" y="3904"/>
         </scene>
         <!--DepositVC-->
         <scene sceneID="zX3-hA-sS1">
@@ -1002,7 +994,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qXW-LG-cx7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3534" y="4795"/>
+            <point key="canvasLocation" x="4426" y="4799"/>
         </scene>
         <!--Favorites Book NameVC-->
         <scene sceneID="x0k-su-Mc4">
@@ -1064,7 +1056,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xZU-5Q-suw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4237" y="3866"/>
+            <point key="canvasLocation" x="4701" y="3478"/>
         </scene>
         <!--Test-->
         <scene sceneID="Sb9-Ha-oP6">
@@ -1117,10 +1109,10 @@
             </objects>
             <point key="canvasLocation" x="3473" y="6305"/>
         </scene>
-        <!--Book Title View Controller-->
+        <!--View Controller-->
         <scene sceneID="ejF-uK-zIN">
             <objects>
-                <viewController id="TrM-bd-hD5" customClass="BookTitleViewController" customModule="ComicBookVIP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TrM-bd-hD5" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Z9s-Z9-k9j"/>
                         <viewControllerLayoutGuide type="bottom" id="m8D-PE-fCW"/>
@@ -1140,7 +1132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MfG-sI-p5H" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3534" y="3071"/>
+            <point key="canvasLocation" x="4946" y="1647"/>
         </scene>
     </scenes>
     <resources>
@@ -1154,9 +1146,9 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="k8U-Zx-pxB"/>
-        <segue reference="9vg-4W-jL6"/>
-        <segue reference="2zD-74-6WE"/>
-        <segue reference="J0b-QU-JMi"/>
-        <segue reference="32o-U9-u0j"/>
+        <segue reference="fx9-u0-U7j"/>
+        <segue reference="ZGt-OK-Rsu"/>
+        <segue reference="Bh1-u5-y8B"/>
+        <segue reference="fs7-Hf-POu"/>
     </inferredMetricsTieBreakers>
 </document>
