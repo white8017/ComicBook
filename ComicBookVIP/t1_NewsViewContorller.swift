@@ -39,7 +39,7 @@ class t1_NewsViewContorller: TabVCTemplate, UITableViewDelegate, UITableViewData
         
         //Page View Control
         headImageView.userInteractionEnabled = true
-        headImageView.contentMode = UIViewContentMode.ScaleAspectFill
+        //headImageView.contentMode = UIViewContentMode.ScaleAspectFill
         headImageView.image = UIImage(named: "0\(headImagePageControl.currentPage+1)")
         headImageView.addGestureRecognizer(leftSwipeGesture)
         headImageView.addGestureRecognizer(rightSwipeGesture)

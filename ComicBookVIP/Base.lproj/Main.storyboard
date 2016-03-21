@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="5wq-3d-fkO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LEb-Bi-fEd">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
@@ -23,17 +23,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="Vuk-s6-zt5">
-                                <rect key="frame" x="273" y="299" width="55" height="37"/>
+                                <rect key="frame" x="273" y="357" width="55" height="37"/>
                             </pageControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="N1u-y0-iMU">
-                                <rect key="frame" x="0.0" y="338" width="600" height="213"/>
+                                <rect key="frame" x="0.0" y="396" width="600" height="155"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCell" id="dhq-ex-LFk">
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="dhq-ex-LFk" id="b1q-fQ-8ki">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -43,8 +43,8 @@
                                     <outlet property="delegate" destination="9pv-A4-QxB" id="ejZ-uM-Aqd"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w2S-Y2-DgU">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="338"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w2S-Y2-DgU">
+                                <rect key="frame" x="0.0" y="58" width="600" height="338"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="w2S-Y2-DgU" secondAttribute="height" multiplier="16:9" id="gfX-TL-STk"/>
                                 </constraints>
@@ -61,7 +61,7 @@
                             <constraint firstAttribute="trailing" secondItem="w2S-Y2-DgU" secondAttribute="trailing" id="eVh-5N-j6N"/>
                             <constraint firstAttribute="trailing" secondItem="N1u-y0-iMU" secondAttribute="trailing" id="jeX-IS-8EV"/>
                             <constraint firstItem="N1u-y0-iMU" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="lmR-RT-roe"/>
-                            <constraint firstItem="w2S-Y2-DgU" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" id="oVz-oN-C2w"/>
+                            <constraint firstItem="w2S-Y2-DgU" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="14" id="oVz-oN-C2w"/>
                             <constraint firstItem="N1u-y0-iMU" firstAttribute="top" secondItem="w2S-Y2-DgU" secondAttribute="bottom" id="qXg-bH-UEn"/>
                         </constraints>
                     </view>
@@ -496,7 +496,7 @@
         <!--本店訊息-->
         <scene sceneID="acw-vB-sz0">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="tPj-Yf-hvm" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tPj-Yf-hvm" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="本店訊息" image="window" id="acW-dT-cKf"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="L0C-go-kNt">
@@ -551,11 +551,11 @@
                                         <rect key="frame" x="0.0" y="28" width="260" height="61"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="o8S-f0-gI3" id="T0x-GQ-912">
-                                            <rect key="frame" x="0.0" y="0.0" width="227" height="60.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="227" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qmQ-z3-qWw">
-                                                    <rect key="frame" x="60" y="0.0" width="165" height="60.5"/>
+                                                    <rect key="frame" x="60" y="0.0" width="165" height="60"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -689,7 +689,7 @@
         <!--Login View Controller-->
         <scene sceneID="R4O-ec-Kdq">
             <objects>
-                <viewController id="5wq-3d-fkO" customClass="LoginViewController" customModule="Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5wq-3d-fkO" customClass="LoginViewController" customModule="ComicBookVIP" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BWZ-kz-mFo"/>
                         <viewControllerLayoutGuide type="bottom" id="Uu9-kL-39X"/>
@@ -740,7 +740,7 @@
         <!--Rent HistoryVC-->
         <scene sceneID="zhD-BP-pqe">
             <objects>
-                <viewController id="xCq-T0-fhh" customClass="rentHistoryVC" customModule="Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xCq-T0-fhh" customClass="rentHistoryVC" customModule="ComicBookVIP" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="feY-dy-84e"/>
                         <viewControllerLayoutGuide type="bottom" id="Z6r-Pg-QYt"/>
@@ -767,7 +767,7 @@
                                         <rect key="frame" x="0.0" y="28" width="560" height="71"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZX4-re-Dc6" id="RnY-l6-cNt">
-                                            <rect key="frame" x="0.0" y="0.0" width="560" height="70.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="560" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Crh-NM-Edw">
@@ -853,10 +853,10 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="z0E-c8-s8a"/>
                                 <exclude reference="ACn-Bb-vVJ"/>
                                 <exclude reference="MPg-5A-p6N"/>
                                 <exclude reference="Me0-ld-Gc7"/>
+                                <exclude reference="z0E-c8-s8a"/>
                             </mask>
                         </variation>
                     </view>
@@ -872,7 +872,7 @@
         <!--Img Upload Php-->
         <scene sceneID="3Qj-Bm-QFS">
             <objects>
-                <viewController id="Ypt-Vq-h3Z" customClass="imgUploadPhp" customModule="Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Ypt-Vq-h3Z" customClass="imgUploadPhp" customModule="ComicBookVIP" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2mD-Wa-zbX"/>
                         <viewControllerLayoutGuide type="bottom" id="cn0-uG-cVa"/>
@@ -882,10 +882,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dDK-VZ-jTc">
-                                <rect key="frame" x="31" y="35" width="258" height="397.5"/>
+                                <rect key="frame" x="31" y="35" width="258" height="398"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8iK-If-Gzx">
-                                <rect key="frame" x="31" y="447" width="128" height="105.5"/>
+                                <rect key="frame" x="31" y="447" width="128" height="106"/>
                                 <state key="normal" title="OPEN"/>
                                 <connections>
                                     <action selector="btnOpenImg:" destination="Ypt-Vq-h3Z" eventType="touchUpInside" id="Kxe-oP-5Mx"/>
@@ -895,7 +895,7 @@
                                 <rect key="frame" x="139" y="447" width="20" height="20"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LwE-6h-bAe">
-                                <rect key="frame" x="159" y="447" width="130" height="105.5"/>
+                                <rect key="frame" x="159" y="447" width="130" height="106"/>
                                 <state key="normal" title="UPLOAD"/>
                                 <connections>
                                     <action selector="btnUploadImg:" destination="Ypt-Vq-h3Z" eventType="touchUpInside" id="C0a-b7-mwU"/>
@@ -916,7 +916,7 @@
         <!--NSDATE-->
         <scene sceneID="qcz-xH-iin">
             <objects>
-                <viewController id="U4c-nB-KyV" customClass="NSDATE" customModule="Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="U4c-nB-KyV" customClass="NSDATE" customModule="ComicBookVIP" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L6T-sV-D9P"/>
                         <viewControllerLayoutGuide type="bottom" id="M7P-Mq-Xal"/>
@@ -934,7 +934,7 @@
         <!--View Controller-->
         <scene sceneID="olx-2c-zZE">
             <objects>
-                <viewController id="Z1n-b0-1ZR" customClass="ViewController" customModule="Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Z1n-b0-1ZR" customClass="ViewController" customModule="ComicBookVIP" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Wao-bv-45a"/>
                         <viewControllerLayoutGuide type="bottom" id="hy5-CL-GgP"/>
@@ -955,7 +955,7 @@
         <!--Page2 View Controller-->
         <scene sceneID="GCw-7q-LY5">
             <objects>
-                <viewController id="RU5-rn-pEf" customClass="Page2ViewController" customModule="Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="RU5-rn-pEf" customClass="Page2ViewController" customModule="ComicBookVIP" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="e2V-WO-ikL"/>
                         <viewControllerLayoutGuide type="bottom" id="Hnf-H7-55M"/>
@@ -972,11 +972,11 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4ai-9s-A6g" id="AAe-1D-RO3">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="姓名" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haw-nC-Ve8">
-                                                    <rect key="frame" x="0.0" y="0.0" width="500" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="500" height="44"/>
                                                     <color key="backgroundColor" red="0.79407820220000003" green="1" blue="0.76328831139999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="tintColor" red="0.85468591719999998" green="1" blue="0.95584965160000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="27"/>
@@ -984,7 +984,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="102" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQk-k3-Cui">
-                                                    <rect key="frame" x="500" y="0.0" width="100" height="43.5"/>
+                                                    <rect key="frame" x="500" y="0.0" width="100" height="44"/>
                                                     <color key="backgroundColor" red="0.96300080129999999" green="0.14563270449999999" blue="0.3205387817" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <color key="textColor" red="0.90681990239999999" green="0.81685805680000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -1032,7 +1032,7 @@
         <!--DepositVC-->
         <scene sceneID="2sO-wF-gmx">
             <objects>
-                <viewController id="Xu2-HU-UO0" customClass="depositVC" customModule="Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Xu2-HU-UO0" customClass="depositVC" customModule="ComicBookVIP" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="WER-2t-cJe"/>
                         <viewControllerLayoutGuide type="bottom" id="2ft-Md-6HK"/>
@@ -1074,7 +1074,7 @@
         <!--Favorites Book NameVC-->
         <scene sceneID="bxP-lF-Mlw">
             <objects>
-                <viewController id="ori-lc-YbV" customClass="favoritesBookNameVC" customModule="Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ori-lc-YbV" customClass="favoritesBookNameVC" customModule="ComicBookVIP" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="zVj-Tq-9ke"/>
                         <viewControllerLayoutGuide type="bottom" id="anu-qo-N2f"/>
@@ -1091,17 +1091,17 @@
                                         <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wmk-ob-DCC" id="f26-Tn-Ti0">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="202" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="whC-Qn-iu0">
-                                                    <rect key="frame" x="412" y="8" width="150" height="27.5"/>
+                                                    <rect key="frame" x="412" y="8" width="150" height="28"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="201" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xym-Uo-EGJ">
-                                                    <rect key="frame" x="60" y="0.0" width="352" height="43.5"/>
+                                                    <rect key="frame" x="60" y="0.0" width="352" height="44"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1136,7 +1136,7 @@
         <!--Test-->
         <scene sceneID="7EO-pu-fF6">
             <objects>
-                <viewController id="4oO-nk-cuA" customClass="test" customModule="Project" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="4oO-nk-cuA" customClass="test" customModule="ComicBookVIP" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SSQ-KT-EH9"/>
                         <viewControllerLayoutGuide type="bottom" id="DNJ-nG-xlF"/>
@@ -1153,18 +1153,18 @@
                                         <rect key="frame" x="0.0" y="28" width="288" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kei-sg-h9e" id="l9w-y9-euE">
-                                            <rect key="frame" x="0.0" y="0.0" width="288" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="288" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" multipleTouchEnabled="YES" tag="201" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nqE-bM-VNd">
-                                                    <rect key="frame" x="100" y="0.0" width="173" height="43.5"/>
+                                                    <rect key="frame" x="99" y="0.0" width="174" height="43"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="android.jpg" id="GvF-5S-Ojd">
-                                                    <rect key="frame" x="15" y="0.0" width="70" height="43.5"/>
+                                                    <rect key="frame" x="15" y="0.0" width="69" height="43"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                 </imageView>
                                             </subviews>
