@@ -27,12 +27,10 @@ class rentBookBoss: UIViewController,UITableViewDelegate, UITableViewDataSource,
         let bookNameLbl = cell.viewWithTag(101) as! UILabel
         let txtViewName = cell.viewWithTag(102) as! UITextView
         
-        let SAD = "ABCDE"
-
-        print(SAD.containsString("B"))
+        let newString = (dataArray[indexPath.row]["name"] as? String)!.stringByReplacingOccurrencesOfString(",", withString: "\n")
         
         bookNameLbl.text = dataArray[indexPath.row]["bookName"] as? String
-        txtViewName.text = dataArray[indexPath.row]["name"] as? String
+        txtViewName.text = newString
         
         return cell
     }
