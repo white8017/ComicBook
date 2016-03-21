@@ -15,7 +15,7 @@ class rentHistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     @IBOutlet weak var myTableView: UITableView!
     
     var dataArray = [AnyObject]()
-//    var SelectStr = "未還"
+    var SelectStr = "未還"
 
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
