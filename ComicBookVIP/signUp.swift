@@ -18,12 +18,12 @@ class ViewController: UIViewController,NSURLSessionDelegate, NSURLSessionDownloa
     let btnOK   = UIButton(type: UIButtonType.Custom) as UIButton
 
     let txtVerificationCode: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 5, y: 35,width:10, height: 40))
-    let txtAdess: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 10, y: Screen.height / 8.5+45*6,width:20, height: 40))
-    let txtPasswd: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 10, y: Screen.height / 8.5+45*4,width:20, height: 40))
-    let txtPasswdCheck: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 10, y: Screen.height / 8.5+45*5,width:20, height: 40))
-    let txtBirthday: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 10, y: Screen.height / 8.5+45*3,width:20, height: 40))
-    let txtPhone: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 10, y: Screen.height / 8.5+45*2,width:20, height: 40))
-    let txtName: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 10, y: Screen.height / 8.5+45,width:20, height: 40))
+    let txtAdess: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 10, y: Screen.height / 8.5+35*6,width:20, height: 40))
+    let txtPasswd: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 10, y: Screen.height / 8.5+35*4,width:20, height: 40))
+    let txtPasswdCheck: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 10, y: Screen.height / 8.5+35*5,width:20, height: 40))
+    let txtBirthday: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 10, y: Screen.height / 8.5+35*3,width:20, height: 40))
+    let txtPhone: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 10, y: Screen.height / 8.5+35*2,width:20, height: 40))
+    let txtName: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 10, y: Screen.height / 8.5+35,width:20, height: 40))
   
     
     var check:String!
@@ -32,7 +32,7 @@ class ViewController: UIViewController,NSURLSessionDelegate, NSURLSessionDownloa
     var verificationCodeStr:String!
 
 
-//    let border = CALayer()
+    let border = CALayer()
 
     let width = CGFloat(2.0)
     
@@ -214,13 +214,13 @@ class ViewController: UIViewController,NSURLSessionDelegate, NSURLSessionDownloa
     
     override func viewDidAppear(animated: Bool) {
         
-        btnSignUp.frame = CGRectMake(Screen.width/8, Screen.height-250, 90, 45)
+        btnSignUp.frame = CGRectMake(0, Screen.height/2+100, Screen.width, 60)
         btnSignUp.setImage(signupImage, forState: .Normal)
         btnSignUp.addTarget(self, action: "btnSignUp:", forControlEvents:.TouchUpInside)
         btnSignUp.alpha = 0
         self.view.addSubview(btnSignUp)
         
-        btnOK.frame = CGRectMake(Screen.width/8, 100, 90, 45)
+        btnOK.frame = CGRectMake(0, 100, Screen.width, 60)
         btnOK.setImage(okImage, forState: .Normal)
         btnOK.addTarget(self, action: "btnOK:", forControlEvents:.TouchUpInside)
         btnOK.alpha = 0
@@ -246,7 +246,7 @@ class ViewController: UIViewController,NSURLSessionDelegate, NSURLSessionDownloa
             self.view.addSubview(self.txtVerificationCode)
             
             let borderAdess = CALayer()
-            self.txtAdess.frame = CGRectMake(Screen.width / 2 - 150, Screen.height / 8.5+45*6, 300, 40)
+            self.txtAdess.frame = CGRectMake(Screen.width / 2 - 150, Screen.height / 8.5+35*6, 300, 40)
             self.txtAdess.layer.addSublayer(borderAdess)
             self.txtAdess.layer.masksToBounds = true
             self.txtAdess.textColor = UIColor.brownColor()
@@ -256,7 +256,7 @@ class ViewController: UIViewController,NSURLSessionDelegate, NSURLSessionDownloa
             self.view.addSubview(self.txtAdess)
             
             let borderName = CALayer()
-            self.txtName.frame = CGRectMake(Screen.width / 2 - 150, Screen.height / 8.5+45, 300, 40)
+            self.txtName.frame = CGRectMake(Screen.width / 2 - 150, Screen.height / 8.5+35, 300, 40)
             self.txtName.layer.addSublayer(borderName)
             self.txtName.layer.masksToBounds = true
             self.txtName.textColor = UIColor.brownColor()
@@ -266,7 +266,7 @@ class ViewController: UIViewController,NSURLSessionDelegate, NSURLSessionDownloa
             self.view.addSubview(self.txtName)
             
             let borderPhone = CALayer()
-            self.txtPhone.frame = CGRectMake(Screen.width / 2 - 150, Screen.height / 8.5+45*2, 300, 40)
+            self.txtPhone.frame = CGRectMake(Screen.width / 2 - 150, Screen.height / 8.5+35*2, 300, 40)
             self.txtPhone.layer.addSublayer(borderPhone)
             self.txtPhone.layer.masksToBounds = true
             self.txtPhone.textColor = UIColor.brownColor()
@@ -276,7 +276,7 @@ class ViewController: UIViewController,NSURLSessionDelegate, NSURLSessionDownloa
             self.view.addSubview(self.txtPhone)
             
             let borderPasswd = CALayer()
-            self.txtPasswd.frame = CGRectMake(Screen.width / 2 - 150, Screen.height / 8.5+45*4, 300, 40)
+            self.txtPasswd.frame = CGRectMake(Screen.width / 2 - 150, Screen.height / 8.5+35*4, 300, 40)
             self.txtPasswd.layer.addSublayer(borderPasswd)
             self.txtPasswd.layer.masksToBounds = true
             self.txtPasswd.textColor = UIColor.brownColor()
@@ -286,7 +286,7 @@ class ViewController: UIViewController,NSURLSessionDelegate, NSURLSessionDownloa
             self.view.addSubview(self.txtPasswd)
             
             let borderPasswdCheck = CALayer()
-            self.txtPasswdCheck.frame = CGRectMake(Screen.width / 2 - 150, Screen.height / 8.5+45*5, 300, 40)
+            self.txtPasswdCheck.frame = CGRectMake(Screen.width / 2 - 150, Screen.height / 8.5+35*5, 300, 40)
             self.txtPasswdCheck.layer.addSublayer(borderPasswdCheck)
             self.txtPasswdCheck.layer.masksToBounds = true
             self.txtPasswdCheck.textColor = UIColor.brownColor()
@@ -296,7 +296,7 @@ class ViewController: UIViewController,NSURLSessionDelegate, NSURLSessionDownloa
             self.view.addSubview(self.txtPasswdCheck)
             
             let borderBirthday = CALayer()
-            self.txtBirthday.frame = CGRectMake(Screen.width / 2 - 150, Screen.height / 8.5+45*3, 300, 40)
+            self.txtBirthday.frame = CGRectMake(Screen.width / 2 - 150, Screen.height / 8.5+35*3, 300, 40)
             self.txtBirthday.layer.addSublayer(borderBirthday)
             self.txtBirthday.layer.masksToBounds = true
             self.txtBirthday.textColor = UIColor.brownColor()

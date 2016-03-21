@@ -70,6 +70,20 @@ class LoginViewController: UIViewController, NSURLSessionDelegate, NSURLSessionD
     }
     
     @IBAction func btnLogin(sender: AnyObject) {
+        
+        
+        
+        var isConnected = checkNetworkConnection()
+        
+        let alert = UIAlertView()
+        
+        if isConnected {
+            
+        } else {
+            alert.message = "請確認網路，尚未連線"
+            alert.addButtonWithTitle("OK")
+            alert.show()
+        }
 
         for i = 0 ; i <= dataArray.count-1 ; i++ {
             var OrNamePhone:String!
@@ -143,8 +157,41 @@ class LoginViewController: UIViewController, NSURLSessionDelegate, NSURLSessionD
         
         txtPasswd.secureTextEntry = true
         // Do any additional setup after loading the view.
+        
+        var isConnected = checkNetworkConnection()
+        
+        let alert = UIAlertView()
+        
+        if isConnected {
+
+        } else {
+            alert.message = "請確認網路，尚未連線"
+            alert.addButtonWithTitle("OK")
+            alert.show()
+        }
+        
+
     }
     
+    func checkNetworkConnection() -> Bool {
+        let reachability: Reachability = Reachability.reachabilityForInternetConnection()
+        let networkStatus: NetworkStatus = reachability.currentReachabilityStatus()
+        
+        print(networkStatus.rawValue)
+        
+        switch (networkStatus.rawValue) {
+        case 0:
+            print("[Network Status]: NotReachable")
+        case 1:
+            print("[Network Status]: ReachableViaWWAN")
+        case 2:
+            print("[Network Status]: ReachableViaWiFi")
+        default:
+            break
+        }
+        
+        return networkStatus.rawValue != 0
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

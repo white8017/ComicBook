@@ -9,6 +9,9 @@
 #ifndef SMSSDK_Bridging_Header_h
 #define SMSSDK_Bridging_Header_h
 
+// 偵測網路狀態
+#import "Reachability.h"
+
 //导入SMS-SDK的头文件
 #import <SMS_SDK/SMSSDK.h>
 
