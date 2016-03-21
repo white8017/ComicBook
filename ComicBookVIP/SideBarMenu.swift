@@ -18,9 +18,9 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
         super.viewDidLoad()
         
         //使TableView的Cell線條消失
-        self.menuTableView.separatorStyle = UITableViewCellSeparatorStyle.None
+        menuTableView.separatorStyle = UITableViewCellSeparatorStyle.None
         //TableView固定不滑動
-        self.menuTableView.scrollEnabled = false
+        menuTableView.scrollEnabled = false
         
     }
     
@@ -38,7 +38,7 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("MenuCell", forIndexPath: indexPath)
         cell.textLabel?.text = sideMenu[indexPath.row]
         
         //let t = cell.viewWithTag(75) as! UILabel
