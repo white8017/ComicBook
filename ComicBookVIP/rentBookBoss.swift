@@ -11,6 +11,7 @@ import UIKit
 class rentBookBoss: UIViewController,UITableViewDelegate, UITableViewDataSource,NSURLSessionDelegate, NSURLSessionDownloadDelegate {
     
     
+    @IBOutlet weak var myTableView: UITableView!
     
     var dataArray = [AnyObject]()
 

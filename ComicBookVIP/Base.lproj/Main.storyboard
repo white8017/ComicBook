@@ -380,10 +380,10 @@
             </objects>
             <point key="canvasLocation" x="693" y="3841"/>
         </scene>
-        <!--View Controller-->
+        <!--Rent Book Boss-->
         <scene sceneID="E8K-ad-mmR">
             <objects>
-                <viewController id="UJQ-Qb-iNa" sceneMemberID="viewController">
+                <viewController id="UJQ-Qb-iNa" customClass="rentBookBoss" customModule="ComicBookVIP" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NfV-Pq-2gd"/>
                         <viewControllerLayoutGuide type="bottom" id="U9S-lI-hat"/>
@@ -444,6 +444,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EHl-K4-5Yo"/>
+                    <connections>
+                        <outlet property="myTableView" destination="nL2-Dh-Cgs" id="t2u-Ed-XQu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r4u-pi-JYw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
