@@ -32,7 +32,7 @@ class ViewController: UIViewController,NSURLSessionDelegate, NSURLSessionDownloa
     var verificationCodeStr:String!
 
 
-    let border = CALayer()
+//    let border = CALayer()
 
     let width = CGFloat(2.0)
     
