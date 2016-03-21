@@ -20,7 +20,29 @@ class delayRerutnBookBoss: UIViewController,UITableViewDataSource,UITableViewDel
         return dataArray.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-             let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        
+
+        
+        var rDate:String!
+        var now = NSDate()
+        // 租的時間
+        rDate = dataArray[indexPath.row]["returnDate"] as? String
+        print("rDate= \(rDate)")
+        let dateString = rDate // change to your date format
+        // 字串轉Date
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        //            dateFormatter.timeZone = NSTimeZone(abbreviation: "UTC") // 註解是因為now -8 所以讓資料庫下來時也-8
+        let date = dateFormatter.dateFromString(dateString)
+        print("date= \(date!)") // 到期時間
+        print("now = \(now)") // 現在時間
+        let interval1 = date!.timeIntervalSinceDate(now) / (3600*24) + 1
+        var restStr:String!
+        // Double轉String
+        restStr = String(format: "%d",Int(interval1))
+        
+        
         return cell
     }
     
