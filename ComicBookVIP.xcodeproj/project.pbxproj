@@ -29,6 +29,7 @@
 		1966382B1C9FC8E7001310F1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638281C9FC8E7001310F1 /* LoginViewController.swift */; };
 		1966382C1C9FC8E7001310F1 /* depositVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638291C9FC8E7001310F1 /* depositVC.swift */; };
 		1966382F1C9FC8FB001310F1 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1966382E1C9FC8FB001310F1 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		196638371C9FFDD2001310F1 /* rentBookBoss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638361C9FFDD2001310F1 /* rentBookBoss.swift */; };
 		A12483251C9A577800A7CE2A /* m1_UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12483241C9A577700A7CE2A /* m1_UserInformation.swift */; };
 		A12483271C9A7DC300A7CE2A /* m2_TransactionHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12483261C9A7DC300A7CE2A /* m2_TransactionHistory.swift */; };
 		A12483291C9A7F3D00A7CE2A /* m3_GiftPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12483281C9A7F3D00A7CE2A /* m3_GiftPoint.swift */; };
@@ -76,6 +77,7 @@
 		196638291C9FC8E7001310F1 /* depositVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = depositVC.swift; sourceTree = "<group>"; };
 		1966382D1C9FC8FB001310F1 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		1966382E1C9FC8FB001310F1 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		196638361C9FFDD2001310F1 /* rentBookBoss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rentBookBoss.swift; sourceTree = "<group>"; };
 		A12483241C9A577700A7CE2A /* m1_UserInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = m1_UserInformation.swift; sourceTree = "<group>"; };
 		A12483261C9A7DC300A7CE2A /* m2_TransactionHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = m2_TransactionHistory.swift; sourceTree = "<group>"; };
 		A12483281C9A7F3D00A7CE2A /* m3_GiftPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = m3_GiftPoint.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				196637D31C9BE89F001310F1 /* Page2ViewController.swift */,
 				196637D41C9BE89F001310F1 /* favoritesBookNameVC.swift */,
 				196637D61C9BE89F001310F1 /* rentHistoryVC.swift */,
+				196638361C9FFDD2001310F1 /* rentBookBoss.swift */,
 				196637D71C9BE89F001310F1 /* imgUploadPhp.swift */,
 				196637D81C9BE89F001310F1 /* NSDATE.swift */,
 			);
@@ -307,6 +310,7 @@
 				A12483251C9A577800A7CE2A /* m1_UserInformation.swift in Sources */,
 				A1FBC1921C99DA6F00FF13E4 /* ContainerVC.swift in Sources */,
 				A1FEF9111C98235F0076152F /* TabVCTemplate.swift in Sources */,
+				196638371C9FFDD2001310F1 /* rentBookBoss.swift in Sources */,
 				A12483271C9A7DC300A7CE2A /* m2_TransactionHistory.swift in Sources */,
 				A1FEF8FD1C97EAA60076152F /* t2_BookViewController.swift in Sources */,
 				196637E11C9BE89F001310F1 /* NSDATE.swift in Sources */,
