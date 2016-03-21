@@ -27,12 +27,19 @@ class rentBookBoss: UIViewController,UITableViewDelegate, UITableViewDataSource,
         let bookNameLbl = cell.viewWithTag(101) as! UILabel
         let txtViewName = cell.viewWithTag(102) as! UITextView
         
+        let SAD = "ABCDE"
+
+        print(SAD.containsString("B"))
         
+        bookNameLbl.text = dataArray[indexPath.row]["bookName"] as? String
+        txtViewName.text = dataArray[indexPath.row]["name"] as? String
+        
+        return cell
     }
     
     func loadData() {
     
-            let url = NSURL(string: "http://sashihara.100hub.net/vip/rentBookStageBoss.php.php")
+            let url = NSURL(string: "http://sashihara.100hub.net/vip/rentBookStageBoss.php")
             let request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
             
             request.HTTPMethod = "POST"
