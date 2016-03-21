@@ -10,11 +10,55 @@ import UIKit
 
 class LoginViewController: UIViewController, NSURLSessionDelegate, NSURLSessionDownloadDelegate {
 
-    @IBOutlet weak var txtPasswd: UITextField!
-    @IBOutlet weak var txtPhone: UITextField!
+
     
     var dataArray = [AnyObject]()
     var i = 0;
+    let width = CGFloat(2.0)
+    
+    let txtPhone: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 110, y: Screen.height / 8.5,width:20, height: 40))
+    let txtPasswd: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 110, y: Screen.height / 8.5+45*1,width:20, height: 40))
+    
+    
+    override func viewDidAppear(animated: Bool) {
+    
+        UIView.transitionWithView(self.view, duration: 1.5, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+        
+        self.view.backgroundColor = UIColor(red: 0.90, green: 0.90, blue: 0.90, alpha: 1)
+            
+        let borderPhone = CALayer()
+        self.txtPhone.frame = CGRectMake(Screen.width / 2 - 150, Screen.height / 8.5, 180, 40)
+        self.txtPhone.layer.addSublayer(borderPhone)
+        self.txtPhone.layer.masksToBounds = true
+        self.txtPhone.textColor = UIColor.brownColor()
+        self.txtPhone.attributedPlaceholder = NSAttributedString(string: "電話", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+        self.txtPhone.alpha = 0.7
+        self.borderStyle(self.txtPhone,borderNom: borderPhone)
+        self.view.addSubview(self.txtPhone)
+            
+        let borderPasswd = CALayer()
+        self.txtPasswd.frame = CGRectMake(Screen.width / 2 - 150, Screen.height / 8.5+45, 180, 40)
+        self.txtPasswd.layer.addSublayer(borderPasswd)
+        self.txtPasswd.layer.masksToBounds = true
+        self.txtPasswd.textColor = UIColor.brownColor()
+        self.txtPasswd.attributedPlaceholder = NSAttributedString(string: "密碼", attributes: [NSForegroundColorAttributeName: UIColor.grayColor()])
+        self.txtPasswd.alpha = 0.7
+        self.borderStyle(self.txtPasswd,borderNom: borderPasswd)
+        self.view.addSubview(self.txtPasswd)
+
+    }) { (Bool) -> Void in
+        return true
+        }
+
+
+    }
+    
+    func borderStyle (txtStyle:UITextField, borderNom:CALayer) {
+        borderNom.borderColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 0.6).CGColor //底線的顏色
+        borderNom.frame = CGRect(x: 0, y: txtStyle.frame.size.height - width, width:  txtStyle.frame.size.width, height: txtStyle.frame.size.height)
+        borderNom.borderWidth = width
+        
+    }
 
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {

@@ -83,7 +83,7 @@ class Page2ViewController: UIViewController,UITableViewDelegate,UITableViewDataS
         switch authorORbookName{
             case "author":
         if segue.identifier == "favorites" {
-            var nextViewController = segue.destinationViewController as! favoritesBookNameVC
+            let nextViewController = segue.destinationViewController as! favoritesBookNameVC
             // 傳作者值
             nextViewController.author = dataArray[newI]["author"] as! String
             // 傳name值

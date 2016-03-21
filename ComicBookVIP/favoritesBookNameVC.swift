@@ -66,7 +66,7 @@ class favoritesBookNameVC: UIViewController,UITableViewDelegate,UITableViewDataS
     }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "backPage2" {
-            var nextViewController = segue.destinationViewController as! Page2ViewController
+            let nextViewController = segue.destinationViewController as! Page2ViewController
             nextViewController.Name = name
         }
     }

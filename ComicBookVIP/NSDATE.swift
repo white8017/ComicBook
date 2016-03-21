@@ -15,11 +15,11 @@ class NSDATE: UIViewController, NSURLSessionDelegate {
     
     
     func loadData() {
-        var to = NSDate(timeIntervalSinceNow: (24*60*60) * 5)
-        var interval1 = to.timeIntervalSinceDate(now) / (3600*24)
+        let to = NSDate(timeIntervalSinceNow: (24*60*60) * 5)
+        let interval1 = to.timeIntervalSinceDate(now) / (3600*24)
         
         // now 改時區
-        var formatter = NSDateFormatter();
+        let formatter = NSDateFormatter();
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZ"
         formatter.timeZone = NSTimeZone(abbreviation: "HKT")
         let now8 = formatter.stringFromDate(now)
