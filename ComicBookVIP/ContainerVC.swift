@@ -13,6 +13,8 @@ class ContainerVC : UIViewController {
     @IBOutlet weak var leftContainer: UIView!
     @IBOutlet weak var rightContainer: UIView!
     
+    var name:String!
+    
 //    let SCREEN_SIZE = UIScreen.mainScreen().bounds // 擷取螢幕尺寸
     let leftMenuWidth:CGFloat = 260
     

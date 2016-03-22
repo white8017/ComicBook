@@ -12,6 +12,7 @@ import UIKit
 class t1_NewsViewContorller: TabVCTemplate, UITableViewDelegate, UITableViewDataSource {
     
     var count = 0
+    var name:String!
     
     @IBOutlet weak var headImageView: UIImageView!
     @IBOutlet weak var headImagePageControl: UIPageControl!

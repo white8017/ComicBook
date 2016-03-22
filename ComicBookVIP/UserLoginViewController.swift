@@ -61,8 +61,8 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "in" {
-            var nextViewController = segue.destinationViewController as! Page2ViewController
-            nextViewController.Name = dataArray[i]["name"] as! String
+            var nextViewController = segue.destinationViewController as! ContainerVC
+            nextViewController.name = dataArray[i]["name"] as! String
             
         }
     }
