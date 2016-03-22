@@ -22,7 +22,7 @@ class delayRerutnBookBoss: UIViewController,UITableViewDataSource,UITableViewDel
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
-
+        let bookNameLbl = cell.viewWithTag(101) as! UILabel
         
         var rDate:String!
         var now = NSDate()
@@ -35,16 +35,38 @@ class delayRerutnBookBoss: UIViewController,UITableViewDataSource,UITableViewDel
         dateFormatter.dateFormat = "yyyy-MM-dd"
         //            dateFormatter.timeZone = NSTimeZone(abbreviation: "UTC") // 註解是因為now -8 所以讓資料庫下來時也-8
         let date = dateFormatter.dateFromString(dateString)
-        print("date= \(date!)") // 到期時間
-        print("now = \(now)") // 現在時間
-        let interval1 = date!.timeIntervalSinceDate(now) / (3600*24) + 1
+//        print("date= \(date!)") // 到期時間
+//        print("now = \(now)") // 現在時間
+        var interval1 = date!.timeIntervalSinceDate(now) / (3600*24) + 1
         var restStr:String!
         // Double轉String
-        restStr = String(format: "%d",Int(interval1))
+        if interval1 < 0.0  {
+            bookNameLbl.text = dataArray[indexPath.row]["bookName"] as? String
+        }
         
+        restStr = String(format: "%f",interval1)
+        
+        print(restStr)
         
         return cell
     }
+
+    func loadData() {
+        
+        let url = NSURL(string: "http://sashihara.100hub.net/vip/rentHistoryBoss.php")
+        let request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
+        
+        request.HTTPMethod = "POST"
+        
+        
+        let sessionWithConfigure = NSURLSessionConfiguration.defaultSessionConfiguration()
+        
+        let session = NSURLSession(configuration: sessionWithConfigure, delegate: self, delegateQueue: NSOperationQueue.mainQueue())
+        
+        let dataTask = session.downloadTaskWithRequest(request)
+        dataTask.resume()
+    }
+    
     
     func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {
         do {
@@ -61,13 +83,11 @@ class delayRerutnBookBoss: UIViewController,UITableViewDataSource,UITableViewDel
         
         
     }
-
-    
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        loadData()
         // Do any additional setup after loading the view.
     }
 
