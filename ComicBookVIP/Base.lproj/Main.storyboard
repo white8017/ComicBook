@@ -583,18 +583,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XS6-oz-0yC">
-                                <rect key="frame" x="369" y="251" width="30" height="30"/>
-                                <state key="normal" title="註冊"/>
-                                <connections>
-                                    <segue destination="jX9-qW-21Y" kind="show" id="6Hv-qW-vEn"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Vt-R0-fh7">
-                                <rect key="frame" x="146" y="349" width="30" height="30"/>
+                                <rect key="frame" x="110" y="373" width="30" height="30"/>
                                 <state key="normal" title="登入"/>
                                 <connections>
                                     <action selector="btnLogin:" destination="mE8-dU-WcX" eventType="touchUpInside" id="Mkb-9D-hjS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XS6-oz-0yC">
+                                <rect key="frame" x="194" y="373" width="30" height="30"/>
+                                <state key="normal" title="註冊"/>
+                                <connections>
+                                    <segue destination="jX9-qW-21Y" kind="show" id="6Hv-qW-vEn"/>
                                 </connections>
                             </button>
                         </subviews>

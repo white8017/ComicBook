@@ -14,8 +14,8 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
     var i = 0;
     let width = CGFloat(2.0)
     
-    let txtPhone: UITextField = UITextField(frame: CGRect(x: Screen.width / 2, y: Screen.height / 6, width:20, height: 40))
-    let txtPasswd: UITextField = UITextField(frame: CGRect(x: Screen.width / 2, y: Screen.height / 6 * 1.5, width:20, height: 40))
+    var txtPhone: UITextField = UITextField(frame: CGRect(x: Screen.width / 2, y: Screen.height / 5, width:20, height: 40))
+    var txtPasswd: UITextField = UITextField(frame: CGRect(x: Screen.width / 2, y: Screen.height / 5 * 1.5, width:20, height: 40))
     
     
     override func viewDidAppear(animated: Bool) {
@@ -25,24 +25,25 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
             //背景
             self.view.backgroundColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 0.9)
             
+            //登入電話
             let borderPhone = CALayer()
-            self.txtPhone.frame = CGRectMake(Screen.width / 5, Screen.height / 6, Screen.width / 5 * 3, 40)
+            self.txtPhone.frame = CGRectMake(Screen.width / 5, Screen.height / 5, Screen.width / 5 * 3, 40)
             self.txtPhone.layer.addSublayer(borderPhone)
             self.txtPhone.layer.masksToBounds = true
             self.txtPhone.textColor = UIColor.brownColor()
-            self.txtPhone.attributedPlaceholder = NSAttributedString(string: "電話", attributes: [NSForegroundColorAttributeName: UIColor(red: 0.75, green: 0.75, blue: 0.75, alpha: 1)])
-            self.txtPhone.alpha = 0.7
-            self.borderStyle(self.txtPhone,borderNom: borderPhone)
+            self.txtPhone.attributedPlaceholder = NSAttributedString(string: "電話", attributes: [NSForegroundColorAttributeName: UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 0.85)])
+            self.txtPhone.alpha = 1
+            self.borderStyle(self.txtPhone, borderNom: borderPhone)
             self.view.addSubview(self.txtPhone)
-            
+            //登入密碼
             let borderPasswd = CALayer()
-            self.txtPasswd.frame = CGRectMake(Screen.width / 5, Screen.height / 6 * 1.5, Screen.width / 5 * 3, 40)
+            self.txtPasswd.frame = CGRectMake(Screen.width / 5, Screen.height / 5 * 1.5, Screen.width / 5 * 3, 40)
             self.txtPasswd.layer.addSublayer(borderPasswd)
             self.txtPasswd.layer.masksToBounds = true
             self.txtPasswd.textColor = UIColor.brownColor()
-            self.txtPasswd.attributedPlaceholder = NSAttributedString(string: "密碼", attributes: [NSForegroundColorAttributeName: UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1)])
-            self.txtPasswd.alpha = 0.7
-            self.borderStyle(self.txtPasswd,borderNom: borderPasswd)
+            self.txtPasswd.attributedPlaceholder = NSAttributedString(string: "密碼", attributes: [NSForegroundColorAttributeName: UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 0.85)])
+            self.txtPasswd.alpha = 1
+            self.borderStyle(self.txtPasswd, borderNom: borderPasswd)
             self.view.addSubview(self.txtPasswd)
             
             print("[ Screen width : Screen height => \(Screen.width) : \(Screen.height) ]")
@@ -55,7 +56,7 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
     }
     
     func borderStyle (txtStyle:UITextField, borderNom:CALayer) {
-        borderNom.borderColor = UIColor(red: 0.25, green: 0.25, blue: 0.25, alpha: 1).CGColor //底線的顏色
+        borderNom.borderColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1).CGColor //底線的顏色
         borderNom.frame = CGRect(x: 0, y: txtStyle.frame.size.height - width, width:  txtStyle.frame.size.width, height: txtStyle.frame.size.height)
         borderNom.borderWidth = width
         
