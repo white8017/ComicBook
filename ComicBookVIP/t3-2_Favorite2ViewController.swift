@@ -63,12 +63,12 @@ class t3_2_Favorite2ViewController: UIViewController ,UITableViewDelegate, UITab
         //        addString = "sss"
         
     }
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "backPage2" {
-            let nextViewController = segue.destinationViewController as! Page2ViewController
-            nextViewController.Name = name
-        }
-    }
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "backPage2" {
+//            let nextViewController = segue.destinationViewController as! Page2ViewController
+//            nextViewController.Name = name
+//        }
+//    }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
