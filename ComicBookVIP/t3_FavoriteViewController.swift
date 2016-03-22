@@ -17,8 +17,9 @@ class t3_FavoriteViewController: TabVCTemplate, UITableViewDelegate, UITableView
     var newAuthor = ""
     var newI = 0
     var DeleteS:String!
-    var Name = ""
+    var name = ""
     var authorORbookName:String!
+    
 
     @IBAction func toggleMenu(sender: AnyObject) {
         NSNotificationCenter.defaultCenter().postNotificationName("toggleMenu", object: nil)
@@ -44,13 +45,13 @@ class t3_FavoriteViewController: TabVCTemplate, UITableViewDelegate, UITableView
         // do stuff here
         
 
-        authorORbookName = "bookName"
+        authorORbookName = "author"
         self.loadData()
         
         self.myFavorites()
         
         
-        print(Name)
+        print(name)
         
         // Do any additional setup after loading the view.
         
@@ -107,21 +108,20 @@ class t3_FavoriteViewController: TabVCTemplate, UITableViewDelegate, UITableView
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
         
         let authorLbl = cell.viewWithTag(101) as! UILabel
-        let newStageLbl = cell.viewWithTag(102) as! UILabel
+        var newStage = cell.viewWithTag(102) as! UILabel
         
         switch authorORbookName{
         case "author":
             authorLbl.text = dataArray[indexPath.row]["author"] as? String
-            newStageLbl.backgroundColor = UIColor(red: 0.796, green: 0.996, blue: 0.772, alpha: 1.0)
-            newStageLbl.text = ""
+            newStage.text = ""
             break
         case "bookName":
             
             authorLbl.text = dataArray[indexPath.row]["bookName"] as? String
             var DDD:String!
             DDD = dataArray[indexPath.row]["newStage"] as? String
-            newStageLbl.text = "   第 \(DDD) 話"
-            newStageLbl.backgroundColor = UIColor(red: 0.964, green: 0.145, blue: 0.321, alpha: 1.0)
+            newStage.text = "   第 \(DDD) 話"
+
             break
         default:
             print("cellForRow XX")
@@ -155,11 +155,12 @@ class t3_FavoriteViewController: TabVCTemplate, UITableViewDelegate, UITableView
         switch authorORbookName{
         case "author":
             if segue.identifier == "favorites" {
-                let nextViewController = segue.destinationViewController as! favoritesBookNameVC
+                let nextViewController = segue.destinationViewController as!
+                    t3_2_Favorite2ViewController
                 // 傳作者值
                 nextViewController.author = dataArray[newI]["author"] as! String
                 // 傳name值
-                nextViewController.name = Name
+                nextViewController.name = name
                 print("~\(newI)")
                 
                 
@@ -188,13 +189,7 @@ class t3_FavoriteViewController: TabVCTemplate, UITableViewDelegate, UITableView
             let url = NSURL(string: "http://sashihara.100hub.net/vip/download.php")
             let request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
             
-            let submitName = ""
-            print("sssssss\(submitName)")
-            let submitBody: String = "author=\(submitName)"
-            
             request.HTTPMethod = "POST"
-            request.HTTPBody = submitBody.dataUsingEncoding(NSUTF8StringEncoding)
-            
             
             let sessionWithConfigure = NSURLSessionConfiguration.defaultSessionConfiguration()
             
@@ -210,7 +205,7 @@ class t3_FavoriteViewController: TabVCTemplate, UITableViewDelegate, UITableView
             let url = NSURL(string: "http://sashihara.100hub.net/vip/favoritesNameSelect.php")
             let request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
             
-            let submitBody: String = "name=\(Name)"
+            let submitBody: String = "name=\(name)"
             
             request.HTTPMethod = "POST"
             request.HTTPBody = submitBody.dataUsingEncoding(NSUTF8StringEncoding)
@@ -251,7 +246,7 @@ class t3_FavoriteViewController: TabVCTemplate, UITableViewDelegate, UITableView
         let url = NSURL(string: "http://sashihara.100hub.net/vip/deleteFavoritesName.php")
         let request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
         
-        let submitBody: String = "name=\(Name)&bookName=\(DeleteS)"
+        let submitBody: String = "name=\(name)&bookName=\(DeleteS)"
         
         request.HTTPMethod = "POST"
         request.HTTPBody = submitBody.dataUsingEncoding(NSUTF8StringEncoding)

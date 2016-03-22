@@ -39,6 +39,7 @@
 		A124832F1C9A925100A7CE2A /* MyAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A124832E1C9A925100A7CE2A /* MyAnnotation.swift */; };
 		A14EED331CA0DB5E008B2C2B /* UserLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14EED321CA0DB5E008B2C2B /* UserLoginViewController.swift */; };
 		A1883E7C1CA0DFA200C737F2 /* UserSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1883E7B1CA0DFA200C737F2 /* UserSignUpViewController.swift */; };
+		A1883E7E1CA1299900C737F2 /* t3-2_Favorite2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1883E7D1CA1299900C737F2 /* t3-2_Favorite2ViewController.swift */; };
 		A1FBC1901C99A1B900FF13E4 /* SideBarMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FBC18F1C99A1B900FF13E4 /* SideBarMenu.swift */; };
 		A1FBC1921C99DA6F00FF13E4 /* ContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FBC1911C99DA6F00FF13E4 /* ContainerVC.swift */; };
 		A1FEF8F91C97EAA60076152F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FEF8F81C97EAA60076152F /* AppDelegate.swift */; };
@@ -90,6 +91,7 @@
 		A124832E1C9A925100A7CE2A /* MyAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAnnotation.swift; sourceTree = "<group>"; };
 		A14EED321CA0DB5E008B2C2B /* UserLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginViewController.swift; sourceTree = "<group>"; };
 		A1883E7B1CA0DFA200C737F2 /* UserSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSignUpViewController.swift; sourceTree = "<group>"; };
+		A1883E7D1CA1299900C737F2 /* t3-2_Favorite2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "t3-2_Favorite2ViewController.swift"; sourceTree = "<group>"; };
 		A1FBC18F1C99A1B900FF13E4 /* SideBarMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarMenu.swift; sourceTree = "<group>"; };
 		A1FBC1911C99DA6F00FF13E4 /* ContainerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerVC.swift; sourceTree = "<group>"; };
 		A1FEF8F51C97EAA60076152F /* ComicBookVIP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComicBookVIP.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -208,6 +210,7 @@
 				A1FEF8FA1C97EAA60076152F /* t1_NewsViewContorller.swift */,
 				A1FEF8FC1C97EAA60076152F /* t2_BookViewController.swift */,
 				A124832A1C9A864E00A7CE2A /* t3_FavoriteViewController.swift */,
+				A1883E7D1CA1299900C737F2 /* t3-2_Favorite2ViewController.swift */,
 				A124832C1C9A86A000A7CE2A /* t4_StoreViewController.swift */,
 				A124832E1C9A925100A7CE2A /* MyAnnotation.swift */,
 				A1FEF8FE1C97EAA60076152F /* Main.storyboard */,
@@ -312,6 +315,7 @@
 				1966382A1C9FC8E7001310F1 /* signUp.swift in Sources */,
 				196637DD1C9BE89F001310F1 /* favoritesBookNameVC.swift in Sources */,
 				A124832D1C9A86A000A7CE2A /* t4_StoreViewController.swift in Sources */,
+				A1883E7E1CA1299900C737F2 /* t3-2_Favorite2ViewController.swift in Sources */,
 				1966383B1CA0D4AB001310F1 /* delayRerutnBookBoss.swift in Sources */,
 				1966382B1C9FC8E7001310F1 /* LoginViewController.swift in Sources */,
 				1966380A1C9BF13E001310F1 /* CostumCollectionView.swift in Sources */,
