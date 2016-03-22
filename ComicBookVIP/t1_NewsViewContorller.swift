@@ -5,6 +5,7 @@
 //  Created by MakoAir on 2016/3/15.
 //  Copyright © 2016年 Mako. All rights reserved.
 //
+//https://autolayout.club/2015/10/29/%E8%87%AA%E5%B7%B1%E5%8A%A8%E6%89%8B%E9%80%A0%E6%97%A0%E9%99%90%E5%BE%AA%E7%8E%AF%E5%9B%BE%E7%89%87%E8%BD%AE%E6%92%AD/
 
 import UIKit
 

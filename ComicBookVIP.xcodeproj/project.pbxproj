@@ -37,6 +37,8 @@
 		A124832B1C9A864E00A7CE2A /* t3_FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A124832A1C9A864E00A7CE2A /* t3_FavoriteViewController.swift */; };
 		A124832D1C9A86A000A7CE2A /* t4_StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A124832C1C9A86A000A7CE2A /* t4_StoreViewController.swift */; };
 		A124832F1C9A925100A7CE2A /* MyAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A124832E1C9A925100A7CE2A /* MyAnnotation.swift */; };
+		A14EED331CA0DB5E008B2C2B /* UserLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14EED321CA0DB5E008B2C2B /* UserLoginViewController.swift */; };
+		A1883E7C1CA0DFA200C737F2 /* UserSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1883E7B1CA0DFA200C737F2 /* UserSignUpViewController.swift */; };
 		A1FBC1901C99A1B900FF13E4 /* SideBarMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FBC18F1C99A1B900FF13E4 /* SideBarMenu.swift */; };
 		A1FBC1921C99DA6F00FF13E4 /* ContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FBC1911C99DA6F00FF13E4 /* ContainerVC.swift */; };
 		A1FEF8F91C97EAA60076152F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FEF8F81C97EAA60076152F /* AppDelegate.swift */; };
@@ -86,6 +88,8 @@
 		A124832A1C9A864E00A7CE2A /* t3_FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = t3_FavoriteViewController.swift; sourceTree = "<group>"; };
 		A124832C1C9A86A000A7CE2A /* t4_StoreViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = t4_StoreViewController.swift; sourceTree = "<group>"; };
 		A124832E1C9A925100A7CE2A /* MyAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyAnnotation.swift; sourceTree = "<group>"; };
+		A14EED321CA0DB5E008B2C2B /* UserLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLoginViewController.swift; sourceTree = "<group>"; };
+		A1883E7B1CA0DFA200C737F2 /* UserSignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSignUpViewController.swift; sourceTree = "<group>"; };
 		A1FBC18F1C99A1B900FF13E4 /* SideBarMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideBarMenu.swift; sourceTree = "<group>"; };
 		A1FBC1911C99DA6F00FF13E4 /* ContainerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerVC.swift; sourceTree = "<group>"; };
 		A1FEF8F51C97EAA60076152F /* ComicBookVIP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComicBookVIP.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -199,6 +203,8 @@
 				196637E21C9BE8E6001310F1 /* SMS_SDK */,
 				196637CF1C9BE882001310F1 /* fileHao */,
 				A1FEF8F81C97EAA60076152F /* AppDelegate.swift */,
+				A14EED321CA0DB5E008B2C2B /* UserLoginViewController.swift */,
+				A1883E7B1CA0DFA200C737F2 /* UserSignUpViewController.swift */,
 				A1FEF8FA1C97EAA60076152F /* t1_NewsViewContorller.swift */,
 				A1FEF8FC1C97EAA60076152F /* t2_BookViewController.swift */,
 				A124832A1C9A864E00A7CE2A /* t3_FavoriteViewController.swift */,
@@ -312,12 +318,14 @@
 				A12483291C9A7F3D00A7CE2A /* m3_GiftPoint.swift in Sources */,
 				1966380D1C9BF13E001310F1 /* bookdetailViewController.swift in Sources */,
 				A12483251C9A577800A7CE2A /* m1_UserInformation.swift in Sources */,
+				A1883E7C1CA0DFA200C737F2 /* UserSignUpViewController.swift in Sources */,
 				A1FBC1921C99DA6F00FF13E4 /* ContainerVC.swift in Sources */,
 				A1FEF9111C98235F0076152F /* TabVCTemplate.swift in Sources */,
 				196638371C9FFDD2001310F1 /* rentBookBoss.swift in Sources */,
 				A12483271C9A7DC300A7CE2A /* m2_TransactionHistory.swift in Sources */,
 				A1FEF8FD1C97EAA60076152F /* t2_BookViewController.swift in Sources */,
 				196637E11C9BE89F001310F1 /* NSDATE.swift in Sources */,
+				A14EED331CA0DB5E008B2C2B /* UserLoginViewController.swift in Sources */,
 				A1FEF8F91C97EAA60076152F /* AppDelegate.swift in Sources */,
 				1966382C1C9FC8E7001310F1 /* depositVC.swift in Sources */,
 				A1FEF8FB1C97EAA60076152F /* t1_NewsViewContorller.swift in Sources */,

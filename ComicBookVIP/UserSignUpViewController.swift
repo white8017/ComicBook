@@ -1,22 +1,22 @@
 //
-//  ViewController.swift
-//  線上資料庫
+//  UserSignUpViewController.swift
+//  ComicBookVIP
 //
-//  Created by 韓家豪 on 2016/2/24.
-//  Copyright © 2016年 韓家豪. All rights reserved.
+//  Created by MakoAir on 2016/3/22.
+//  Copyright © 2016年 Mako. All rights reserved.
 //
 
 import UIKit
 
-//let Screen = UIScreen.mainScreen().bounds
-class ViewController: UIViewController,NSURLSessionDelegate, NSURLSessionDownloadDelegate{
-
+let Screen = UIScreen.mainScreen().bounds
+class UserSignUpViewController: UIViewController,NSURLSessionDelegate, NSURLSessionDownloadDelegate{
+    
     let signupImage = UIImage(named: "signup") as UIImage?
     let btnSignUp   = UIButton(type: UIButtonType.Custom) as UIButton
     
     let okImage = UIImage(named: "ok") as UIImage?
     let btnOK   = UIButton(type: UIButtonType.Custom) as UIButton
-
+    
     let txtVerificationCode: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 5, y: 35,width:10, height: 40))
     let txtAdess: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 10, y: Screen.height / 8.5+35*6,width:20, height: 40))
     let txtPasswd: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 10, y: Screen.height / 8.5+35*4,width:20, height: 40))
@@ -24,16 +24,16 @@ class ViewController: UIViewController,NSURLSessionDelegate, NSURLSessionDownloa
     let txtBirthday: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 10, y: Screen.height / 8.5+35*3,width:20, height: 40))
     let txtPhone: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 10, y: Screen.height / 8.5+35*2,width:20, height: 40))
     let txtName: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 10, y: Screen.height / 8.5+35,width:20, height: 40))
-  
+    
     
     var check:String!
     var dataArray = [AnyObject]()
     var smsStr:String!
     var verificationCodeStr:String!
-
-
+    
+    
     let border = CALayer()
-
+    
     let width = CGFloat(2.0)
     
     func alertPg (txt: String) {
@@ -46,33 +46,33 @@ class ViewController: UIViewController,NSURLSessionDelegate, NSURLSessionDownloa
     
     func SMS () {
         
-
+        
         smsStr = txtPhone.text
         let ns1 = smsStr as NSString
         verificationCodeStr = ns1.substringFromIndex(1)
         
         if txtPhone.text != "" {
-        SMSSDK.getVerificationCodeByMethod(SMSGetCodeMethodSMS, phoneNumber: verificationCodeStr as String, zone: "886", customIdentifier: nil) { (error : NSError!) -> Void in
-            
-            
-            if (error == nil)
-            {
-                print("電話\(ns1.substringFromIndex(1))")
-                print("成功,請等待簡訊～")
-                self.alertPg("成功，請等待簡訊")
-            }
-            else
-            {
-                // 错误码可以参考‘SMS_SDK.framework / SMSSDKResultHanderDef.h’
-                print("失敗", error)
-                self.alertPg("電話有誤或每分鐘發短信數量超出限制")
-            }
-            
+            SMSSDK.getVerificationCodeByMethod(SMSGetCodeMethodSMS, phoneNumber: verificationCodeStr as String, zone: "886", customIdentifier: nil) { (error : NSError!) -> Void in
+                
+                
+                if (error == nil)
+                {
+                    print("電話\(ns1.substringFromIndex(1))")
+                    print("成功,請等待簡訊～")
+                    self.alertPg("成功，請等待簡訊")
+                }
+                else
+                {
+                    // 错误码可以参考‘SMS_SDK.framework / SMSSDKResultHanderDef.h’
+                    print("失敗", error)
+                    self.alertPg("電話有誤或每分鐘發短信數量超出限制")
+                }
+                
             }
         }else {
             alertPg("請輸入電話")
         }
-
+        
     }
     
     func singUp() {
@@ -104,7 +104,7 @@ class ViewController: UIViewController,NSURLSessionDelegate, NSURLSessionDownloa
         
         let dataTask = session.downloadTaskWithRequest(request)
         dataTask.resume()
-
+        
     }
     
     func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {
@@ -119,17 +119,19 @@ class ViewController: UIViewController,NSURLSessionDelegate, NSURLSessionDownloa
         }catch {
             print("ERROR")
         }
-
+        
     }
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.loadData()
         
         txtPasswd.secureTextEntry = true
         txtPasswdCheck.secureTextEntry = true
+        
+        print("我到了")
         
     }
     
@@ -149,7 +151,7 @@ class ViewController: UIViewController,NSURLSessionDelegate, NSURLSessionDownloa
                 self.alertPg("電話驗證有誤")
             }
         }
-
+        
     }
     
     
@@ -209,7 +211,7 @@ class ViewController: UIViewController,NSURLSessionDelegate, NSURLSessionDownloa
                 }
             }
         }
-
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -228,10 +230,10 @@ class ViewController: UIViewController,NSURLSessionDelegate, NSURLSessionDownloa
         
         
         
-
-            self.txtVerificationCode.alpha = 0
-        UIView.transitionWithView(self.view, duration: 1.5, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
         
+        self.txtVerificationCode.alpha = 0
+        UIView.transitionWithView(self.view, duration: 1.5, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            
             self.btnSignUp.alpha = 1
             
             self.border.borderColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.6).CGColor //底線的顏色
@@ -308,9 +310,9 @@ class ViewController: UIViewController,NSURLSessionDelegate, NSURLSessionDownloa
             }) { (Bool) -> Void in
                 return true
         }
-
         
-
+        
+        
         
         UIView.transitionWithView(self.view, duration: 1.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
             
@@ -325,14 +327,13 @@ class ViewController: UIViewController,NSURLSessionDelegate, NSURLSessionDownloa
         borderNom.borderColor = UIColor(red: 0.8, green: 0.8, blue: 0.8, alpha: 0.4).CGColor //底線的顏色
         borderNom.frame = CGRect(x: 0, y: txtStyle.frame.size.height - width, width:  txtStyle.frame.size.width, height: txtStyle.frame.size.height)
         borderNom.borderWidth = width
-
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
-
