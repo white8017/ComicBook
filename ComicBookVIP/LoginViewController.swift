@@ -10,7 +10,7 @@ import UIKit
 
 class LoginViewController: UIViewController, NSURLSessionDelegate, NSURLSessionDownloadDelegate {
 
-
+    var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     
     var dataArray = [AnyObject]()
     var i = 0;
@@ -67,6 +67,11 @@ class LoginViewController: UIViewController, NSURLSessionDelegate, NSURLSessionD
             nextViewController.Name = dataArray[i]["name"] as! String
 
         }
+        
+        if segue.identifier == "name" {
+            var nextViewController = segue.destinationViewController as! rentHistoryVC
+            nextViewController.name = dataArray[i]["name"] as! String
+        }
     }
     
     @IBAction func btnLogin(sender: AnyObject) {
@@ -117,6 +122,9 @@ class LoginViewController: UIViewController, NSURLSessionDelegate, NSURLSessionD
             }
         }
 //        print(dataArray[i-1]["name"] as! String)
+        
+        
+        appDelegate.account = dataArray[i]["name"] as! String
     }
     
     func loadData() {

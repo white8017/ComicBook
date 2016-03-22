@@ -7,11 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		196637DC1C9BE89F001310F1 /* Page2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196637D31C9BE89F001310F1 /* Page2ViewController.swift */; };
-		196637DD1C9BE89F001310F1 /* favoritesBookNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196637D41C9BE89F001310F1 /* favoritesBookNameVC.swift */; };
-		196637DF1C9BE89F001310F1 /* rentHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196637D61C9BE89F001310F1 /* rentHistoryVC.swift */; };
-		196637E01C9BE89F001310F1 /* imgUploadPhp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196637D71C9BE89F001310F1 /* imgUploadPhp.swift */; };
-		196637E11C9BE89F001310F1 /* NSDATE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196637D81C9BE89F001310F1 /* NSDATE.swift */; };
 		196637E81C9BE8E6001310F1 /* SMS_SDKLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 196637E31C9BE8E6001310F1 /* SMS_SDKLocalizable.strings */; };
 		196637E91C9BE8E6001310F1 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196637E51C9BE8E6001310F1 /* MOBFoundation.framework */; };
 		196637EA1C9BE8E6001310F1 /* SMS_SDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 196637E61C9BE8E6001310F1 /* SMS_SDK.framework */; };
@@ -25,12 +20,17 @@
 		1966380B1C9BF13E001310F1 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638061C9BF13E001310F1 /* CollectionViewCell.swift */; };
 		1966380C1C9BF13E001310F1 /* Plasma018ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638071C9BF13E001310F1 /* Plasma018ViewController.swift */; };
 		1966380D1C9BF13E001310F1 /* bookdetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638081C9BF13E001310F1 /* bookdetailViewController.swift */; };
-		1966382A1C9FC8E7001310F1 /* signUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638271C9FC8E7001310F1 /* signUp.swift */; };
-		1966382B1C9FC8E7001310F1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638281C9FC8E7001310F1 /* LoginViewController.swift */; };
-		1966382C1C9FC8E7001310F1 /* depositVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638291C9FC8E7001310F1 /* depositVC.swift */; };
 		1966382F1C9FC8FB001310F1 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1966382E1C9FC8FB001310F1 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		196638371C9FFDD2001310F1 /* rentBookBoss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638361C9FFDD2001310F1 /* rentBookBoss.swift */; };
-		1966383B1CA0D4AB001310F1 /* delayRerutnBookBoss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1966383A1CA0D4AB001310F1 /* delayRerutnBookBoss.swift */; };
+		196638481CA16044001310F1 /* signUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1966383E1CA16044001310F1 /* signUp.swift */; };
+		196638491CA16044001310F1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1966383F1CA16044001310F1 /* LoginViewController.swift */; };
+		1966384A1CA16044001310F1 /* depositVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638401CA16044001310F1 /* depositVC.swift */; };
+		1966384B1CA16044001310F1 /* Page2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638411CA16044001310F1 /* Page2ViewController.swift */; };
+		1966384C1CA16044001310F1 /* favoritesBookNameVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638421CA16044001310F1 /* favoritesBookNameVC.swift */; };
+		1966384D1CA16044001310F1 /* rentHistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638431CA16044001310F1 /* rentHistoryVC.swift */; };
+		1966384E1CA16044001310F1 /* rentBookBoss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638441CA16044001310F1 /* rentBookBoss.swift */; };
+		1966384F1CA16044001310F1 /* delayRerutnBookBoss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638451CA16044001310F1 /* delayRerutnBookBoss.swift */; };
+		196638501CA16044001310F1 /* rentArrayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638461CA16044001310F1 /* rentArrayVC.swift */; };
+		196638511CA16044001310F1 /* NSDATE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638471CA16044001310F1 /* NSDATE.swift */; };
 		A12483251C9A577800A7CE2A /* m1_UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12483241C9A577700A7CE2A /* m1_UserInformation.swift */; };
 		A12483271C9A7DC300A7CE2A /* m2_TransactionHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12483261C9A7DC300A7CE2A /* m2_TransactionHistory.swift */; };
 		A12483291C9A7F3D00A7CE2A /* m3_GiftPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12483281C9A7F3D00A7CE2A /* m3_GiftPoint.swift */; };
@@ -52,11 +52,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		196637D31C9BE89F001310F1 /* Page2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page2ViewController.swift; sourceTree = "<group>"; };
-		196637D41C9BE89F001310F1 /* favoritesBookNameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = favoritesBookNameVC.swift; sourceTree = "<group>"; };
-		196637D61C9BE89F001310F1 /* rentHistoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rentHistoryVC.swift; sourceTree = "<group>"; };
-		196637D71C9BE89F001310F1 /* imgUploadPhp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = imgUploadPhp.swift; sourceTree = "<group>"; };
-		196637D81C9BE89F001310F1 /* NSDATE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDATE.swift; sourceTree = "<group>"; };
 		196637E41C9BE8E6001310F1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/SMS_SDKLocalizable.strings; sourceTree = "<group>"; };
 		196637E51C9BE8E6001310F1 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
 		196637E61C9BE8E6001310F1 /* SMS_SDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SMS_SDK.framework; sourceTree = "<group>"; };
@@ -76,13 +71,18 @@
 		196638061C9BF13E001310F1 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		196638071C9BF13E001310F1 /* Plasma018ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plasma018ViewController.swift; sourceTree = "<group>"; };
 		196638081C9BF13E001310F1 /* bookdetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bookdetailViewController.swift; sourceTree = "<group>"; };
-		196638271C9FC8E7001310F1 /* signUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = signUp.swift; sourceTree = "<group>"; };
-		196638281C9FC8E7001310F1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		196638291C9FC8E7001310F1 /* depositVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = depositVC.swift; sourceTree = "<group>"; };
 		1966382D1C9FC8FB001310F1 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		1966382E1C9FC8FB001310F1 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
-		196638361C9FFDD2001310F1 /* rentBookBoss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rentBookBoss.swift; sourceTree = "<group>"; };
-		1966383A1CA0D4AB001310F1 /* delayRerutnBookBoss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = delayRerutnBookBoss.swift; sourceTree = "<group>"; };
+		1966383E1CA16044001310F1 /* signUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = signUp.swift; sourceTree = "<group>"; };
+		1966383F1CA16044001310F1 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		196638401CA16044001310F1 /* depositVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = depositVC.swift; sourceTree = "<group>"; };
+		196638411CA16044001310F1 /* Page2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page2ViewController.swift; sourceTree = "<group>"; };
+		196638421CA16044001310F1 /* favoritesBookNameVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = favoritesBookNameVC.swift; sourceTree = "<group>"; };
+		196638431CA16044001310F1 /* rentHistoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rentHistoryVC.swift; sourceTree = "<group>"; };
+		196638441CA16044001310F1 /* rentBookBoss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rentBookBoss.swift; sourceTree = "<group>"; };
+		196638451CA16044001310F1 /* delayRerutnBookBoss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = delayRerutnBookBoss.swift; sourceTree = "<group>"; };
+		196638461CA16044001310F1 /* rentArrayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rentArrayVC.swift; sourceTree = "<group>"; };
+		196638471CA16044001310F1 /* NSDATE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDATE.swift; sourceTree = "<group>"; };
 		A12483241C9A577700A7CE2A /* m1_UserInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = m1_UserInformation.swift; sourceTree = "<group>"; };
 		A12483261C9A7DC300A7CE2A /* m2_TransactionHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = m2_TransactionHistory.swift; sourceTree = "<group>"; };
 		A12483281C9A7F3D00A7CE2A /* m3_GiftPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = m3_GiftPoint.swift; sourceTree = "<group>"; };
@@ -126,16 +126,16 @@
 		196637CF1C9BE882001310F1 /* fileHao */ = {
 			isa = PBXGroup;
 			children = (
-				196638271C9FC8E7001310F1 /* signUp.swift */,
-				196638281C9FC8E7001310F1 /* LoginViewController.swift */,
-				196638291C9FC8E7001310F1 /* depositVC.swift */,
-				196637D31C9BE89F001310F1 /* Page2ViewController.swift */,
-				196637D41C9BE89F001310F1 /* favoritesBookNameVC.swift */,
-				1966383A1CA0D4AB001310F1 /* delayRerutnBookBoss.swift */,
-				196637D61C9BE89F001310F1 /* rentHistoryVC.swift */,
-				196638361C9FFDD2001310F1 /* rentBookBoss.swift */,
-				196637D71C9BE89F001310F1 /* imgUploadPhp.swift */,
-				196637D81C9BE89F001310F1 /* NSDATE.swift */,
+				1966383E1CA16044001310F1 /* signUp.swift */,
+				1966383F1CA16044001310F1 /* LoginViewController.swift */,
+				196638401CA16044001310F1 /* depositVC.swift */,
+				196638411CA16044001310F1 /* Page2ViewController.swift */,
+				196638421CA16044001310F1 /* favoritesBookNameVC.swift */,
+				196638431CA16044001310F1 /* rentHistoryVC.swift */,
+				196638441CA16044001310F1 /* rentBookBoss.swift */,
+				196638451CA16044001310F1 /* delayRerutnBookBoss.swift */,
+				196638461CA16044001310F1 /* rentArrayVC.swift */,
+				196638471CA16044001310F1 /* NSDATE.swift */,
 			);
 			name = fileHao;
 			sourceTree = "<group>";
@@ -302,36 +302,36 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1966384E1CA16044001310F1 /* rentBookBoss.swift in Sources */,
 				1966382F1C9FC8FB001310F1 /* Reachability.m in Sources */,
-				196637DF1C9BE89F001310F1 /* rentHistoryVC.swift in Sources */,
 				A1FBC1901C99A1B900FF13E4 /* SideBarMenu.swift in Sources */,
-				196637DC1C9BE89F001310F1 /* Page2ViewController.swift in Sources */,
 				A124832B1C9A864E00A7CE2A /* t3_FavoriteViewController.swift in Sources */,
+				1966384F1CA16044001310F1 /* delayRerutnBookBoss.swift in Sources */,
+				1966384A1CA16044001310F1 /* depositVC.swift in Sources */,
+				196638491CA16044001310F1 /* LoginViewController.swift in Sources */,
+				196638511CA16044001310F1 /* NSDATE.swift in Sources */,
 				196638091C9BF13E001310F1 /* BookTitleViewController.swift in Sources */,
 				1966380C1C9BF13E001310F1 /* Plasma018ViewController.swift in Sources */,
+				196638501CA16044001310F1 /* rentArrayVC.swift in Sources */,
 				1966380B1C9BF13E001310F1 /* CollectionViewCell.swift in Sources */,
 				A124832F1C9A925100A7CE2A /* MyAnnotation.swift in Sources */,
-				196637E01C9BE89F001310F1 /* imgUploadPhp.swift in Sources */,
-				1966382A1C9FC8E7001310F1 /* signUp.swift in Sources */,
-				196637DD1C9BE89F001310F1 /* favoritesBookNameVC.swift in Sources */,
 				A124832D1C9A86A000A7CE2A /* t4_StoreViewController.swift in Sources */,
 				A1883E7E1CA1299900C737F2 /* t3-2_Favorite2ViewController.swift in Sources */,
-				1966383B1CA0D4AB001310F1 /* delayRerutnBookBoss.swift in Sources */,
-				1966382B1C9FC8E7001310F1 /* LoginViewController.swift in Sources */,
 				1966380A1C9BF13E001310F1 /* CostumCollectionView.swift in Sources */,
 				A12483291C9A7F3D00A7CE2A /* m3_GiftPoint.swift in Sources */,
 				1966380D1C9BF13E001310F1 /* bookdetailViewController.swift in Sources */,
+				1966384D1CA16044001310F1 /* rentHistoryVC.swift in Sources */,
+				1966384C1CA16044001310F1 /* favoritesBookNameVC.swift in Sources */,
 				A12483251C9A577800A7CE2A /* m1_UserInformation.swift in Sources */,
+				1966384B1CA16044001310F1 /* Page2ViewController.swift in Sources */,
+				196638481CA16044001310F1 /* signUp.swift in Sources */,
 				A1883E7C1CA0DFA200C737F2 /* UserSignUpViewController.swift in Sources */,
 				A1FBC1921C99DA6F00FF13E4 /* ContainerVC.swift in Sources */,
 				A1FEF9111C98235F0076152F /* TabVCTemplate.swift in Sources */,
-				196638371C9FFDD2001310F1 /* rentBookBoss.swift in Sources */,
 				A12483271C9A7DC300A7CE2A /* m2_TransactionHistory.swift in Sources */,
 				A1FEF8FD1C97EAA60076152F /* t2_BookViewController.swift in Sources */,
-				196637E11C9BE89F001310F1 /* NSDATE.swift in Sources */,
 				A14EED331CA0DB5E008B2C2B /* UserLoginViewController.swift in Sources */,
 				A1FEF8F91C97EAA60076152F /* AppDelegate.swift in Sources */,
-				1966382C1C9FC8E7001310F1 /* depositVC.swift in Sources */,
 				A1FEF8FB1C97EAA60076152F /* t1_NewsViewContorller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

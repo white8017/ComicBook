@@ -16,6 +16,7 @@ class rentHistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     var dataArray = [AnyObject]()
     var SelectStr = "未還"
+    var name = "curry"
 
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -34,6 +35,7 @@ class rentHistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         let returnDateLbl = cell.viewWithTag(103) as! UILabel
         let restLbl = cell.viewWithTag(104) as! UILabel
         let returnDoneLbl = cell.viewWithTag(105) as! UILabel
+        let nowStageLbl = cell.viewWithTag(106) as! UILabel
         
         
         switch SelectStr {
@@ -82,14 +84,15 @@ class rentHistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             rentDateLbl.text = "租: \(dataArray[indexPath.row]["rentDate"] as! String)"
             returnDateLbl.text = "還: \(dataArray[indexPath.row]["returnDate"] as! String)"
             restLbl.text = " \(restStr) 天"
+            nowStageLbl.text = dataArray[indexPath.row]["nowStage"] as? String
             returnDoneLbl.text = ""
             if (interval1 > 0 && interval1 < 1) {
-                restLbl.text = "今天"
+                restLbl.text = " 今天"
                 restLbl.textColor = UIColor(red: 0.9 , green: 0, blue: 0, alpha: 1)
                 scheduleNotification(12345);
                 print(interval1)
             } else if (interval1 < 0) {
-                restLbl.text = "過期！"
+                restLbl.text = " 過期"
                 restLbl.textColor = UIColor(red: 0.9 , green: 0, blue: 0, alpha: 1)
             }
             
@@ -119,10 +122,10 @@ class rentHistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             let request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
             
     //        let submitName = ""
-    //        let submitBody: String = "author=\(submitName)"
+            let submitBody: String = "name=\(name)"
             
             request.HTTPMethod = "POST"
-    //        request.HTTPBody = submitBody.dataUsingEncoding(NSUTF8StringEncoding)
+            request.HTTPBody = submitBody.dataUsingEncoding(NSUTF8StringEncoding)
             
             
             let sessionWithConfigure = NSURLSessionConfiguration.defaultSessionConfiguration()
@@ -136,11 +139,11 @@ class rentHistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             let url = NSURL(string: "http://sashihara.100hub.net/vip/returnHistory.php")
             let request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
             
-            //        let submitName = ""
-            //        let submitBody: String = "author=\(submitName)"
+            
+            let submitBody: String = "name=\(name)"
             
             request.HTTPMethod = "POST"
-            //        request.HTTPBody = submitBody.dataUsingEncoding(NSUTF8StringEncoding)
+            request.HTTPBody = submitBody.dataUsingEncoding(NSUTF8StringEncoding)
             
             
             let sessionWithConfigure = NSURLSessionConfiguration.defaultSessionConfiguration()
@@ -181,6 +184,7 @@ class rentHistoryVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
 
         }else if to == "歸還紀錄"{
             SelectStr = "已還"
+            
             loadData()
             UIApplication.sharedApplication().cancelAllLocalNotifications()
         }

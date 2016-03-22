@@ -8,7 +8,7 @@
 
 import UIKit
 
-//let Screen = UIScreen.mainScreen().bounds
+
 class ViewController: UIViewController,NSURLSessionDelegate, NSURLSessionDownloadDelegate{
 
     let signupImage = UIImage(named: "signup") as UIImage?

@@ -26,11 +26,13 @@ class rentBookBoss: UIViewController,UITableViewDelegate, UITableViewDataSource,
      
         let bookNameLbl = cell.viewWithTag(101) as! UILabel
         let txtViewName = cell.viewWithTag(102) as! UITextView
+        let nowStageLbl = cell.viewWithTag(103) as! UILabel
         
         let newString = (dataArray[indexPath.row]["name"] as? String)!.stringByReplacingOccurrencesOfString(",", withString: "\n")
         
         bookNameLbl.text = dataArray[indexPath.row]["bookName"] as? String
         txtViewName.text = newString
+        nowStageLbl.text = dataArray[indexPath.row]["nowStage"] as? String
         
         return cell
     }
