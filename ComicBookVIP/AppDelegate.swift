@@ -35,8 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if let remoteNotification = launchOptions?[UIApplicationLaunchOptionsRemoteNotificationKey] as? NSDictionary {
             print((remoteNotification["aps"] as! [NSObject: AnyObject]) ["alert"])
         }
-
+        
+        NSThread.sleepForTimeInterval(4)
+        
         return true
+        
     }
 
     func applicationWillResignActive(application: UIApplication) {

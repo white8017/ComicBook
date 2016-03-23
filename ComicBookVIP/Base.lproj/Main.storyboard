@@ -482,7 +482,6 @@
         <!--User Sign Up View Controller-->
         <scene sceneID="1pH-6s-BiJ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ugt-r7-VLp" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="jX9-qW-21Y" customClass="UserSignUpViewController" customModule="ComicBookVIP" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="0dT-Br-WL5"/>
@@ -498,13 +497,13 @@
                         <segue destination="mE8-dU-WcX" kind="presentation" identifier="signup" id="cTn-l8-l6L"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ugt-r7-VLp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4697" y="1649"/>
         </scene>
         <!--User Login View Controller-->
         <scene sceneID="mCB-Dc-qDv">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="jdB-Jr-aBN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="mE8-dU-WcX" customClass="UserLoginViewController" customModule="ComicBookVIP" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L1U-Rz-tdZ"/>
@@ -566,6 +565,7 @@
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jdB-Jr-aBN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3971" y="2322"/>
         </scene>
@@ -664,7 +664,6 @@
         <!--書單總覽-->
         <scene sceneID="8eB-Gy-rAB">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="j8L-Sj-7Kh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="4mc-cI-0f8" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="書單總覽" image="list" id="cPa-gy-q4n"/>
                     <toolbarItems/>
@@ -677,6 +676,7 @@
                         <segue destination="8rJ-Kc-sve" kind="relationship" relationship="rootViewController" id="AaR-K4-l71"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j8L-Sj-7Kh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1458" y="1025"/>
         </scene>
