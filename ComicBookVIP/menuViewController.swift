@@ -76,17 +76,25 @@ class menuViewController: UIViewController,NSURLSessionDelegate {
     
 	func sendOrder(){
 		print(appDelegate.orderbook)
+		let alertController=UIAlertController(title: "謝謝借閱", message: "\n\n\n\n", preferredStyle: UIAlertControllerStyle.Alert)
 		
 		
+		
+		let enterAction = UIAlertAction(title: "確認", style: UIAlertActionStyle.Cancel, handler: nil)
+		let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel, handler: nil)
+		alertController.addAction(cancelAction)
+		alertController.addAction( enterAction)
+		self.presentViewController(alertController, animated: true, completion: nil)
 		
 		
 		for order in appDelegate.orderBookA{
 			for a in order.1{
 				print(epsoide[Int(a)!])
-		updateData(5, name: "戰神", bookName: order.0, nowStage: epsoide[Int(a)!])
+				updateData(5, name: "戰神", bookName: order.0, nowStage: epsoide[Int(a)!])
 			}
-		
+			
 		}
+		
 	}
     
 

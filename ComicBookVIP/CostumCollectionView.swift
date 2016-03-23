@@ -64,7 +64,7 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
 					self.performBatchUpdates({ () -> Void in
 						self.bookName.insert("預設", atIndex: 0)
 						print(self.bookName)
-						
+						self.appDelegate.bookName = self.bookName
 						
 						var arrayWithIndexPaths:[NSIndexPath] = []
 						for(var i=0;i<1;i++){
@@ -224,7 +224,7 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
                     self.bookName.insert(self.bookName[self.arrayfirst], atIndex: self.arrayfinal)
                     self.bookName.removeAtIndex(self.arrayfirst+1)
                      }
-				
+				self.appDelegate.bookName = self.bookName
 				print("交換後的漫畫陣列:\(self.bookName)\n")
 						self.uploadData(self.bookName)
                 })
@@ -342,6 +342,7 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
 		//笨方法
 		cell.source = bookName[indexPath.row]
 		cell.delegate = self
+		
         return cell
         
     }
@@ -424,10 +425,13 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
 			self.delegate = self
 			self.dataSource = self
 			self.registerClass(CollectionViewCell.self, forCellWithReuseIdentifier: self.reuseIdentifier)
+			print("self.bookName=\(self.bookName)")
+			appDelegate.bookName = self.bookName
 		}catch {
 			self.delegate = self
 			self.dataSource = self
 			self.registerClass(CollectionViewCell.self, forCellWithReuseIdentifier: self.reuseIdentifier)
+			appDelegate.bookName = self.bookName
 			print("load collectionViewdown:ERROR")
 		}
 		

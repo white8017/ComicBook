@@ -9,6 +9,7 @@ protocol ViewControllerDelegate
 	func saveEditing(var image : UIImage,var bookName : String)
 }
 class Plasma018ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate ,NSURLSessionDelegate{
+	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var imageView = UIImageView()
     var textLabel: UILabel!
     var textLabel1 = UITextField()
@@ -18,6 +19,7 @@ class Plasma018ViewController: UIViewController,UITableViewDelegate,UITableViewD
 	var dataArray = [UITextField]()
 	let count = 3
 	var delegate : ViewControllerDelegate?
+	var orderBookName = ""
 	var bookItems = ""
 	//漫畫名稱
 	var bookName = ""
@@ -34,7 +36,7 @@ class Plasma018ViewController: UIViewController,UITableViewDelegate,UITableViewD
 	
     override func viewDidAppear(animated: Bool) {
         let viewS = self.view.frame.size
-		
+		orderBookName = booktextfield.text!
         // 標題列
 		let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height:self.view.frame.size.height/5))
 		self.view.addSubview(navBar);
@@ -252,11 +254,13 @@ class Plasma018ViewController: UIViewController,UITableViewDelegate,UITableViewD
 	//新增漫畫
 	func upload(bookName:String,items:String) {
 		let url = NSURL(string: "http://sashihara.100hub.net/vip/wuBookDetailsUpload.php")
+		let number = appDelegate.bookName.indexOf(orderBookName)
+		print(number)
 		let request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
-		let submitBody:String = "bookSort=\(items)&bookName=\(bookName)"
+		let submitBody:String = "bookSort=\(items)&bookName=\(bookName)&orderN=\(number!)"
 		print("新增漫畫名稱:\(bookName)")
 		print("新增漫話類別:\(items)")
-		
+		print("漫畫序號:\(number)")
 		request.HTTPMethod = "POST"
 		request.HTTPBody = submitBody.dataUsingEncoding(NSUTF8StringEncoding)
 		

@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var orderbook=[String]()
 	var orderBookA = [String:[String]]()
 	var canEitting = false
-
+	var bookName = [String]()
     var account = ""
     var vip = ""
     

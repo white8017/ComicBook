@@ -21,7 +21,7 @@ class CollectionViewCell: UICollectionViewCell,UINavigationControllerDelegate,UI
 	var deleteB1 = UIImageView()
 	var source : String!
     let indicator = UIActivityIndicatorView()
-    
+	var cellID : Int!
 	var delegate : CollectionViewCellDelegate?
 	override init(frame: CGRect) {
 		super.init(frame:frame)
@@ -92,6 +92,7 @@ class CollectionViewCell: UICollectionViewCell,UINavigationControllerDelegate,UI
 	required init?(coder aDecoder: NSCoder) {
 	    fatalError("init(coder:) has not been implemented")
 	}
+	
     
 	//cell點一下功能
 	func toPage(recognizer:UITapGestureRecognizer){
@@ -115,7 +116,7 @@ class CollectionViewCell: UICollectionViewCell,UINavigationControllerDelegate,UI
        let menuViewController = Plasma018ViewController()
         menuViewController.modalPresentationStyle = .Popover
         menuViewController.preferredContentSize = CGSizeMake((self.window?.frame.size.width)!/1.5, (self.window?.frame.size.height)!/2)
-
+	
 		menuViewController.imageView.image = self.imageView.image
 		menuViewController.textLabel1.text = self.textLabel.text
 		menuViewController.booktextfield.text = self.textLabel.text
