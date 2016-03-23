@@ -19,6 +19,7 @@ class TabVCTemplate : UIViewController {
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "openPushWindow0", name: "openPushWindow0", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "openPushWindow1", name: "openPushWindow1", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "openPushWindow2", name: "openPushWindow2", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "openPushWindow3", name: "openPushWindow3", object: nil)
         
     }
     
@@ -44,6 +45,11 @@ class TabVCTemplate : UIViewController {
     func openPushWindow2(){
         if tabBarController?.selectedIndex == selectedTab {
             performSegueWithIdentifier("openPushWindow2", sender: nil)
+        }
+    }
+    func openPushWindow3(){
+        if tabBarController?.selectedIndex == selectedTab {
+            performSegueWithIdentifier("openPushWindow3", sender: nil)
         }
     }
     

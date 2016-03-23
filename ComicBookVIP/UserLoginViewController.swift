@@ -21,9 +21,15 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
     let loginW = Screen.width * 0.25
     let loginH = Screen.width * 0.25 / 43 * 16
     
-    @IBOutlet var myView: UIView!
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var btnSignup: UIButton!
+    
+    @IBAction func toggleMenu(sender: AnyObject) {
+        NSNotificationCenter.defaultCenter().postNotificationName("toggleMenu", object: nil)
+    }
+    @IBAction func backButton(sender: AnyObject) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
     
     override func viewDidAppear(animated: Bool) {
         
@@ -62,6 +68,10 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
         
         print("[ Screen width : Screen height => \(Screen.width) : \(Screen.height) ]")
         
+        
+        //hide tabbar 
+        setTabBarVisible(!tabBarIsVisible(), animated: true)
+
 //        btnLogin.frame = CGRect(x: Screen.width / 4, y: Screen.height / 2, width: loginW, height: loginH)
 //        btnSignup.frame = CGRect(x: Screen.width / 4, y: Screen.height / 2 * 1.5, width: loginW, height: loginH)
         
@@ -89,16 +99,6 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
     }
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "in" {
-            var nextViewController = segue.destinationViewController as! ContainerVC
-            nextViewController.name = dataArray[i]["name"] as! String
-            appDelegate.account = dataArray[i]["name"] as! String
-        }
-    }
-    
-    
-    
     @IBAction func btnLogin(sender: AnyObject) {
         
         var isConnected = checkNetworkConnection()
@@ -122,7 +122,16 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
                 
                 let alert = UIAlertController(title: nil, message:"登入成功", preferredStyle: .Alert)
                 let action = UIAlertAction(title: "OK", style: .Default, handler: { (alert:UIAlertAction) -> Void in
-                    self.performSegueWithIdentifier("in", sender: nil)
+//                    self.performSegueWithIdentifier("in", sender: nil)
+                 
+                    let storyboard : UIStoryboard = UIStoryboard(
+                        name: "Main",
+                        bundle: nil)
+                    //var a: ContainerVC = storyboard.instantiateViewControllerWithIdentifier("VC") as! ContainerVC
+                    self.navigationController?.popToRootViewControllerAnimated(true)
+                    
+                    //self.presentViewController(a, animated: true, completion: nil)
+                    
                     print("yes!")
                 })
                 alert.addAction(action)
@@ -145,7 +154,7 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
             }
         }
         //        print(dataArray[i-1]["name"] as! String)
-        
+        appDelegate.account = dataArray[i]["name"] as! String
     }
     
 
@@ -230,6 +239,33 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
+    
+    
+    //hide Tabbar
+    func setTabBarVisible(visible:Bool, animated:Bool) {
+        if (tabBarIsVisible() == visible) {
+            return
+        }
+        let frame = self.tabBarController?.tabBar.frame
+        let offsetY = (visible ? CGFloat(0) : 49.0)
+        
+        let duration:NSTimeInterval = (animated ? 0.08 : 0.0)
+        
+        if frame != nil {
+            UIView.animateWithDuration(duration) {
+                self.tabBarController?.tabBar.frame = CGRectOffset(frame!, 0, offsetY)
+                return
+            }
+        }
+    }
+    func tabBarIsVisible() ->Bool {
+        return self.tabBarController?.tabBar.frame.origin.y < CGRectGetMaxY(self.view.frame)
+    }
+    
+    
+    
     
     
     /*

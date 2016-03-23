@@ -12,7 +12,7 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     @IBOutlet weak var menuTableView: UITableView!
     
-    let sideMenu = ["會  員  資  訊", "借  閱  紀  錄", "儲  值  查  詢"]
+    let sideMenu = ["會  員  資  訊", "借  閱  紀  錄", "儲  值  查  詢", "登 入 / 登 出"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,6 +60,8 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
             NSNotificationCenter.defaultCenter().postNotificationName("openPushWindow1", object: nil)
         case 2:
             NSNotificationCenter.defaultCenter().postNotificationName("openPushWindow2", object: nil)
+        case 3:
+            NSNotificationCenter.defaultCenter().postNotificationName("openPushWindow3", object: nil)
         default:
             print("indexPath.row: \(indexPath.row)")
         }
