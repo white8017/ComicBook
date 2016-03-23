@@ -300,7 +300,7 @@ class Plasma018ViewController: UIViewController,UITableViewDelegate,UITableViewD
 		request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
 		
 		// 圖片資料
-		let imageData = UIImageJPEGRepresentation(resizeImageone(imageView.image!, newWidth: 300, newHeight: 400),1)
+		let imageData = UIImageJPEGRepresentation(resizeImage(imageView.image!, newWidth: 300, newHeight: 400),1)
 		print("imageView.image:\(imageView.image)")
 		if(imageData==nil)  { return; }
 		
@@ -340,9 +340,9 @@ class Plasma018ViewController: UIViewController,UITableViewDelegate,UITableViewD
 		
 		if parameters != nil {
 			for (key, value) in parameters! {
-				body.appendStringone("--\(boundary)\r\n")
-				body.appendStringone("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
-				body.appendStringone("\(value)\r\n")
+				body.appendString("--\(boundary)\r\n")
+				body.appendString("Content-Disposition: form-data; name=\"\(key)\"\r\n\r\n")
+				body.appendString("\(value)\r\n")
 			}
 		}
 		
@@ -352,15 +352,15 @@ class Plasma018ViewController: UIViewController,UITableViewDelegate,UITableViewD
 		
 		let mimetype = "image/jpg"
 		
-		body.appendStringone("--\(boundary)\r\n")
-		body.appendStringone("Content-Disposition: form-data; name=\"\(filePathKey!)\"; filename=\"\(filename)\"\r\n")
-		body.appendStringone("Content-Type: \(mimetype)\r\n\r\n")
+		body.appendString("--\(boundary)\r\n")
+		body.appendString("Content-Disposition: form-data; name=\"\(filePathKey!)\"; filename=\"\(filename)\"\r\n")
+		body.appendString("Content-Type: \(mimetype)\r\n\r\n")
 		body.appendData(imageDataKey)
-		body.appendStringone("\r\n")
+		body.appendString("\r\n")
 		
 		
 		
-		body.appendStringone("--\(boundary)--\r\n")
+		body.appendString("--\(boundary)--\r\n")
 		
 		return body
 	}
@@ -374,14 +374,14 @@ class Plasma018ViewController: UIViewController,UITableViewDelegate,UITableViewD
 
 extension NSMutableData {
 	
-	func appendStringone(string: String) {
+	func appendString(string: String) {
 		let data = string.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: true)
 		appendData(data!)
 	}
 }
 
 //改變圖片大小
-func resizeImageone(image: UIImage, newWidth: CGFloat, newHeight: CGFloat) -> UIImage {
+func resizeImage(image: UIImage, newWidth: CGFloat, newHeight: CGFloat) -> UIImage {
 	
 	let scale = newWidth / image.size.width
 	let newHeight = image.size.height * scale

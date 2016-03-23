@@ -8,8 +8,9 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class BookTitleViewController: UIViewController,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate,NSURLSessionDelegate,NSURLSessionDownloadDelegate,UIPopoverPresentationControllerDelegate{
-	var scroll:UIScrollView!
-	var scrollContent:UIScrollView!
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    var scroll:UIScrollView!
+    var scrollContent:UIScrollView!
     var mydb:COpaquePointer=nil;
 	var items = [String]()
 	var customSC = UISegmentedControl()
@@ -19,7 +20,7 @@ class BookTitleViewController: UIViewController,UICollectionViewDelegateFlowLayo
 	
 	
     override func viewDidAppear(animated: Bool) {
-//			print("view Did Appear")
+			print("view Did Appear")
 		    }
 	
 	
@@ -28,19 +29,11 @@ class BookTitleViewController: UIViewController,UICollectionViewDelegateFlowLayo
 		navigationBar.backgroundColor = UIColor.whiteColor()
 		let navigationItem = UINavigationItem()
 		navigationItem.title = "漫畫分類"
-		let leftButton =  UIBarButtonItem(title: "Save", style:   UIBarButtonItemStyle.Plain, target: self, action: nil)
-		let rightButton = UIBarButtonItem(title: "Right", style: UIBarButtonItemStyle.Plain, target: self, action: nil)
-		navigationItem.leftBarButtonItem = leftButton
+		let rightButton = UIBarButtonItem(title: "編輯", style: UIBarButtonItemStyle.Plain, target: self, action: "editting:")
 		navigationItem.rightBarButtonItem = rightButton
-		
-		
 		navigationBar.items = [navigationItem]
 		self.view.addSubview(navigationBar)
 		
-
-		let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-		layout.sectionInset = UIEdgeInsets(top: 10, left: 5, bottom: 5, right: 10)
-		layout.itemSize = CGSize(width: 100, height: 140)
 		let itemsWidth = self.view.frame.size.width/3
 		
 		
@@ -96,7 +89,24 @@ class BookTitleViewController: UIViewController,UICollectionViewDelegateFlowLayo
         }
 	}
 	
-	
+    func editting(sender:UIBarButtonItem){
+        
+        if sender.title == "編輯"{
+            sender.title = "完成"
+            appDelegate.canEitting = true
+            for i in  bookContent{
+                i.reloadData()
+            }
+        }else{
+            sender.title = "編輯"
+            appDelegate.canEitting = false
+            for i in  bookContent{
+                i.reloadData()
+            }
+        }
+    
+    
+    }
 	
 	
 	
@@ -188,10 +198,10 @@ class BookTitleViewController: UIViewController,UICollectionViewDelegateFlowLayo
         if scrollView.tag == 2{
             for var i=0;i<scrollView.subviews.count;i++
             {
-                if scrollView.convertPoint(scrollView.subviews[i].frame.origin, toView: self.view).x==0.0{
-                    self.customSC.selectedSegmentIndex = i
+            if scrollView.convertPoint(scrollView.subviews[i].frame.origin, toView: self.view).x==0.0{
+                    self.customSC.selectedSegmentIndex = i-1
                     self.pageChange(customSC)
-                    print("ininder")
+                    print("page:\(i)")
                 }
             
             }
@@ -207,6 +217,7 @@ class BookTitleViewController: UIViewController,UICollectionViewDelegateFlowLayo
 		print("sender.selectedSegmentIndex:\(sender.selectedSegmentIndex)")
         
 		scrollContent.scrollRectToVisible(CGRectMake(pageWidth*CGFloat(page),0, pageWidth, pageHeight), animated: true)
+		
         pageWidth = scroll.frame.size.width/3
         pageHeight = scroll.frame.size.height
 		scroll.scrollRectToVisible(CGRectMake(pageWidth*CGFloat(page-1),0,self.view.frame.size.width, pageHeight), animated: true)
@@ -219,23 +230,24 @@ class BookTitleViewController: UIViewController,UICollectionViewDelegateFlowLayo
     override func viewDidLoad() {
         super.viewDidLoad()
 		print("view did load")
+        
 		let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 		dispatch_async(queue) { () -> Void in
 			self.download()
 			
 			dispatch_async(dispatch_get_main_queue(), {
-				let pending = UIAlertController(title: "LODING", message: "\n\n\n\n\n\n\n\n\n", preferredStyle: .Alert)
+                
+				let pending = UIAlertController(title: "LODING", message: "\n\n\n\n\n\n", preferredStyle: .Alert)
 				
-				//create an activity indicator
 				let indicator = UIActivityIndicatorView(frame: pending.view.bounds)
+                indicator.color = UIColor.blackColor()
+                indicator.transform =  CGAffineTransformMakeScale(3, 3)
 				indicator.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-				//indicator.backgroundColor = UIColor.redColor()
+                pending.view.addSubview(indicator)
+				indicator.userInteractionEnabled = false;
+         
+                indicator.startAnimating()
 				
-				pending.view.addSubview(indicator)
-				indicator.userInteractionEnabled = false // required otherwise if there buttons in the UIAlertController you will not be able to press them
-				indicator.startAnimating()
-				
-				//			self.presentViewController(pending, animated: true, completion: nil)
 				self.presentViewController(pending, animated: true, completion: { () -> Void in
 				})
 			})
@@ -297,8 +309,10 @@ class BookTitleViewController: UIViewController,UICollectionViewDelegateFlowLayo
 					let itmesName = dataArray[i]["bookSort"] as! String
 					items.append(itmesName)
 				}
+             dispatch_async(dispatch_get_main_queue(),self.setView)
+//                self.setView()
 			
-				self.setView()
+                print("download ok")
 				self.dismissViewControllerAnimated(true, completion: nil)
 		}catch {
 				print("new bookItems:ERROR")

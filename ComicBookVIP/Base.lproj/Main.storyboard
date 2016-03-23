@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NDc-BY-aPG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TrM-bd-hD5">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -760,10 +760,10 @@
             </objects>
             <point key="canvasLocation" x="1458" y="3091"/>
         </scene>
-        <!--View Controller-->
+        <!--Book Title View Controller-->
         <scene sceneID="ejF-uK-zIN">
             <objects>
-                <viewController id="TrM-bd-hD5" sceneMemberID="viewController">
+                <viewController id="TrM-bd-hD5" customClass="BookTitleViewController" customModule="ComicBookVIP" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Z9s-Z9-k9j"/>
                         <viewControllerLayoutGuide type="bottom" id="m8D-PE-fCW"/>

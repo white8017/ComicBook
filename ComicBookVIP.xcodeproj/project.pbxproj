@@ -15,11 +15,6 @@
 		196637FE1C9BEC45001310F1 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 196637FD1C9BEC45001310F1 /* libstdc++.tbd */; };
 		196638001C9BEC57001310F1 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 196637FF1C9BEC57001310F1 /* libicucore.tbd */; };
 		196638021C9BEC5C001310F1 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 196638011C9BEC5C001310F1 /* libz.tbd */; };
-		196638091C9BF13E001310F1 /* BookTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638041C9BF13E001310F1 /* BookTitleViewController.swift */; };
-		1966380A1C9BF13E001310F1 /* CostumCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638051C9BF13E001310F1 /* CostumCollectionView.swift */; };
-		1966380B1C9BF13E001310F1 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638061C9BF13E001310F1 /* CollectionViewCell.swift */; };
-		1966380C1C9BF13E001310F1 /* Plasma018ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638071C9BF13E001310F1 /* Plasma018ViewController.swift */; };
-		1966380D1C9BF13E001310F1 /* bookdetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638081C9BF13E001310F1 /* bookdetailViewController.swift */; };
 		1966382F1C9FC8FB001310F1 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1966382E1C9FC8FB001310F1 /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		196638481CA16044001310F1 /* signUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1966383E1CA16044001310F1 /* signUp.swift */; };
 		196638491CA16044001310F1 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1966383F1CA16044001310F1 /* LoginViewController.swift */; };
@@ -31,6 +26,14 @@
 		1966384F1CA16044001310F1 /* delayRerutnBookBoss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638451CA16044001310F1 /* delayRerutnBookBoss.swift */; };
 		196638501CA16044001310F1 /* rentArrayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638461CA16044001310F1 /* rentArrayVC.swift */; };
 		196638511CA16044001310F1 /* NSDATE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638471CA16044001310F1 /* NSDATE.swift */; };
+		4AAF41261CA22D8F00D2962C /* BookTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF411E1CA22D8F00D2962C /* BookTitleViewController.swift */; };
+		4AAF41271CA22D8F00D2962C /* CostumCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF411F1CA22D8F00D2962C /* CostumCollectionView.swift */; };
+		4AAF41281CA22D8F00D2962C /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF41201CA22D8F00D2962C /* CollectionViewCell.swift */; };
+		4AAF41291CA22D8F00D2962C /* Plasma018ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF41211CA22D8F00D2962C /* Plasma018ViewController.swift */; };
+		4AAF412A1CA22D8F00D2962C /* bookdetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF41221CA22D8F00D2962C /* bookdetailViewController.swift */; };
+		4AAF412B1CA22D8F00D2962C /* menuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF41231CA22D8F00D2962C /* menuViewController.swift */; };
+		4AAF412C1CA22D8F00D2962C /* menuTbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF41241CA22D8F00D2962C /* menuTbleView.swift */; };
+		4AAF412D1CA22D8F00D2962C /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF41251CA22D8F00D2962C /* MenuTableViewCell.swift */; };
 		A12483251C9A577800A7CE2A /* m1_UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12483241C9A577700A7CE2A /* m1_UserInformation.swift */; };
 		A12483271C9A7DC300A7CE2A /* m2_TransactionHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12483261C9A7DC300A7CE2A /* m2_TransactionHistory.swift */; };
 		A12483291C9A7F3D00A7CE2A /* m3_GiftPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12483281C9A7F3D00A7CE2A /* m3_GiftPoint.swift */; };
@@ -66,11 +69,6 @@
 		196637FD1C9BEC45001310F1 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		196637FF1C9BEC57001310F1 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		196638011C9BEC5C001310F1 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		196638041C9BF13E001310F1 /* BookTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTitleViewController.swift; sourceTree = "<group>"; };
-		196638051C9BF13E001310F1 /* CostumCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostumCollectionView.swift; sourceTree = "<group>"; };
-		196638061C9BF13E001310F1 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		196638071C9BF13E001310F1 /* Plasma018ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plasma018ViewController.swift; sourceTree = "<group>"; };
-		196638081C9BF13E001310F1 /* bookdetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bookdetailViewController.swift; sourceTree = "<group>"; };
 		1966382D1C9FC8FB001310F1 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		1966382E1C9FC8FB001310F1 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		1966383E1CA16044001310F1 /* signUp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = signUp.swift; sourceTree = "<group>"; };
@@ -83,6 +81,14 @@
 		196638451CA16044001310F1 /* delayRerutnBookBoss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = delayRerutnBookBoss.swift; sourceTree = "<group>"; };
 		196638461CA16044001310F1 /* rentArrayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rentArrayVC.swift; sourceTree = "<group>"; };
 		196638471CA16044001310F1 /* NSDATE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDATE.swift; sourceTree = "<group>"; };
+		4AAF411E1CA22D8F00D2962C /* BookTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTitleViewController.swift; sourceTree = "<group>"; };
+		4AAF411F1CA22D8F00D2962C /* CostumCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostumCollectionView.swift; sourceTree = "<group>"; };
+		4AAF41201CA22D8F00D2962C /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		4AAF41211CA22D8F00D2962C /* Plasma018ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plasma018ViewController.swift; sourceTree = "<group>"; };
+		4AAF41221CA22D8F00D2962C /* bookdetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bookdetailViewController.swift; sourceTree = "<group>"; };
+		4AAF41231CA22D8F00D2962C /* menuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuViewController.swift; sourceTree = "<group>"; };
+		4AAF41241CA22D8F00D2962C /* menuTbleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuTbleView.swift; sourceTree = "<group>"; };
+		4AAF41251CA22D8F00D2962C /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
 		A12483241C9A577700A7CE2A /* m1_UserInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = m1_UserInformation.swift; sourceTree = "<group>"; };
 		A12483261C9A7DC300A7CE2A /* m2_TransactionHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = m2_TransactionHistory.swift; sourceTree = "<group>"; };
 		A12483281C9A7F3D00A7CE2A /* m3_GiftPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = m3_GiftPoint.swift; sourceTree = "<group>"; };
@@ -167,6 +173,21 @@
 			name = wu;
 			sourceTree = "<group>";
 		};
+		4AAF411D1CA22BD200D2962C /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				4AAF411E1CA22D8F00D2962C /* BookTitleViewController.swift */,
+				4AAF411F1CA22D8F00D2962C /* CostumCollectionView.swift */,
+				4AAF41201CA22D8F00D2962C /* CollectionViewCell.swift */,
+				4AAF41211CA22D8F00D2962C /* Plasma018ViewController.swift */,
+				4AAF41221CA22D8F00D2962C /* bookdetailViewController.swift */,
+				4AAF41231CA22D8F00D2962C /* menuViewController.swift */,
+				4AAF41241CA22D8F00D2962C /* menuTbleView.swift */,
+				4AAF41251CA22D8F00D2962C /* MenuTableViewCell.swift */,
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
 		A1FEF8EC1C97EAA60076152F = {
 			isa = PBXGroup;
 			children = (
@@ -195,12 +216,8 @@
 		A1FEF8F71C97EAA60076152F /* ComicBookVIP */ = {
 			isa = PBXGroup;
 			children = (
+				4AAF411D1CA22BD200D2962C /* New Group */,
 				196638031C9BF127001310F1 /* wu */,
-				196638041C9BF13E001310F1 /* BookTitleViewController.swift */,
-				196638051C9BF13E001310F1 /* CostumCollectionView.swift */,
-				196638061C9BF13E001310F1 /* CollectionViewCell.swift */,
-				196638071C9BF13E001310F1 /* Plasma018ViewController.swift */,
-				196638081C9BF13E001310F1 /* bookdetailViewController.swift */,
 				196637EB1C9BE8F9001310F1 /* tbd */,
 				196637E21C9BE8E6001310F1 /* SMS_SDK */,
 				196637CF1C9BE882001310F1 /* fileHao */,
@@ -304,27 +321,29 @@
 			files = (
 				1966384E1CA16044001310F1 /* rentBookBoss.swift in Sources */,
 				1966382F1C9FC8FB001310F1 /* Reachability.m in Sources */,
+				4AAF41261CA22D8F00D2962C /* BookTitleViewController.swift in Sources */,
 				A1FBC1901C99A1B900FF13E4 /* SideBarMenu.swift in Sources */,
 				A124832B1C9A864E00A7CE2A /* t3_FavoriteViewController.swift in Sources */,
 				1966384F1CA16044001310F1 /* delayRerutnBookBoss.swift in Sources */,
 				1966384A1CA16044001310F1 /* depositVC.swift in Sources */,
+				4AAF412B1CA22D8F00D2962C /* menuViewController.swift in Sources */,
 				196638491CA16044001310F1 /* LoginViewController.swift in Sources */,
 				196638511CA16044001310F1 /* NSDATE.swift in Sources */,
-				196638091C9BF13E001310F1 /* BookTitleViewController.swift in Sources */,
-				1966380C1C9BF13E001310F1 /* Plasma018ViewController.swift in Sources */,
 				196638501CA16044001310F1 /* rentArrayVC.swift in Sources */,
-				1966380B1C9BF13E001310F1 /* CollectionViewCell.swift in Sources */,
 				A124832F1C9A925100A7CE2A /* MyAnnotation.swift in Sources */,
 				A124832D1C9A86A000A7CE2A /* t4_StoreViewController.swift in Sources */,
+				4AAF412C1CA22D8F00D2962C /* menuTbleView.swift in Sources */,
 				A1883E7E1CA1299900C737F2 /* t3-2_Favorite2ViewController.swift in Sources */,
-				1966380A1C9BF13E001310F1 /* CostumCollectionView.swift in Sources */,
 				A12483291C9A7F3D00A7CE2A /* m3_GiftPoint.swift in Sources */,
-				1966380D1C9BF13E001310F1 /* bookdetailViewController.swift in Sources */,
 				1966384D1CA16044001310F1 /* rentHistoryVC.swift in Sources */,
 				1966384C1CA16044001310F1 /* favoritesBookNameVC.swift in Sources */,
 				A12483251C9A577800A7CE2A /* m1_UserInformation.swift in Sources */,
 				1966384B1CA16044001310F1 /* Page2ViewController.swift in Sources */,
+				4AAF412A1CA22D8F00D2962C /* bookdetailViewController.swift in Sources */,
+				4AAF41281CA22D8F00D2962C /* CollectionViewCell.swift in Sources */,
+				4AAF412D1CA22D8F00D2962C /* MenuTableViewCell.swift in Sources */,
 				196638481CA16044001310F1 /* signUp.swift in Sources */,
+				4AAF41291CA22D8F00D2962C /* Plasma018ViewController.swift in Sources */,
 				A1883E7C1CA0DFA200C737F2 /* UserSignUpViewController.swift in Sources */,
 				A1FBC1921C99DA6F00FF13E4 /* ContainerVC.swift in Sources */,
 				A1FEF9111C98235F0076152F /* TabVCTemplate.swift in Sources */,
@@ -333,6 +352,7 @@
 				A14EED331CA0DB5E008B2C2B /* UserLoginViewController.swift in Sources */,
 				A1FEF8F91C97EAA60076152F /* AppDelegate.swift in Sources */,
 				A1FEF8FB1C97EAA60076152F /* t1_NewsViewContorller.swift in Sources */,
+				4AAF41271CA22D8F00D2962C /* CostumCollectionView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

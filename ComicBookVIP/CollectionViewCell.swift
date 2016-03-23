@@ -20,25 +20,25 @@ class CollectionViewCell: UICollectionViewCell,UINavigationControllerDelegate,UI
 	var deleteButton = UIButton(type: UIButtonType.System)
 	var deleteB1 = UIImageView()
 	var source : String!
+    let indicator = UIActivityIndicatorView()
+    
 	var delegate : CollectionViewCellDelegate?
 	override init(frame: CGRect) {
 		super.init(frame:frame)
 
         let base = UIView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
-        base.backgroundColor = UIColor.blackColor()
+       
 		
-		//cell 外匡
-//		self.layer.cornerRadius = 10
-//		self.layer.borderColor = UIColor.grayColor().CGColor
-//		self.layer.borderWidth = 1.0
-//		self.clipsToBounds = true
-//		downloadImage()
+        indicator.frame =  CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height)
+        indicator.color = UIColor.blueColor()
+        indicator.startAnimating()
+        indicator.transform = CGAffineTransformMakeScale(3, 3)
+        
 		//cell照片樣式
 //		imageView = UIImageView(frame:CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
-//		imageView.image = UIImage(named: "img_not_available")
+		imageView.image = UIImage(named: "img_not_available")
 		imageView.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height)
         imageView.layer.cornerRadius = 10
-		
         imageView.layer.borderColor = UIColor.grayColor().CGColor
         imageView.layer.borderWidth = 1.0
         imageView.clipsToBounds = true
@@ -66,7 +66,7 @@ class CollectionViewCell: UICollectionViewCell,UINavigationControllerDelegate,UI
 		self.addSubview(imageView)
 		self.addSubview(textLabel1)
 		self.addSubview(textLabel)
-		
+		self.addSubview(indicator)
 
 		deleteButton.setImage(UIImage(named: "delete_32px_1189401_easyicon.net"), forState: UIControlState.Normal)
 		deleteButton.frame = CGRectMake(-10,-10,40,40)
@@ -77,14 +77,14 @@ class CollectionViewCell: UICollectionViewCell,UINavigationControllerDelegate,UI
 		
 		// cell點2呼交功能
 		let tapRecognizer = UITapGestureRecognizer(target: self,action:"changePhoto:")
+		tapRecognizer.numberOfTapsRequired = 1
+        tapRecognizer.numberOfTouchesRequired = 2
 		
-		tapRecognizer.numberOfTapsRequired = 2
-		// cell點1跳下一頁
+        // cell點1跳下一頁
 		let tap = UITapGestureRecognizer(target: self, action: "toPage:")
 		self.gestureRecognizers = [tap,tapRecognizer]
 		tap.numberOfTapsRequired = 1
-		tap.numberOfTouchesRequired = 2
-		
+		tap.numberOfTouchesRequired = 1
 		print("create cell ok")
 		
 	}
@@ -92,16 +92,18 @@ class CollectionViewCell: UICollectionViewCell,UINavigationControllerDelegate,UI
 	required init?(coder aDecoder: NSCoder) {
 	    fatalError("init(coder:) has not been implemented")
 	}
+    
 	//cell點一下功能
 	func toPage(recognizer:UITapGestureRecognizer){
 		print("touch: one")
 		let bookdetail = bookdetailViewController()
-		let navController = UINavigationController(rootViewController: bookdetail )
+//		let navController = UINavigationController(rootViewController: bookdetail )
 		
 		bookdetail.bookName.text = textLabel.text
 		bookdetail.bookImage.image = imageView.image
 		
-		self.window?.rootViewController!.presentViewController(navController, animated: true, completion: nil)
+		
+		self.window?.rootViewController!.presentViewController(bookdetail, animated: true, completion: nil)
 	}
 	
 	

@@ -7,6 +7,8 @@ import UIKit
 class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,NSURLSessionDelegate,NSURLSessionDownloadDelegate,CollectionViewCellDelegate{
 	
     private let reuseIdentifier = "Cell"
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    var canEditting = true
     var arrayfirst = 0;
     var arrayfinal = 0;
     var snapshot:UIView? = nil;
@@ -14,16 +16,14 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
 	//漫畫所屬的漫畫分類
 	var bookItems = "預設"
 //	//collectionView顯示的漫畫內容
-//var bookName = ["一拳超人", "七原罪", "山田和七個魔女", "火星异种", "东京食尸", "召唤恶魔", "名侦探柯南", "死神", "妖精的尾巴", "美食的俘虏", "食戟之灵", "浪人劍客", "海賊王", "第一神拳", "黑子的篮球", "暗殺教室", "滑头鬼之孙", "監獄學園"]
-	var bookName = [String]()
+var bookName = ["一拳超人", "七原罪", "山田和七個魔女", "火星异种", "东京食尸", "召唤恶魔", "名侦探柯南", "死神", "妖精的尾巴", "美食的俘虏", "食戟之灵", "浪人劍客", "海賊王", "第一神拳", "黑子的篮球", "暗殺教室", "滑头鬼之孙", "監獄學園"]
+//	var bookName = [String]()
 	var bookImage = [String:UIImage]()
-	
 	var testImage : UIImage!
 	init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout,bookItems:String){
 		
         super.init(frame: frame, collectionViewLayout: layout)
 		self.delegate = self
-	
 		loadData(bookItems)
 		self.bookItems = bookItems
 		
@@ -31,10 +31,13 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
 		self.backgroundColor = UIColor.whiteColor()
         let longPress = UILongPressGestureRecognizer(target: self, action:"longPressGestureRecognize:")
         self.addGestureRecognizer(longPress)
+        
 		//漫畫分類
 		print("漫畫所屬類別:\(bookItems)   漫畫內容:\(bookName)")
 //		downloadImage()
-		
+		let pinch = UIPinchGestureRecognizer(target: self, action: "pinch:")
+        
+        self.addGestureRecognizer(pinch )
 //		print("create collectionview ok")
     }
 
@@ -42,9 +45,32 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
         fatalError("init(coder:) has not been implemented")
     }
 	
+    func pinch(gestureReconizer:UIPinchGestureRecognizer){
+//        let scale = gestureReconizer.scale
+//        let state = gestureReconizer.state
+        let location = gestureReconizer.locationInView(self)
+        print("two pinch location:\(location)")
+        let indexPath = self.indexPathForItemAtPoint(location)
+        print("two pinch indexPath:\(indexPath)")
+        
+        
+
+    }
+    
+    class func allReloadData() {
+        print(123)
+    }
+    
+    
+    
+    
+    
+    
+    
 	
 	//長壓collectionView的
     func longPressGestureRecognize(gestureReconizer: UILongPressGestureRecognizer){
+        
         let state = gestureReconizer.state
         //長壓的位置
         let location = gestureReconizer.locationInView(self)
@@ -53,6 +79,7 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
         let indexPath = self.indexPathForItemAtPoint(location)
         print("indexPath:\(indexPath)")
 		//長壓後的cell狀態：
+        if appDelegate.canEitting == true{
         switch state{
             
         case UIGestureRecognizerState.Began:
@@ -70,27 +97,30 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
                 snapshot = self.customSnapshotFromView(cell!)
          
                 //一開時浮出來的位置
-                var center = cell!.center;
-                snapshot!.center = center;
+                var center = cell!.center
+                snapshot!.center = center
                 snapshot!.alpha = 0.0;
                 self.addSubview(snapshot!)
                 
                 UIView.animateWithDuration(0.25, animations: { () -> Void in
                     //常壓cell畫面浮起來
-                    center.y = center.y+1;
-                    center.x = center.x+1;
+                    center.y = center.y+1
+                    center.x = center.x+1
                     
-                    self.snapshot!.center = center;
+                    self.snapshot!.center = center
                     
                     //畫面變大
-                    self.snapshot!.transform = CGAffineTransformMakeScale(1.05, 1.05);
-                    self.snapshot!.alpha = 0.98;
+                    self.snapshot!.transform = CGAffineTransformMakeScale(1.05, 1.05)
+                    self.snapshot!.alpha = 0.98
                     
-                    // Fade out.
-                    cell!.alpha = 0.5;
+                
+                    cell!.alpha = 0.5
+                   
+                    
+                   
                     }, completion: { (Bool) -> Void in
-                        cell!.hidden = true;
-                        
+                      cell!.hidden = true
+                       print("complection")
                 })
                 
             }
@@ -123,7 +153,7 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
             }
             
             
-        default:
+        case UIGestureRecognizerState.Ended:
             
             if(sourceIndexPath != nil){
 //                print("default::::::::::::::")
@@ -134,7 +164,7 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
                 print("sourceIndexPath:\(sourceIndexPath!.row)")
                 //底下cell已存在
                 cell!.hidden = false
-                print(cell!.hidden)
+               
                 cell?.alpha = 0.0
                 //放下的動話
                 UIView.animateWithDuration(0.25, animations: { () -> Void in
@@ -143,10 +173,10 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
               
                     self.snapshot!.alpha = 0.0;
                     //                print(12)
-                    // Undo fade out.
+                   
                     cell!.alpha = 1.0                }, completion: { (Bool) -> Void in
                         self.sourceIndexPath = nil
-                        
+                         print("cell!.hidden")
                         self.snapshot = nil
                         
 				//	交換書單的位置
@@ -165,7 +195,9 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
                 })
                 
             }
-        }
+        default: break
+            }
+        }//canEitting end
     }
 	
 
@@ -173,55 +205,30 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
     
     func customSnapshotFromView(inputView: UIView)->UIImageView{
         
-        UIGraphicsBeginImageContextWithOptions(inputView.bounds.size, false, 0);
-        inputView.layer.renderInContext(UIGraphicsGetCurrentContext()!);
-        let image = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
+        UIGraphicsBeginImageContextWithOptions(inputView.bounds.size, false, 0)
+        inputView.layer.renderInContext(UIGraphicsGetCurrentContext()!)
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
         let snapshot = UIImageView(image: image)
         
-        snapshot.layer.masksToBounds = false;
-        snapshot.layer.cornerRadius = 0.0;
-        snapshot.layer.shadowOffset = CGSizeMake(-5.0, 0.0);
-        snapshot.layer.shadowRadius = 5.0;
-        snapshot.layer.shadowOpacity = 0.4;
+        snapshot.layer.masksToBounds = false
+        snapshot.layer.cornerRadius = 0.0
+        snapshot.layer.shadowOffset = CGSizeMake(-5.0, 0.0)
+        snapshot.layer.shadowRadius = 5.0
+        snapshot.layer.shadowOpacity = 0.4
         return snapshot
     }
 	
 	
 	
-//	func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-////		if scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height{
-//        print(scrollView.contentOffset.y)
-//        if scrollView.contentOffset.y < 1{
-//			
-//			self.performBatchUpdates({ () -> Void in
-//                self.bookName.insert("預設", atIndex: 0)
-//				print(self.bookName)
-//				
-//				
-//				var arrayWithIndexPaths:[NSIndexPath] = []
-//				for(var i=0;i<1;i++){
-//					arrayWithIndexPaths.append(  NSIndexPath(forRow:i, inSection: 0))
-//					
-//					
-//				}
-//			
-//            self.insertItemsAtIndexPaths(arrayWithIndexPaths)
-//			
-//				self.upload("預設",items:self.bookItems)
-//				
-//				}, completion: nil)
-//
-//			
-//        }
-//	}
-//	
-    func scrollViewDidScroll(scrollView: UIScrollView) {
-		print(scrollView.contentOffset.y)
-		if scrollView.contentOffset.y < -40{
+	func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+//		if scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height{
+        print(scrollView.contentOffset.y)
+        if appDelegate.canEitting{
+        if scrollView.contentOffset.y < 1{
 			
 			self.performBatchUpdates({ () -> Void in
-				self.bookName.insert("預設", atIndex: 0)
+                self.bookName.insert("預設", atIndex: 0)
 				print(self.bookName)
 				
 				
@@ -231,18 +238,43 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
 					
 					
 				}
-				
-				self.insertItemsAtIndexPaths(arrayWithIndexPaths)
-				
+			
+            self.insertItemsAtIndexPaths(arrayWithIndexPaths)
+			
 				self.upload("預設",items:self.bookItems)
 				
 				}, completion: nil)
-			
-			
-		}
 
-    }
-	
+            }
+        }//canEitting end
+	}
+//    func scrollViewDidScroll(scrollView: UIScrollView) {
+//		print(scrollView.contentOffset.y)
+//		if scrollView.contentOffset.y < -40{
+//			
+//			self.performBatchUpdates({ () -> Void in
+//				self.bookName.insert("預設", atIndex: 0)
+//				print(self.bookName)
+//				
+//				
+//				var arrayWithIndexPaths:[NSIndexPath] = []
+//				for(var i=0;i<1;i++){
+//					arrayWithIndexPaths.append(  NSIndexPath(forRow:i, inSection: 0))
+//					
+//					
+//				}
+//				
+//				self.insertItemsAtIndexPaths(arrayWithIndexPaths)
+//				
+//				self.upload("預設",items:self.bookItems)
+//				
+//				}, completion: nil)
+//			
+//			
+//		}
+//
+//    }
+//	
 	
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return bookName.count
@@ -251,16 +283,20 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
             as! CollectionViewCell
-		
-		
+        
+        if appDelegate.canEitting == false{
+            cell.deleteButton.hidden = true
+        }else{
+            cell.deleteButton.hidden = false
+        }
+
         cell.textLabel.text = bookName[indexPath.row]
     
-
-        
 		if (bookImage[bookName[indexPath.row]] != nil){
+            cell.indicator.stopAnimating()
 			cell.imageView.image = bookImage[bookName[indexPath.row]]
 		}else{
-			downloadImage(bookName[indexPath.row], imageview:cell.imageView)
+			downloadImage(bookName[indexPath.row], imageview:cell.imageView,indicator:cell.indicator)
 		}
 		//DELETE
         cell.deleteButton.tag = indexPath.row
@@ -283,7 +319,7 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
         //按鈕cell的編號
         let indexPath = self.indexPathForItemAtPoint(location)
         print("delete cell 的編號:\(indexPath?.row)")
-		
+        if appDelegate.canEitting == true{
 		//刪除
         self.performBatchUpdates({ () -> Void in
 			//刪除線上資料庫的書本
@@ -295,10 +331,11 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
             print("delete完後的漫畫陣列：\(self.bookName)")
 			}, completion: { (Bool) -> Void in
 				
-		})
-		
+            })
+        }//canEitting end
     }
 
+    
 	func changeArray(src:String , dis:String , img:UIImage){
 		print("src:\(src)")
 		print("dis:\(dis)")
@@ -306,9 +343,7 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
 		bookName.insert(dis, atIndex: first!)
 		bookName.removeAtIndex(first!+1)
 		print("編輯後的陣列:\(bookName)")
-		
 		bookImage[dis]=img
-	
 	}
 	
 	
@@ -354,7 +389,6 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
 			self.delegate = self
 			self.dataSource = self
 			self.registerClass(CollectionViewCell.self, forCellWithReuseIdentifier: self.reuseIdentifier)
-			//
 		}catch {
 			self.delegate = self
 			self.dataSource = self
@@ -425,25 +459,22 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
 	
 //下載圖片資料
 	
-	func downloadImage(bookName:String, imageview:UIImageView){
-        
+    func downloadImage(bookName:String, imageview:UIImageView,indicator:UIActivityIndicatorView){
 		let link = "http://sashihara.100hub.net/vip/img/img/a\(bookName).jpg"
-//		print(link)
         let url:NSURL =  NSURL(string: link.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!
-       
         let session = NSURLSession.sharedSession()
-        
         let request = NSMutableURLRequest(URL: url)
         request.timeoutInterval = 10
         let task = session.dataTaskWithRequest(request){(data:NSData?, response:NSURLResponse?, error:NSError?) -> Void in
+            if data != nil {
             var image = UIImage(data: data!)
             if (image != nil)
             {
-                
                 func set_image()
                 {
                     self.bookImage[bookName] = image
                     imageview.image = image
+                    indicator.stopAnimating()
                 }
                 dispatch_async(dispatch_get_main_queue(), set_image)
             }else{
@@ -453,22 +484,13 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
                     
                 self.bookImage[bookName]=UIImage(named:"img_not_available")
                     imageview.image = UIImage(named:"img_not_available")
-    
+                     indicator.stopAnimating()
                 }
-                dispatch_async(dispatch_get_main_queue(), set_image1)
-            
+                dispatch_async(dispatch_get_main_queue(), set_image1)}
             }
-           
         }
-        task.resume()
+            task.resume()
 	}
-
-	
-
-	
-	
-	
-	
 }
 
 

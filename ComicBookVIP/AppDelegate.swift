@@ -12,6 +12,9 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+	var orderbook=[String]()
+	var orderBookA = [String:[String]]()
+	var canEitting = false
 
     var account = ""
     
