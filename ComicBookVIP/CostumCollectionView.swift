@@ -16,8 +16,8 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
 	//漫畫所屬的漫畫分類
 	var bookItems = "預設"
 //	//collectionView顯示的漫畫內容
-	var bookName = ["一拳超人", "七原罪", "山田和七個魔女", "火星异种", "东京食尸", "召唤恶魔", "名侦探柯南", "死神", "妖精的尾巴", "美食的俘虏", "食戟之灵", "浪人劍客", "海賊王", "第一神拳", "黑子的篮球", "暗殺教室", "滑头鬼之孙", "監獄學園"]
-//	var bookName = [String]()
+//	var bookName = ["絕叫學園", "進擊的巨人","鬼畜島","誠如神之所說"]
+	var bookName = [String]()
 	var bookImage = [String:UIImage]()
 	var testImage : UIImage!
 	init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout,bookItems:String){
