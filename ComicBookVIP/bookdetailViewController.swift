@@ -481,7 +481,7 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 				}
 				bookAmount = test
 				bookAmount.removeRange(Range<Int>(start: bookAmount.indexOf(episode.text!)!+1, end: bookAmount.count))
-				print(bookAmount)
+				
 				dispatch_async(dispatch_get_main_queue(), { () -> Void in
 				self.setView()
 				})

@@ -252,9 +252,23 @@ class BookTitleViewController: UIViewController,UICollectionViewDelegateFlowLayo
 				})
 			})
 		}
+		
+		let swipe = UITapGestureRecognizer(target: self, action: "swipe:")
+
+		swipe.numberOfTouchesRequired = 3
+		self.view.addGestureRecognizer(swipe)
 
 		
     }
+	func swipe(gestureReconizer:UITapGestureRecognizer){
+		let location = gestureReconizer.locationInView(self.view)
+		print(" swipelocation:\(location)")
+		
+		
+		
+		
+		
+	}
 	
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -16,7 +16,7 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
 	//漫畫所屬的漫畫分類
 	var bookItems = "預設"
 //	//collectionView顯示的漫畫內容
-var bookName = ["一拳超人", "七原罪", "山田和七個魔女", "火星异种", "东京食尸", "召唤恶魔", "名侦探柯南", "死神", "妖精的尾巴", "美食的俘虏", "食戟之灵", "浪人劍客", "海賊王", "第一神拳", "黑子的篮球", "暗殺教室", "滑头鬼之孙", "監獄學園"]
+	var bookName = ["一拳超人", "七原罪", "山田和七個魔女", "火星异种", "东京食尸", "召唤恶魔", "名侦探柯南", "死神", "妖精的尾巴", "美食的俘虏", "食戟之灵", "浪人劍客", "海賊王", "第一神拳", "黑子的篮球", "暗殺教室", "滑头鬼之孙", "監獄學園"]
 //	var bookName = [String]()
 	var bookImage = [String:UIImage]()
 	var testImage : UIImage!
@@ -27,7 +27,7 @@ var bookName = ["一拳超人", "七原罪", "山田和七個魔女", "火星异
 		loadData(bookItems)
 		self.bookItems = bookItems
 		
-
+		self.bounces = false
 		self.backgroundColor = UIColor.whiteColor()
         let longPress = UILongPressGestureRecognizer(target: self, action:"longPressGestureRecognize:")
         self.addGestureRecognizer(longPress)
@@ -39,6 +39,9 @@ var bookName = ["一拳超人", "七原罪", "山田和七個魔女", "火星异
         
         self.addGestureRecognizer(pinch )
 //		print("create collectionview ok")
+		
+		
+		
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -52,14 +55,46 @@ var bookName = ["一拳超人", "七原罪", "山田和七個魔女", "火星异
         print("two pinch location:\(location)")
         let indexPath = self.indexPathForItemAtPoint(location)
         print("two pinch indexPath:\(indexPath)")
-        
-        
-
+		let state = gestureReconizer.state
+		
+		switch state{
+			case UIGestureRecognizerState.Ended:
+				if gestureReconizer.scale > 2{
+					
+					self.performBatchUpdates({ () -> Void in
+						self.bookName.insert("預設", atIndex: 0)
+						print(self.bookName)
+						
+						
+						var arrayWithIndexPaths:[NSIndexPath] = []
+						for(var i=0;i<1;i++){
+							arrayWithIndexPaths.append(  NSIndexPath(forRow:i, inSection: 0))
+							
+							
+						}
+						
+						self.insertItemsAtIndexPaths(arrayWithIndexPaths)
+						
+						self.upload("預設",items:self.bookItems)
+						
+						}, completion: nil)
+					
+					
+					
+			}
+		
+		
+			default: break
+		
+		
+		
+		}
+	
+		
     }
-    
-    class func allReloadData() {
-        print(123)
-    }
+	
+	
+	
     
     
     
