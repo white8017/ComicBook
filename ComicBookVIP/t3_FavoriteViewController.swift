@@ -19,7 +19,7 @@ class t3_FavoriteViewController: TabVCTemplate, UITableViewDelegate, UITableView
     var DeleteS:String!
     var name = ""
     var authorORbookName:String!
-    
+    var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 
     @IBAction func toggleMenu(sender: AnyObject) {
         NSNotificationCenter.defaultCenter().postNotificationName("toggleMenu", object: nil)
@@ -120,7 +120,7 @@ class t3_FavoriteViewController: TabVCTemplate, UITableViewDelegate, UITableView
             authorLbl.text = dataArray[indexPath.row]["bookName"] as? String
             var DDD:String!
             DDD = dataArray[indexPath.row]["newStage"] as? String
-            newStage.text = "   第 \(DDD) 話"
+            newStage.text = "     \(DDD) "
 
             break
         default:
@@ -205,7 +205,8 @@ class t3_FavoriteViewController: TabVCTemplate, UITableViewDelegate, UITableView
             let url = NSURL(string: "http://sashihara.100hub.net/vip/favoritesNameSelect.php")
             let request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
             
-            let submitBody: String = "name=\(name)"
+            let submitBody: String = "name=\(appDelegate.account)"
+            print("account:\(appDelegate.account)")
             
             request.HTTPMethod = "POST"
             request.HTTPBody = submitBody.dataUsingEncoding(NSUTF8StringEncoding)
@@ -246,7 +247,7 @@ class t3_FavoriteViewController: TabVCTemplate, UITableViewDelegate, UITableView
         let url = NSURL(string: "http://sashihara.100hub.net/vip/deleteFavoritesName.php")
         let request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
         
-        let submitBody: String = "name=\(name)&bookName=\(DeleteS)"
+        let submitBody: String = "name=\(appDelegate.account)&bookName=\(DeleteS)"
         
         request.HTTPMethod = "POST"
         request.HTTPBody = submitBody.dataUsingEncoding(NSUTF8StringEncoding)
@@ -271,7 +272,7 @@ class t3_FavoriteViewController: TabVCTemplate, UITableViewDelegate, UITableView
             do {
                 let dataDic = try NSJSONSerialization.JSONObjectWithData(NSData(contentsOfURL: location)!, options: NSJSONReadingOptions.MutableContainers) as! [String:AnyObject]
                 
-                dataArray = dataDic["author"]! as! [AnyObject]
+                dataArray = dataDic["bookDetails"]! as! [AnyObject]
                 print("\(dataArray.count) 筆資料")
                 print("\(dataArray)")
                 

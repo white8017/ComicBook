@@ -17,7 +17,7 @@ class UserSignUpViewController: UIViewController,NSURLSessionDelegate, NSURLSess
     let okImage = UIImage(named: "ok") as UIImage?
     let btnOK   = UIButton(type: UIButtonType.Custom) as UIButton
     
-    let txtVerificationCode: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 5, y: 35,width:10, height: 40))
+    let txtVerificationCode: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 5, y: 85,width:10, height: 40))
     let txtAdess: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 10, y: Screen.height / 8.5+35*6,width:20, height: 40))
     let txtPasswd: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 10, y: Screen.height / 8.5+35*4,width:20, height: 40))
     let txtPasswdCheck: UITextField = UITextField(frame: CGRect(x: Screen.width / 2 - 10, y: Screen.height / 8.5+35*5,width:20, height: 40))
@@ -190,7 +190,7 @@ class UserSignUpViewController: UIViewController,NSURLSessionDelegate, NSURLSess
                     // 驗證碼的動畫
                     UIView.transitionWithView(self.view, duration: 1.5, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
                         
-                        self.txtVerificationCode.frame = CGRectMake(Screen.width / 2 - 150, 35, 300, 40)
+                        self.txtVerificationCode.frame = CGRectMake(Screen.width / 2 - 150, 85, 300, 40)
                         self.txtVerificationCode.alpha = 1
                         
                         self.border.borderColor = UIColor(red: 0.0, green: 0.0, blue: 0.0, alpha: 0.6).CGColor //底線的顏色
@@ -223,16 +223,13 @@ class UserSignUpViewController: UIViewController,NSURLSessionDelegate, NSURLSess
         btnSignUp.alpha = 0
         self.view.addSubview(btnSignUp)
         
-        btnOK.frame = CGRectMake(0, 100, Screen.width, 60)
+        btnOK.frame = CGRectMake(0, Screen.height/2 - 190, Screen.width, 60)
         btnOK.setImage(okImage, forState: .Normal)
         btnOK.addTarget(self, action: "btnOK:", forControlEvents:.TouchUpInside)
         btnOK.alpha = 0
         self.view.addSubview(btnOK)
-        
-        
-        
-        
         self.txtVerificationCode.alpha = 0
+        
         UIView.transitionWithView(self.view, duration: 1.5, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
             
             self.btnSignUp.alpha = 1

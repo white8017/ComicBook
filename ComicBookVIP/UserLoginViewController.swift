@@ -9,7 +9,8 @@
 import UIKit
 
 class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSessionDownloadDelegate  {
-    
+
+    var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var dataArray = [AnyObject]()
     var i = 0;
     let width = CGFloat(2.0)
@@ -92,7 +93,7 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
         if segue.identifier == "in" {
             var nextViewController = segue.destinationViewController as! ContainerVC
             nextViewController.name = dataArray[i]["name"] as! String
-            
+            appDelegate.account = dataArray[i]["name"] as! String
         }
     }
     

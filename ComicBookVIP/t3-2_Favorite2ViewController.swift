@@ -14,9 +14,9 @@ class t3_2_Favorite2ViewController: UIViewController ,UITableViewDelegate, UITab
     var author = ""
     var addBookName:String!
     var addBookStage:String!
-    var addString:String!
+    var addString:String! = "select"
     var name = ""
-    
+    var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     //    let goNext = UIButton()
     
     @IBOutlet weak var MyTableView: UITableView!
@@ -112,7 +112,7 @@ class t3_2_Favorite2ViewController: UIViewController ,UITableViewDelegate, UITab
         
         addBookName = dataBookName[indexPath.row]["bookName"] as! String
         addBookStage = dataBookName[indexPath.row]["newStage"] as! String
-        
+        print(addBookStage)
         self.favorites()
     }
     
@@ -122,7 +122,7 @@ class t3_2_Favorite2ViewController: UIViewController ,UITableViewDelegate, UITab
         
         let url = NSURL(string: "http://sashihara.100hub.net/vip/addFavorites.php")
         let request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
-        let submitBody:String = "bookName=\(addBookName)&newStage=\(addBookStage)&name=\(name)"
+        let submitBody:String = "bookName=\(addBookName)&newStage=\(addBookStage)&name=\(appDelegate.account)"
         
         request.HTTPMethod = "POST"
         request.HTTPBody = submitBody.dataUsingEncoding(NSUTF8StringEncoding)

@@ -18,6 +18,7 @@ class t2_BookViewController: TabVCTemplate, UICollectionViewDelegateFlowLayout, 
     var customSC = UISegmentedControl()
     var bookContent:[CostumCollectionView] = []
     var myIndicator: UIActivityIndicatorView!
+    
     //
     
     
