@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="TrM-bd-hD5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="NDc-BY-aPG">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -208,10 +208,10 @@
             </objects>
             <point key="canvasLocation" x="3926" y="905"/>
         </scene>
-        <!--Book View Controller-->
+        <!--Book Title View Controller-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="t2_BookViewController" customModule="ComicBookVIP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="BookTitleViewController" customModule="ComicBookVIP" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="L7p-HK-0SC"/>
                         <viewControllerLayoutGuide type="bottom" id="Djb-ko-YwX"/>
@@ -509,27 +509,47 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vX6-Cq-Byi">
-                                <rect key="frame" x="193" y="329" width="215" height="80"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vX6-Cq-Byi">
+                                <rect key="frame" x="150" y="186" width="300" height="112"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="vX6-Cq-Byi" secondAttribute="height" multiplier="240:89" id="iKB-oq-XnU"/>
+                                    <constraint firstAttribute="height" constant="89" id="nI3-38-0Ae"/>
+                                    <constraint firstAttribute="width" constant="240" id="rkI-8x-PBI"/>
+                                </constraints>
                                 <state key="normal" title="Button" image="L_LoginButton"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="nI3-38-0Ae"/>
+                                        <exclude reference="rkI-8x-PBI"/>
+                                    </mask>
+                                </variation>
                                 <connections>
                                     <action selector="btnLogin:" destination="mE8-dU-WcX" eventType="touchUpInside" id="WvW-F0-fzh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sh7-gw-BDy">
-                                <rect key="frame" x="193" y="453" width="215" height="80"/>
-                                <state key="normal" title="Button" image="L_SignupButton"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sh7-gw-BDy">
+                                <rect key="frame" x="150" y="358" width="300" height="112"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="sh7-gw-BDy" secondAttribute="height" multiplier="8:3" id="YMB-MA-NB0"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="L_JoinButton"/>
                                 <connections>
                                     <segue destination="jX9-qW-21Y" kind="show" identifier="" id="tM7-9Z-I7n"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="PYz-lt-Xcr" firstAttribute="top" secondItem="sh7-gw-BDy" secondAttribute="bottom" constant="130" id="3Dy-Pm-zd3"/>
+                            <constraint firstItem="sh7-gw-BDy" firstAttribute="centerX" secondItem="Jeb-lA-4r0" secondAttribute="centerX" id="PeG-Al-YgE"/>
+                            <constraint firstItem="sh7-gw-BDy" firstAttribute="top" secondItem="vX6-Cq-Byi" secondAttribute="bottom" constant="60" id="YTr-By-aie"/>
+                            <constraint firstItem="vX6-Cq-Byi" firstAttribute="width" secondItem="Jeb-lA-4r0" secondAttribute="width" multiplier="0.5" id="ZkR-lC-SKr"/>
+                            <constraint firstItem="sh7-gw-BDy" firstAttribute="leading" secondItem="vX6-Cq-Byi" secondAttribute="leading" id="eOU-NI-65K"/>
+                            <constraint firstItem="sh7-gw-BDy" firstAttribute="trailing" secondItem="vX6-Cq-Byi" secondAttribute="trailing" id="t3E-VN-xFJ"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pvb-oL-iXh"/>
                     <connections>
-                        <outlet property="btnLogin" destination="vX6-Cq-Byi" id="3du-zE-myZ"/>
-                        <outlet property="btnSignup" destination="sh7-gw-BDy" id="Gtk-u5-ywg"/>
                         <segue destination="LEb-Bi-fEd" kind="presentation" identifier="in" id="sNX-1y-dri"/>
                     </connections>
                 </viewController>
@@ -632,7 +652,7 @@
         <!--書單總覽-->
         <scene sceneID="8eB-Gy-rAB">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4mc-cI-0f8" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="4mc-cI-0f8" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="書單總覽" image="list" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jtt-Th-iWG">
@@ -760,10 +780,10 @@
             </objects>
             <point key="canvasLocation" x="1458" y="3091"/>
         </scene>
-        <!--Book Title View Controller-->
+        <!--View Controller-->
         <scene sceneID="ejF-uK-zIN">
             <objects>
-                <viewController id="TrM-bd-hD5" customClass="BookTitleViewController" customModule="ComicBookVIP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="TrM-bd-hD5" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Z9s-Z9-k9j"/>
                         <viewControllerLayoutGuide type="bottom" id="m8D-PE-fCW"/>
@@ -1501,8 +1521,8 @@
     </scenes>
     <resources>
         <image name="HumburgerButton" width="27" height="21"/>
+        <image name="L_JoinButton" width="600" height="210"/>
         <image name="L_LoginButton" width="600" height="246"/>
-        <image name="L_SignupButton" width="600" height="246"/>
         <image name="heart" width="30" height="30"/>
         <image name="list" width="30" height="30"/>
         <image name="pin" width="30" height="30"/>
@@ -1510,11 +1530,11 @@
         <image name="window" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MhT-Tj-2FV"/>
-        <segue reference="Cgc-bA-g6S"/>
-        <segue reference="Xka-je-coF"/>
         <segue reference="Ctk-yZ-AWO"/>
-        <segue reference="ZGt-OK-Rsu"/>
+        <segue reference="hCA-Y4-ghw"/>
+        <segue reference="fs7-Hf-POu"/>
+        <segue reference="Bh1-u5-y8B"/>
+        <segue reference="Cgc-bA-g6S"/>
         <segue reference="Uot-WS-En9"/>
         <segue reference="ZvE-XI-HFU"/>
     </inferredMetricsTieBreakers>

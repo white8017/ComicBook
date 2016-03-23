@@ -11,7 +11,7 @@ import UIKit
 let Screen = UIScreen.mainScreen().bounds
 class UserSignUpViewController: UIViewController,NSURLSessionDelegate, NSURLSessionDownloadDelegate{
     
-    let signupImage = UIImage(named: "signup") as UIImage?
+    let signupImage = UIImage(named: "L_SignupButton") as UIImage?
     let btnSignUp   = UIButton(type: UIButtonType.Custom) as UIButton
     
     let okImage = UIImage(named: "ok") as UIImage?
@@ -38,7 +38,7 @@ class UserSignUpViewController: UIViewController,NSURLSessionDelegate, NSURLSess
     
     func alertPg (txt: String) {
         let alert = UIAlertController(title: txt , message:nil , preferredStyle: .Alert)
-        let action = UIAlertAction(title: "OK", style: .Default, handler: { (alert:UIAlertAction) -> Void in
+        let action = UIAlertAction(title: "返回填寫", style: .Default, handler: { (alert:UIAlertAction) -> Void in
         })
         alert.addAction(action)
         self.presentViewController(alert, animated: true){}
@@ -216,7 +216,8 @@ class UserSignUpViewController: UIViewController,NSURLSessionDelegate, NSURLSess
     
     override func viewDidAppear(animated: Bool) {
         
-        btnSignUp.frame = CGRectMake(0, Screen.height/2+100, Screen.width, 60)
+//        btnSignUp.frame = CGRectMake(0, Screen.height/2+100, Screen.width, 60)
+        btnSignUp.frame = CGRectMake(Screen.width/10*2, Screen.height/2+100, Screen.width * 0.6, Screen.width * 0.6 / 8 * 3)
         btnSignUp.setImage(signupImage, forState: .Normal)
         btnSignUp.addTarget(self, action: "btnSignUp:", forControlEvents:.TouchUpInside)
         btnSignUp.alpha = 0

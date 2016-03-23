@@ -17,6 +17,12 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
     var txtPhone: UITextField = UITextField(frame: CGRect(x: Screen.width / 2, y: Screen.height / 5, width:20, height: 40))
     var txtPasswd: UITextField = UITextField(frame: CGRect(x: Screen.width / 2, y: Screen.height / 5 * 1.5, width:20, height: 40))
     
+    let loginW = Screen.width * 0.25
+    let loginH = Screen.width * 0.25 / 43 * 16
+    
+    @IBOutlet var myView: UIView!
+    @IBOutlet weak var btnLogin: UIButton!
+    @IBOutlet weak var btnSignup: UIButton!
     
     override func viewDidAppear(animated: Bool) {
         
@@ -46,20 +52,30 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
             self.borderStyle(self.txtPasswd, borderNom: borderPasswd)
             self.view.addSubview(self.txtPasswd)
             
-            print("[ Screen width : Screen height => \(Screen.width) : \(Screen.height) ]")
             
-            let loginW = Screen.width * 0.3
-            let loginH = loginW / 43 * 16
-            self.btnLogin.center = CGPointMake(Screen.width / 2, Screen.height / 5 * 2.5)
-            self.btnLogin.frame.size.width = loginW
-            self.btnLogin.frame.size.height = loginH
-            self.btnSignup.center = CGPointMake(Screen.width / 2, Screen.height / 5 * 3.5)
-            self.btnSignup.frame.size.width = loginW
-            self.btnSignup.frame.size.height = loginH
+            
             
             }) { (Bool) -> Void in
                 return true
         }
+        
+        print("[ Screen width : Screen height => \(Screen.width) : \(Screen.height) ]")
+        
+//        btnLogin.frame = CGRect(x: Screen.width / 4, y: Screen.height / 2, width: loginW, height: loginH)
+//        btnSignup.frame = CGRect(x: Screen.width / 4, y: Screen.height / 2 * 1.5, width: loginW, height: loginH)
+        
+//        btnLogin.frame.size.width = loginW
+//        btnLogin.frame.size.height = loginH
+//        
+//        btnSignup.frame.size.width = loginW
+//        btnSignup.frame.size.height = loginH
+//        
+//        btnLogin.center = CGPointMake(Screen.width / 2, Screen.height / 5 * 2.5)
+//        btnSignup.center = CGPointMake(Screen.width / 2, Screen.height / 5 * 3.7)
+        
+//        print("AAAAAA\(btnLogin.center.x)")
+//        self.view.addSubview(self.btnLogin)
+//        self.view.addSubview(self.btnSignup)
         
         
     }
@@ -131,8 +147,7 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
         
     }
     
-    @IBOutlet weak var btnLogin: UIButton!
-    @IBOutlet weak var btnSignup: UIButton!
+
     
     
     
