@@ -38,6 +38,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         NSThread.sleepForTimeInterval(4)
         
+        
+        UITabBar.appearance().tintColor = UIColor(red: 1, green: 0.1, blue: 0.1, alpha: 1)
+    
+        
         return true
         
     }

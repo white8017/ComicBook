@@ -11,6 +11,14 @@ import UIKit
 let Screen = UIScreen.mainScreen().bounds
 class UserSignUpViewController: UIViewController,NSURLSessionDelegate, NSURLSessionDownloadDelegate{
     
+    @IBAction func toggleMenu(sender: AnyObject) {
+        NSNotificationCenter.defaultCenter().postNotificationName("toggleMenu", object: nil)
+    }
+    
+    @IBAction func backButton(sender: AnyObject) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
     let signupImage = UIImage(named: "L_SignupButton") as UIImage?
     let btnSignUp   = UIButton(type: UIButtonType.Custom) as UIButton
     
@@ -319,6 +327,11 @@ class UserSignUpViewController: UIViewController,NSURLSessionDelegate, NSURLSess
             }) { (Bool) -> Void in
                 return true
         }
+        
+        
+        setTabBarVisible(!tabBarIsVisible(), animated: true)
+        
+        
     }
     
     func borderStyle (txtStyle:UITextField, borderNom:CALayer) {
@@ -331,6 +344,31 @@ class UserSignUpViewController: UIViewController,NSURLSessionDelegate, NSURLSess
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+
+    
+    
+    //hide Tabbar
+    func setTabBarVisible(visible:Bool, animated:Bool) {
+        if (tabBarIsVisible() == visible) {
+            return
+        }
+        let frame = self.tabBarController?.tabBar.frame
+        let offsetY = (visible ? CGFloat(0) : 49.0)
+        
+        let duration:NSTimeInterval = (animated ? 0.08 : 0.0)
+        
+        if frame != nil {
+            UIView.animateWithDuration(duration) {
+                self.tabBarController?.tabBar.frame = CGRectOffset(frame!, 0, offsetY)
+                return
+            }
+        }
+    }
+    func tabBarIsVisible() ->Bool {
+        return self.tabBarController?.tabBar.frame.origin.y < CGRectGetMaxY(self.view.frame)
     }
     
     

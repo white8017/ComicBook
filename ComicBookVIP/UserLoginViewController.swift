@@ -72,6 +72,8 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
         //hide tabbar 
         setTabBarVisible(!tabBarIsVisible(), animated: true)
 
+        
+        
 //        btnLogin.frame = CGRect(x: Screen.width / 4, y: Screen.height / 2, width: loginW, height: loginH)
 //        btnSignup.frame = CGRect(x: Screen.width / 4, y: Screen.height / 2 * 1.5, width: loginW, height: loginH)
         

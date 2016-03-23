@@ -31,8 +31,18 @@ class BookTitleViewController: UIViewController,UICollectionViewDelegateFlowLayo
 		navigationItem.title = "漫畫分類"
 		let rightButton = UIBarButtonItem(title: "編輯", style: UIBarButtonItemStyle.Plain, target: self, action: "editting:")
 		navigationItem.rightBarButtonItem = rightButton
+        
+        //增加左側之 NavigationBar Button Item//
+        let homeImg = UIImage(named: "HumburgerButton") as UIImage?
+        let leftButton = UIBarButtonItem(image: homeImg, style: UIBarButtonItemStyle.Plain, target: self, action: "theToggleMenu:")
+        navigationItem.leftBarButtonItem = leftButton
+        // //
+        
 		navigationBar.items = [navigationItem]
 		self.view.addSubview(navigationBar)
+        
+
+        
 		
 		let itemsWidth = self.view.frame.size.width/3
 		
@@ -333,4 +343,10 @@ class BookTitleViewController: UIViewController,UICollectionViewDelegateFlowLayo
 		}
 		
 	}
+    
+    //左側 NavigationBar Button 專用動作
+    func theToggleMenu(sender:UIBarButtonItem) {
+        NSNotificationCenter.defaultCenter().postNotificationName("toggleMenu", object: nil)
+    }
+    
 }
