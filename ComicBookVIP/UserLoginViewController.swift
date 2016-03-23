@@ -48,6 +48,15 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
             
             print("[ Screen width : Screen height => \(Screen.width) : \(Screen.height) ]")
             
+            let loginW = Screen.width * 0.3
+            let loginH = loginW / 43 * 16
+            self.btnLogin.center = CGPointMake(Screen.width / 2, Screen.height / 5 * 2.5)
+            self.btnLogin.frame.size.width = loginW
+            self.btnLogin.frame.size.height = loginH
+            self.btnSignup.center = CGPointMake(Screen.width / 2, Screen.height / 5 * 3.5)
+            self.btnSignup.frame.size.width = loginW
+            self.btnSignup.frame.size.height = loginH
+            
             }) { (Bool) -> Void in
                 return true
         }
@@ -122,7 +131,8 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
         
     }
     
-    
+    @IBOutlet weak var btnLogin: UIButton!
+    @IBOutlet weak var btnSignup: UIButton!
     
     
     
