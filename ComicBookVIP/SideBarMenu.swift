@@ -9,10 +9,13 @@
 import UIKit
 
 class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    
+
+    var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     @IBOutlet weak var menuTableView: UITableView!
+    @IBOutlet weak var lblName: UILabel!
+
     
-    let sideMenu = ["會  員  資  訊", "借  閱  紀  錄", "儲  值  查  詢", "登 入 / 登 出"]
+    let sideMenu = ["會  員  資  訊", "借  閱  紀  錄", "儲  值  查  詢", "租     書     籃"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +25,7 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
         //TableView固定不滑動
         menuTableView.scrollEnabled = false
         
+//        lblName.text = "嗨～\(appDelegate.account)"
     }
     
     

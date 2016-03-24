@@ -52,6 +52,11 @@ class UserSignUpViewController: UIViewController,NSURLSessionDelegate, NSURLSess
         self.presentViewController(alert, animated: true){}
     }
     
+    // 點背景收起鍵盤
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     func SMS () {
         
         
@@ -150,7 +155,9 @@ class UserSignUpViewController: UIViewController,NSURLSessionDelegate, NSURLSess
                 let alert = UIAlertController(title: nil, message:"註冊成功", preferredStyle: .Alert)
                 let action = UIAlertAction(title: "OK", style: .Default, handler: { (alert:UIAlertAction) -> Void in
                     self.singUp()
-                    self.performSegueWithIdentifier("singup", sender: nil)
+//                    let sinup1 = UserLoginViewController()
+//                    self.presentViewController(sinup1, animated: true, completion: nil)
+                    self.navigationController?.popToRootViewControllerAnimated(true)
                 })
                 alert.addAction(action)
                 self.presentViewController(alert, animated: true){}
