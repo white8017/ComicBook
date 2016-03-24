@@ -215,8 +215,7 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 		
 		appDelegate.orderBooktTitle.append(bookName.text!)
 		}
-		let menuView = menuViewController()
-		self.presentViewController(menuView, animated: true, completion: nil)
+		self.dismissViewControllerAnimated(true, completion: nil)
 		
 	}
     

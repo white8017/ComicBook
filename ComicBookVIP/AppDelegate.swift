@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var bookName = [String]()
     var account = ""
     var phoneNumber = ""
-    var vip = ""
+    var vip = "0"
     var userDefault = NSUserDefaults.standardUserDefaults() // 就像是在 Android 上的 SharedPreference一樣，暫存於 App 中，直到程式被移除才會消失
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {

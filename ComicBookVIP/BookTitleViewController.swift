@@ -7,7 +7,14 @@
 import UIKit
 private let reuseIdentifier = "Cell"
 
-class BookTitleViewController: UIViewController,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate,NSURLSessionDelegate,NSURLSessionDownloadDelegate,UIPopoverPresentationControllerDelegate{
+class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate,NSURLSessionDelegate,NSURLSessionDownloadDelegate,UIPopoverPresentationControllerDelegate{
+    
+    @IBOutlet weak var sysRightNvBarButton: UIBarButtonItem!
+    
+    @IBAction func toggleMenu(sender: AnyObject) {
+        NSNotificationCenter.defaultCenter().postNotificationName("toggleMenu", object: nil)
+    }
+    
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var scroll:UIScrollView!
     var scrollContent:UIScrollView!
@@ -16,17 +23,23 @@ class BookTitleViewController: UIViewController,UICollectionViewDelegateFlowLayo
 	var customSC = UISegmentedControl()
     var bookContent:[CostumCollectionView] = []
 	var myIndicator: UIActivityIndicatorView!
-
-    override func viewDidAppear(animated: Bool) {
-			print("view Did Appear")
-		    }
+	var rightButton = UIBarButtonItem()
+	
 	
 	func setView(){
 		let navigationBar = UINavigationBar(frame: CGRectMake(0, 0, self.view.frame.size.width,self.view.frame.size.height/10))
 		navigationBar.backgroundColor = UIColor.whiteColor()
 		let navigationItem = UINavigationItem()
 		navigationItem.title = "漫畫分類"
-		let rightButton = UIBarButtonItem(title: "編輯", style: UIBarButtonItemStyle.Plain, target: self, action: "editting:")
+		if appDelegate.vip == "1"{
+			rightButton = UIBarButtonItem(title: "編輯", style: UIBarButtonItemStyle.Plain, target: self, action: "editting:")
+		}else{
+			rightButton = UIBarButtonItem(image: UIImage(named: "shoppingcart"), style: UIBarButtonItemStyle.Plain, target: self, action: "borrow:")
+		
+		}
+		
+		
+		
 		navigationItem.rightBarButtonItem = rightButton
         
         //增加左側之 NavigationBar Button Item//
@@ -112,6 +125,13 @@ class BookTitleViewController: UIViewController,UICollectionViewDelegateFlowLayo
     
     
     }
+	
+	
+	func borrow(sender:UIBarButtonItem){
+		let menuView = menuViewController()
+		self.presentViewController(menuView, animated: true, completion: nil)
+		
+	}
 	
 	func scrollViewDidScroll(scrollView: UIScrollView) {
 		
@@ -232,6 +252,8 @@ class BookTitleViewController: UIViewController,UICollectionViewDelegateFlowLayo
     override func viewDidLoad() {
         super.viewDidLoad()
 		print("view did load")
+		
+		selectedTab = 1
         
 		let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 		dispatch_async(queue) { () -> Void in
@@ -335,10 +357,36 @@ class BookTitleViewController: UIViewController,UICollectionViewDelegateFlowLayo
 		}
 		
 	}
-    
+	
+	override func viewDidAppear(animated: Bool) {
+		setTabBarVisible(!tabBarIsVisible(), animated: true)
+	}
+	
+	
     //左側 NavigationBar Button 專用動作
     func theToggleMenu(sender:UIBarButtonItem) {
         NSNotificationCenter.defaultCenter().postNotificationName("toggleMenu", object: nil)
     }
-    
+	
+	func setTabBarVisible(visible:Bool, animated:Bool) {
+		if (tabBarIsVisible() == visible) {
+			return
+		}
+		
+		let frame = self.tabBarController?.tabBar.frame
+		let onsetY = (visible ? -49.0 : CGFloat(0))
+		
+		let duration:NSTimeInterval = (animated ? 0.1 : 0.0)
+		
+		if frame != nil {
+			UIView.animateWithDuration(duration) {
+				self.tabBarController?.tabBar.frame = CGRectOffset(frame!, 0, onsetY)
+				return
+			}
+		}
+	}
+	func tabBarIsVisible() ->Bool {
+		return self.tabBarController?.tabBar.frame.origin.y < CGRectGetMaxY(self.view.frame)
+	}
+	
 }
