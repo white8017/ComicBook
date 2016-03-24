@@ -8,6 +8,13 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate,NSURLSessionDelegate,NSURLSessionDownloadDelegate,UIPopoverPresentationControllerDelegate{
+    
+    @IBOutlet weak var sysRightNvBarButton: UIBarButtonItem!
+    
+    @IBAction func toggleMenu(sender: AnyObject) {
+        NSNotificationCenter.defaultCenter().postNotificationName("toggleMenu", object: nil)
+    }
+    
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var scroll:UIScrollView!
     var scrollContent:UIScrollView!

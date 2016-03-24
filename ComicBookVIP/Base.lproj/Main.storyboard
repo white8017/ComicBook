@@ -8,7 +8,7 @@
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
-        <!--News View Contorller-->
+        <!--本店訊息-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
                 <viewController storyboardIdentifier="HomePage" id="9pv-A4-QxB" customClass="t1_NewsViewContorller" customModule="ComicBookVIP" customModuleProvider="target" sceneMemberID="viewController">
@@ -65,7 +65,7 @@
                             <constraint firstItem="N1u-y0-iMU" firstAttribute="top" secondItem="w2S-Y2-DgU" secondAttribute="bottom" id="qXg-bH-UEn"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="3FY-5Y-fnl">
+                    <navigationItem key="navigationItem" title="本店訊息" id="3FY-5Y-fnl">
                         <barButtonItem key="leftBarButtonItem" image="HumburgerButton" id="Gah-Rh-FKD">
                             <connections>
                                 <action selector="toggleMenu:" destination="9pv-A4-QxB" id="B8x-am-T3p"/>
@@ -319,7 +319,7 @@
             </objects>
             <point key="canvasLocation" x="3926" y="905"/>
         </scene>
-        <!--Book Title View Controller-->
+        <!--漫畫分類-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
                 <viewController id="8rJ-Kc-sve" customClass="BookTitleViewController" customModule="ComicBookVIP" customModuleProvider="target" sceneMemberID="viewController">
@@ -332,14 +332,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.8862745098" green="0.98431372549999996" blue="0.85882352939999995" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
-                    <navigationItem key="navigationItem" id="eA1-gp-lW9">
+                    <navigationItem key="navigationItem" title="漫畫分類" id="eA1-gp-lW9">
                         <barButtonItem key="leftBarButtonItem" image="HumburgerButton" id="Krw-Gc-N12">
                             <connections>
-                                <action selector="toggleMenu:" destination="8rJ-Kc-sve" id="ww2-Yh-HeJ"/>
+                                <action selector="toggleMenu:" destination="8rJ-Kc-sve" id="kPb-2u-xAx"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="shoppingcart" id="5sQ-ZB-Do3"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="sysRightNvBarButton" destination="5sQ-ZB-Do3" id="44N-eU-Ufp"/>
                         <segue destination="1gl-2A-vcP" kind="show" identifier="openPushWindow3" id="fs7-Hf-POu"/>
                         <segue destination="elI-Rn-3PI" kind="show" identifier="openPushWindow1" id="Bh1-u5-y8B"/>
                         <segue destination="cqI-S8-eQ5" kind="show" identifier="openPushWindow2" id="hCA-Y4-ghw"/>
@@ -350,7 +352,7 @@
             </objects>
             <point key="canvasLocation" x="2160" y="1025"/>
         </scene>
-        <!--Favorite View Controller-->
+        <!--本蟲最愛-->
         <scene sceneID="AM8-Bl-mIl">
             <objects>
                 <viewController id="S8r-MG-jft" customClass="t3_FavoriteViewController" customModule="ComicBookVIP" customModuleProvider="target" sceneMemberID="viewController">
@@ -362,12 +364,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hBy-4c-Yes">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hBy-4c-Yes">
                                 <rect key="frame" x="0.0" y="68" width="600" height="532"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="LSH-LE-IFi">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="72" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LSH-LE-IFi" id="Ikj-df-Qfd">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -400,7 +402,7 @@
                                     <outlet property="delegate" destination="S8r-MG-jft" id="Fr2-R0-6m9"/>
                                 </connections>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="cgf-dV-oMz">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="cgf-dV-oMz">
                                 <rect key="frame" x="0.0" y="40" width="600" height="29"/>
                                 <segments>
                                     <segment title="First"/>
@@ -422,7 +424,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="hBy-4c-Yes" secondAttribute="trailing" constant="-20" id="uJ7-tV-lM0"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="mm7-Ng-86x">
+                    <navigationItem key="navigationItem" title="本蟲最愛" id="mm7-Ng-86x">
                         <barButtonItem key="leftBarButtonItem" image="HumburgerButton" id="Q10-4F-Sea">
                             <connections>
                                 <action selector="toggleMenu:" destination="S8r-MG-jft" id="ISe-OK-Tg0"/>
@@ -443,7 +445,7 @@
             </objects>
             <point key="canvasLocation" x="2160" y="1717"/>
         </scene>
-        <!--Store View Controller-->
+        <!--店址資訊-->
         <scene sceneID="rrW-Iz-bsd">
             <objects>
                 <viewController id="1At-Jp-yl3" customClass="t4_StoreViewController" customModule="ComicBookVIP" customModuleProvider="target" sceneMemberID="viewController">
@@ -490,7 +492,7 @@
                             <constraint firstAttribute="bottom" secondItem="5f4-sT-EDU" secondAttribute="bottom" constant="79" id="lPV-yE-sLX"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="bEE-bs-Tl7">
+                    <navigationItem key="navigationItem" title="店址資訊" id="bEE-bs-Tl7">
                         <barButtonItem key="leftBarButtonItem" image="HumburgerButton" id="vrR-K3-Gso">
                             <connections>
                                 <action selector="toggleMenu:" destination="1At-Jp-yl3" id="o1N-sy-Pb2"/>
@@ -778,7 +780,7 @@
         <!--書單總覽-->
         <scene sceneID="8eB-Gy-rAB">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="4mc-cI-0f8" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="4mc-cI-0f8" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="書單總覽" image="list" id="cPa-gy-q4n"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jtt-Th-iWG">
@@ -897,11 +899,11 @@
             </objects>
             <point key="canvasLocation" x="1472" y="1711"/>
         </scene>
-        <!--本店資訊-->
+        <!--店址資訊-->
         <scene sceneID="Kl0-KP-svj">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nhN-KG-o8t" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="本店資訊" image="pin" id="8m1-ON-BF1"/>
+                    <tabBarItem key="tabBarItem" title="店址資訊" image="pin" id="8m1-ON-BF1"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="l1g-Dv-m5Q">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -953,12 +955,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Og3-fz-pNN">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Og3-fz-pNN">
                                 <rect key="frame" x="0.0" y="20" width="600" height="580"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="ybY-LZ-zpz">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <rect key="frame" x="0.0" y="72" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ybY-LZ-zpz" id="igd-Te-4GR">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -1767,16 +1769,17 @@
         <image name="home" width="30" height="30"/>
         <image name="list" width="30" height="30"/>
         <image name="pin" width="30" height="30"/>
+        <image name="shoppingcart" width="30" height="30"/>
         <image name="star" width="30" height="30"/>
         <image name="window" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Uot-WS-En9"/>
+        <segue reference="lOP-5h-YkC"/>
+        <segue reference="Bh1-u5-y8B"/>
+        <segue reference="fs7-Hf-POu"/>
+        <segue reference="hCA-Y4-ghw"/>
+        <segue reference="tbL-PB-G8k"/>
         <segue reference="ZvE-XI-HFU"/>
-        <segue reference="zit-QD-xPi"/>
-        <segue reference="eEM-n9-gsW"/>
-        <segue reference="Z1x-b4-ZDY"/>
-        <segue reference="ZGt-OK-Rsu"/>
-        <segue reference="Cgc-bA-g6S"/>
+        <segue reference="Uot-WS-En9"/>
     </inferredMetricsTieBreakers>
 </document>
