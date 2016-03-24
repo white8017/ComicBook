@@ -7,7 +7,7 @@
 import UIKit
 private let reuseIdentifier = "Cell"
 
-class BookTitleViewController: UIViewController,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate,NSURLSessionDelegate,NSURLSessionDownloadDelegate,UIPopoverPresentationControllerDelegate{
+class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate,NSURLSessionDelegate,NSURLSessionDownloadDelegate,UIPopoverPresentationControllerDelegate{
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var scroll:UIScrollView!
     var scrollContent:UIScrollView!
@@ -16,17 +16,23 @@ class BookTitleViewController: UIViewController,UICollectionViewDelegateFlowLayo
 	var customSC = UISegmentedControl()
     var bookContent:[CostumCollectionView] = []
 	var myIndicator: UIActivityIndicatorView!
-
-    override func viewDidAppear(animated: Bool) {
-			print("view Did Appear")
-		    }
+	var rightButton = UIBarButtonItem()
+	
 	
 	func setView(){
 		let navigationBar = UINavigationBar(frame: CGRectMake(0, 0, self.view.frame.size.width,self.view.frame.size.height/10))
 		navigationBar.backgroundColor = UIColor.whiteColor()
 		let navigationItem = UINavigationItem()
 		navigationItem.title = "漫畫分類"
-		let rightButton = UIBarButtonItem(title: "編輯", style: UIBarButtonItemStyle.Plain, target: self, action: "editting:")
+		if appDelegate.vip == "1"{
+			rightButton = UIBarButtonItem(title: "編輯", style: UIBarButtonItemStyle.Plain, target: self, action: "editting:")
+		}else{
+			rightButton = UIBarButtonItem(image: UIImage(named: "shoppingcart"), style: UIBarButtonItemStyle.Plain, target: self, action: "borrow:")
+		
+		}
+		
+		
+		
 		navigationItem.rightBarButtonItem = rightButton
         
         //增加左側之 NavigationBar Button Item//
@@ -112,6 +118,13 @@ class BookTitleViewController: UIViewController,UICollectionViewDelegateFlowLayo
     
     
     }
+	
+	
+	func borrow(sender:UIBarButtonItem){
+		let menuView = menuViewController()
+		self.presentViewController(menuView, animated: true, completion: nil)
+		
+	}
 	
 	func scrollViewDidScroll(scrollView: UIScrollView) {
 		
@@ -232,6 +245,8 @@ class BookTitleViewController: UIViewController,UICollectionViewDelegateFlowLayo
     override func viewDidLoad() {
         super.viewDidLoad()
 		print("view did load")
+		
+		selectedTab = 1
         
 		let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
 		dispatch_async(queue) { () -> Void in
