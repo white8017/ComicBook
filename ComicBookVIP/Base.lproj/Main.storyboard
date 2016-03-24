@@ -292,7 +292,7 @@
                                     <outlet property="delegate" destination="S8r-MG-jft" id="Fr2-R0-6m9"/>
                                 </connections>
                             </tableView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="cgf-dV-oMz">
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="cgf-dV-oMz">
                                 <rect key="frame" x="0.0" y="40" width="600" height="29"/>
                                 <segments>
                                     <segment title="First"/>
@@ -1662,12 +1662,12 @@
         <image name="window" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zit-QD-xPi"/>
-        <segue reference="ZGt-OK-Rsu"/>
-        <segue reference="qdQ-Xp-Lzi"/>
-        <segue reference="Z1x-b4-ZDY"/>
-        <segue reference="Uot-WS-En9"/>
-        <segue reference="ZvE-XI-HFU"/>
+        <segue reference="BOT-wz-EeD"/>
         <segue reference="Cgc-bA-g6S"/>
+        <segue reference="bOe-Wd-Q4Q"/>
+        <segue reference="Xka-je-coF"/>
+        <segue reference="MhT-Tj-2FV"/>
+        <segue reference="ZvE-XI-HFU"/>
+        <segue reference="Uot-WS-En9"/>
     </inferredMetricsTieBreakers>
 </document>

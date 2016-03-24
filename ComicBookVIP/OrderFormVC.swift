@@ -128,7 +128,7 @@ class OrderFormVC: UIViewController, UITableViewDelegate, UITableViewDataSource,
     override func viewDidAppear(animated: Bool) {
 
     let userLbl = self.view.viewWithTag(301) as! UILabel
-        userLbl.text = "卓神 的訂單"
+        userLbl.text = "\(appDelegate.phoneNumber) 的訂單"
         
     }
     

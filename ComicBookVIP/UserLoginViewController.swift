@@ -125,7 +125,8 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
                 let alert = UIAlertController(title: nil, message:"登入成功", preferredStyle: .Alert)
                 let action = UIAlertAction(title: "OK", style: .Default, handler: { (alert:UIAlertAction) -> Void in
 //                    self.performSegueWithIdentifier("in", sender: nil)
-                 
+                    self.appDelegate.account = self.dataArray[self.i]["name"] as! String
+                    self.appDelegate.phoneNumber = self.dataArray[self.i]["phoneNumber"] as! String
                     let storyboard : UIStoryboard = UIStoryboard(
                         name: "Main",
                         bundle: nil)
@@ -156,7 +157,7 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
             }
         }
         //        print(dataArray[i-1]["name"] as! String)
-        appDelegate.account = dataArray[i]["name"] as! String
+
     }
     
 

@@ -45,7 +45,7 @@ class t3_FavoriteViewController: TabVCTemplate, UITableViewDelegate, UITableView
         // do stuff here
         
 
-        authorORbookName = "author"
+        authorORbookName = "bookName"
         self.loadData()
         
         self.myFavorites()
