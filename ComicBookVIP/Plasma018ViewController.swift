@@ -40,7 +40,7 @@ class Plasma018ViewController: UIViewController,UITableViewDelegate,UITableViewD
         // 標題列
 		let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height:self.view.frame.size.height/5))
 		self.view.addSubview(navBar);
-		let navItem = UINavigationItem(title: "SomeTitle");
+		let navItem = UINavigationItem(title: "編輯");
 		let doneItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "changeImage:");
 		navItem.rightBarButtonItem = doneItem;
 		navBar.setItems([navItem], animated: false);
@@ -115,7 +115,6 @@ class Plasma018ViewController: UIViewController,UITableViewDelegate,UITableViewD
 	
 	
     func enter(){
-
 		if((self.delegate) != nil)
 		{
 		upload(booktextfield.text!,items: bookItems)
@@ -159,12 +158,13 @@ class Plasma018ViewController: UIViewController,UITableViewDelegate,UITableViewD
 	func upload(bookName:String,items:String) {
 		let url = NSURL(string: "http://sashihara.100hub.net/vip/wuBookDetailsUpload1.php")
 		let number = appDelegate.bookName.indexOf(orderBookName)
-		print(number)
+		
+		
 		let request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
 		let submitBody:String = "bookSort=\(items)&bookName=\(bookName)"
+		
 		print("新增漫畫名稱:\(bookName)")
 		print("新增漫話類別:\(items)")
-		print("漫畫序號:\(number)")
 		request.HTTPMethod = "POST"
 		request.HTTPBody = submitBody.dataUsingEncoding(NSUTF8StringEncoding)
 		

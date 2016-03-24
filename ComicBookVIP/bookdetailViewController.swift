@@ -216,15 +216,15 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 	
 	func borrow(){
 		appDelegate.orderBookImage[bookName.text!] = bookImage.image
-		appDelegate.orderBookA[bookName.text!] = borrowBook
-        for (var i = 0;i<appDelegate.orderbook.count;i++){
-            if appDelegate.orderbook[i] == bookName.text!{
-            appDelegate.orderbook.removeAtIndex(appDelegate.orderbook.indexOf(bookName.text!)!)
+		appDelegate.orderBookNumber[bookName.text!] = borrowBook
+        for (var i = 0;i<appDelegate.orderBooktTitle.count;i++){
+            if appDelegate.orderBooktTitle[i] == bookName.text!{
+		appDelegate.orderBooktTitle.removeAtIndex(appDelegate.orderBooktTitle.indexOf(bookName.text!)!)
             }
         }
-		appDelegate.orderbook.append(bookName.text!)
+		appDelegate.orderBooktTitle.append(bookName.text!)
 		let a = menuViewController()
-        print(appDelegate.orderbook)
+        print(appDelegate.orderBooktTitle)
 		self.presentViewController(a, animated: true, completion: nil)
 		
 	}

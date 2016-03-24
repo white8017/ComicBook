@@ -17,12 +17,9 @@ class BookTitleViewController: UIViewController,UICollectionViewDelegateFlowLayo
     var bookContent:[CostumCollectionView] = []
 	var myIndicator: UIActivityIndicatorView!
 
-	
-	
     override func viewDidAppear(animated: Bool) {
 			print("view Did Appear")
 		    }
-	
 	
 	func setView(){
 		let navigationBar = UINavigationBar(frame: CGRectMake(0, 0, self.view.frame.size.width,self.view.frame.size.height/10))
@@ -36,14 +33,10 @@ class BookTitleViewController: UIViewController,UICollectionViewDelegateFlowLayo
         let homeImg = UIImage(named: "HumburgerButton") as UIImage?
         let leftButton = UIBarButtonItem(image: homeImg, style: UIBarButtonItemStyle.Plain, target: self, action: "theToggleMenu:")
         navigationItem.leftBarButtonItem = leftButton
-        // //
-        
+		
 		navigationBar.items = [navigationItem]
 		self.view.addSubview(navigationBar)
-        
-
-        
-		
+	
 		let itemsWidth = self.view.frame.size.width/3
 		
 		
@@ -99,6 +92,8 @@ class BookTitleViewController: UIViewController,UICollectionViewDelegateFlowLayo
         }
 	}
 	
+	
+	
     func editting(sender:UIBarButtonItem){
         
         if sender.title == "編輯"{
@@ -118,9 +113,6 @@ class BookTitleViewController: UIViewController,UICollectionViewDelegateFlowLayo
     
     }
 	
-	
-	
-
 	func scrollViewDidScroll(scrollView: UIScrollView) {
 		
 		if scrollView.tag == 1{

@@ -35,7 +35,6 @@ class CollectionViewCell: UICollectionViewCell,UINavigationControllerDelegate,UI
         indicator.transform = CGAffineTransformMakeScale(3, 3)
         
 		//cell照片樣式
-//		imageView = UIImageView(frame:CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
 		imageView.image = UIImage(named: "img_not_available")
 		imageView.frame = CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height)
         imageView.layer.cornerRadius = 10
@@ -91,6 +90,10 @@ class CollectionViewCell: UICollectionViewCell,UINavigationControllerDelegate,UI
 
 	required init?(coder aDecoder: NSCoder) {
 	    fatalError("init(coder:) has not been implemented")
+	}
+	
+	override func prepareForReuse() {
+		imageView.image = UIImage(named: "img_not_available")
 	}
 	
     

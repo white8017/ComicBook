@@ -5,7 +5,6 @@
 import UIKit
 
 class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,NSURLSessionDelegate,NSURLSessionDownloadDelegate,CollectionViewCellDelegate{
-	
     private let reuseIdentifier = "Cell"
     let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var canEditting = true
@@ -16,8 +15,7 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
     var sourceIndexPath:NSIndexPath? = nil;
 	//漫畫所屬的漫畫分類
 	var bookItems = "預設"
-//	//collectionView顯示的漫畫內容
-//	var bookName = ["絕叫學園", "進擊的巨人","鬼畜島","誠如神之所說"]
+	
 	var bookName = [String]()
 	var bookImage = [String:UIImage]()
 	var testImage : UIImage!
@@ -35,13 +33,11 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
         
 		//漫畫分類
 		print("漫畫所屬類別:\(bookItems)   漫畫內容:\(bookName)")
-//		downloadImage()
+
 		let pinch = UIPinchGestureRecognizer(target: self, action: "pinch:")
         
         self.addGestureRecognizer(pinch )
-//		print("create collectionview ok")
-		
-		
+
 		
     }
 
@@ -50,8 +46,6 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
     }
 	
     func pinch(gestureReconizer:UIPinchGestureRecognizer){
-//        let scale = gestureReconizer.scale
-//        let state = gestureReconizer.state
         let location = gestureReconizer.locationInView(self)
         print("two pinch location:\(location)")
         let indexPath = self.indexPathForItemAtPoint(location)
@@ -177,7 +171,7 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
                 let indexPathSame = indexPath?.isEqual(sourceIndexPath)
 				
                 if indexPathSame != nil{
-//                      print("indexPathSame:\(!indexPathSame!)")
+//					print("indexPathSame:\(!indexPathSame!)")
                     if indexPathBool && !indexPathSame!{
 //            print("sourceIndexPath:\(sourceIndexPath?.row)..........................")
 						
@@ -192,7 +186,6 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
         case UIGestureRecognizerState.Ended:
             
             if(sourceIndexPath != nil){
-//                print("default::::::::::::::")
                 arrayfinal = (sourceIndexPath?.row)!
             
      
@@ -216,7 +209,6 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
                         self.snapshot = nil
                         
 				//	交換書單的位置
-//                      print("self.bookName1:\(self.bookName)")
                 if(self.arrayfirst<self.arrayfinal){
                     self.bookName.insert(self.bookName[self.arrayfirst], atIndex: self.arrayfinal+1)
                     self.bookName.removeAtIndex(self.arrayfirst)
@@ -258,7 +250,7 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
 	
 	
 	func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-//		if scrollView.contentOffset.y + scrollView.frame.size.height > scrollView.contentSize.height{
+
         print(scrollView.contentOffset.y)
         if appDelegate.canEitting{
         if scrollView.contentOffset.y < 1{
@@ -284,34 +276,9 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
             }
         }//canEitting end
 	}
-//    func scrollViewDidScroll(scrollView: UIScrollView) {
-//		print(scrollView.contentOffset.y)
-//		if scrollView.contentOffset.y < -40{
-//			
-//			self.performBatchUpdates({ () -> Void in
-//				self.bookName.insert("預設", atIndex: 0)
-//				print(self.bookName)
-//				
-//				
-//				var arrayWithIndexPaths:[NSIndexPath] = []
-//				for(var i=0;i<1;i++){
-//					arrayWithIndexPaths.append(  NSIndexPath(forRow:i, inSection: 0))
-//					
-//					
-//				}
-//				
-//				self.insertItemsAtIndexPaths(arrayWithIndexPaths)
-//				
-//				self.upload("預設",items:self.bookItems)
-//				
-//				}, completion: nil)
-//			
-//			
-//		}
-//
-//    }
-//	
+
 	
+
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return bookName.count
     }
@@ -389,8 +356,10 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
 	
 	
 	
-//線上資料庫有關的動作
 	
+	
+	
+//線上資料庫有關的動作
 //下載線上資料
 	func loadData(bookItems:String) {
 		let url = NSURL(string:"http://sashihara.100hub.net/vip/downloadBook.php")
@@ -437,6 +406,8 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
 		}
 		
 	}
+
+	
 	
 //新增漫畫
 	func upload(bookName:String,items:String) {
@@ -454,6 +425,7 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
 		let dataTask = session.downloadTaskWithRequest(request)
 		dataTask.resume()
 	}
+	
 	
 	
 //修改資料
@@ -477,6 +449,7 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
 		}
 	}
 	
+	
 //刪除書本
 	func deleteBook (bookName:String) {
 		let url = NSURL(string: "http://sashihara.100hub.net/vip/wuBookDetailsDelete.php")
@@ -498,7 +471,6 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
 	
 	
 //下載圖片資料
-	
     func downloadImage(bookName:String, imageview:UIImageView,indicator:UIActivityIndicatorView){
 		let link = "http://sashihara.100hub.net/vip/img/img/a\(bookName).jpg"
         let url:NSURL =  NSURL(string: link.stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)!)!

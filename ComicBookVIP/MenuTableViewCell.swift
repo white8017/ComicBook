@@ -9,7 +9,6 @@
 import UIKit
 
 class MenuTableViewCell: UITableViewCell {
- 
     var cellEpisode = UILabel()
 	var cellMoney = UILabel()
 	var amount = 0
@@ -28,11 +27,7 @@ class MenuTableViewCell: UITableViewCell {
     override func layoutSubviews() {
 		cellEpisode.frame =  CGRect(x: 20, y: 0, width: self.bounds.size.width/4, height: self.bounds.size.height)
 		cellMoney.frame =  CGRect(x: cellEpisode.frame.maxX, y: 0, width: self.bounds.size.width/4, height: self.bounds.size.height)
-//		cellEpisode.text = String("第一集")
 		cellMoney.text = "$"+String(money)
-		
-		
-
     }
 	
     

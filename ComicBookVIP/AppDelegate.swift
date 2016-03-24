@@ -13,8 +13,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 	var orderBookImage = [String:UIImage]()
-	var orderbook=[String]()
-	var orderBookA = [String:[String]]()
+	var orderBooktTitle=[String]()
+	var orderBookNumber = [String:[String]]()
 	var canEitting = false
 	var bookName = [String]()
     var account = ""
