@@ -357,10 +357,36 @@ class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,
 		}
 		
 	}
-    
+	
+	override func viewDidAppear(animated: Bool) {
+		setTabBarVisible(!tabBarIsVisible(), animated: true)
+	}
+	
+	
     //左側 NavigationBar Button 專用動作
     func theToggleMenu(sender:UIBarButtonItem) {
         NSNotificationCenter.defaultCenter().postNotificationName("toggleMenu", object: nil)
     }
-    
+	
+	func setTabBarVisible(visible:Bool, animated:Bool) {
+		if (tabBarIsVisible() == visible) {
+			return
+		}
+		
+		let frame = self.tabBarController?.tabBar.frame
+		let onsetY = (visible ? -49.0 : CGFloat(0))
+		
+		let duration:NSTimeInterval = (animated ? 0.1 : 0.0)
+		
+		if frame != nil {
+			UIView.animateWithDuration(duration) {
+				self.tabBarController?.tabBar.frame = CGRectOffset(frame!, 0, onsetY)
+				return
+			}
+		}
+	}
+	func tabBarIsVisible() ->Bool {
+		return self.tabBarController?.tabBar.frame.origin.y < CGRectGetMaxY(self.view.frame)
+	}
+	
 }
