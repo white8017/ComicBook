@@ -24,6 +24,10 @@ class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,
     var bookContent:[CostumCollectionView] = []
 	var myIndicator: UIActivityIndicatorView!
 	var rightButton = UIBarButtonItem()
+	var carImage = UIView()
+	
+	
+	
 	
 	
 	func setView(){
@@ -32,13 +36,18 @@ class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,
 		let navigationItem = UINavigationItem()
 		navigationItem.title = "漫畫分類"
 		if appDelegate.vip == "1"{
-			rightButton = UIBarButtonItem(title: "編輯", style: UIBarButtonItemStyle.Plain, target: self, action: "editting:")
+//			rightButton = UIBarButtonItem(title: "編輯", style: UIBarButtonItemStyle.Plain, target: self, action: "editting:")
+			sysRightNvBarButton = UIBarButtonItem(title: "編輯", style: UIBarButtonItemStyle.Plain, target: self, action: "editting:")
 		}else{
-			rightButton = UIBarButtonItem(image: UIImage(named: "shoppingcart"), style: UIBarButtonItemStyle.Plain, target: self, action: "borrow:")
+//			rightButton = UIBarButtonItem(image: UIImage(named: "shoppingcart"), style: UIBarButtonItemStyle.Plain, target: self, action: "borrow:")
+			
 		
+			carImage = UIView(frame:CGRect(x: 0, y: 0, width: 20, height: 20))
+			carImage.backgroundColor = UIColor.redColor()
+			rightButton = UIBarButtonItem(customView: carImage)
 		}
 		
-		
+	
 		
 		navigationItem.rightBarButtonItem = rightButton
         
@@ -127,11 +136,11 @@ class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,
     }
 	
 	
-	func borrow(sender:UIBarButtonItem){
-		let menuView = menuViewController()
-		self.presentViewController(menuView, animated: true, completion: nil)
-		
-	}
+//	func borrow(sender:UIBarButtonItem){
+//		let menuView = menuViewController()
+//		self.presentViewController(menuView, animated: true, completion: nil)
+//		
+//	}
 	
 	func scrollViewDidScroll(scrollView: UIScrollView) {
 		
@@ -360,6 +369,20 @@ class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,
 	
 	override func viewDidAppear(animated: Bool) {
 		setTabBarVisible(!tabBarIsVisible(), animated: true)
+		
+		
+		if appDelegate.vip == "1"{
+			//			rightButton = UIBarButtonItem(title: "編輯", style: UIBarButtonItemStyle.Plain, target: self, action: "editting:")
+			sysRightNvBarButton = UIBarButtonItem(title: "編輯", style: UIBarButtonItemStyle.Plain, target: self, action: "editting:")
+		}else{
+			//			rightButton = UIBarButtonItem(image: UIImage(named: "shoppingcart"), style: UIBarButtonItemStyle.Plain, target: self,
+		}
+		
+		sysRightNvBarButton = UIBarButtonItem(title: "編輯", style: UIBarButtonItemStyle.Plain, target: self, action: "editting:")
+		sysRightNvBarButton.title = "123"
+	
+		
+		
 	}
 	
 	
@@ -387,6 +410,12 @@ class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,
 	}
 	func tabBarIsVisible() ->Bool {
 		return self.tabBarController?.tabBar.frame.origin.y < CGRectGetMaxY(self.view.frame)
+	}
+	
+	@IBAction func sysRightNvBarAction(sender: AnyObject) {
+		let menuView = menuViewController()
+		self.presentViewController(menuView, animated: true, completion: nil)
+		
 	}
 	
 }
