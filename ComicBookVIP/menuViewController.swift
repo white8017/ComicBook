@@ -9,43 +9,42 @@
 import UIKit
 
 class menuViewController: UIViewController,NSURLSessionDelegate,UITableViewDataSource,UITableViewDelegate{
+	//漫畫總數
 	var amount = 0
+	//漫畫金流
 	var money = 100
+	
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 	var menuArray = [menuO]()
 	var bookimage = [String:UIImage]()
-	var orderbook = [String]()
-	var orderbook2 = [String:[String]]()
 	var book = [[String]]()
 	var open = [CGFloat]()
 	var tableView =  UITableView()
-	
-	
-	
+	var booknumber = UILabel()
+	var bookmoney = UILabel()
 	
    	var epsoide = ["第1集","第2集","第3集","第4集","第5集","第6集","第7集","第8集","第9集","第10集","第11集","第12集","第13集","第14集","第15集","第16集","第17集","第18集","第19集","第20集","第21集","第22集","第23集","第24集","第25集","第26集","第27集","第28集","第29集","第30集","第31集","第32集","第33集","第34集","第35集","第36集","第37集","第38集","第39集","第40集","第41集","第42集","第43集","第44集","第45集","第46集","第47集","第48集","第49集","第50集","第51集","第52集","第53集","第54集","第55集"]
 	
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("appDelegate.orderBookA:\(appDelegate.orderBooktTitle)")
-        print("appDelegate.orderBookA:\(appDelegate.orderBookNumber)")
+        print("借閱書籍:\(appDelegate.orderBooktTitle)")
+        print("借閱書本數:\(appDelegate.orderBookNumber)")
 		
 	
-		orderbook = appDelegate.orderBooktTitle
 		for(var i = 0;i<appDelegate.orderBookNumber.count;i++){
 			open.append(0)
 		}
 		
 		
 		
-		var amount = 0
+
 		for number in appDelegate.orderBookNumber{
 			for _ in number.1{
 				amount++
 			}
 		}
-		print("amount=\(amount)")
+		print("書本總數=\(amount)")
 		
 		
         let navigationBar = UINavigationBar(frame: CGRectMake(0, 0, self.view.frame.size.width,self.view.frame.size.height/10))
@@ -61,7 +60,6 @@ class menuViewController: UIViewController,NSURLSessionDelegate,UITableViewDataS
 		tableView = UITableView(frame:CGRect(x:0, y: navigationBar.frame.maxY, width: self.view.frame.size.width, height: self.view.frame.size.height/10*9), style: UITableViewStyle.Plain)
 		tableView.separatorColor = UIColor.clearColor()
 		self.view.addSubview(tableView)
-		
 		tableView.delegate = self
 		tableView.dataSource = self
 		tableView.registerClass(MenuTableViewCell.self, forCellReuseIdentifier: "cell")
@@ -76,16 +74,15 @@ class menuViewController: UIViewController,NSURLSessionDelegate,UITableViewDataS
 
 		
 		let book = UIImageView(frame: CGRect(x:bottom.frame.size.width/6, y: bottom.frame.size.height/8, width: bottom.frame.size.width/6, height: bottom.frame.size.height/8*6))
-		let booknumber = UILabel(frame:CGRect(x:book.frame.maxX+20, y: bottom.frame.size.height/8, width: bottom.frame.size.width/6, height: bottom.frame.size.height/8*6))
-			booknumber.text = "\(amount)"
-			booknumber.font = UIFont.systemFontOfSize(30)
+		booknumber.frame = CGRect(x:book.frame.maxX+20, y: bottom.frame.size.height/8, width: bottom.frame.size.width/6, height: bottom.frame.size.height/8*6)
+		booknumber.text = "\(amount)"
+		booknumber.font = UIFont.systemFontOfSize(30)
 		let money = UIImageView(frame: CGRect(x: booknumber.frame.maxX, y: bottom.frame.size.height/8, width: bottom.frame.size.width/6, height: bottom.frame.size.height/8*6))
-		let bookmoney =  UILabel(frame:CGRect(x:money.frame.maxX+20, y: bottom.frame.size.height/8, width: bottom.frame.size.width/6, height: bottom.frame.size.height/8*6))
+		bookmoney.frame = CGRect(x:money.frame.maxX+20, y: bottom.frame.size.height/8, width: bottom.frame.size.width/6, height: bottom.frame.size.height/8*6)
 		bookmoney.text = "\(5*amount)"
 		bookmoney.font = UIFont.systemFontOfSize(30)
 		
 		money.image = UIImage(named: "attach_money_48px_1181665_easyicon.net")
-		
 		book.image = UIImage(named: "book_bookmark_36.463519313305px_1185565_easyicon.net")
 		bottom.addSubview(booknumber)
 		bottom.addSubview(book)
@@ -97,7 +94,10 @@ class menuViewController: UIViewController,NSURLSessionDelegate,UITableViewDataS
 	func cancel(){
 		self.dismissViewControllerAnimated(true, completion: nil)
 	}
-    
+	
+	
+	
+//借閱訂單
 	func sendOrder(){
 		print(appDelegate.orderBooktTitle)
 		let alertController=UIAlertController(title: "謝謝借閱", message: "\n\n\n\n", preferredStyle: UIAlertControllerStyle.Alert)
@@ -125,7 +125,7 @@ class menuViewController: UIViewController,NSURLSessionDelegate,UITableViewDataS
         // Dispose of any resources that can be recreated.
     }
 	
-	
+//展開選單
 	func tap(gestureReconizer: UITapGestureRecognizer){
 		
 		print((gestureReconizer.view?.tag)!)
@@ -162,7 +162,6 @@ class menuViewController: UIViewController,NSURLSessionDelegate,UITableViewDataS
 	
 	
 	func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-		
 		return CGFloat(open[indexPath.section])
 	}
 	
@@ -172,8 +171,6 @@ class menuViewController: UIViewController,NSURLSessionDelegate,UITableViewDataS
 		menuArray[section].tag = section
 		
 		menuArray[section].celltitle.text = appDelegate.orderBooktTitle[section]
-		
-		
 		
 		menuArray[section].cellImageView.image = appDelegate.orderBookImage[appDelegate.orderBooktTitle[section]]
 		
@@ -196,16 +193,20 @@ class menuViewController: UIViewController,NSURLSessionDelegate,UITableViewDataS
 		if editingStyle == .Delete{
 			appDelegate.orderBookNumber[appDelegate.orderBooktTitle[indexPath.section]]?.removeAtIndex(indexPath.row)
 		}
+		amount--
+		booknumber.text = "\(amount)"
+		bookmoney.text = "\(5*amount)"
+		
 		if appDelegate.orderBookNumber[appDelegate.orderBooktTitle[indexPath.section]]! == []{
 			appDelegate.orderBooktTitle.removeAtIndex(indexPath.section)
 		}
 		
-		
+
 		
 		
 		tableView.reloadData()
-		print("appDelegate.orderBookA:\(appDelegate.orderBookNumber)")
-		
+		print("訂閱書本總數:\(appDelegate.orderBookNumber)")
+		print("訂閱書本:\(appDelegate.orderBooktTitle)")
 		
 		
 	}
