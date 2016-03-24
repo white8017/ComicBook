@@ -48,8 +48,7 @@ class Plasma018ViewController: UIViewController,UITableViewDelegate,UITableViewD
         // 按鈕
         let enterBty = UIButton(type: UIButtonType.System)
         let clearBty = UIButton(type: UIButtonType.System)
-      
-        
+		
         enterBty.setTitle("ENTER", forState: UIControlState.Normal)
         clearBty.setTitle("CLEAR", forState: UIControlState.Normal)
         let buttonW = viewS.width/2
@@ -69,18 +68,7 @@ class Plasma018ViewController: UIViewController,UITableViewDelegate,UITableViewD
         enterBty.addSubview(borderCenter)
         self.view.addSubview(clearBty)
         self.view.addSubview(enterBty)
-		
-		
-//        let scrollView = UIScrollView(frame:CGRectMake(0,navBar.frame.maxY+10,viewS.width,viewS.height/2))
-//        scrollView.contentSize = CGSize(width:viewS.width*3 , height:scrollView.frame.size.height)
-//
-//
-//		
-//        scrollView.pagingEnabled = true
-//        scrollView.showsHorizontalScrollIndicator = false
-//    
-//        self.view.addSubview(scrollView)
-		
+
 		let imgWidth = self.view.frame.size.width*0.6
 		let imgHeight = self.view.frame.size.height*0.6
 		
@@ -92,12 +80,7 @@ class Plasma018ViewController: UIViewController,UITableViewDelegate,UITableViewD
         imageView.layer.borderColor = UIColor.grayColor().CGColor
         imageView.layer.borderWidth = 1.0
         imageView.clipsToBounds = true
-		
-        
-//        textLabel = UILabel(frame: CGRect(x: 0, y:(imageView.frame.size.height-imageView.frame.size.height/3), width: imageView.frame.size.width, height: imageView.frame.size.height/3))
-//        textLabel.backgroundColor=UIColor.blackColor()
-//        textLabel.alpha=0.5
-//        textLabel.textAlignment = .Center
+	
 		
 		booktextfield.frame = CGRect(x: 0, y:(imageView.frame.size.height-imageView.frame.size.height/3), width: imageView.frame.size.width, height: imageView.frame.size.height/3)
 		booktextfield.textAlignment = .Center
@@ -109,38 +92,10 @@ class Plasma018ViewController: UIViewController,UITableViewDelegate,UITableViewD
 		booktextfield.delegate = self
 		booktextfield.font = UIFont.systemFontOfSize(20)
 		imageView.userInteractionEnabled = true
-		
-//        textLabel1.frame = CGRect(x: 0, y:(imageView.frame.size.height-imageView.frame.size.height/3), width: imageView.frame.size.width, height: imageView.frame.size.height/3)
-//        textLabel1.font = UIFont.systemFontOfSize(UIFont.smallSystemFontSize())
-//        textLabel1.font = textLabel.font.fontWithSize(20)
-//        textLabel1.textColor = UIColor.whiteColor()
-//        textLabel1.textAlignment = .Center
+
 		self.view.addSubview(imageView)
-//        imageView.addSubview(textLabel)
 		imageView.addSubview(booktextfield)
-		
-        
-        //簡介編輯
-//		mySummary = UITextView(frame: CGRect(x:scrollView.frame.size.width+10, y:10, width: scrollView.frame.size.width-20, height: scrollView.frame.height-20))
-//        
-//        mySummary.backgroundColor = UIColor.whiteColor()
-//        mySummary.layer.borderWidth = 2
-//        mySummary.layer.borderColor = UIColor.grayColor().CGColor
-//        mySummary.layer.cornerRadius = 10
-//        scrollView.addSubview(mySummary)
-//		
-//		
-//		
-//		let tabletextfield = UITableView(frame:CGRect(x:scrollView.frame.size.width*2, y: 0, width: viewS.width, height: viewS.height), style: UITableViewStyle.Plain)
-//		
-//		tabletextfield.delegate = self
-//		tabletextfield.dataSource = self
-//		tabletextfield.layer.borderWidth = 1
-//		tabletextfield.layer.borderColor = UIColor.grayColor().CGColor
-//		tabletextfield.layer.cornerRadius = 10
-//		tabletextfield.scrollEnabled = false
-//		tabletextfield.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cell")
-//		scrollView.addSubview(tabletextfield)
+
     }
 	
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -150,51 +105,6 @@ class Plasma018ViewController: UIViewController,UITableViewDelegate,UITableViewD
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		
 		let cell:UITableViewCell = tableView.dequeueReusableCellWithIdentifier("cell")! as UITableViewCell
-//		
-//		//        cell.accessoryType = UITableViewCellAccessoryNone;
-//		cell.selectionStyle = UITableViewCellSelectionStyle.None
-//		cell.backgroundColor = UIColor.clearColor()
-//		
-//		let label = UILabel(frame: CGRect(x: 10, y: 0, width: cell.frame.size.width/6, height: cell.frame.size.height))
-//		
-//		
-//		label.text = "title"
-//		
-//		textfield = UITextField(frame: CGRect(x: label.frame.maxX, y: 0, width: cell.frame.size.width/3, height: cell.frame.size.height))
-//		
-//		
-//		
-//		
-//		textfield.adjustsFontSizeToFitWidth = true;
-//		//textfield.textColor = [UIColor blackColor];
-//		//textfield.backgroundColor = [UIColor whiteColor];
-//		textfield.autocorrectionType = UITextAutocorrectionType.No;
-//		textfield.autocapitalizationType = UITextAutocapitalizationType.None;
-//		textfield.clearButtonMode = UITextFieldViewMode.Never;
-//		textfield.delegate = self
-//		
-//		if indexPath.row == 0{
-//			label.text = "title"
-//			textfield.placeholder = "title"
-//			dataArray.append(textfield)
-//		}
-//		if indexPath.row == 1{
-//			label.text = "AUTHOR"
-//			textfield.placeholder = "author"
-//			dataArray.append(textfield)
-//		}
-//		if indexPath.row == 2{
-//			label.text = "volumn"
-//			dataArray.append(textfield)
-//		}
-//		
-//		
-//		cell.layer.borderColor = UIColor.grayColor().CGColor
-//		cell.layer.borderWidth = 1
-//		
-//		cell.addSubview(label)
-//		cell.addSubview(textfield)
-//		
 		return cell
 		
 	}
@@ -205,13 +115,7 @@ class Plasma018ViewController: UIViewController,UITableViewDelegate,UITableViewD
 	
 	
     func enter(){
-//		print("編輯漫畫名稱:\(dataArray[0].text)")
-//		print("編輯漫畫作者:\(dataArray[1].text)")
-//		print("編輯漫畫集數:\(dataArray[2].text)")
-//		print("編輯漫畫簡介:\(mySummary.text)")
-		
-		
-		
+
 		if((self.delegate) != nil)
 		{
 		upload(booktextfield.text!,items: bookItems)
@@ -270,20 +174,6 @@ class Plasma018ViewController: UIViewController,UITableViewDelegate,UITableViewD
 		dataTask.resume()
 	}
 	
-	
-	//UPloadImage
-//	func myImageUploadRequest(){
-//		let myUrl = NSURL(string: "http://sashihara.100hub.net/vip/img/imgUpload.php");
-//		
-//		let request = NSMutableURLRequest(URL:myUrl!);
-//		request.HTTPMethod = "POST";
-//	
-//	
-//	
-//	
-//	}
-
-	
 	func myImageUploadRequest()
 	{
 		
@@ -310,10 +200,6 @@ class Plasma018ViewController: UIViewController,UITableViewDelegate,UITableViewD
 		
 		request.HTTPBody = createBodyWithParameters(param, filePathKey: "file", imageDataKey: imageData!, boundary: boundary)
 		
-		
-//		
-//		actIV.startAnimating();
-		
 		let task = NSURLSession.sharedSession().dataTaskWithRequest(request) {
 			data, response, error in
 			
@@ -324,7 +210,7 @@ class Plasma018ViewController: UIViewController,UITableViewDelegate,UITableViewD
 			
 			dispatch_async(dispatch_get_main_queue(),{
 //				self.actIV.stopAnimating()
-				//                self.myImgView.image = nil;
+//                self.myImgView.image = nil;
 			});
 			
 		

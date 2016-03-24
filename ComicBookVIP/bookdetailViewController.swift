@@ -8,7 +8,7 @@
 
 import UIKit
 
-class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,UITextViewDelegate,UIPopoverPresentationControllerDelegate,NSURLSessionDelegate,NSURLSessionDownloadDelegate{
+class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,UITextViewDelegate,UIPopoverPresentationControllerDelegate,NSURLSessionDelegate,NSURLSessionDownloadDelegate,UITextFieldDelegate{
 	var titleView = UIView()
 	let good = UIView()
 	var bookImage = UIImageView()
@@ -184,7 +184,7 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 		edtingAuthor.layer.borderColor = UIColor.grayColor().CGColor
 		edtingAuthor.layer.cornerRadius = 5
 		edtingAuthor.backgroundColor = UIColor.whiteColor()
-		
+		edtingAuthor.delegate = self
 		
 		
 		
@@ -205,8 +205,10 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 		edtingSummary.layer.borderWidth = 1
 		edtingSummary.layer.borderColor = UIColor.grayColor().CGColor
 		edtingSummary.font = UIFont.systemFontOfSize(20)
+		edtingSummary.delegate = self
 		edting.addSubview(edtingSummary)
 		edting.userInteractionEnabled = true
+		
 	
 	}
 	
@@ -254,6 +256,7 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 	
     
     func edting1(){
+		
         if edting.frame.minY == self.view.frame.maxY{
             rightButton.title = "完成"
         UIView.transitionWithView(edting, duration: 1, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
@@ -320,14 +323,16 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 //書籍評分
     func grade(){
         let alertController=UIAlertController(title: "grade", message: "\n\n\n\n", preferredStyle: UIAlertControllerStyle.Alert)
-
-
-        
-        
+		
         let cancelAction = UIAlertAction(title: "CANCEL", style: UIAlertActionStyle.Cancel, handler: nil)
         alertController.addAction(cancelAction)
         self.presentViewController(alertController, animated: true, completion: nil)
     }
+	
+	func textFieldShouldReturn(textField: UITextField) -> Bool {
+		textField.resignFirstResponder()
+		return true
+	}
 	
 	
 	
