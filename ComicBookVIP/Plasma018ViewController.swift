@@ -253,11 +253,11 @@ class Plasma018ViewController: UIViewController,UITableViewDelegate,UITableViewD
 	
 	//新增漫畫
 	func upload(bookName:String,items:String) {
-		let url = NSURL(string: "http://sashihara.100hub.net/vip/wuBookDetailsUpload.php")
+		let url = NSURL(string: "http://sashihara.100hub.net/vip/wuBookDetailsUpload1.php")
 		let number = appDelegate.bookName.indexOf(orderBookName)
 		print(number)
 		let request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
-		let submitBody:String = "bookSort=\(items)&bookName=\(bookName)&orderN=\(number!)"
+		let submitBody:String = "bookSort=\(items)&bookName=\(bookName)"
 		print("新增漫畫名稱:\(bookName)")
 		print("新增漫話類別:\(items)")
 		print("漫畫序號:\(number)")

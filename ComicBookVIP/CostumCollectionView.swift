@@ -11,6 +11,7 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
     var canEditting = true
     var arrayfirst = 0;
     var arrayfinal = 0;
+	
     var snapshot:UIView? = nil;
     var sourceIndexPath:NSIndexPath? = nil;
 	//漫畫所屬的漫畫分類
@@ -439,7 +440,7 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
 	
 //新增漫畫
 	func upload(bookName:String,items:String) {
-		let url = NSURL(string: "http://sashihara.100hub.net/vip/wuBookDetailsUpload.php")
+		let url = NSURL(string: "http://sashihara.100hub.net/vip/wuBookDetailsUpload1.php")
 		let request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
 		let submitBody:String = "bookSort=\(items)&bookName=\(bookName)"
 		print("新增漫畫名稱:\(bookName)")
