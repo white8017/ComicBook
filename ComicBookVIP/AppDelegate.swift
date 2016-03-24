@@ -26,14 +26,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var storedNumber = userDefault.objectForKey("phoneNumber")
         var storedName = userDefault.objectForKey("name")
         
-        print("app:stored = \(storedNumber!)")
+
         if storedName != nil {
             account = storedName! as! String
         }
-        print(storedName!)
-        
-        phoneNumber = storedNumber! as! String
-        
+
+        if storedNumber != nil {
+            phoneNumber = storedNumber! as! String
+        }
+//        print("app:stored = \(storedNumber!)")
+//        print(storedName!)
+        print("app:name = \(account)")
         print("app:phone = \(phoneNumber)")
         
         // Override point for customization after application launch.
