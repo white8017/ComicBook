@@ -15,6 +15,8 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
     var i = 0;
     let width = CGFloat(2.0)
     
+    var userDefault = NSUserDefaults.standardUserDefaults() // 就像是在 Android 上的 SharedPreference一樣，暫存於 App 中，直到程式被移除才會消失
+    
     var txtPhone: UITextField = UITextField(frame: CGRect(x: Screen.width / 2, y: Screen.height / 5, width:20, height: 40))
     var txtPasswd: UITextField = UITextField(frame: CGRect(x: Screen.width / 2, y: Screen.height / 5 * 1.5, width:20, height: 40))
     
@@ -37,6 +39,10 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
     
     
     override func viewDidAppear(animated: Bool) {
+        
+            print("phoneNumber: \(appDelegate.phoneNumber)")
+        var storedNumber = userDefault.objectForKey("phoneNumber")
+        print("storedNumber : \(storedNumber!)")
         
         UIView.transitionWithView(self.view, duration: 1.5, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
             
@@ -130,8 +136,18 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
                 let alert = UIAlertController(title: nil, message:"登入成功", preferredStyle: .Alert)
                 let action = UIAlertAction(title: "OK", style: .Default, handler: { (alert:UIAlertAction) -> Void in
 //                    self.performSegueWithIdentifier("in", sender: nil)
+
+                    
                     self.appDelegate.account = self.dataArray[self.i]["name"] as! String
                     self.appDelegate.phoneNumber = self.dataArray[self.i]["phoneNumber"] as! String
+                    self.userDefault.setObject(self.dataArray[self.i]["phoneNumber"] as! String, forKey: "phoneNumber")
+                    self.userDefault.synchronize()
+                    
+                    var storedNumber = self.userDefault.objectForKey("phoneNumber")
+                    
+                    self.appDelegate.phoneNumber = storedNumber! as! String
+                    print("appDelegatePhone \(self.appDelegate.phoneNumber)")
+                    
                     
                     let storyboard : UIStoryboard = UIStoryboard(
                         name: "Main",
@@ -220,6 +236,8 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
             alert.addButtonWithTitle("OK")
             alert.show()
         }
+        
+
         
         
     }
