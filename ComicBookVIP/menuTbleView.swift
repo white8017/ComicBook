@@ -84,7 +84,7 @@ class menuTbleView: UITableView,UITableViewDelegate,UITableViewDataSource{
 		menuArray.append(menu(frame: CGRect(x: 0, y: 0, width: self.frame.size.width, height: 80)))
 		menuArray[section].tag = section
 		menuArray[section].celltitle.text = orderbook[section]
-		menuArray[section].cellImageView.image = UIImage(named:orderbook[section])
+		menuArray[section].cellImageView.image = appDelegate.orderBookImage[orderbook[section]]
 		menuArray[section].cellNumber.text = String(orderbook2[orderbook[section]]!.count)
 		menuArray[section].cellmoney.text =	"$"+String(orderbook2[orderbook[section]]!.count*5)
 		let tap = UITapGestureRecognizer(target: self, action:"tap:")

@@ -213,7 +213,7 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 	
 	
 	func borrow(){
-		
+		appDelegate.orderBookImage[bookName.text!] = bookImage.image
 		appDelegate.orderBookA[bookName.text!] = borrowBook
         for (var i = 0;i<appDelegate.orderbook.count;i++){
             if appDelegate.orderbook[i] == bookName.text!{

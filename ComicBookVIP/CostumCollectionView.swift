@@ -11,6 +11,7 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
     var canEditting = true
     var arrayfirst = 0;
     var arrayfinal = 0;
+	
     var snapshot:UIView? = nil;
     var sourceIndexPath:NSIndexPath? = nil;
 	//漫畫所屬的漫畫分類
