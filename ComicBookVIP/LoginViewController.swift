@@ -99,6 +99,8 @@ class LoginViewController: UIViewController, NSURLSessionDelegate, NSURLSessionD
 
                 let alert = UIAlertController(title: nil, message:"登入成功", preferredStyle: .Alert)
                 let action = UIAlertAction(title: "OK", style: .Default, handler: { (alert:UIAlertAction) -> Void in
+                    self.appDelegate.account = self.dataArray[self.i]["name"] as! String
+                    self.appDelegate.phoneNumber = self.dataArray[self.i]["phoneNumber"] as! String
                     self.performSegueWithIdentifier("in", sender: nil)
                     print("yes!")
                 })
@@ -124,7 +126,7 @@ class LoginViewController: UIViewController, NSURLSessionDelegate, NSURLSessionD
 //        print(dataArray[i-1]["name"] as! String)
         
         
-        appDelegate.account = dataArray[i]["name"] as! String
+        
     }
     
     func loadData() {

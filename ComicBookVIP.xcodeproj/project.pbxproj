@@ -26,6 +26,7 @@
 		1966384F1CA16044001310F1 /* delayRerutnBookBoss.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638451CA16044001310F1 /* delayRerutnBookBoss.swift */; };
 		196638501CA16044001310F1 /* rentArrayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638461CA16044001310F1 /* rentArrayVC.swift */; };
 		196638511CA16044001310F1 /* NSDATE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638471CA16044001310F1 /* NSDATE.swift */; };
+		1977D5BD1CA3673B00D0F1BF /* OrderFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1977D5BC1CA3673B00D0F1BF /* OrderFormVC.swift */; };
 		4AAF41261CA22D8F00D2962C /* BookTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF411E1CA22D8F00D2962C /* BookTitleViewController.swift */; };
 		4AAF41271CA22D8F00D2962C /* CostumCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF411F1CA22D8F00D2962C /* CostumCollectionView.swift */; };
 		4AAF41281CA22D8F00D2962C /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF41201CA22D8F00D2962C /* CollectionViewCell.swift */; };
@@ -81,6 +82,7 @@
 		196638451CA16044001310F1 /* delayRerutnBookBoss.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = delayRerutnBookBoss.swift; sourceTree = "<group>"; };
 		196638461CA16044001310F1 /* rentArrayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rentArrayVC.swift; sourceTree = "<group>"; };
 		196638471CA16044001310F1 /* NSDATE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDATE.swift; sourceTree = "<group>"; };
+		1977D5BC1CA3673B00D0F1BF /* OrderFormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderFormVC.swift; sourceTree = "<group>"; };
 		4AAF411E1CA22D8F00D2962C /* BookTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTitleViewController.swift; sourceTree = "<group>"; };
 		4AAF411F1CA22D8F00D2962C /* CostumCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostumCollectionView.swift; sourceTree = "<group>"; };
 		4AAF41201CA22D8F00D2962C /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				196638451CA16044001310F1 /* delayRerutnBookBoss.swift */,
 				196638461CA16044001310F1 /* rentArrayVC.swift */,
 				196638471CA16044001310F1 /* NSDATE.swift */,
+				1977D5BC1CA3673B00D0F1BF /* OrderFormVC.swift */,
 			);
 			name = fileHao;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				A12483251C9A577800A7CE2A /* m1_UserInformation.swift in Sources */,
 				1966384B1CA16044001310F1 /* Page2ViewController.swift in Sources */,
 				4AAF412A1CA22D8F00D2962C /* bookdetailViewController.swift in Sources */,
+				1977D5BD1CA3673B00D0F1BF /* OrderFormVC.swift in Sources */,
 				4AAF41281CA22D8F00D2962C /* CollectionViewCell.swift in Sources */,
 				4AAF412D1CA22D8F00D2962C /* MenuTableViewCell.swift in Sources */,
 				196638481CA16044001310F1 /* signUp.swift in Sources */,
