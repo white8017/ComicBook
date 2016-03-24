@@ -20,8 +20,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var account = ""
     var phoneNumber = ""
     var vip = ""
+    var userDefault = NSUserDefaults.standardUserDefaults() // 就像是在 Android 上的 SharedPreference一樣，暫存於 App 中，直到程式被移除才會消失
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        var storedNumber = userDefault.objectForKey("phoneNumber")
+        var storedName = userDefault.objectForKey("name")
+        
+
+        if storedName != nil {
+            account = storedName! as! String
+        }
+
+        if storedNumber != nil {
+            phoneNumber = storedNumber! as! String
+        }
+//        print("app:stored = \(storedNumber!)")
+//        print(storedName!)
+        print("app:name = \(account)")
+        print("app:phone = \(phoneNumber)")
+        
         // Override point for customization after application launch.
         /* 這裡是電話簡訊驗證 */
         SMSSDK.registerApp("105ec803567da", withSecret: "ac6b27766f62bc57e697711c34a93f32")  //我的

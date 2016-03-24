@@ -44,12 +44,6 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 		self.dismissViewControllerAnimated(true, completion: nil)
 	}
 
-	
-	override func viewDidAppear(animated: Bool) {
-		
-	}
-	
-	
 	func setView(){
 
 		let viewS = self.view.frame.size
@@ -158,12 +152,6 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
         scrollView.addSubview(tableview)
         self.view.addSubview(scrollView)
 		
-
-		
-		
-	
-		
-		
 		//編輯頁面
 		edting = UIView(frame: CGRect(x: 0, y: self.view.frame.maxY, width: self.view.frame.size.width, height: self.view.frame.size.height/2))
 		edting.backgroundColor = UIColor.whiteColor()
@@ -213,8 +201,10 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 	}
 	
 	
-	
+	//借書
 	func borrow(){
+		
+		if borrowBook != []{
 		appDelegate.orderBookImage[bookName.text!] = bookImage.image
 		appDelegate.orderBookNumber[bookName.text!] = borrowBook
         for (var i = 0;i<appDelegate.orderBooktTitle.count;i++){
@@ -222,10 +212,11 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 		appDelegate.orderBooktTitle.removeAtIndex(appDelegate.orderBooktTitle.indexOf(bookName.text!)!)
             }
         }
+		
 		appDelegate.orderBooktTitle.append(bookName.text!)
-		let a = menuViewController()
-        print(appDelegate.orderBooktTitle)
-		self.presentViewController(a, animated: true, completion: nil)
+		}
+		let menuView = menuViewController()
+		self.presentViewController(menuView, animated: true, completion: nil)
 		
 	}
     
@@ -398,11 +389,12 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
 		borrowBook.append(String(indexPath.row))
-		print("indexPath:\(indexPath.row)")
+		print("要借的書:\(borrowBook)")
     }
     
 	func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
 		borrowBook.removeAtIndex(borrowBook.indexOf("\(indexPath.row)")!)
+		print("要借的書:\(borrowBook)")
 	}
 
 	
