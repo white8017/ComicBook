@@ -35,7 +35,7 @@
 		4AAF412B1CA22D8F00D2962C /* menuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF41231CA22D8F00D2962C /* menuViewController.swift */; };
 		4AAF412C1CA22D8F00D2962C /* menuTbleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF41241CA22D8F00D2962C /* menuTbleView.swift */; };
 		4AAF412D1CA22D8F00D2962C /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF41251CA22D8F00D2962C /* MenuTableViewCell.swift */; };
-		A12483251C9A577800A7CE2A /* m1_UserInformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12483241C9A577700A7CE2A /* m1_UserInformation.swift */; };
+		A12483251C9A577800A7CE2A /* m4_OderFrorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12483241C9A577700A7CE2A /* m4_OderFrorm.swift */; };
 		A12483271C9A7DC300A7CE2A /* m2_TransactionHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12483261C9A7DC300A7CE2A /* m2_TransactionHistory.swift */; };
 		A12483291C9A7F3D00A7CE2A /* m3_GiftPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12483281C9A7F3D00A7CE2A /* m3_GiftPoint.swift */; };
 		A124832B1C9A864E00A7CE2A /* t3_FavoriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A124832A1C9A864E00A7CE2A /* t3_FavoriteViewController.swift */; };
@@ -91,7 +91,7 @@
 		4AAF41231CA22D8F00D2962C /* menuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuViewController.swift; sourceTree = "<group>"; };
 		4AAF41241CA22D8F00D2962C /* menuTbleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuTbleView.swift; sourceTree = "<group>"; };
 		4AAF41251CA22D8F00D2962C /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
-		A12483241C9A577700A7CE2A /* m1_UserInformation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = m1_UserInformation.swift; sourceTree = "<group>"; };
+		A12483241C9A577700A7CE2A /* m4_OderFrorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = m4_OderFrorm.swift; sourceTree = "<group>"; };
 		A12483261C9A7DC300A7CE2A /* m2_TransactionHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = m2_TransactionHistory.swift; sourceTree = "<group>"; };
 		A12483281C9A7F3D00A7CE2A /* m3_GiftPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = m3_GiftPoint.swift; sourceTree = "<group>"; };
 		A124832A1C9A864E00A7CE2A /* t3_FavoriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = t3_FavoriteViewController.swift; sourceTree = "<group>"; };
@@ -225,8 +225,6 @@
 				196637E21C9BE8E6001310F1 /* SMS_SDK */,
 				196637CF1C9BE882001310F1 /* fileHao */,
 				A1FEF8F81C97EAA60076152F /* AppDelegate.swift */,
-				A14EED321CA0DB5E008B2C2B /* UserLoginViewController.swift */,
-				A1883E7B1CA0DFA200C737F2 /* UserSignUpViewController.swift */,
 				A1FEF8FA1C97EAA60076152F /* t1_NewsViewContorller.swift */,
 				A1FEF8FC1C97EAA60076152F /* t2_BookViewController.swift */,
 				A124832A1C9A864E00A7CE2A /* t3_FavoriteViewController.swift */,
@@ -240,9 +238,11 @@
 				A1FBC1911C99DA6F00FF13E4 /* ContainerVC.swift */,
 				A1FEF9101C98235F0076152F /* TabVCTemplate.swift */,
 				A1FBC18F1C99A1B900FF13E4 /* SideBarMenu.swift */,
-				A12483241C9A577700A7CE2A /* m1_UserInformation.swift */,
+				A14EED321CA0DB5E008B2C2B /* UserLoginViewController.swift */,
+				A1883E7B1CA0DFA200C737F2 /* UserSignUpViewController.swift */,
 				A12483261C9A7DC300A7CE2A /* m2_TransactionHistory.swift */,
 				A12483281C9A7F3D00A7CE2A /* m3_GiftPoint.swift */,
+				A12483241C9A577700A7CE2A /* m4_OderFrorm.swift */,
 			);
 			path = ComicBookVIP;
 			sourceTree = "<group>";
@@ -340,7 +340,7 @@
 				A12483291C9A7F3D00A7CE2A /* m3_GiftPoint.swift in Sources */,
 				1966384D1CA16044001310F1 /* rentHistoryVC.swift in Sources */,
 				1966384C1CA16044001310F1 /* favoritesBookNameVC.swift in Sources */,
-				A12483251C9A577800A7CE2A /* m1_UserInformation.swift in Sources */,
+				A12483251C9A577800A7CE2A /* m4_OderFrorm.swift in Sources */,
 				1966384B1CA16044001310F1 /* Page2ViewController.swift in Sources */,
 				4AAF412A1CA22D8F00D2962C /* bookdetailViewController.swift in Sources */,
 				1977D5BD1CA3673B00D0F1BF /* OrderFormVC.swift in Sources */,
