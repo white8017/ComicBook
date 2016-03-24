@@ -30,6 +30,11 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
     @IBAction func backButton(sender: AnyObject) {
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
+    // 點背景收起鍵盤
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     
     override func viewDidAppear(animated: Bool) {
         
@@ -127,6 +132,7 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
 //                    self.performSegueWithIdentifier("in", sender: nil)
                     self.appDelegate.account = self.dataArray[self.i]["name"] as! String
                     self.appDelegate.phoneNumber = self.dataArray[self.i]["phoneNumber"] as! String
+                    
                     let storyboard : UIStoryboard = UIStoryboard(
                         name: "Main",
                         bundle: nil)

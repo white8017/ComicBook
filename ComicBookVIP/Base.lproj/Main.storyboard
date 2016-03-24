@@ -762,6 +762,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="lblName" destination="z7x-8g-D3M" id="sac-pS-LlW"/>
                         <outlet property="menuTableView" destination="2gz-GC-gJs" id="fjm-07-NqN"/>
                     </connections>
                 </viewController>
