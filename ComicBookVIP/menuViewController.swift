@@ -80,7 +80,7 @@ class menuViewController: UIViewController,NSURLSessionDelegate {
 		
 		
 		
-		let enterAction = UIAlertAction(title: "確認", style: UIAlertActionStyle.Cancel, handler: nil)
+		let enterAction = UIAlertAction(title: "確認", style: UIAlertActionStyle.Default, handler: nil)
 		let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel, handler: nil)
 		alertController.addAction(cancelAction)
 		alertController.addAction( enterAction)
