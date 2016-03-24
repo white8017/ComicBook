@@ -26,7 +26,7 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
 		loadData(bookItems)
 		self.bookItems = bookItems
 		
-		self.bounces = false
+//		self.bounces = false
 		self.backgroundColor = UIColor.whiteColor()
         let longPress = UILongPressGestureRecognizer(target: self, action:"longPressGestureRecognize:")
         self.addGestureRecognizer(longPress)
@@ -51,9 +51,9 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
         let indexPath = self.indexPathForItemAtPoint(location)
         print("two pinch indexPath:\(indexPath)")
 		let state = gestureReconizer.state
-		
+		if appDelegate.canEitting{
 		switch state{
-			case UIGestureRecognizerState.Ended:
+			case UIGestureRecognizerState.Changed:
 				if gestureReconizer.scale > 2{
 					
 					self.performBatchUpdates({ () -> Void in
@@ -85,7 +85,7 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
 		
 		}
 	
-		
+		}//canEitting
     }
 	
 	
@@ -248,34 +248,34 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
     }
 	
 	
-	
-	func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-
-        print(scrollView.contentOffset.y)
-        if appDelegate.canEitting{
-        if scrollView.contentOffset.y < 1{
-			
-			self.performBatchUpdates({ () -> Void in
-                self.bookName.insert("預設", atIndex: 0)
-				print(self.bookName)
-				
-				
-				var arrayWithIndexPaths:[NSIndexPath] = []
-				for(var i=0;i<1;i++){
-					arrayWithIndexPaths.append(  NSIndexPath(forRow:i, inSection: 0))
-					
-					
-				}
-			
-            self.insertItemsAtIndexPaths(arrayWithIndexPaths)
-			
-				self.upload("預設",items:self.bookItems)
-				
-				}, completion: nil)
-
-            }
-        }//canEitting end
-	}
+//下拉新增漫畫
+//	func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+//
+//        print(scrollView.contentOffset.y)
+//        if appDelegate.canEitting{
+//        if scrollView.contentOffset.y < 1{
+//			
+//			self.performBatchUpdates({ () -> Void in
+//                self.bookName.insert("預設", atIndex: 0)
+//				print(self.bookName)
+//				
+//				
+//				var arrayWithIndexPaths:[NSIndexPath] = []
+//				for(var i=0;i<1;i++){
+//					arrayWithIndexPaths.append(  NSIndexPath(forRow:i, inSection: 0))
+//					
+//					
+//				}
+//			
+//            self.insertItemsAtIndexPaths(arrayWithIndexPaths)
+//			
+//				self.upload("預設",items:self.bookItems)
+//				
+//				}, completion: nil)
+//
+//            }
+//        }//canEitting end
+//	}
 
 	
 
