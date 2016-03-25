@@ -21,7 +21,12 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
         appDelegate.userDefault.setObject("", forKey: "phoneNumber")
         appDelegate.userDefault.setObject("", forKey: "vip")
         print("name = \(appDelegate.account)")
-        NSNotificationCenter.defaultCenter().postNotificationName("logoutCloseMenu", object: nil)
+        let alert = UIAlertController(title: "登出成功"  , message:nil , preferredStyle: .Alert)
+        let action = UIAlertAction(title: "確定", style: .Default, handler: { (alert:UIAlertAction) -> Void in
+            NSNotificationCenter.defaultCenter().postNotificationName("logoutCloseMenu", object: nil)
+        })
+        alert.addAction(action)
+        self.presentViewController(alert, animated: true){}
         btnLogout.hidden = true
     }
     
@@ -36,7 +41,7 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
             lblName.text = "嗨～\(appDelegate.account)"
             btnLogout.hidden = false
         }else {
-            lblName.text = "嗨～蟲蟲"
+            lblName.text = "嗨～書蟲"
             btnLogout.hidden = true
         }
         
