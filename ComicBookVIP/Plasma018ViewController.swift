@@ -56,7 +56,7 @@ class Plasma018ViewController: UIViewController,UITableViewDelegate,UITableViewD
         enterBty.frame = CGRectMake(0,self.view.frame.maxY-buttonH,buttonW,buttonH)
         clearBty.frame = CGRectMake(viewS.width/2,self.view.frame.maxY-buttonH,buttonW,buttonH)
         enterBty.addTarget(self, action: "enter", forControlEvents: .TouchDown)
-        
+        clearBty.addTarget(self, action: "clear", forControlEvents: UIControlEvents.AllTouchEvents)
         
         let borderTop = UIView(frame: CGRectMake(0,0,viewS.width,0.8))
         let borderCenter = UIView(frame: CGRectMake(viewS.width/2,0,1,buttonH))
@@ -97,6 +97,9 @@ class Plasma018ViewController: UIViewController,UITableViewDelegate,UITableViewD
 		imageView.addSubview(booktextfield)
 
     }
+	func clear(){
+		self.dismissViewControllerAnimated(true, completion: nil)
+	}
 	
 	func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return self.count

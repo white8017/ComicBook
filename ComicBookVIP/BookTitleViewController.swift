@@ -36,13 +36,7 @@ class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,
 			carImage.addSubview(carView)
 			let rightGestureRecognizer = UITapGestureRecognizer(target: self, action: "borrow:")
 			carImage.addGestureRecognizer(rightGestureRecognizer)
-			
-			
 			rightButton = UIBarButtonItem(customView: carImage)
-			
-			
-			
-			
 		}else{
 			rightButton = UIBarButtonItem(title: "編輯", style: UIBarButtonItemStyle.Plain, target: self, action: "editting:")
 		}
@@ -258,6 +252,7 @@ class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,
 	
 	
 	func changeCarNumber(){
+		print("appDelegate.orderBooktTitle.count:\(appDelegate.orderBooktTitle.count)")
 		carlabel.text = "\(appDelegate.orderBooktTitle.count)"
 		if carlabel.text == "0"{
 			carView.hidden = true

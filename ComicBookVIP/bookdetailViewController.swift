@@ -340,7 +340,7 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 		indicator.transform =  CGAffineTransformMakeScale(3, 3)
 		indicator.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
 		indicator.startAnimating()
-		
+		indicator.userInteractionEnabled = false
 		author.text = "作者"
 		episode.text = "第8集"
 		bookState.text = "完結"
