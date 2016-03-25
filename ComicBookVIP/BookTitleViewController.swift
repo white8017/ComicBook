@@ -1,7 +1,7 @@
 import UIKit
 private let reuseIdentifier = "Cell"
 
-class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate,NSURLSessionDelegate,NSURLSessionDownloadDelegate,UIPopoverPresentationControllerDelegate{
+class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate,NSURLSessionDelegate,NSURLSessionDownloadDelegate,UIPopoverPresentationControllerDelegate,UINavigationBarDelegate{
 	
 	
 	
@@ -16,42 +16,25 @@ class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,
 	var rightButton = UIBarButtonItem()
 	var carView = UIView()
 	var carlabel = UILabel()
+	var carImage = UIImageView()
 	
 	
 	func setView(){
 		
+		carImage = UIImageView(image: UIImage(named: "shoppingcart"))
 		
-		
-		if appDelegate.vip == "1"{
-			carView = UIView(frame:CGRect(x: 0, y: 0, width: 18, height: 18))
-			carView.layer.cornerRadius = 9
-			carView.backgroundColor = UIColor.redColor()
-			
-			let carImage = UIImageView(image: UIImage(named: "shoppingcart"))
-			carlabel.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
-			carlabel.textColor = UIColor.whiteColor()
-			carlabel.textAlignment = .Center
-			carView.addSubview(carlabel)
-			carView.hidden = true
-			carImage.addSubview(carView)
-			let rightGestureRecognizer = UITapGestureRecognizer(target: self, action: "borrow:")
-			carImage.addGestureRecognizer(rightGestureRecognizer)
-			rightButton = UIBarButtonItem(customView: carImage)
-		}else{
-			rightButton = UIBarButtonItem(title: "編輯", style: UIBarButtonItemStyle.Plain, target: self, action: "editting:")
-		}
-		
-		
-		
-		
+		changeUserFunction()
+		rightButton = UIBarButtonItem(customView: carImage)
+		navigationItem.rightBarButtonItem =  rightButton
+	
 		//增加左側之 NavigationBar Button Item//
 		let homeImg = UIImage(named: "HumburgerButton") as UIImage?
 		let leftButton = UIBarButtonItem(image: homeImg, style: UIBarButtonItemStyle.Plain, target: self, action: "theToggleMenu:")
 		navigationItem.leftBarButtonItem = leftButton
-		navigationItem.rightBarButtonItem =  rightButton
-		self.navigationController?.navigationBar.items = [navigationItem]
+		
 		self.navigationController!.navigationBar.translucent = false
 		
+		self.navigationController?.navigationBar.items = [navigationItem]
 		
 		
 		
@@ -111,22 +94,26 @@ class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,
 	
 	
 	
-	func editting(sender:UIBarButtonItem){
-		
-		if sender.title == "編輯"{
-			sender.title = "完成"
-			appDelegate.canEitting = true
-			for i in  bookContent{
-				i.reloadData()
-			}
-		}else{
-			sender.title = "編輯"
-			appDelegate.canEitting = false
-			for i in  bookContent{
-				i.reloadData()
-			}
-		}
-		
+//	func editting(sender:UIBarButtonItem){
+//	
+//		if sender.title == "編輯"{
+//			sender.title = "完成"
+//			appDelegate.canEitting = true
+//			for i in  bookContent{
+//				i.reloadData()
+//			}
+//		}else{
+//			sender.title = "編輯"
+//			appDelegate.canEitting = false
+//			for i in  bookContent{
+//				i.reloadData()
+//			}
+//		}
+//		
+//		
+//	}
+	
+	func editting(){
 		
 	}
 	
@@ -262,13 +249,52 @@ class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,
 		}
 	}
 	
+	func changeUserFunction(){
+		if appDelegate.vip == "1"{
+			carView = UIView(frame:CGRect(x: 0, y: 0, width: 18, height: 18))
+			print("appDelegate.vip:\(appDelegate.vip)")
+			carImage.image = UIImage(named: "edit")
+			let edittingGestureRecognizer = UITapGestureRecognizer(target: self, action: "editting")
+			carImage.addGestureRecognizer(edittingGestureRecognizer)
+			print("changeUserSTATE:boss")
+			
+		}else{
+			print("appDelegate.vip:\(appDelegate.vip)")
+			carImage.image = UIImage(named: "shoppingcart")
+			carView = UIView(frame:CGRect(x: 0, y: 0, width: 18, height: 18))
+			carView.layer.cornerRadius = 9
+			carView.backgroundColor = UIColor.redColor()
+			
+			
+			carlabel.frame = CGRect(x: 0, y: 0, width: 15, height: 15)
+			carlabel.textColor = UIColor.whiteColor()
+			carlabel.textAlignment = .Center
+			carView.addSubview(carlabel)
+			carView.hidden = true
+			carImage.addSubview(carView)
+			let borrowGestureRecognizer = UITapGestureRecognizer(target: self, action: "borrow:")
+			carImage.addGestureRecognizer(borrowGestureRecognizer)
+			print("changeUserSTATE:user")
+			
+		}
+		
+		
+		
+		
+		
+	}
+	
+
+	
 	
 	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		print("view did load")
+		
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "changeCarNumber", name: "addMenu", object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: "changeUserFunction", name: "UserStateChange", object: nil)
 		
 		selectedTab = 1
 		
@@ -366,6 +392,7 @@ class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,
 	
 	override func viewDidAppear(animated: Bool) {
 		setTabBarVisible(!tabBarIsVisible(), animated: true)
+
 	}
 	
 	
