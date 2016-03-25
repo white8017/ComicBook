@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ComicBookVIP/UserLoginViewController.swift"
-            timestampString = "480495191.21013"
+            timestampString = "480591607.81805"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "153"
-            endingLineNumber = "153"
+            startingLineNumber = "154"
+            endingLineNumber = "154"
             landmarkName = "btnLogin(_:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ComicBookVIP/AppDelegate.swift"
-            timestampString = "480496115.052647"
+            timestampString = "480592847.623639"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
             landmarkName = "application(_:didFinishLaunchingWithOptions:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -74,12 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ComicBookVIP/m4_OderFrorm.swift"
-            timestampString = "480584958.255177"
+            timestampString = "480592847.623639"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
-            landmarkName = "viewDidAppear(_:)"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "foundCode(_:)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

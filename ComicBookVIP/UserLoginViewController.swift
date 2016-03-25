@@ -142,6 +142,7 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
 //                    self.appDelegate.phoneNumber = self.dataArray[self.i]["phoneNumber"] as! String
                     self.appDelegate.userDefault.setObject(self.dataArray[self.i]["phoneNumber"] as! String, forKey: "phoneNumber")
                     self.appDelegate.userDefault.setObject(self.dataArray[self.i]["name"] as! String, forKey: "name")
+                    self.appDelegate.userDefault.setObject(self.dataArray[self.i]["VIP"], forKey: "vip")
                     self.appDelegate.userDefault.synchronize()
                     
 //                    var storedNumber = self.userDefault.objectForKey("phoneNumber")

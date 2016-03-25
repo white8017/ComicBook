@@ -17,9 +17,19 @@ class ContainerVC : UIViewController {
     
 //    let SCREEN_SIZE = UIScreen.mainScreen().bounds // 擷取螢幕尺寸
     let leftMenuWidth:CGFloat = 260
-    
+
+    func showAlert(){
+
+        let alert = UIAlertController(title: nil , message:nil , preferredStyle: .Alert)
+        let action = UIAlertAction(title: "完成付款", style: .Default, handler: { (alert:UIAlertAction) -> Void in
+        })
+        alert.addAction(action)
+        self.presentViewController(alert, animated: true){}
+        
+    }
     override func viewDidLoad() {
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "showAlert", name: "check", object: nil)
         //http://www.thorntech.com/2015/06/want-to-implement-a-slideout-menu-in-your-swift-app-heres-how/
         // Initially close menu programmatically.  This needs to be done on the main thread initially in order to work.
         dispatch_async(dispatch_get_main_queue()) {
