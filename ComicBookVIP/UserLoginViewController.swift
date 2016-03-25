@@ -40,10 +40,23 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
     
     override func viewDidAppear(animated: Bool) {
         
+        var isConnected = checkNetworkConnection()
+        
+        let alert = UIAlertView()
+        
+        if isConnected {
+            
+        } else {
+            alert.message = "請確認網路，尚未連線"
+            alert.addButtonWithTitle("OK")
+            alert.show()
+        }
+        
+        
             print("phoneNumber: \(appDelegate.phoneNumber)")
 
 //        print("storedNumber : \(appDelegate.storedNumber!)")
-        
+        if appDelegate.phoneNumber == "" {
         UIView.transitionWithView(self.view, duration: 1.5, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
             
             //背景
@@ -75,14 +88,16 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
             
             }) { (Bool) -> Void in
                 return true
-        }
+            }
         
         print("[ Screen width : Screen height => \(Screen.width) : \(Screen.height) ]")
         
         
         //hide tabbar 
         setTabBarVisible(!tabBarIsVisible(), animated: true)
-
+        }else {
+            
+        }
         
         
 //        btnLogin.frame = CGRect(x: Screen.width / 4, y: Screen.height / 2, width: loginW, height: loginH)
@@ -226,21 +241,6 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
         
         txtPasswd.secureTextEntry = true
         // Do any additional setup after loading the view.
-        
-        var isConnected = checkNetworkConnection()
-        
-        let alert = UIAlertView()
-        
-        if isConnected {
-            
-        } else {
-            alert.message = "請確認網路，尚未連線"
-            alert.addButtonWithTitle("OK")
-            alert.show()
-        }
-        
-
-        
         
     }
     
