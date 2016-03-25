@@ -173,7 +173,7 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
                     self.navigationController?.popToRootViewControllerAnimated(true)
                     
                     //self.presentViewController(a, animated: true, completion: nil)
-                    
+                    NSNotificationCenter.defaultCenter().postNotificationName("reloadData", object: nil)
                     print("yes!")
                 })
                 alert.addAction(action)
