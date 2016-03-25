@@ -97,52 +97,36 @@ class menuViewController: UIViewController,NSURLSessionDelegate,UITableViewDataS
 		print(appDelegate.orderBooktTitle)
 		let alertController=UIAlertController(title: "謝謝借閱", message: "\n\n\n\n", preferredStyle: UIAlertControllerStyle.Alert)
 		
-		
 		let indicator = UIActivityIndicatorView(frame: alertController.view.bounds)
 		indicator.color = UIColor.blackColor()
 		indicator.transform =  CGAffineTransformMakeScale(3, 3)
 		indicator.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
 		alertController.view.addSubview(indicator)
 		indicator.userInteractionEnabled = false;
-		
-		
-		
 		let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel, handler: nil)
-		let enterAction = UIAlertAction(title: "確認", style: UIAlertActionStyle.Destructive) { (UIAlertAction) -> Void in
-			let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
-			dispatch_async(queue, { () -> Void in
-				for order in self.appDelegate.orderBookNumber{
-					for a in order.1{
-						print(self.epsoide[Int(a)!])
-						self.updateData(5, name: self.appDelegate.account, bookName: order.0, nowStage: self.epsoide[Int(a)!])
-					}
-					
+		let enterAction = UIAlertAction(title: "確認", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+			
+			indicator.startAnimating()
+			for order in self.appDelegate.orderBookNumber{
+				for a in order.1{
+					print(self.epsoide[Int(a)!])
+					self.updateData(5, name: self.appDelegate.account, bookName: order.0, nowStage: self.epsoide[Int(a)!])
 				}
-				self.appDelegate.orderBooktTitle = []
-				NSNotificationCenter.defaultCenter().postNotificationName("addMenu", object: self)
-				self.appDelegate.orderBookNumber = [String:[String]]()
 				
-				dispatch_async(dispatch_get_main_queue(), { () -> Void in
-					indicator.startAnimating()
-					
-				})
-				
-			})
+			}
+			self.appDelegate.orderBooktTitle = []
+			NSNotificationCenter.defaultCenter().postNotificationName("addMenu", object: self)
+			self.appDelegate.orderBookNumber = [String:[String]]()
 			
 			
 			
-			
-			
-			
+			self.dismissViewControllerAnimated(true, completion: nil)
 			
 		}
 		
 		alertController.addAction(cancelAction)
 		alertController.addAction( enterAction)
-//		self.presentViewController(alertController, animated:alertController, completion: nil)
-		self.presentViewController(alertController, animated: true) { () -> Void in
-		
-		}
+		self.presentViewController(alertController, animated: true, completion: nil)
 		
 		
 		

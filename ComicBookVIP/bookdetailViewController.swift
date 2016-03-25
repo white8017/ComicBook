@@ -39,9 +39,6 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 	
 	func setView(){
 		
-		
-		
-		
 		let viewS = self.view.frame.size
 		//畫面設定
 		self.view.backgroundColor = UIColor.redColor()
@@ -50,7 +47,9 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 		let leftButton = UIBarButtonItem(title: "BACK", style: UIBarButtonItemStyle.Plain, target: self, action: "back:")
 		rightButton = UIBarButtonItem(title: "編輯", style: UIBarButtonItemStyle.Plain, target: self, action: "edting1")
 		NavigationItem.leftBarButtonItem = leftButton
+		if appDelegate.vip == "1"{
 		NavigationItem.rightBarButtonItem = rightButton
+		}
 		NavigationItem.title = "作品詳情"
 		navigationBar.items = [NavigationItem]
 		self.view.addSubview(navigationBar)
@@ -330,10 +329,38 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 		return true
 	}
 	
+	func keyboardShow(notification:NSNotification){
+		print("keyboardShow")
+		let userInfo:NSDictionary = notification.userInfo!
+		let keyboardFrame:NSValue = userInfo.valueForKey(UIKeyboardFrameEndUserInfoKey) as! NSValue
+		let keyboardRectangle = keyboardFrame.CGRectValue()
+		let keyboardHeight = keyboardRectangle.minY
+		UIView.transitionWithView(edting, duration: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+				self.edting.frame = CGRect(x: 0, y: keyboardHeight-self.view.frame.size.height/2, width: self.view.frame.size.width, height: self.view.frame.size.height/2)
+			}, completion: nil)
+	
+	}
+	func keyboardHide(){
+		print("keyboardHide")
+		
+		UIView.transitionWithView(edting, duration: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+			self.edtingAuthor.text = self.author.text
+			self.stepperlabel.text = self.episode.text
+			self.edtingbookState.selectedSegmentIndex = 0
+			self.edtingSummary.text = self.bookSummary.text
+			
+			self.edting.frame = CGRect(x: 0, y: self.view.frame.maxY/2, width: self.view.frame.size.width, height: self.view.frame.size.height/2)
+			}, completion: nil)
+		
+	
+	
+	}
 	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardShow:", name:UIKeyboardDidShowNotification, object: nil)
+		NSNotificationCenter.defaultCenter().addObserver(self, selector: "keyboardHide", name:UIKeyboardDidHideNotification, object: nil)
 		
 		indicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height))
 		indicator.color = UIColor.blackColor()
@@ -411,7 +438,9 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 		print("要借的書:\(borrowBook)")
 	}
 	
-	
+	deinit {
+		NSNotificationCenter.defaultCenter().removeObserver(self)
+	}
 	
 	
 	
