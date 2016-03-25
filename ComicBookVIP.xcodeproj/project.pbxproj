@@ -27,7 +27,7 @@
 		196638501CA16044001310F1 /* rentArrayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638461CA16044001310F1 /* rentArrayVC.swift */; };
 		196638511CA16044001310F1 /* NSDATE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638471CA16044001310F1 /* NSDATE.swift */; };
 		1977D5BD1CA3673B00D0F1BF /* OrderFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1977D5BC1CA3673B00D0F1BF /* OrderFormVC.swift */; };
-		4AAF41261CA22D8F00D2962C /* BookTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF411E1CA22D8F00D2962C /* BookTitleViewController.swift */; };
+		1977D5BF1CA50B1700D0F1BF /* BookTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1977D5BE1CA50B1700D0F1BF /* BookTitleViewController.swift */; };
 		4AAF41271CA22D8F00D2962C /* CostumCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF411F1CA22D8F00D2962C /* CostumCollectionView.swift */; };
 		4AAF41281CA22D8F00D2962C /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF41201CA22D8F00D2962C /* CollectionViewCell.swift */; };
 		4AAF41291CA22D8F00D2962C /* Plasma018ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAF41211CA22D8F00D2962C /* Plasma018ViewController.swift */; };
@@ -82,7 +82,7 @@
 		196638461CA16044001310F1 /* rentArrayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rentArrayVC.swift; sourceTree = "<group>"; };
 		196638471CA16044001310F1 /* NSDATE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDATE.swift; sourceTree = "<group>"; };
 		1977D5BC1CA3673B00D0F1BF /* OrderFormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderFormVC.swift; sourceTree = "<group>"; };
-		4AAF411E1CA22D8F00D2962C /* BookTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTitleViewController.swift; sourceTree = "<group>"; };
+		1977D5BE1CA50B1700D0F1BF /* BookTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTitleViewController.swift; sourceTree = "<group>"; };
 		4AAF411F1CA22D8F00D2962C /* CostumCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostumCollectionView.swift; sourceTree = "<group>"; };
 		4AAF41201CA22D8F00D2962C /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		4AAF41211CA22D8F00D2962C /* Plasma018ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plasma018ViewController.swift; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 		4AAF411D1CA22BD200D2962C /* New Group */ = {
 			isa = PBXGroup;
 			children = (
-				4AAF411E1CA22D8F00D2962C /* BookTitleViewController.swift */,
+				1977D5BE1CA50B1700D0F1BF /* BookTitleViewController.swift */,
 				4AAF411F1CA22D8F00D2962C /* CostumCollectionView.swift */,
 				4AAF41201CA22D8F00D2962C /* CollectionViewCell.swift */,
 				4AAF41211CA22D8F00D2962C /* Plasma018ViewController.swift */,
@@ -321,7 +321,6 @@
 			files = (
 				1966384E1CA16044001310F1 /* rentBookBoss.swift in Sources */,
 				1966382F1C9FC8FB001310F1 /* Reachability.m in Sources */,
-				4AAF41261CA22D8F00D2962C /* BookTitleViewController.swift in Sources */,
 				A1FBC1901C99A1B900FF13E4 /* SideBarMenu.swift in Sources */,
 				A124832B1C9A864E00A7CE2A /* t3_FavoriteViewController.swift in Sources */,
 				1966384F1CA16044001310F1 /* delayRerutnBookBoss.swift in Sources */,
@@ -330,6 +329,7 @@
 				196638491CA16044001310F1 /* LoginViewController.swift in Sources */,
 				196638511CA16044001310F1 /* NSDATE.swift in Sources */,
 				196638501CA16044001310F1 /* rentArrayVC.swift in Sources */,
+				1977D5BF1CA50B1700D0F1BF /* BookTitleViewController.swift in Sources */,
 				A124832F1C9A925100A7CE2A /* MyAnnotation.swift in Sources */,
 				A124832D1C9A86A000A7CE2A /* t4_StoreViewController.swift in Sources */,
 				A1883E7E1CA1299900C737F2 /* t3-2_Favorite2ViewController.swift in Sources */,

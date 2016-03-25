@@ -1,12 +1,3 @@
-<<<<<<< HEAD
-    //  BookTitleViewController.swift
-//  collection
-//  Created by plasma018 on 2016/3/10.
-//  Copyright © 2016年 plasma018. All rights reserved.
-
-
-=======
->>>>>>> 11c712ec71acccf81921c828e666ce0e4cef4c6b
 import UIKit
 private let reuseIdentifier = "Cell"
 
@@ -378,22 +369,6 @@ class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,
 	
 	override func viewDidAppear(animated: Bool) {
 		setTabBarVisible(!tabBarIsVisible(), animated: true)
-<<<<<<< HEAD
-		
-		
-		if appDelegate.vip == "1"{
-			//			rightButton = UIBarButtonItem(title: "編輯", style: UIBarButtonItemStyle.Plain, target: self, action: "editting:")
-			sysRightNvBarButton = UIBarButtonItem(title: "編輯", style: UIBarButtonItemStyle.Plain, target: self, action: "editting:")
-		}else{
-			//			rightButton = UIBarButtonItem(image: UIImage(named: "shoppingcart"), style: UIBarButtonItemStyle.Plain, target: self,
-		}
-		
-		sysRightNvBarButton = UIBarButtonItem(title: "編輯", style: UIBarButtonItemStyle.Plain, target: self, action: "editting:")
-	
-		
-		
-=======
->>>>>>> 11c712ec71acccf81921c828e666ce0e4cef4c6b
 	}
 	
 	
