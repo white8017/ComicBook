@@ -13,9 +13,34 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
     var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     @IBOutlet weak var menuTableView: UITableView!
     @IBOutlet weak var lblName: UILabel!
+    @IBOutlet weak var btnLogout: UIButton!
 
+    @IBAction func btnLogout(sender: AnyObject) {
+
+        appDelegate.userDefault.setObject("", forKey: "name")
+        appDelegate.userDefault.setObject("", forKey: "phoneNumber")
+        appDelegate.userDefault.setObject("", forKey: "vip")
+        print("name = \(appDelegate.account)")
+        NSNotificationCenter.defaultCenter().postNotificationName("logoutCloseMenu", object: nil)
+        btnLogout.hidden = true
+    }
     
     let sideMenu = ["會  員  資  訊", "借  閱  紀  錄", "儲  值  餘  額", "租     書     籃"]
+
+    override func viewDidAppear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "checkLogin", name: "checkLogin", object: nil)
+    }
+    func checkLogin() {
+        
+        if appDelegate.phoneNumber != "" {
+            lblName.text = "嗨～\(appDelegate.account)"
+            btnLogout.hidden = false
+        }else {
+            lblName.text = "嗨～蟲蟲"
+            btnLogout.hidden = true
+        }
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +50,7 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
         //TableView固定不滑動
         menuTableView.scrollEnabled = false
         
-//        lblName.text = "嗨～\(appDelegate.account)"
+        
     }
     
     

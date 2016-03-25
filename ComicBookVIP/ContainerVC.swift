@@ -27,6 +27,15 @@ class ContainerVC : UIViewController {
         self.presentViewController(alert, animated: true){}
         
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "logoutCloseMenu", name: "logoutCloseMenu", object: nil)
+    }
+    
+    func logoutCloseMenu() {
+        closeMenu()
+    }
+    
     override func viewDidLoad() {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "showAlert", name: "check", object: nil)
@@ -63,11 +72,6 @@ class ContainerVC : UIViewController {
     }
     */
     
-    // Cleanup notifications added in viewDidLoad
-    deinit {
-        NSNotificationCenter.defaultCenter().removeObserver(self)
-    }
-    
     //Modal方法
     /*
     func openModalWindow0(){
@@ -100,8 +104,15 @@ class ContainerVC : UIViewController {
     
     // Open is the natural state of the menu because of how the storyboard is setup.
     func openMenu(){
+        NSNotificationCenter.defaultCenter().postNotificationName("reloadData", object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName("checkLogin", object: nil)
         print("opening menu")
         scrollView.setContentOffset(CGPoint(x: 0, y: 0), animated: true)
+    }
+    
+    // Cleanup notifications added in viewDidLoad
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     // see http://stackoverflow.com/questions/25666269/ios8-swift-how-to-detect-orientation-change
