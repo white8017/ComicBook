@@ -483,7 +483,7 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 				if(dataDic["bookDetails"]![0]["author"]as? String == ""){
 					
 				}else{
-					print(dataDic["bookDetails"]![0])
+//					print(dataDic["bookDetails"]![0])
 					author.text = (dataDic["bookDetails"]![0]["author"]) as? String
 					episode.text = (dataDic["bookDetails"]![0]["newStage"]) as? String
 					bookState.text = (dataDic["bookDetails"]![0]["published"]) as? String
