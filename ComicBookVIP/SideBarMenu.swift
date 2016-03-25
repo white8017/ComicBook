@@ -15,7 +15,7 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
     @IBOutlet weak var lblName: UILabel!
 
     
-    let sideMenu = ["會  員  資  訊", "借  閱  紀  錄", "儲  值  查  詢", "租     書     籃"]
+    let sideMenu = ["會  員  資  訊", "借  閱  紀  錄", "儲  值  餘  額", "租     書     籃"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
