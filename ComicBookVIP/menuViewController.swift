@@ -23,22 +23,18 @@ class menuViewController: UIViewController,NSURLSessionDelegate,UITableViewDataS
 	var booknumber = UILabel()
 	var bookmoney = UILabel()
 	
-   	var epsoide = ["第1集","第2集","第3集","第4集","第5集","第6集","第7集","第8集","第9集","第10集","第11集","第12集","第13集","第14集","第15集","第16集","第17集","第18集","第19集","第20集","第21集","第22集","第23集","第24集","第25集","第26集","第27集","第28集","第29集","第30集","第31集","第32集","第33集","第34集","第35集","第36集","第37集","第38集","第39集","第40集","第41集","第42集","第43集","第44集","第45集","第46集","第47集","第48集","第49集","第50集","第51集","第52集","第53集","第54集","第55集"]
+	var epsoide = ["第1集","第2集","第3集","第4集","第5集","第6集","第7集","第8集","第9集","第10集","第11集","第12集","第13集","第14集","第15集","第16集","第17集","第18集","第19集","第20集","第21集","第22集","第23集","第24集","第25集","第26集","第27集","第28集","第29集","第30集","第31集","第32集","第33集","第34集","第35集","第36集","第37集","第38集","第39集","第40集","第41集","第42集","第43集","第44集","第45集","第46集","第47集","第48集","第49集","第50集","第51集","第52集","第53集","第54集","第55集"]
 	
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        print("借閱書籍:\(appDelegate.orderBooktTitle)")
-        print("借閱書本數:\(appDelegate.orderBookNumber)")
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		print("借閱書籍:\(appDelegate.orderBooktTitle)")
+		print("借閱書本數:\(appDelegate.orderBookNumber)")
 		
-	
+		
 		for(var i = 0;i<appDelegate.orderBookNumber.count;i++){
 			open.append(0)
 		}
-		
-		
-		
-
 		for number in appDelegate.orderBookNumber{
 			for _ in number.1{
 				amount++
@@ -46,8 +42,7 @@ class menuViewController: UIViewController,NSURLSessionDelegate,UITableViewDataS
 		}
 		print("書本總數=\(amount)")
 		
-		
-        let navigationBar = UINavigationBar(frame: CGRectMake(0, 0, self.view.frame.size.width,self.view.frame.size.height/10))
+		let navigationBar = UINavigationBar(frame: CGRectMake(0, 0, self.view.frame.size.width,self.view.frame.size.height/10))
 		navigationBar.backgroundColor = UIColor.whiteColor()
 		let navigationItem = UINavigationItem()
 		let leftButton = UIBarButtonItem(title: "CANCEL", style: UIBarButtonItemStyle.Plain, target: self, action: "cancel")
@@ -55,8 +50,8 @@ class menuViewController: UIViewController,NSURLSessionDelegate,UITableViewDataS
 		navigationItem.title = "我的訂單"
 		navigationBar.items = [navigationItem]
 		self.view.addSubview(navigationBar)
-        
-        
+		
+		
 		tableView = UITableView(frame:CGRect(x:0, y: navigationBar.frame.maxY, width: self.view.frame.size.width, height: self.view.frame.size.height/10*9), style: UITableViewStyle.Plain)
 		tableView.separatorColor = UIColor.clearColor()
 		self.view.addSubview(tableView)
@@ -71,7 +66,7 @@ class menuViewController: UIViewController,NSURLSessionDelegate,UITableViewDataS
 		
 		let tap = UITapGestureRecognizer(target: self, action:"sendOrder")
 		bottom.addGestureRecognizer(tap)
-
+		
 		
 		let book = UIImageView(frame: CGRect(x:bottom.frame.size.width/6, y: bottom.frame.size.height/8, width: bottom.frame.size.width/6, height: bottom.frame.size.height/8*6))
 		booknumber.frame = CGRect(x:book.frame.maxX+20, y: bottom.frame.size.height/8, width: bottom.frame.size.width/6, height: bottom.frame.size.height/8*6)
@@ -89,7 +84,7 @@ class menuViewController: UIViewController,NSURLSessionDelegate,UITableViewDataS
 		bottom.addSubview(money)
 		bottom.addSubview(bookmoney)
 		
-    }
+	}
 	
 	func cancel(){
 		self.dismissViewControllerAnimated(true, completion: nil)
@@ -97,7 +92,7 @@ class menuViewController: UIViewController,NSURLSessionDelegate,UITableViewDataS
 	
 	
 	
-//借閱訂單
+	//借閱訂單
 	func sendOrder(){
 		print(appDelegate.orderBooktTitle)
 		let alertController=UIAlertController(title: "謝謝借閱", message: "\n\n\n\n", preferredStyle: UIAlertControllerStyle.Alert)
@@ -117,32 +112,34 @@ class menuViewController: UIViewController,NSURLSessionDelegate,UITableViewDataS
 		}
 		
 	}
-    
-
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 	
-//展開選單
+	
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		// Dispose of any resources that can be recreated.
+	}
+	
+	//展開選單
 	func tap(gestureReconizer: UITapGestureRecognizer){
 		
 		print((gestureReconizer.view?.tag)!)
 		
 		if open[(gestureReconizer.view?.tag)!] == 0{
 			open[(gestureReconizer.view?.tag)!]  = 80
-			
-			tableView.reloadData()
 		}else{
 			open[(gestureReconizer.view?.tag)!]  = 0
-			tableView.reloadData()
 		}
-		
+		for (var i = 0;i<open.count;i++){
+			if i != (gestureReconizer.view?.tag)!{
+				open[i] = 0
+			}
+		}
+		tableView.reloadData()
 	}
-
-//tableView功能
 	
+	
+	//tableView功能
 	func numberOfSectionsInTableView(tableView: UITableView) -> Int {
 		// #warning Incomplete implementation, return the number of sections
 		return appDelegate.orderBooktTitle.count
@@ -201,9 +198,7 @@ class menuViewController: UIViewController,NSURLSessionDelegate,UITableViewDataS
 			appDelegate.orderBooktTitle.removeAtIndex(indexPath.section)
 		}
 		
-
-		
-		
+		NSNotificationCenter.defaultCenter().postNotificationName("addMenu", object: self)
 		tableView.reloadData()
 		print("訂閱書本總數:\(appDelegate.orderBookNumber)")
 		print("訂閱書本:\(appDelegate.orderBooktTitle)")
@@ -214,31 +209,6 @@ class menuViewController: UIViewController,NSURLSessionDelegate,UITableViewDataS
 		print(indexPath.section)
 		print(indexPath.row)
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	//上傳訂單
 	var now = NSDate()
@@ -254,12 +224,9 @@ class menuViewController: UIViewController,NSURLSessionDelegate,UITableViewDataS
 		let to8 = formatter.stringFromDate(to)
 		print(now8)
 		print(to8)
-	
-
+		
+		
 		print(interval1)
-		
-
-		
 		let url = NSURL(string: "http://sashihara.100hub.net/vip/historyUpload.php")
 		let request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
 		let submitBody:String = "rentDate=\(now8)&returnDate=\(to8)&price=\(price)&name=\(name)&bookName=\(bookName)&nowStage=\(nowStage)"

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< HEAD
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LEb-Bi-fEd">
+=======
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="LEb-Bi-fEd">
+>>>>>>> 11c712ec71acccf81921c828e666ce0e4cef4c6b
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -457,14 +461,8 @@
                                 <action selector="toggleMenu:" destination="8rJ-Kc-sve" id="kPb-2u-xAx"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="5sQ-ZB-Do3">
-                            <connections>
-                                <action selector="sysRightNvBarAction:" destination="8rJ-Kc-sve" id="9xd-5E-jwr"/>
-                            </connections>
-                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="sysRightNvBarButton" destination="5sQ-ZB-Do3" id="44N-eU-Ufp"/>
                         <segue destination="1gl-2A-vcP" kind="show" identifier="openPushWindow3" id="fs7-Hf-POu"/>
                         <segue destination="elI-Rn-3PI" kind="show" identifier="openPushWindow1" id="Bh1-u5-y8B"/>
                         <segue destination="cqI-S8-eQ5" kind="show" identifier="openPushWindow2" id="hCA-Y4-ghw"/>
@@ -1898,12 +1896,12 @@
         <image name="window" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ZvE-XI-HFU"/>
-        <segue reference="Uot-WS-En9"/>
-        <segue reference="eEM-n9-gsW"/>
+        <segue reference="hCA-Y4-ghw"/>
+        <segue reference="Bh1-u5-y8B"/>
+        <segue reference="fs7-Hf-POu"/>
+        <segue reference="tbL-PB-G8k"/>
         <segue reference="lOP-5h-YkC"/>
-        <segue reference="zit-QD-xPi"/>
-        <segue reference="ZGt-OK-Rsu"/>
-        <segue reference="Z1x-b4-ZDY"/>
+        <segue reference="Uot-WS-En9"/>
+        <segue reference="ZvE-XI-HFU"/>
     </inferredMetricsTieBreakers>
 </document>
