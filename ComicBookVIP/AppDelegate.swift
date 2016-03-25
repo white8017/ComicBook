@@ -19,13 +19,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	var bookName = [String]()
     var account = ""
     var phoneNumber = ""
-    var vip = "1"
+    var vip = ""
     var userDefault = NSUserDefaults.standardUserDefaults() // 就像是在 Android 上的 SharedPreference一樣，暫存於 App 中，直到程式被移除才會消失
     
-    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+    func reloadData() {
         var storedNumber = userDefault.objectForKey("phoneNumber")
         var storedName = userDefault.objectForKey("name")
+        var storedVIP = userDefault.objectForKey("vip")
         
+        if storedName != nil {
+            account = storedName! as! String
+        }
+        
+        if storedNumber != nil {
+            phoneNumber = storedNumber! as! String
+        }
+        if storedVIP != nil {
+            vip = storedVIP! as! String
+        }
+        
+        print("app:name = \(account)")
+        print("app:phone = \(phoneNumber)")
+        print("app:vip = \(vip)")
+
+    }
+    
+    func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "reloadData", name: "reloadData", object: nil)
+        var storedNumber = userDefault.objectForKey("phoneNumber")
+        var storedName = userDefault.objectForKey("name")
+        var storedVIP = userDefault.objectForKey("vip")
 
         if storedName != nil {
             account = storedName! as! String
@@ -34,10 +57,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if storedNumber != nil {
             phoneNumber = storedNumber! as! String
         }
+        if storedVIP != nil {
+            vip = storedVIP! as! String
+        }
 //        print("app:stored = \(storedNumber!)")
 //        print(storedName!)
         print("app:name = \(account)")
         print("app:phone = \(phoneNumber)")
+        print("app:vip = \(vip)")
         
         // Override point for customization after application launch.
         /* 這裡是電話簡訊驗證 */

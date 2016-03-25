@@ -27,6 +27,15 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
     
     
     @IBOutlet weak var myTableView: UITableView!
+    func alertPg (txt: String) {
+        let alert = UIAlertController(title: txt , message:nil , preferredStyle: .Alert)
+        let action = UIAlertAction(title: "完成付款", style: .Default, handler: { (alert:UIAlertAction) -> Void in
+
+        })
+        alert.addAction(action)
+        self.presentViewController(alert, animated: true){}
+    }
+
     
     @IBAction func toggleMenu(sender: AnyObject) {
         NSNotificationCenter.defaultCenter().postNotificationName("toggleMenu", object: nil)
@@ -42,48 +51,79 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
         
     }
     
+    override func viewDidAppear(animated: Bool) {
+        setTabBarVisible(!tabBarIsVisible(), animated: true)
+        
+        
+        let userLbl = self.view.viewWithTag(301) as! UILabel
+        userLbl.text = "\(appDelegate.account) 的訂單"
+        
+        btnBack.frame = CGRectMake(DynamicView.frame.width*0.1, DynamicView.frame.height*0.1, Screen.width * 0.1, Screen.width * 0.1)
+        btnBack.setTitle("返回", forState: .Normal)
+        btnBack.layer.cornerRadius = 10
+        //        btnBack.layer.shadowRadius = 2.9
+        btnBack.layer.shadowOpacity = 0.3
+        btnBack.backgroundColor = UIColor(red: 1, green: 0.7, blue: 0, alpha: 1)
+        btnBack.addTarget(self, action: "btnBack:", forControlEvents: UIControlEvents.TouchUpInside)
+        DynamicView.addSubview(btnBack)
+        
+        let a = DynamicView.frame.width/2
+        imgQRCode.frame = CGRectMake(DynamicView.frame.width/2-a/2, DynamicView.frame.height/2-a/2, a, a)
+        DynamicView.addSubview(imgQRCode)
+        
+        
+            // QRCode 掃描
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("reloadData", object: nil)
+        print("vip = \(appDelegate.vip)")
+        if appDelegate.vip == "1" {
+            print("我跑囉")
+            //        view.backgroundColor = UIColor.blackColor()
+            captureSession = AVCaptureSession()
+            
+            let videoCaptureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+            let videoInput: AVCaptureDeviceInput
+            
+            do {
+                videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
+            } catch {
+                return
+            }
+            
+            if (captureSession!.canAddInput(videoInput)) {
+                captureSession!.addInput(videoInput)
+            } else {
+                failed();
+                return;
+            }
+            
+            let metadataOutput = AVCaptureMetadataOutput()
+            
+            if (captureSession!.canAddOutput(metadataOutput)) {
+                captureSession!.addOutput(metadataOutput)
+                
+                metadataOutput.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
+                metadataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
+            } else {
+                failed()
+                return
+            }
+            
+            previewLayer = AVCaptureVideoPreviewLayer(session: captureSession);
+            previewLayer!.frame = view.layer.bounds;
+            previewLayer!.videoGravity = AVLayerVideoGravityResizeAspectFill;
+            view.layer.addSublayer(previewLayer!);
+            
+            captureSession!.startRunning();
+            // 到這
+        }
+
+    }
+
+    
     override func viewDidLoad() {
         loadOrderForm()
      
-        
-//        view.backgroundColor = UIColor.blackColor()
-        captureSession = AVCaptureSession()
-        
-        let videoCaptureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
-        let videoInput: AVCaptureDeviceInput
-        
-        do {
-            videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
-        } catch {
-            return
-        }
-        
-        if (captureSession!.canAddInput(videoInput)) {
-            captureSession!.addInput(videoInput)
-        } else {
-            failed();
-            return;
-        }
-        
-        let metadataOutput = AVCaptureMetadataOutput()
-        
-        if (captureSession!.canAddOutput(metadataOutput)) {
-            captureSession!.addOutput(metadataOutput)
-            
-            metadataOutput.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
-            metadataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
-        } else {
-            failed()
-            return
-        }
-        
-        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession);
-        previewLayer!.frame = view.layer.bounds;
-        previewLayer!.videoGravity = AVLayerVideoGravityResizeAspectFill;
-        view.layer.addSublayer(previewLayer!);
-        
-        captureSession!.startRunning();
-        
     }
     
     func failed() {
@@ -122,36 +162,16 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
     }
     func foundCode(code: String) {
         print(code)
-        Checkout(code)
-        captureSession = nil
-        
+//        Checkout(code)
+        self.navigationController?.popToRootViewControllerAnimated(true)
+        sleep(1)
+        NSNotificationCenter.defaultCenter().postNotificationName("check", object: nil)
+
     }
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return .Portrait
     }
     
-    
-    
-    override func viewDidAppear(animated: Bool) {
-        setTabBarVisible(!tabBarIsVisible(), animated: true)
-        
-        
-        let userLbl = self.view.viewWithTag(301) as! UILabel
-        userLbl.text = "\(appDelegate.account) 的訂單"
-        
-        btnBack.frame = CGRectMake(DynamicView.frame.width*0.1, DynamicView.frame.height*0.1, Screen.width * 0.1, Screen.width * 0.1)
-        btnBack.setTitle("返回", forState: .Normal)
-        btnBack.layer.cornerRadius = 10
-//        btnBack.layer.shadowRadius = 2.9
-        btnBack.layer.shadowOpacity = 0.3
-        btnBack.backgroundColor = UIColor(red: 1, green: 0.7, blue: 0, alpha: 1)
-        btnBack.addTarget(self, action: "btnBack:", forControlEvents: UIControlEvents.TouchUpInside)
-        DynamicView.addSubview(btnBack)
-        
-        let a = DynamicView.frame.width/2
-        imgQRCode.frame = CGRectMake(DynamicView.frame.width/2-a/2, DynamicView.frame.height/2-a/2, a, a)
-        DynamicView.addSubview(imgQRCode)
-    }
     //http://www.jianshu.com/p/56c8b3c1403c
     //hide Tabbar
     func btnBack(sender:AnyObject) {
@@ -159,13 +179,14 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
             
             self.DynamicView.frame = CGRectMake(0, Screen.height*1.2, Screen.width, Screen.height/2)
             self.DynamicView.backgroundColor = UIColor(red: 0.4, green: 1, blue: 1, alpha: 0.0)
+            
+            
+//            self.imgQRCode.image = nil
+//            self.qrcodeImage = nil
             }) { (Bool) -> Void in
                 return true
+                
         }
-        
-        
-        
-        
         
     }
     
@@ -219,11 +240,12 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
             filter!.setValue("Q", forKey: "inputCorrectionLevel")
             
             qrcodeImage = filter!.outputImage
+            imgQRCode.image = UIImage(CIImage: qrcodeImage)
         }else {
-            imgQRCode.image = nil
-            qrcodeImage = nil
+//            imgQRCode.image = nil
+//            qrcodeImage = nil
         }
-        imgQRCode.image = UIImage(CIImage: qrcodeImage)
+        
         
         
     }
