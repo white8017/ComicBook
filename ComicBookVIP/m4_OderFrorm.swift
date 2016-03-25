@@ -46,7 +46,7 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
         loadOrderForm()
      
         
-        view.backgroundColor = UIColor.blackColor()
+//        view.backgroundColor = UIColor.blackColor()
         captureSession = AVCaptureSession()
         
         let videoCaptureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
@@ -122,6 +122,8 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
     }
     func foundCode(code: String) {
         print(code)
+        Checkout(code)
+        captureSession = nil
         
     }
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
@@ -223,6 +225,7 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
         }
         imgQRCode.image = UIImage(CIImage: qrcodeImage)
         
+        
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -271,14 +274,14 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
         
     }
     
-    func Checkout() {
+    func Checkout(sqlBody:String) {
         let url = NSURL(string: "http://sashihara.100hub.net/vip/updateDepositCheckout.php")
         let request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
         
         //        let submitName = ""
         print(sum)
         
-        let submitBody: String = "deposit=\(sum)&phoneNumber=\(appDelegate.phoneNumber)"
+        let submitBody: String = "\(sqlBody)"
         
         request.HTTPMethod = "POST"
         request.HTTPBody = submitBody.dataUsingEncoding(NSUTF8StringEncoding)
