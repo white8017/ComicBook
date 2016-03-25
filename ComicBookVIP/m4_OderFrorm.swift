@@ -11,6 +11,8 @@ import UIKit
 class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate, UITableViewDataSource,NSURLSessionDelegate, NSURLSessionDownloadDelegate {
     
     var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    var DynamicView=UIView(frame: CGRectMake(0, Screen.height*1.2, Screen.width, Screen.height/2))
+    let btnBack   = UIButton(type: UIButtonType.Custom) as UIButton
     var dataArray = [AnyObject]()
     var i = 0
     var totalArray = [AnyObject]()
@@ -34,6 +36,7 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
     
     override func viewDidLoad() {
         loadOrderForm()
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -43,11 +46,29 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
         let userLbl = self.view.viewWithTag(301) as! UILabel
         userLbl.text = "\(appDelegate.account) 的訂單"
         
-        
+        btnBack.frame = CGRectMake(DynamicView.frame.width*0.1, DynamicView.frame.height*0.1, Screen.width * 0.1, Screen.width * 0.1)
+        btnBack.setTitle("返回", forState: .Normal)
+        btnBack.layer.cornerRadius = 10
+//        btnBack.layer.shadowRadius = 2.9
+        btnBack.layer.shadowOpacity = 0.3
+        btnBack.backgroundColor = UIColor(red: 1, green: 0.7, blue: 0, alpha: 1)
+        btnBack.addTarget(self, action: "btnBack:", forControlEvents: UIControlEvents.TouchUpInside)
+        DynamicView.addSubview(btnBack)
         
     }
     //http://www.jianshu.com/p/56c8b3c1403c
     //hide Tabbar
+    func btnBack(sender:AnyObject) {
+        UIView.transitionWithView(self.view, duration: 0.7, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            
+            self.DynamicView.frame = CGRectMake(0, Screen.height*1.2, Screen.width, Screen.height/2)
+            self.DynamicView.backgroundColor = UIColor(red: 0.4, green: 1, blue: 1, alpha: 0.0)
+            
+            }) { (Bool) -> Void in
+                return true
+        }
+    }
+    
     func setTabBarVisible(visible:Bool, animated:Bool) {
         if (tabBarIsVisible() == visible) {
             return
@@ -73,7 +94,20 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
     
 
     @IBAction func btnCheck(sender: AnyObject) {
-        Checkout()
+//        Checkout()
+//        DynamicView.backgroundColor=UIColor.greenColor()
+        DynamicView.layer.cornerRadius=25
+        DynamicView.layer.borderWidth=2
+        DynamicView.targetForAction("view2", withSender: self)
+        self.view.addSubview(DynamicView)
+        UIView.transitionWithView(self.view, duration: 0.7, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            
+            self.DynamicView.frame = CGRectMake(0, Screen.height*0.2, Screen.width, Screen.height/2)
+            self.DynamicView.backgroundColor = UIColor(red: 0.4, green: 0.4, blue: 1, alpha: 0.7)
+            
+            }) { (Bool) -> Void in
+                return true
+        }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

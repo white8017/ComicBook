@@ -1,4 +1,4 @@
-//  BookTitleViewController.swift
+    //  BookTitleViewController.swift
 //  collection
 //  Created by plasma018 on 2016/3/10.
 //  Copyright © 2016年 plasma018. All rights reserved.
@@ -379,7 +379,6 @@ class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,
 		}
 		
 		sysRightNvBarButton = UIBarButtonItem(title: "編輯", style: UIBarButtonItemStyle.Plain, target: self, action: "editting:")
-		sysRightNvBarButton.title = "123"
 	
 		
 		
