@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import AVFoundation
 
-class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate, UITableViewDataSource,NSURLSessionDelegate, NSURLSessionDownloadDelegate {
+class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate, UITableViewDataSource,NSURLSessionDelegate, NSURLSessionDownloadDelegate,AVCaptureMetadataOutputObjectsDelegate {
     
     var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var DynamicView=UIView(frame: CGRectMake(0, Screen.height*1.2, Screen.width, Screen.height/2))
@@ -17,6 +18,13 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
     var i = 0
     var totalArray = [AnyObject]()
     var sum = 0
+    var imgQRCode:UIImageView = UIImageView()
+    var qrcodeImage: CIImage!
+    
+    var captureSession:AVCaptureSession?
+    var previewLayer:AVCaptureVideoPreviewLayer?
+
+    
     
     @IBOutlet weak var myTableView: UITableView!
     
@@ -36,8 +44,93 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
     
     override func viewDidLoad() {
         loadOrderForm()
+     
+        
+//        view.backgroundColor = UIColor.blackColor()
+        captureSession = AVCaptureSession()
+        
+        let videoCaptureDevice = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+        let videoInput: AVCaptureDeviceInput
+        
+        do {
+            videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
+        } catch {
+            return
+        }
+        
+        if (captureSession!.canAddInput(videoInput)) {
+            captureSession!.addInput(videoInput)
+        } else {
+            failed();
+            return;
+        }
+        
+        let metadataOutput = AVCaptureMetadataOutput()
+        
+        if (captureSession!.canAddOutput(metadataOutput)) {
+            captureSession!.addOutput(metadataOutput)
+            
+            metadataOutput.setMetadataObjectsDelegate(self, queue: dispatch_get_main_queue())
+            metadataOutput.metadataObjectTypes = [AVMetadataObjectTypeQRCode]
+        } else {
+            failed()
+            return
+        }
+        
+        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession);
+        previewLayer!.frame = view.layer.bounds;
+        previewLayer!.videoGravity = AVLayerVideoGravityResizeAspectFill;
+        view.layer.addSublayer(previewLayer!);
+        
+        captureSession!.startRunning();
         
     }
+    
+    func failed() {
+        let ac = UIAlertController(title: "Scanning not supported", message: "Your device does not support scanning a code from an item. Please use a device with a camera.", preferredStyle: .Alert)
+        ac.addAction(UIAlertAction(title: "OK", style: .Default, handler: nil))
+        presentViewController(ac, animated: true, completion: nil)
+        captureSession = nil
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if (captureSession?.running == false) {
+            captureSession!.startRunning();
+        }
+    }
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if (captureSession?.running == true) {
+            captureSession!.stopRunning();
+        }
+    }
+    
+    func captureOutput(captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [AnyObject]!, fromConnection connection: AVCaptureConnection!) {
+        captureSession!.stopRunning()
+        
+        if let metadataObject = metadataObjects.first {
+            let readableObject = metadataObject as! AVMetadataMachineReadableCodeObject;
+            
+            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
+            foundCode(readableObject.stringValue);
+        }
+        
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    func foundCode(code: String) {
+        print(code)
+        Checkout(code)
+        captureSession = nil
+        
+    }
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
+        return .Portrait
+    }
+    
+    
     
     override func viewDidAppear(animated: Bool) {
         setTabBarVisible(!tabBarIsVisible(), animated: true)
@@ -55,6 +148,9 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
         btnBack.addTarget(self, action: "btnBack:", forControlEvents: UIControlEvents.TouchUpInside)
         DynamicView.addSubview(btnBack)
         
+        let a = DynamicView.frame.width/2
+        imgQRCode.frame = CGRectMake(DynamicView.frame.width/2-a/2, DynamicView.frame.height/2-a/2, a, a)
+        DynamicView.addSubview(imgQRCode)
     }
     //http://www.jianshu.com/p/56c8b3c1403c
     //hide Tabbar
@@ -63,10 +159,14 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
             
             self.DynamicView.frame = CGRectMake(0, Screen.height*1.2, Screen.width, Screen.height/2)
             self.DynamicView.backgroundColor = UIColor(red: 0.4, green: 1, blue: 1, alpha: 0.0)
-            
             }) { (Bool) -> Void in
                 return true
         }
+        
+        
+        
+        
+        
     }
     
     func setTabBarVisible(visible:Bool, animated:Bool) {
@@ -108,6 +208,24 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
             }) { (Bool) -> Void in
                 return true
         }
+        
+        // QRCode
+        if qrcodeImage == nil {
+            let data = "deposit=\(sum)&phoneNumber=\(appDelegate.phoneNumber)".dataUsingEncoding(NSISOLatin1StringEncoding, allowLossyConversion: false)
+            
+            let filter = CIFilter(name: "CIQRCodeGenerator")
+            
+            filter!.setValue(data, forKey: "inputMessage")
+            filter!.setValue("Q", forKey: "inputCorrectionLevel")
+            
+            qrcodeImage = filter!.outputImage
+        }else {
+            imgQRCode.image = nil
+            qrcodeImage = nil
+        }
+        imgQRCode.image = UIImage(CIImage: qrcodeImage)
+        
+        
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -156,14 +274,14 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
         
     }
     
-    func Checkout() {
+    func Checkout(sqlBody:String) {
         let url = NSURL(string: "http://sashihara.100hub.net/vip/updateDepositCheckout.php")
         let request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
         
         //        let submitName = ""
         print(sum)
         
-        let submitBody: String = "deposit=\(sum)&phoneNumber=\(appDelegate.phoneNumber)"
+        let submitBody: String = "\(sqlBody)"
         
         request.HTTPMethod = "POST"
         request.HTTPBody = submitBody.dataUsingEncoding(NSUTF8StringEncoding)
