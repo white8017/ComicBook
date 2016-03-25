@@ -21,13 +21,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w2S-Y2-DgU">
-                                <rect key="frame" x="0.0" y="58" width="600" height="338"/>
+                                <rect key="frame" x="0.0" y="88" width="600" height="338"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="w2S-Y2-DgU" secondAttribute="height" multiplier="16:9" id="gfX-TL-STk"/>
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="N1u-y0-iMU">
-                                <rect key="frame" x="0.0" y="396" width="600" height="155"/>
+                                <rect key="frame" x="0.0" y="426" width="600" height="125"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NewsCell" id="dhq-ex-LFk">
@@ -45,7 +45,7 @@
                                 </connections>
                             </tableView>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="4" translatesAutoresizingMaskIntoConstraints="NO" id="Vuk-s6-zt5">
-                                <rect key="frame" x="273" y="359" width="55" height="37"/>
+                                <rect key="frame" x="273" y="389" width="55" height="37"/>
                                 <color key="pageIndicatorTintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="currentPageIndicatorTintColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                             </pageControl>
@@ -60,12 +60,13 @@
                             <constraint firstAttribute="trailing" secondItem="w2S-Y2-DgU" secondAttribute="trailing" id="eVh-5N-j6N"/>
                             <constraint firstAttribute="trailing" secondItem="N1u-y0-iMU" secondAttribute="trailing" id="jeX-IS-8EV"/>
                             <constraint firstItem="N1u-y0-iMU" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="lmR-RT-roe"/>
-                            <constraint firstItem="w2S-Y2-DgU" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="14" id="oVz-oN-C2w"/>
+                            <constraint firstItem="w2S-Y2-DgU" firstAttribute="top" secondItem="Ia1-K6-d13" secondAttribute="bottom" constant="44" id="oVz-oN-C2w"/>
                             <constraint firstItem="N1u-y0-iMU" firstAttribute="top" secondItem="w2S-Y2-DgU" secondAttribute="bottom" id="qXg-bH-UEn"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="本店訊息" id="3FY-5Y-fnl">
                         <barButtonItem key="leftBarButtonItem" image="HumburgerButton" id="Gah-Rh-FKD">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="toggleMenu:" destination="9pv-A4-QxB" id="B8x-am-T3p"/>
                             </connections>
@@ -99,7 +100,6 @@
         <!--租書籃-->
         <scene sceneID="qKM-DB-qPn">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1pU-KX-Zgh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="1gl-2A-vcP" customClass="m4_OderFrorm" customModule="ComicBookVIP" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Dqz-7v-RKc"/>
@@ -211,6 +211,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="租書籃" id="NsD-3r-iJc">
                         <barButtonItem key="leftBarButtonItem" image="HumburgerButton" id="GIe-iH-flp">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="toggleMenu:" destination="1gl-2A-vcP" id="qeo-SV-Nvy"/>
                             </connections>
@@ -225,10 +226,11 @@
                         <outlet property="myTableView" destination="GNj-t3-dVV" id="6Kb-kA-QIi"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1pU-KX-Zgh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3926" y="1737"/>
         </scene>
-        <!--Transaction History-->
+        <!--借閱紀錄-->
         <scene sceneID="TSy-8w-bKe">
             <objects>
                 <viewController id="elI-Rn-3PI" customClass="m2_TransactionHistory" customModule="ComicBookVIP" customModuleProvider="target" sceneMemberID="viewController">
@@ -246,6 +248,7 @@
                                     <segment title="First"/>
                                     <segment title="Second"/>
                                 </segments>
+                                <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="valueChange:" destination="elI-Rn-3PI" eventType="valueChanged" id="z8D-xC-74X"/>
                                 </connections>
@@ -353,8 +356,9 @@
                             <constraint firstItem="79l-Vr-bkO" firstAttribute="leading" secondItem="5Xv-Do-LTd" secondAttribute="leading" id="vyM-HT-eAU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Hrm-B7-iTy">
+                    <navigationItem key="navigationItem" title="借閱紀錄" id="Hrm-B7-iTy">
                         <barButtonItem key="leftBarButtonItem" image="HumburgerButton" id="a77-Dp-LrM">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="toggleMenu:" destination="elI-Rn-3PI" id="DS1-kK-fLe"/>
                             </connections>
@@ -418,6 +422,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="儲值餘額" id="rWv-se-j0g">
                         <barButtonItem key="leftBarButtonItem" image="HumburgerButton" id="z3l-Vw-BVF">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="toggleMenu:" destination="cqI-S8-eQ5" id="3Ge-0n-c4A"/>
                             </connections>
@@ -447,6 +452,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="漫畫分類" id="eA1-gp-lW9">
                         <barButtonItem key="leftBarButtonItem" image="HumburgerButton" id="Krw-Gc-N12">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="toggleMenu:" destination="8rJ-Kc-sve" id="kPb-2u-xAx"/>
                             </connections>
@@ -487,6 +493,7 @@
                                     <segment title="First"/>
                                     <segment title="Second"/>
                                 </segments>
+                                <color key="tintColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="SegControl:" destination="S8r-MG-jft" eventType="valueChanged" id="eiV-Sx-9Ja"/>
                                 </connections>
@@ -542,6 +549,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="本蟲最愛" id="mm7-Ng-86x">
                         <barButtonItem key="leftBarButtonItem" image="HumburgerButton" id="Q10-4F-Sea">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="toggleMenu:" destination="S8r-MG-jft" id="ISe-OK-Tg0"/>
                             </connections>
@@ -609,6 +617,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="店址資訊" id="bEE-bs-Tl7">
                         <barButtonItem key="leftBarButtonItem" image="HumburgerButton" id="vrR-K3-Gso">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="toggleMenu:" destination="1At-Jp-yl3" id="o1N-sy-Pb2"/>
                             </connections>
@@ -720,6 +729,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="YLk-sR-3S6">
                         <barButtonItem key="leftBarButtonItem" image="HumburgerButton" id="P2a-6c-iHD">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="toggleMenu:" destination="jX9-qW-21Y" id="nGu-w1-6fd"/>
                             </connections>
@@ -738,7 +748,7 @@
             </objects>
             <point key="canvasLocation" x="4734" y="-751"/>
         </scene>
-        <!--User Login View Controller-->
+        <!--會員資訊-->
         <scene sceneID="mCB-Dc-qDv">
             <objects>
                 <viewController id="mE8-dU-WcX" customClass="UserLoginViewController" customModule="ComicBookVIP" customModuleProvider="target" sceneMemberID="viewController">
@@ -783,8 +793,9 @@
                             <constraint firstItem="F2U-TV-CTe" firstAttribute="width" secondItem="Jeb-lA-4r0" secondAttribute="width" multiplier="0.55" id="ejg-dv-NGx"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="pvb-oL-iXh">
+                    <navigationItem key="navigationItem" title="會員資訊" id="pvb-oL-iXh">
                         <barButtonItem key="leftBarButtonItem" image="HumburgerButton" id="J5n-fb-a3m">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="toggleMenu:" destination="mE8-dU-WcX" id="F1O-y4-9Yn"/>
                             </connections>
@@ -1887,12 +1898,12 @@
         <image name="window" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="lOP-5h-YkC"/>
-        <segue reference="7re-W0-LjR"/>
-        <segue reference="Xka-je-coF"/>
-        <segue reference="bOe-Wd-Q4Q"/>
-        <segue reference="MhT-Tj-2FV"/>
-        <segue reference="Uot-WS-En9"/>
         <segue reference="ZvE-XI-HFU"/>
+        <segue reference="Uot-WS-En9"/>
+        <segue reference="eEM-n9-gsW"/>
+        <segue reference="lOP-5h-YkC"/>
+        <segue reference="zit-QD-xPi"/>
+        <segue reference="ZGt-OK-Rsu"/>
+        <segue reference="Z1x-b4-ZDY"/>
     </inferredMetricsTieBreakers>
 </document>
