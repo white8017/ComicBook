@@ -106,6 +106,7 @@ class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,
 			print(self.items[i])
 			self.scrollContent.addSubview( self.bookContent[i])
 		}
+		self.dismissViewControllerAnimated(true, completion: nil)
 	}
 	
 	
@@ -268,6 +269,7 @@ class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,
 		super.viewDidLoad()
 		print("view did load")
 		NSNotificationCenter.defaultCenter().addObserver(self, selector: "changeCarNumber", name: "addMenu", object: nil)
+		
 		selectedTab = 1
 		
 		let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
@@ -355,7 +357,7 @@ class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,
 			
 			
 			print("download ok")
-			self.dismissViewControllerAnimated(true, completion: nil)
+			
 		}catch {
 			print("new bookItems:ERROR")
 		}
