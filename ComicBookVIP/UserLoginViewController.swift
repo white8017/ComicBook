@@ -9,13 +9,13 @@
 import UIKit
 
 class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSessionDownloadDelegate  {
-
+    
     var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var dataArray = [AnyObject]()
     var i = 0;
     let width = CGFloat(2.0)
     
-//    var userDefault = NSUserDefaults.standardUserDefaults() // 就像是在 Android 上的 SharedPreference一樣，暫存於 App 中，直到程式被移除才會消失
+    //    var userDefault = NSUserDefaults.standardUserDefaults() // 就像是在 Android 上的 SharedPreference一樣，暫存於 App 中，直到程式被移除才會消失
     
     var txtPhone: UITextField = UITextField(frame: CGRect(x: Screen.width / 2, y: Screen.height / 5, width:20, height: 40))
     var txtPasswd: UITextField = UITextField(frame: CGRect(x: Screen.width / 2, y: Screen.height / 5 * 1.5, width:20, height: 40))
@@ -53,68 +53,76 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
         }
         
         
-            print("phoneNumber: \(appDelegate.phoneNumber)")
-
-//        print("storedNumber : \(appDelegate.storedNumber!)")
+        print("phoneNumber: \(appDelegate.phoneNumber)")
+        
+        //        print("storedNumber : \(appDelegate.storedNumber!)")
+        // 如果未登入
         if appDelegate.phoneNumber == "" {
-        UIView.transitionWithView(self.view, duration: 1.5, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            UIView.transitionWithView(self.view, duration: 1.5, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+                
+                //背景
+                self.view.backgroundColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 0.9)
+                
+                //登入電話
+                let borderPhone = CALayer()
+                self.txtPhone.frame = CGRectMake(Screen.width / 5, Screen.height / 5, Screen.width / 5 * 3, 40)
+                self.txtPhone.layer.addSublayer(borderPhone)
+                self.txtPhone.layer.masksToBounds = true
+                self.txtPhone.textColor = UIColor.brownColor()
+                self.txtPhone.attributedPlaceholder = NSAttributedString(string: "電話", attributes: [NSForegroundColorAttributeName: UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 0.85)])
+                self.txtPhone.alpha = 1
+                self.borderStyle(self.txtPhone, borderNom: borderPhone)
+                self.view.addSubview(self.txtPhone)
+                //登入密碼
+                let borderPasswd = CALayer()
+                self.txtPasswd.frame = CGRectMake(Screen.width / 5, Screen.height / 5 * 1.5, Screen.width / 5 * 3, 40)
+                self.txtPasswd.layer.addSublayer(borderPasswd)
+                self.txtPasswd.layer.masksToBounds = true
+                self.txtPasswd.textColor = UIColor.brownColor()
+                self.txtPasswd.attributedPlaceholder = NSAttributedString(string: "密碼", attributes: [NSForegroundColorAttributeName: UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 0.85)])
+                self.txtPasswd.alpha = 1
+                self.borderStyle(self.txtPasswd, borderNom: borderPasswd)
+                self.view.addSubview(self.txtPasswd)
+                
+                }) { (Bool) -> Void in
+                    return true
+            }
             
+            print("[ Screen width : Screen height => \(Screen.width) : \(Screen.height) ]")
+            
+            //hide tabbar
+            setTabBarVisible(!tabBarIsVisible(), animated: true)
+            
+        }else { // 已登入
             //背景
             self.view.backgroundColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 0.9)
             
-            //登入電話
-            let borderPhone = CALayer()
             self.txtPhone.frame = CGRectMake(Screen.width / 5, Screen.height / 5, Screen.width / 5 * 3, 40)
-            self.txtPhone.layer.addSublayer(borderPhone)
-            self.txtPhone.layer.masksToBounds = true
-            self.txtPhone.textColor = UIColor.brownColor()
-            self.txtPhone.attributedPlaceholder = NSAttributedString(string: "電話", attributes: [NSForegroundColorAttributeName: UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 0.85)])
-            self.txtPhone.alpha = 1
-            self.borderStyle(self.txtPhone, borderNom: borderPhone)
-            self.view.addSubview(self.txtPhone)
-            //登入密碼
-            let borderPasswd = CALayer()
-            self.txtPasswd.frame = CGRectMake(Screen.width / 5, Screen.height / 5 * 1.5, Screen.width / 5 * 3, 40)
-            self.txtPasswd.layer.addSublayer(borderPasswd)
-            self.txtPasswd.layer.masksToBounds = true
-            self.txtPasswd.textColor = UIColor.brownColor()
-            self.txtPasswd.attributedPlaceholder = NSAttributedString(string: "密碼", attributes: [NSForegroundColorAttributeName: UIColor(red: 0.7, green: 0.7, blue: 0.7, alpha: 0.85)])
-            self.txtPasswd.alpha = 1
-            self.borderStyle(self.txtPasswd, borderNom: borderPasswd)
-            self.view.addSubview(self.txtPasswd)
-            
-            
-            
-            
-            }) { (Bool) -> Void in
-                return true
-            }
-        
-        print("[ Screen width : Screen height => \(Screen.width) : \(Screen.height) ]")
-        
-        
-        //hide tabbar 
-        setTabBarVisible(!tabBarIsVisible(), animated: true)
-        }else {
+            txtPhone.text = "姓名 ： \(appDelegate.account)"
+            txtPhone.selected = false
+            txtPhone.borderStyle = UITextBorderStyle.None
+            txtPhone.textColor = UIColor.whiteColor()
+            self.view.addSubview(txtPhone)
             
         }
         
         
-//        btnLogin.frame = CGRect(x: Screen.width / 4, y: Screen.height / 2, width: loginW, height: loginH)
-//        btnSignup.frame = CGRect(x: Screen.width / 4, y: Screen.height / 2 * 1.5, width: loginW, height: loginH)
         
-//        btnLogin.frame.size.width = loginW
-//        btnLogin.frame.size.height = loginH
-//        
-//        btnSignup.frame.size.width = loginW
-//        btnSignup.frame.size.height = loginH
-//        
-//        btnLogin.center = CGPointMake(Screen.width / 2, Screen.height / 5 * 2.5)
-//        btnSignup.center = CGPointMake(Screen.width / 2, Screen.height / 5 * 3.7)
+        //        btnLogin.frame = CGRect(x: Screen.width / 4, y: Screen.height / 2, width: loginW, height: loginH)
+        //        btnSignup.frame = CGRect(x: Screen.width / 4, y: Screen.height / 2 * 1.5, width: loginW, height: loginH)
         
-//        print("AAAAAA\(btnLogin.center.x)")
-//        self.view.addSubview(self.btnLogin)
-//        self.view.addSubview(self.btnSignup)
+        //        btnLogin.frame.size.width = loginW
+        //        btnLogin.frame.size.height = loginH
+        //
+        //        btnSignup.frame.size.width = loginW
+        //        btnSignup.frame.size.height = loginH
+        //
+        //        btnLogin.center = CGPointMake(Screen.width / 2, Screen.height / 5 * 2.5)
+        //        btnSignup.center = CGPointMake(Screen.width / 2, Screen.height / 5 * 3.7)
+        
+        //        print("AAAAAA\(btnLogin.center.x)")
+        //        self.view.addSubview(self.btnLogin)
+        //        self.view.addSubview(self.btnSignup)
         
         
     }
@@ -150,19 +158,19 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
                 
                 let alert = UIAlertController(title: nil, message:"登入成功", preferredStyle: .Alert)
                 let action = UIAlertAction(title: "OK", style: .Default, handler: { (alert:UIAlertAction) -> Void in
-//                    self.performSegueWithIdentifier("in", sender: nil)
-
+                    //                    self.performSegueWithIdentifier("in", sender: nil)
+                    
                     
                     self.appDelegate.account = self.dataArray[self.i]["name"] as! String
-//                    self.appDelegate.phoneNumber = self.dataArray[self.i]["phoneNumber"] as! String
+                    //                    self.appDelegate.phoneNumber = self.dataArray[self.i]["phoneNumber"] as! String
                     self.appDelegate.userDefault.setObject(self.dataArray[self.i]["phoneNumber"] as! String, forKey: "phoneNumber")
                     self.appDelegate.userDefault.setObject(self.dataArray[self.i]["name"] as! String, forKey: "name")
                     self.appDelegate.userDefault.setObject(self.dataArray[self.i]["VIP"], forKey: "vip")
                     self.appDelegate.userDefault.synchronize()
                     
-//                    var storedNumber = self.userDefault.objectForKey("phoneNumber")
+                    //                    var storedNumber = self.userDefault.objectForKey("phoneNumber")
                     
-//                    self.appDelegate.phoneNumber = storedNumber! as! String
+                    //                    self.appDelegate.phoneNumber = storedNumber! as! String
                     print("appDelegatePhone \(self.appDelegate.phoneNumber)")
                     
                     
@@ -174,6 +182,7 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
                     
                     //self.presentViewController(a, animated: true, completion: nil)
                     NSNotificationCenter.defaultCenter().postNotificationName("reloadData", object: nil)
+                    
                     print("yes!")
                 })
                 alert.addAction(action)
@@ -196,10 +205,10 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
             }
         }
         //        print(dataArray[i-1]["name"] as! String)
-
+        
     }
     
-
+    
     
     
     
@@ -240,6 +249,12 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
         self.loadData()
         
         txtPasswd.secureTextEntry = true
+        
+        if appDelegate.phoneNumber != "" {
+            btnLogin.hidden = true
+            btnSignup.hidden = true
+            setTabBarVisible(!tabBarIsVisible(), animated: true)
+        }
         // Do any additional setup after loading the view.
         
     }
@@ -306,5 +321,5 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
     // Pass the selected object to the new view controller.
     }
     */
-
+    
 }
