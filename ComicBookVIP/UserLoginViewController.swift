@@ -185,7 +185,7 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
                     
                     NSNotificationCenter.defaultCenter().postNotificationName("UserStateChange", object: nil)
                     
-                        NSNotificationCenter.defaultCenter().postNotificationName("test", object: nil)
+                        NSNotificationCenter.defaultCenter().postNotificationName("openAppCheck", object: nil)
                     
                     print("yes!")
                 })

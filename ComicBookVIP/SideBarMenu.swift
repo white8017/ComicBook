@@ -41,7 +41,7 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
 
     override func viewDidAppear(animated: Bool) {
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "checkLogin", name: "checkLogin", object: nil)
+        
     }
     func checkLogin() {
         
@@ -56,6 +56,17 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
     }
     
+    func openAppCheck() {
+        if appDelegate.phoneNumber != "" {
+            lblName.text = "嗨～\(appDelegate.account)"
+            btnLogout.hidden = false
+        }else {
+            lblName.text = "嗨～書蟲"
+            btnLogout.hidden = true
+        }
+        menuTableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -64,7 +75,8 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
         //TableView固定不滑動
         menuTableView.scrollEnabled = false
         
-        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "checkLogin", name: "checkLogin", object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "openAppCheck", name: "openAppCheck", object: nil)
     }
     
     
