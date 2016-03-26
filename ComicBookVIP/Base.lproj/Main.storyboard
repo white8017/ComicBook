@@ -81,7 +81,7 @@
                         <segue destination="elI-Rn-3PI" kind="show" identifier="openPushWindow1" id="Z1x-b4-ZDY"/>
                         <segue destination="cqI-S8-eQ5" kind="show" identifier="openPushWindow3" id="ZGt-OK-Rsu"/>
                         <segue destination="mE8-dU-WcX" kind="show" identifier="openPushWindow0" id="eEM-n9-gsW"/>
-                        <segue destination="fRj-1g-NED" kind="show" identifier="openPushWindow1_1" id="VVH-v3-AqO"/>
+                        <segue destination="fRj-1g-NED" kind="show" identifier="openPushWindow1_1" id="o53-iR-74a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -274,13 +274,13 @@
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" tag="105" contentMode="left" horizontalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03C-Kn-LoA">
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="105" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="03C-Kn-LoA">
                                                             <rect key="frame" x="55" y="19" width="29" height="16"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" tag="103" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtd-kK-wUJ">
+                                                        <label opaque="NO" userInteractionEnabled="NO" tag="103" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtd-kK-wUJ">
                                                             <rect key="frame" x="55" y="40" width="29" height="14"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -465,7 +465,7 @@
                         <segue destination="elI-Rn-3PI" kind="show" identifier="openPushWindow1" id="Bh1-u5-y8B"/>
                         <segue destination="cqI-S8-eQ5" kind="show" identifier="openPushWindow3" id="hCA-Y4-ghw"/>
                         <segue destination="mE8-dU-WcX" kind="show" identifier="openPushWindow0" id="tbL-PB-G8k"/>
-                        <segue destination="fRj-1g-NED" kind="show" identifier="openPushWindow1_1" id="lKY-yv-0se"/>
+                        <segue destination="fRj-1g-NED" kind="show" identifier="openPushWindow1_1" id="O5H-U9-M6C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -569,7 +569,7 @@
                         <segue destination="cqI-S8-eQ5" kind="show" identifier="openPushWindow3" id="bOe-Wd-Q4Q"/>
                         <segue destination="3HB-wW-krg" kind="show" identifier="favorites" id="fNZ-vr-cK5"/>
                         <segue destination="mE8-dU-WcX" kind="show" identifier="openPushWindow0" id="7re-W0-LjR"/>
-                        <segue destination="fRj-1g-NED" kind="show" identifier="openPushWindow1_1" id="Mp2-us-CdG"/>
+                        <segue destination="fRj-1g-NED" kind="show" identifier="openPushWindow1_1" id="eGJ-Vs-dG7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xQf-Up-Ag5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -637,7 +637,7 @@
                         <segue destination="1gl-2A-vcP" kind="show" identifier="openPushWindow2" id="9vg-4W-jL6"/>
                         <segue destination="elI-Rn-3PI" kind="show" identifier="openPushWindow1" id="J0b-QU-JMi"/>
                         <segue destination="mE8-dU-WcX" kind="show" identifier="openPushWindow0" id="dGJ-Qn-PCd"/>
-                        <segue destination="fRj-1g-NED" kind="show" identifier="openPushWindow1_1" id="6is-MA-39V"/>
+                        <segue destination="fRj-1g-NED" kind="show" identifier="openPushWindow1_1" id="cZP-qm-MUU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jFd-Ac-XV0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1910,7 +1910,7 @@
             </objects>
             <point key="canvasLocation" x="1325" y="7393"/>
         </scene>
-        <!--DepositVC-->
+        <!--儲值-->
         <scene sceneID="Ed1-Me-8Nq">
             <objects>
                 <viewController id="fRj-1g-NED" customClass="depositVC" customModule="ComicBookVIP" customModuleProvider="target" sceneMemberID="viewController">
@@ -1922,27 +1922,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="電話" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZAU-VI-kOB">
-                                <rect key="frame" x="72" y="146" width="96" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="金額" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HJI-Yo-HO7">
-                                <rect key="frame" x="216" y="311" width="96" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZh-wm-xkV">
-                                <rect key="frame" x="200" y="401" width="112" height="142"/>
-                                <color key="backgroundColor" red="1" green="0.87141669450000003" blue="0.90881894210000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="儲值"/>
-                                <connections>
-                                    <action selector="btnDeposit:" destination="fRj-1g-NED" eventType="touchUpInside" id="ft2-3o-ihE"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="120" translatesAutoresizingMaskIntoConstraints="NO" id="3Pb-jO-ikV">
+                                <rect key="frame" x="50" y="125" width="210" height="350"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="電話" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZAU-VI-kOB">
+                                        <rect key="frame" x="0.0" y="0.0" width="210" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="金額" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HJI-Yo-HO7">
+                                        <rect key="frame" x="0.0" y="150" width="210" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LZh-wm-xkV">
+                                        <rect key="frame" x="0.0" y="300" width="210" height="50"/>
+                                        <color key="backgroundColor" red="1" green="0.87141669450000003" blue="0.90881894210000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="PbE-WP-77Z"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                        <state key="normal" title="儲    值">
+                                            <color key="titleColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="btnDeposit:" destination="fRj-1g-NED" eventType="touchUpInside" id="ft2-3o-ihE"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3Pb-jO-ikV" firstAttribute="leading" secondItem="ghB-oh-Kn0" secondAttribute="leading" constant="50" id="85m-mo-L0l"/>
+                            <constraint firstItem="3Pb-jO-ikV" firstAttribute="centerY" secondItem="ghB-oh-Kn0" secondAttribute="centerY" id="B1c-Tc-mha"/>
+                            <constraint firstItem="3Pb-jO-ikV" firstAttribute="width" secondItem="ghB-oh-Kn0" secondAttribute="width" multiplier="0.35" id="Iel-Ul-uBu"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="儲值" id="39x-ON-DCN">
+                        <barButtonItem key="leftBarButtonItem" image="HumburgerButton" id="i4y-Zk-RZD">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="home" id="UaQ-av-Myn"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="btnDeposit" destination="LZh-wm-xkV" id="oRh-w6-cao"/>
                         <outlet property="txtDeposit" destination="HJI-Yo-HO7" id="IEx-zY-CpE"/>
@@ -1961,7 +1983,7 @@
         <image name="L_LoginButton" width="600" height="246"/>
         <image name="LogoutButton" width="352" height="140"/>
         <image name="heart" width="30" height="30"/>
-        <image name="home" width="30" height="30"/>
+        <image name="home" width="26" height="26"/>
         <image name="list" width="30" height="30"/>
         <image name="pin" width="30" height="30"/>
         <image name="star" width="30" height="30"/>
@@ -1970,10 +1992,10 @@
     <inferredMetricsTieBreakers>
         <segue reference="Bh1-u5-y8B"/>
         <segue reference="tbL-PB-G8k"/>
-        <segue reference="hCA-Y4-ghw"/>
         <segue reference="fs7-Hf-POu"/>
-        <segue reference="6is-MA-39V"/>
+        <segue reference="cZP-qm-MUU"/>
         <segue reference="Cgc-bA-g6S"/>
+        <segue reference="bOe-Wd-Q4Q"/>
         <segue reference="ZvE-XI-HFU"/>
         <segue reference="PyW-jE-qdX"/>
     </inferredMetricsTieBreakers>
