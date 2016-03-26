@@ -1962,8 +1962,15 @@
                     <navigationItem key="navigationItem" title="儲值" id="39x-ON-DCN">
                         <barButtonItem key="leftBarButtonItem" image="HumburgerButton" id="i4y-Zk-RZD">
                             <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="toggleMenu:" destination="fRj-1g-NED" id="Zio-it-DCA"/>
+                            </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="home" id="UaQ-av-Myn"/>
+                        <barButtonItem key="rightBarButtonItem" image="home" id="UaQ-av-Myn">
+                            <connections>
+                                <action selector="backHome:" destination="fRj-1g-NED" id="prK-ZP-vdY"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="btnDeposit" destination="LZh-wm-xkV" id="oRh-w6-cao"/>

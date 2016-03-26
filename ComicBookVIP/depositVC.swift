@@ -14,6 +14,12 @@ class depositVC: UIViewController, NSURLSessionDelegate  {
     @IBOutlet weak var txtPhone: UITextField!
     @IBOutlet weak var btnDeposit: UIButton!
 
+    @IBAction func toggleMenu(sender: AnyObject) {
+        NSNotificationCenter.defaultCenter().postNotificationName("toggleMenu", object: nil)
+    }
+    @IBAction func backHome(sender: AnyObject) {
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
     var total = 0
     
     let img50 = UIImage(named: "50NT") as UIImage?
@@ -27,11 +33,14 @@ class depositVC: UIViewController, NSURLSessionDelegate  {
     
     override func viewDidAppear(animated: Bool) {
         
+        setTabBarVisible(!tabBarIsVisible(), animated: true)
+        
         UIView.transitionWithView(self.view, duration: 1.5, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
                 self.view.backgroundColor = UIColor.blackColor()
             }) { (Bool) -> Void in
                 return true
         }
+        
         
 
         
@@ -54,18 +63,7 @@ class depositVC: UIViewController, NSURLSessionDelegate  {
         btn200.imageView?.layer.cornerRadius = 15
         btn200 .addTarget(self, action: "btn200:", forControlEvents:.TouchUpInside)
         self.view.addSubview(btn200)
-        
-        
-        txtDeposit.frame = CGRectMake(Screen.width*0.1, Screen.height*0.25, Screen.width*0.4, 25)
-        self.view.addSubview(txtDeposit)
-        
-        
-        txtPhone.frame = CGRectMake(Screen.width*0.1, Screen.height*0.45, Screen.width*0.4, 25)
-        self.view.addSubview(txtPhone)
-        
-        
-        btnDeposit.frame = CGRectMake(Screen.width*0.1, Screen.height*0.72, Screen.width*0.4, Screen.width*0.3)
-        self.view.addSubview(btnDeposit)
+    
     }
     
     func btn50(sender:AnyObject) {
@@ -131,6 +129,31 @@ class depositVC: UIViewController, NSURLSessionDelegate  {
         dataTask.resume()
 
     }
+    
+    
+    
+    func setTabBarVisible(visible:Bool, animated:Bool) {
+        if (tabBarIsVisible() == visible) {
+            return
+        }
+        let frame = self.tabBarController?.tabBar.frame
+        let offsetY = (visible ? CGFloat(0) : 49.0)
+        
+        let duration:NSTimeInterval = (animated ? 0.08 : 0.0)
+        
+        if frame != nil {
+            UIView.animateWithDuration(duration) {
+                self.tabBarController?.tabBar.frame = CGRectOffset(frame!, 0, offsetY)
+                return
+            }
+        }
+    }
+    func tabBarIsVisible() ->Bool {
+        return self.tabBarController?.tabBar.frame.origin.y < CGRectGetMaxY(self.view.frame)
+    }
+    
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
