@@ -56,8 +56,11 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
         
         
         let userLbl = self.view.viewWithTag(301) as! UILabel
-        userLbl.text = "\(appDelegate.account) 的訂單"
-        
+        if appDelegate.vip == "1" {
+            userLbl.text = ""
+        }else {
+            userLbl.text = "\(appDelegate.account) 的訂單"
+        }
         btnBack.frame = CGRectMake(DynamicView.frame.width*0.1, DynamicView.frame.height*0.1, Screen.width * 0.1, Screen.width * 0.1)
         btnBack.setTitle("返回", forState: .Normal)
         btnBack.layer.cornerRadius = 10

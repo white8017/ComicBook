@@ -94,26 +94,25 @@ class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,
 	
 	
 	
-//	func editting(sender:UIBarButtonItem){
-//	
-//		if sender.title == "編輯"{
-//			sender.title = "完成"
-//			appDelegate.canEitting = true
-//			for i in  bookContent{
-//				i.reloadData()
-//			}
-//		}else{
-//			sender.title = "編輯"
-//			appDelegate.canEitting = false
-//			for i in  bookContent{
-//				i.reloadData()
-//			}
-//		}
-//		
-//		
-//	}
-	
-	func editting(){
+
+    func editting(){
+        if carImage.image == UIImage(named: "editCant"){
+            carImage.image = UIImage(named: "editCan")
+            appDelegate.canEitting = true
+            for i in  bookContent{
+                i.reloadData()
+            }
+        }else{
+            carImage.image = UIImage(named: "editCant")
+            appDelegate.canEitting = false
+            for i in  bookContent{
+                i.reloadData()
+            			}
+        }
+
+        
+        
+        
 		
 	}
 	
@@ -253,7 +252,7 @@ class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,
 		if appDelegate.vip == "1"{
 			carView = UIView(frame:CGRect(x: 0, y: 0, width: 18, height: 18))
 			print("appDelegate.vip:\(appDelegate.vip)")
-			carImage.image = UIImage(named: "edit")
+			carImage.image = UIImage(named: "editCant")
 			let edittingGestureRecognizer = UITapGestureRecognizer(target: self, action: "editting")
 			carImage.addGestureRecognizer(edittingGestureRecognizer)
 			print("changeUserSTATE:boss")

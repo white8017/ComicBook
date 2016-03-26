@@ -183,6 +183,8 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
                     //self.presentViewController(a, animated: true, completion: nil)
                     NSNotificationCenter.defaultCenter().postNotificationName("reloadData", object: nil)
                     
+                    NSNotificationCenter.defaultCenter().postNotificationName("UserStateChange", object: nil)
+                    
                     print("yes!")
                 })
                 alert.addAction(action)

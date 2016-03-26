@@ -120,6 +120,7 @@ class CollectionViewCell: UICollectionViewCell,UINavigationControllerDelegate,UI
         menuViewController.modalPresentationStyle = .Popover
         menuViewController.preferredContentSize = CGSizeMake((self.window?.frame.size.width)!/1.5, (self.window?.frame.size.height)!/2)
 	
+        
 		menuViewController.imageView.image = self.imageView.image
 		menuViewController.textLabel1.text = self.textLabel.text
 		menuViewController.booktextfield.text = self.textLabel.text

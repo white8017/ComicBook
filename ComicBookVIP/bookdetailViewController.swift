@@ -30,13 +30,11 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 	
 	var bookAmount:[String]!
 	var rightButton = UIBarButtonItem()
-	
-	
-	
 	func back(sender: AnyObject) {
 		self.dismissViewControllerAnimated(true, completion: nil)
 	}
 	
+    
 	func setView(){
 		
 		let viewS = self.view.frame.size
@@ -225,8 +223,6 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 	}
 	
 	func bookVolum(sender:UIStepper){
-		
-		
 		stepperlabel.text = NSString(format: "第%.0f集", sender.value) as String
 	}
 	
@@ -273,6 +269,7 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 			
 		}else{
 			rightButton.title = "編輯"
+            self.view.endEditing(true)
 			UIView.transitionWithView(edting, duration: 1, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
 				
 				self.author.text = self.edtingAuthor.text
@@ -324,10 +321,7 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 		self.presentViewController(alertController, animated: true, completion: nil)
 	}
 	
-	func textFieldShouldReturn(textField: UITextField) -> Bool {
-		textField.resignFirstResponder()
-		return true
-	}
+
 	
 	func keyboardShow(notification:NSNotification){
 		print("keyboardShow")
@@ -336,7 +330,7 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 		let keyboardRectangle = keyboardFrame.CGRectValue()
 		let keyboardHeight = keyboardRectangle.minY
 		UIView.transitionWithView(edting, duration: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
-				self.edting.frame = CGRect(x: 0, y: keyboardHeight-self.view.frame.size.height/2, width: self.view.frame.size.width, height: self.view.frame.size.height/2)
+				self.edting.frame = CGRect(x: 0, y: self.navigationBar.frame.maxY, width: self.view.frame.size.width, height: self.view.frame.size.height/2)
 			}, completion: nil)
 	
 	}
@@ -400,12 +394,12 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 	
 	func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
 		let cell = cellView(style: UITableViewCellStyle.Default, reuseIdentifier: "cell")
+        //bug
 		cell.title.text = bookAmount[indexPath.row]
 		cell.date.text = rentTime[bookAmount[indexPath.row]]
 		for a in rentTime{
 			if a.0 == bookAmount[indexPath.row]{
 				cell.userInteractionEnabled = false
-				
 			}
 		}
 		

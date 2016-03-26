@@ -29,17 +29,21 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
         self.presentViewController(alert, animated: true){}
         btnLogout.hidden = true
         NSNotificationCenter.defaultCenter().postNotificationName("reloadData", object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName("UserStateChange", object: nil)
         lblName.text = "嗨～書蟲"
         btnLogout.hidden = true
     }
     
     let sideMenu = ["會  員  資  訊", "借  閱  紀  錄", "租     書     籃", "餘額："]
+    let bossMenu = ["儲         值", "查  詢  訂  單", "QRCode  結  帳"]
 
     override func viewDidAppear(animated: Bool) {
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "checkLogin", name: "checkLogin", object: nil)
     }
     func checkLogin() {
+        
+        
         
         if appDelegate.phoneNumber != "" {
             lblName.text = "嗨～\(appDelegate.account)"
@@ -48,6 +52,7 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
             lblName.text = "嗨～書蟲"
             btnLogout.hidden = true
         }
+        menuTableView.reloadData()
         
     }
     
@@ -72,13 +77,23 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     //設定Cell數量
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sideMenu.count
+        var count = 0
+        if appDelegate.vip == "0" || appDelegate.vip == ""{
+            count = sideMenu.count
+        }else if appDelegate.vip == "1" {
+            count = bossMenu.count
+        }
+        return count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MenuCell", forIndexPath: indexPath)
-        cell.textLabel?.text = sideMenu[indexPath.row]
         
+        if appDelegate.vip == "0" || appDelegate.vip == ""{
+            cell.textLabel?.text = sideMenu[indexPath.row]
+        }else if appDelegate.vip == "1" {
+            cell.textLabel?.text = bossMenu[indexPath.row]
+        }
         //let t = cell.viewWithTag(75) as! UILabel
         //t.text = sideMenu[indexPath.row]
         

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class menuViewController: UIViewController,NSURLSessionDelegate,UITableViewDataSource,UITableViewDelegate{
+class menuViewController: UIViewController,NSURLSessionDelegate,UITableViewDataSource,UITableViewDelegate,UIPopoverPresentationControllerDelegate{
 	//漫畫總數
 	var amount = 0
 	//漫畫金流
@@ -22,7 +22,7 @@ class menuViewController: UIViewController,NSURLSessionDelegate,UITableViewDataS
 	var tableView =  UITableView()
 	var booknumber = UILabel()
 	var bookmoney = UILabel()
-	
+	var menuViewController = orderViewController()
 	var epsoide = ["第1集","第2集","第3集","第4集","第5集","第6集","第7集","第8集","第9集","第10集","第11集","第12集","第13集","第14集","第15集","第16集","第17集","第18集","第19集","第20集","第21集","第22集","第23集","第24集","第25集","第26集","第27集","第28集","第29集","第30集","第31集","第32集","第33集","第34集","第35集","第36集","第37集","第38集","第39集","第40集","第41集","第42集","第43集","第44集","第45集","第46集","第47集","第48集","第49集","第50集","第51集","第52集","第53集","第54集","第55集"]
 	
 	
@@ -89,49 +89,102 @@ class menuViewController: UIViewController,NSURLSessionDelegate,UITableViewDataS
 	func cancel(){
 		self.dismissViewControllerAnimated(true, completion: nil)
 	}
-	
-	
-	
+    
+    func adaptivePresentationStyleForPresentationController(
+        controller: UIPresentationController) -> UIModalPresentationStyle {
+            return .None
+    }
+
 	//借閱訂單
 	func sendOrder(){
 		print(appDelegate.orderBooktTitle)
-		let alertController=UIAlertController(title: "謝謝借閱", message: "\n\n\n\n", preferredStyle: UIAlertControllerStyle.Alert)
-		
-		let indicator = UIActivityIndicatorView(frame: alertController.view.bounds)
-		indicator.color = UIColor.blackColor()
-		indicator.transform =  CGAffineTransformMakeScale(3, 3)
-		indicator.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-		alertController.view.addSubview(indicator)
-		indicator.userInteractionEnabled = false;
-		let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel, handler: nil)
-		let enterAction = UIAlertAction(title: "確認", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-			
-			indicator.startAnimating()
-			for order in self.appDelegate.orderBookNumber{
-				for a in order.1{
-					print(self.epsoide[Int(a)!])
-					self.updateData(5, name: self.appDelegate.account, bookName: order.0, nowStage: self.epsoide[Int(a)!])
-				}
-				
-			}
-			self.appDelegate.orderBooktTitle = []
-			NSNotificationCenter.defaultCenter().postNotificationName("addMenu", object: self)
-			self.appDelegate.orderBookNumber = [String:[String]]()
-			
-			
-			
-			self.dismissViewControllerAnimated(true, completion: nil)
-			
-		}
-		
-		alertController.addAction(cancelAction)
-		alertController.addAction( enterAction)
-		self.presentViewController(alertController, animated: true, completion: nil)
+      
+        menuViewController.modalPresentationStyle = .Popover
+        menuViewController.preferredContentSize = CGSizeMake((self.view?.frame.size.width)!/1.5, (self.view?.frame.size.height)!/2)
+        
+        menuViewController.enterBty.addTarget(self, action: "enter", forControlEvents: UIControlEvents.AllTouchEvents)
+        
+        let popoverMenuViewController = menuViewController.popoverPresentationController
+        popoverMenuViewController?.permittedArrowDirections = UIPopoverArrowDirection(rawValue: 0)
+        popoverMenuViewController?.delegate = self
+        popoverMenuViewController?.sourceView = self.view
+        popoverMenuViewController?.sourceRect =  CGRect(
+            x: (self.view?.frame.size.width)!/2,
+            y: (self.view?.frame.size.height)!/2,
+            width: 0,
+            height: 0)
+        
+        self.presentViewController(
+            menuViewController,
+            animated: true,
+            completion: nil)
+    
+//		let alertController=UIAlertController(title: "謝謝借閱", message: "\n\n\n\n", preferredStyle: UIAlertControllerStyle.Alert)
+//		
+//		let indicator = UIActivityIndicatorView(frame: alertController.view.bounds)
+//		indicator.color = UIColor.blackColor()
+//		indicator.transform =  CGAffineTransformMakeScale(3, 3)
+//		indicator.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
+//		alertController.view.addSubview(indicator)
+//		indicator.userInteractionEnabled = false;
+//		let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel, handler: nil)
+//		let enterAction = UIAlertAction(title: "確認", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
+//			
+//			indicator.startAnimating()
+//			for order in self.appDelegate.orderBookNumber{
+//				for a in order.1{
+//					print(self.epsoide[Int(a)!])
+//					self.updateData(5, name: self.appDelegate.account, bookName: order.0, nowStage: self.epsoide[Int(a)!])
+//				}
+//				
+//			}
+//			self.appDelegate.orderBooktTitle = []
+//			NSNotificationCenter.defaultCenter().postNotificationName("addMenu", object: self)
+//			self.appDelegate.orderBookNumber = [String:[String]]()
+//			
+//			
+//			
+//			self.dismissViewControllerAnimated(true, completion: nil)
+//			
+//		}
+//		
+//		alertController.addAction(cancelAction)
+//		alertController.addAction( enterAction)
+//		self.presentViewController(alertController, animated: true, completion: nil)
 		
 		
 		
 		
 	}
+    
+    func enter(){
+        menuViewController.indicator.startAnimating()
+        let queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)
+        dispatch_async(queue) { () -> Void in
+            for order in self.appDelegate.orderBookNumber{
+                for a in order.1{
+                    print(self.epsoide[Int(a)!])
+                    self.updateData(5, name: self.appDelegate.account, bookName: order.0, nowStage: self.epsoide[Int(a)!])
+                }
+                
+            }
+            self.appDelegate.orderBooktTitle = []
+           
+            self.appDelegate.orderBookNumber = [String:[String]]()
+            
+            NSThread.sleepForTimeInterval(2)
+      
+            dispatch_async(dispatch_get_main_queue()) { () -> Void in
+                 NSNotificationCenter.defaultCenter().postNotificationName("addMenu", object: self)
+                self.menuViewController.indicator.stopAnimating()
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
+            
+        }
+        
+        
+    }
+    
 	
 	
 	
@@ -259,11 +312,8 @@ class menuViewController: UIViewController,NSURLSessionDelegate,UITableViewDataS
 		
 		let dataTask = session.downloadTaskWithRequest(request)
 		dataTask.resume()
-		
-//		dispatch_async(dispatch_get_main_queue()) { () -> Void in
-//			
-//			self.dismissViewControllerAnimated(true, completion: nil)
-//		}
+       
+        
 		
 	}
 }
