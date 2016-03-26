@@ -74,7 +74,7 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
         
             // QRCode 掃描
         
-        NSNotificationCenter.defaultCenter().postNotificationName("reloadData", object: nil)
+//        NSNotificationCenter.defaultCenter().postNotificationName("reloadData", object: nil)
         print("vip = \(appDelegate.vip)")
         if appDelegate.vip == "1" {
             print("我跑囉")
@@ -161,8 +161,10 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
         dismissViewControllerAnimated(true, completion: nil)
     }
     func foundCode(code: String) {
+        // 掃描後做的事情
         print(code)
-//        Checkout(code)
+        Checkout(code)
+        updateOrderForm()
         self.navigationController?.popToRootViewControllerAnimated(true)
         sleep(1)
         NSNotificationCenter.defaultCenter().postNotificationName("check", object: nil)
@@ -175,6 +177,7 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
     //http://www.jianshu.com/p/56c8b3c1403c
     //hide Tabbar
     func btnBack(sender:AnyObject) {
+        
         UIView.transitionWithView(self.view, duration: 0.7, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
             
             self.DynamicView.frame = CGRectMake(0, Screen.height*1.2, Screen.width, Screen.height/2)
@@ -187,7 +190,7 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
                 return true
                 
         }
-        
+        myTableView.reloadData()
     }
     
     func setTabBarVisible(visible:Bool, animated:Bool) {
@@ -276,10 +279,28 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
     }
     
     func loadOrderForm() {
-        let url = NSURL(string: "http://sashihara.100hub.net/vip/rentHistory.php")
+        let url = NSURL(string: "http://sashihara.100hub.net/vip/rentHistoryOrderFrom.php")
         let request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
         
         //        let submitName = ""
+        
+        let submitBody: String = "name=\(appDelegate.account)"
+        
+        request.HTTPMethod = "POST"
+        request.HTTPBody = submitBody.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        
+        let sessionWithConfigure = NSURLSessionConfiguration.defaultSessionConfiguration()
+        
+        let session = NSURLSession(configuration: sessionWithConfigure, delegate: self, delegateQueue: NSOperationQueue.mainQueue())
+        
+        let dataTask = session.downloadTaskWithRequest(request)
+        dataTask.resume()
+        
+    }
+    func updateOrderForm() {
+        let url = NSURL(string: "http://sashihara.100hub.net/vip/rentHistoryOrderUpdate.php")
+        let request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
         
         let submitBody: String = "name=\(appDelegate.account)"
         

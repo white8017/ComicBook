@@ -20,7 +20,7 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
         appDelegate.userDefault.setObject("", forKey: "name")
         appDelegate.userDefault.setObject("", forKey: "phoneNumber")
         appDelegate.userDefault.setObject("", forKey: "vip")
-        print("name = \(appDelegate.account)")
+        
         let alert = UIAlertController(title: "登出成功"  , message:nil , preferredStyle: .Alert)
         let action = UIAlertAction(title: "確定", style: .Default, handler: { (alert:UIAlertAction) -> Void in
             NSNotificationCenter.defaultCenter().postNotificationName("logoutCloseMenu", object: nil)
@@ -28,11 +28,15 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
         alert.addAction(action)
         self.presentViewController(alert, animated: true){}
         btnLogout.hidden = true
+        NSNotificationCenter.defaultCenter().postNotificationName("reloadData", object: nil)
+        lblName.text = "嗨～書蟲"
+        btnLogout.hidden = true
     }
     
     let sideMenu = ["會  員  資  訊", "借  閱  紀  錄", "儲  值  餘  額", "租     書     籃"]
 
     override func viewDidAppear(animated: Bool) {
+        
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "checkLogin", name: "checkLogin", object: nil)
     }
     func checkLogin() {

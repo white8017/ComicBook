@@ -29,6 +29,7 @@ class ContainerVC : UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
+        print("11111")
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "logoutCloseMenu", name: "logoutCloseMenu", object: nil)
     }
     
