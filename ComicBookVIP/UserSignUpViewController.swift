@@ -144,6 +144,13 @@ class UserSignUpViewController: UIViewController,NSURLSessionDelegate, NSURLSess
         txtPasswd.secureTextEntry = true
         txtPasswdCheck.secureTextEntry = true
         
+        txtAdess.text = "台中市南屯區公益路51號20樓"
+        txtBirthday.text = "2016-01-01"
+        txtName.text = "韓家豪"
+        txtPasswd.text = "123"
+        txtPasswdCheck.text = "123"
+        txtPhone.text = "0931520406"
+        
         print("我到了")
         
     }
@@ -229,26 +236,20 @@ class UserSignUpViewController: UIViewController,NSURLSessionDelegate, NSURLSess
         
     }
     
-    func btnDemo(sender:AnyObject) {
-        
-        txtAdess.text = "台中市南屯區公益路51號20樓"
-        txtBirthday.text = "2016-01-01"
-        txtName.text = "韓家豪"
-        txtPasswd.text = "123"
-        txtPasswdCheck.text = "123"
-        txtPhone.text = "0931520406"
-    
-    }
+//    func btnDemo(sender:AnyObject) {
+//        
+//    
+//    }
     
     
     override func viewDidAppear(animated: Bool) {
         
-        let btnDemo   = UIButton(type: UIButtonType.Custom) as UIButton
-        btnDemo.frame = CGRectMake(Screen.width/2*1.7, Screen.height/2, Screen.width * 0.1, Screen.width * 0.6 / 18 * 3)
-//        btnDemo.backgroundColor = UIColor.whiteColor()
-        btnDemo.setTitle("", forState: UIControlState.Normal)
-        btnDemo.addTarget(self, action: "btnDemo:", forControlEvents: UIControlEvents.TouchUpInside)
-        self.view.addSubview(btnDemo)
+//        let btnDemo   = UIButton(type: UIButtonType.Custom) as UIButton
+//        btnDemo.frame = CGRectMake(Screen.width/2*1.7, Screen.height/2, Screen.width * 0.1, Screen.width * 0.6 / 18 * 3)
+////        btnDemo.backgroundColor = UIColor.whiteColor()
+//        btnDemo.setTitle("", forState: UIControlState.Normal)
+//        btnDemo.addTarget(self, action: "btnDemo:", forControlEvents: UIControlEvents.TouchUpInside)
+//        self.view.addSubview(btnDemo)
         
 //        btnSignUp.frame = CGRectMake(0, Screen.height/2+100, Screen.width, 60)
         btnSignUp.frame = CGRectMake(Screen.width/10*2, Screen.height/2+100, Screen.width * 0.6, Screen.width * 0.6 / 8 * 3)
