@@ -294,7 +294,7 @@ class UserSignUpViewController: UIViewController,NSURLSessionDelegate, NSURLSess
             self.txtName.layer.addSublayer(borderName)
             self.txtName.layer.masksToBounds = true
             self.txtName.textColor = UIColor.brownColor()
-            self.txtName.attributedPlaceholder = NSAttributedString(string: "姓名", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+            self.txtName.attributedPlaceholder = NSAttributedString(string: "會員姓名", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
             self.txtName.alpha = 0.7
             self.borderStyle(self.txtName,borderNom: borderName)
             self.view.addSubview(self.txtName)
@@ -304,7 +304,7 @@ class UserSignUpViewController: UIViewController,NSURLSessionDelegate, NSURLSess
             self.txtPhone.layer.addSublayer(borderPhone)
             self.txtPhone.layer.masksToBounds = true
             self.txtPhone.textColor = UIColor.brownColor()
-            self.txtPhone.attributedPlaceholder = NSAttributedString(string: "電話:0912345678", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+            self.txtPhone.attributedPlaceholder = NSAttributedString(string: "聯絡電話（格式：0912345678）", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
             self.txtPhone.alpha = 0.7
             self.borderStyle(self.txtPhone,borderNom: borderPhone)
             self.view.addSubview(self.txtPhone)
@@ -314,7 +314,7 @@ class UserSignUpViewController: UIViewController,NSURLSessionDelegate, NSURLSess
             self.txtPasswd.layer.addSublayer(borderPasswd)
             self.txtPasswd.layer.masksToBounds = true
             self.txtPasswd.textColor = UIColor.brownColor()
-            self.txtPasswd.attributedPlaceholder = NSAttributedString(string: "密碼", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+            self.txtPasswd.attributedPlaceholder = NSAttributedString(string: "設定會員密碼", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
             self.txtPasswd.alpha = 0.7
             self.borderStyle(self.txtPasswd,borderNom: borderPasswd)
             self.view.addSubview(self.txtPasswd)
@@ -324,7 +324,7 @@ class UserSignUpViewController: UIViewController,NSURLSessionDelegate, NSURLSess
             self.txtPasswdCheck.layer.addSublayer(borderPasswdCheck)
             self.txtPasswdCheck.layer.masksToBounds = true
             self.txtPasswdCheck.textColor = UIColor.brownColor()
-            self.txtPasswdCheck.attributedPlaceholder = NSAttributedString(string: "確認密碼", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+            self.txtPasswdCheck.attributedPlaceholder = NSAttributedString(string: "再次輸入會員密碼", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
             self.txtPasswdCheck.alpha = 0.7
             self.borderStyle(self.txtPasswdCheck,borderNom: borderPasswdCheck)
             self.view.addSubview(self.txtPasswdCheck)
@@ -334,7 +334,7 @@ class UserSignUpViewController: UIViewController,NSURLSessionDelegate, NSURLSess
             self.txtBirthday.layer.addSublayer(borderBirthday)
             self.txtBirthday.layer.masksToBounds = true
             self.txtBirthday.textColor = UIColor.brownColor()
-            self.txtBirthday.attributedPlaceholder = NSAttributedString(string: "生日:2016-01-01", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
+            self.txtBirthday.attributedPlaceholder = NSAttributedString(string: "生日（格式：2016-01-01）", attributes: [NSForegroundColorAttributeName: UIColor.whiteColor()])
             self.txtBirthday.alpha = 0.7
             self.borderStyle(self.txtBirthday,borderNom: borderBirthday)
             self.view.addSubview(self.txtBirthday)
