@@ -33,7 +33,7 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
         btnLogout.hidden = true
     }
     
-    let sideMenu = ["會  員  資  訊", "借  閱  紀  錄", "儲  值  餘  額", "租     書     籃"]
+    let sideMenu = ["會  員  資  訊", "借  閱  紀  錄", "租     書     籃", "餘額："]
 
     override func viewDidAppear(animated: Bool) {
         
