@@ -32,8 +32,10 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
         NSNotificationCenter.defaultCenter().postNotificationName("UserStateChange", object: nil)
         lblName.text = "嗨～書蟲"
         btnLogout.hidden = true
+        menuTableView.reloadData()
     }
     
+    let loginMeun = ["登      入"]
     let sideMenu = ["會  員  資  訊", "借  閱  紀  錄", "租     書     籃", "餘額："]
     let bossMenu = ["儲         值", "查  詢  訂  單", "QRCode  結  帳"]
 
@@ -42,8 +44,6 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "checkLogin", name: "checkLogin", object: nil)
     }
     func checkLogin() {
-        
-        
         
         if appDelegate.phoneNumber != "" {
             lblName.text = "嗨～\(appDelegate.account)"
@@ -78,8 +78,10 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
     //設定Cell數量
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var count = 0
-        if appDelegate.vip == "0" || appDelegate.vip == ""{
+        if appDelegate.vip == "0" {
             count = sideMenu.count
+        }else if  appDelegate.vip == ""{
+            count = loginMeun.count
         }else if appDelegate.vip == "1" {
             count = bossMenu.count
         }
@@ -89,8 +91,10 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("MenuCell", forIndexPath: indexPath)
         
-        if appDelegate.vip == "0" || appDelegate.vip == ""{
+        if appDelegate.vip == "0"{
             cell.textLabel?.text = sideMenu[indexPath.row]
+        }else if appDelegate.vip == ""{
+            cell.textLabel?.text = loginMeun[indexPath.row]
         }else if appDelegate.vip == "1" {
             cell.textLabel?.text = bossMenu[indexPath.row]
         }
@@ -106,17 +110,30 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
         //判斷指標&動作
-        switch indexPath.row {
-        case 0:
-            NSNotificationCenter.defaultCenter().postNotificationName("openPushWindow0", object: nil)
-        case 1:
-            NSNotificationCenter.defaultCenter().postNotificationName("openPushWindow1", object: nil)
-        case 2:
-            NSNotificationCenter.defaultCenter().postNotificationName("openPushWindow2", object: nil)
-        case 3:
-            NSNotificationCenter.defaultCenter().postNotificationName("openPushWindow3", object: nil)
-        default:
-            print("indexPath.row: \(indexPath.row)")
+        if appDelegate.vip == "0" || appDelegate.vip == "" {
+            switch indexPath.row {
+            case 0:
+                NSNotificationCenter.defaultCenter().postNotificationName("openPushWindow0", object: nil)
+            case 1:
+                NSNotificationCenter.defaultCenter().postNotificationName("openPushWindow1", object: nil)
+            case 2:
+                NSNotificationCenter.defaultCenter().postNotificationName("openPushWindow2", object: nil)
+            case 3:
+                NSNotificationCenter.defaultCenter().postNotificationName("openPushWindow3", object: nil)
+            default:
+                print("indexPath.row: \(indexPath.row)")
+            }
+        } else if appDelegate.vip == "1" {
+            switch indexPath.row {
+            case 0:
+                NSNotificationCenter.defaultCenter().postNotificationName("openPushWindow0", object: nil)
+            case 1:
+                NSNotificationCenter.defaultCenter().postNotificationName("openPushWindow1", object: nil)
+            case 2:
+                NSNotificationCenter.defaultCenter().postNotificationName("openPushWindow2", object: nil)
+            default:
+                print("indexPath.row: \(indexPath.row)")
+            }
         }
         
         //關閉View
