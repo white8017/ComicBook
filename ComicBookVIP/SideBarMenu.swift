@@ -8,13 +8,14 @@
 
 import UIKit
 
-class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource,NSURLSessionDelegate,NSURLSessionDownloadDelegate {
 
     var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     @IBOutlet weak var menuTableView: UITableView!
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var btnLogout: UIButton!
-
+    var money = [AnyObject]()
+    var nowMoney = ""
     @IBAction func btnLogout(sender: AnyObject) {
 
         appDelegate.userDefault.setObject("", forKey: "name")
@@ -36,7 +37,7 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     
     let loginMeun = ["登        入"]
-    let sideMenu = ["會  員  資  訊", "借  閱  紀  錄", "租     書     籃", "餘 額 ： "]
+    var sideMenu = ["會  員  資  訊", "借  閱  紀  錄", "租     書     籃", "餘 額 ： "]
     let bossMenu = ["儲         值", "查  詢  訂  單", "QRCode  結  帳"]
 
     override func viewDidAppear(animated: Bool) {
@@ -52,7 +53,9 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
             lblName.text = "嗨～書蟲"
             btnLogout.hidden = true
         }
+        loadData()
         menuTableView.reloadData()
+        
         
     }
     
@@ -64,9 +67,12 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
             lblName.text = "嗨～書蟲"
             btnLogout.hidden = true
         }
+        loadData()
         menuTableView.reloadData()
+        
     }
     
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -104,6 +110,7 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
         let cell = tableView.dequeueReusableCellWithIdentifier("MenuCell", forIndexPath: indexPath)
         
         if appDelegate.vip == "0"{
+            sideMenu[3] = "剩餘：\(nowMoney)"
             cell.textLabel?.text = sideMenu[indexPath.row]
         }else if appDelegate.vip == ""{
             cell.textLabel?.text = loginMeun[indexPath.row]
@@ -151,4 +158,44 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
         //關閉View
         NSNotificationCenter.defaultCenter().postNotificationName("closeMenuViaNotification", object: nil)
     }
+    func loadData() {
+        
+        let url = NSURL(string: "http://sashihara.100hub.net/vip/selectDeposit.php")
+        let request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
+        
+        let submitBody:String = "phoneNumber=\(appDelegate.phoneNumber)"
+        
+        request.HTTPMethod = "POST"
+        request.HTTPBody = submitBody.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        let sessionWithConfigure = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let session = NSURLSession(configuration: sessionWithConfigure, delegate: self, delegateQueue: NSOperationQueue.mainQueue())
+        
+        let dataTask = session.downloadTaskWithRequest(request)
+        dataTask.resume()
+        
+    }
+    
+    
+    func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {
+        do {
+            let dataDic = try NSJSONSerialization.JSONObjectWithData(NSData(contentsOfURL: location)!, options: NSJSONReadingOptions.MutableContainers) as! [String:AnyObject]
+            
+            
+            money = dataDic["member"]! as! [AnyObject]
+            //            print(money[0]["deposit"] as! String)
+            nowMoney = money[0]["deposit"] as! String
+            print(nowMoney)
+            
+            
+        }catch {
+            print("ERROR member")
+        }
+        menuTableView.reloadData()
+    }
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
+    }
+
+    
 }
