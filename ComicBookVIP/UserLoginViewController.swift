@@ -99,9 +99,9 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
             
             self.txtPhone.frame = CGRectMake(Screen.width / 5, Screen.height / 5, Screen.width / 5 * 3, 40)
             txtPhone.text = "姓名 ： \(appDelegate.account)"
-            txtPhone.selected = false
             txtPhone.borderStyle = UITextBorderStyle.None
             txtPhone.textColor = UIColor.whiteColor()
+            txtPhone.enabled = true
             self.view.addSubview(txtPhone)
             
         }
