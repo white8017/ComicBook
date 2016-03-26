@@ -12,6 +12,7 @@ class depositVC: UIViewController, NSURLSessionDelegate  {
 
     @IBOutlet weak var txtDeposit: UITextField!
     @IBOutlet weak var txtPhone: UITextField!
+    @IBOutlet weak var btnDeposit: UIButton!
 
     var total = 0
     
@@ -34,22 +35,37 @@ class depositVC: UIViewController, NSURLSessionDelegate  {
         
 
         
-        btn50.frame = CGRectMake(Screen.width/2+30, 30, 150, 150)
+        btn50.frame = CGRectMake(Screen.width*0.6, Screen.height*0.12, Screen.width*0.3, Screen.width*0.3)
         btn50.setImage(img50, forState: .Normal)
+        btn50.imageView?.layer.cornerRadius = 15
         btn50.addTarget(self, action: "btn50:", forControlEvents:.TouchUpInside)
         self.view.addSubview(btn50)
 
         
-        btn100.frame = CGRectMake(Screen.width/2+30, 210, 150, 150)
+        btn100.frame = CGRectMake(Screen.width*0.6, Screen.height*0.42, Screen.width*0.3, Screen.width*0.3)
         btn100.setImage(img100, forState: .Normal)
+        btn100.imageView?.layer.cornerRadius = 15
         btn100 .addTarget(self, action: "btn100:", forControlEvents:.TouchUpInside)
         self.view.addSubview(btn100)
         
         
-        btn200.frame = CGRectMake(Screen.width/2+30, 390, 150, 150)
+        btn200.frame = CGRectMake(Screen.width*0.6, Screen.height*0.72, Screen.width*0.3, Screen.width*0.3)
         btn200.setImage(img200, forState: .Normal)
+        btn200.imageView?.layer.cornerRadius = 15
         btn200 .addTarget(self, action: "btn200:", forControlEvents:.TouchUpInside)
         self.view.addSubview(btn200)
+        
+        
+        txtDeposit.frame = CGRectMake(Screen.width*0.1, Screen.height*0.25, Screen.width*0.4, 25)
+        self.view.addSubview(txtDeposit)
+        
+        
+        txtPhone.frame = CGRectMake(Screen.width*0.1, Screen.height*0.45, Screen.width*0.4, 25)
+        self.view.addSubview(txtPhone)
+        
+        
+        btnDeposit.frame = CGRectMake(Screen.width*0.1, Screen.height*0.72, Screen.width*0.4, Screen.width*0.3)
+        self.view.addSubview(btnDeposit)
     }
     
     func btn50(sender:AnyObject) {

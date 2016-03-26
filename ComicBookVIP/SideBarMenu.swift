@@ -35,8 +35,8 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
         menuTableView.reloadData()
     }
     
-    let loginMeun = ["登      入"]
-    let sideMenu = ["會  員  資  訊", "借  閱  紀  錄", "租     書     籃", "餘額："]
+    let loginMeun = ["登        入"]
+    let sideMenu = ["會  員  資  訊", "借  閱  紀  錄", "租     書     籃", "餘 額 ： "]
     let bossMenu = ["儲         值", "查  詢  訂  單", "QRCode  結  帳"]
 
     override func viewDidAppear(animated: Bool) {
@@ -138,7 +138,7 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource 
         } else if appDelegate.vip == "1" {
             switch indexPath.row {
             case 0:
-                NSNotificationCenter.defaultCenter().postNotificationName("openPushWindow0", object: nil)
+                NSNotificationCenter.defaultCenter().postNotificationName("openPushWindow1_1", object: nil)
             case 1:
                 NSNotificationCenter.defaultCenter().postNotificationName("openPushWindow1", object: nil)
             case 2:
