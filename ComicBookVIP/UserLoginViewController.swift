@@ -185,6 +185,8 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
                     
                     NSNotificationCenter.defaultCenter().postNotificationName("UserStateChange", object: nil)
                     
+                        NSNotificationCenter.defaultCenter().postNotificationName("test", object: nil)
+                    
                     print("yes!")
                 })
                 alert.addAction(action)
