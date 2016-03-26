@@ -53,6 +53,7 @@
 		A1FEF9021C97EAA60076152F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A1FEF9011C97EAA60076152F /* Assets.xcassets */; };
 		A1FEF9051C97EAA60076152F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1FEF9031C97EAA60076152F /* LaunchScreen.storyboard */; };
 		A1FEF9111C98235F0076152F /* TabVCTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FEF9101C98235F0076152F /* TabVCTemplate.swift */; };
+		A1FFB7BF1CA729C2002FA480 /* t1-2_NewsAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FFB7BE1CA729C1002FA480 /* t1-2_NewsAddViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -111,6 +112,7 @@
 		A1FEF9041C97EAA60076152F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A1FEF9061C97EAA60076152F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A1FEF9101C98235F0076152F /* TabVCTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabVCTemplate.swift; sourceTree = "<group>"; };
+		A1FFB7BE1CA729C1002FA480 /* t1-2_NewsAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "t1-2_NewsAddViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +228,7 @@
 				196637CF1C9BE882001310F1 /* fileHao */,
 				A1FEF8F81C97EAA60076152F /* AppDelegate.swift */,
 				A1FEF8FA1C97EAA60076152F /* t1_NewsViewContorller.swift */,
+				A1FFB7BE1CA729C1002FA480 /* t1-2_NewsAddViewController.swift */,
 				A1FEF8FC1C97EAA60076152F /* t2_BookViewController.swift */,
 				A124832A1C9A864E00A7CE2A /* t3_FavoriteViewController.swift */,
 				A1883E7D1CA1299900C737F2 /* t3-2_Favorite2ViewController.swift */,
@@ -344,6 +347,7 @@
 				A12483251C9A577800A7CE2A /* m4_OderFrorm.swift in Sources */,
 				1966384B1CA16044001310F1 /* Page2ViewController.swift in Sources */,
 				1977D5BD1CA3673B00D0F1BF /* OrderFormVC.swift in Sources */,
+				A1FFB7BF1CA729C2002FA480 /* t1-2_NewsAddViewController.swift in Sources */,
 				19AE349F1CA6616C002DD18C /* CollectionViewCell.swift in Sources */,
 				19AE34A31CA6616C002DD18C /* MenuTableViewCell.swift in Sources */,
 				19AE34A11CA6616C002DD18C /* bookdetailViewController.swift in Sources */,

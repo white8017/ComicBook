@@ -76,6 +76,7 @@
                         <outlet property="headImagePageControl" destination="Vuk-s6-zt5" id="Vb0-cI-nll"/>
                         <outlet property="headImageView" destination="w2S-Y2-DgU" id="WJu-V8-XAO"/>
                         <outlet property="leftSwipeGesture" destination="Dld-8X-PWe" id="KCF-cb-MjG"/>
+                        <outlet property="newsTableView" destination="N1u-y0-iMU" id="sSw-2D-BWW"/>
                         <outlet property="rightSwipeGesture" destination="0wI-9h-kSr" id="1Wa-h9-W4h"/>
                         <segue destination="1gl-2A-vcP" kind="show" identifier="openPushWindow2" id="zit-QD-xPi"/>
                         <segue destination="elI-Rn-3PI" kind="show" identifier="openPushWindow1" id="Z1x-b4-ZDY"/>
@@ -83,6 +84,7 @@
                         <segue destination="mE8-dU-WcX" kind="show" identifier="openPushWindow0" id="eEM-n9-gsW"/>
                         <segue destination="fRj-1g-NED" kind="show" identifier="openPushWindow1_1" id="o53-iR-74a"/>
                         <segue destination="3Kh-hv-8Cg" kind="show" identifier="openPushWindow1_2" id="Yg1-ng-HVt"/>
+                        <segue destination="vq3-3A-GBM" kind="show" identifier="openPushWindow1_0" id="fyg-Ia-7H6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -98,6 +100,33 @@
                 </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2160" y="321"/>
+        </scene>
+        <!--News Add View Controller-->
+        <scene sceneID="bif-MX-jcz">
+            <objects>
+                <viewController id="f1w-bH-WEd" customClass="t1_2_NewsAddViewController" customModule="ComicBookVIP" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ozO-Pa-CHf"/>
+                        <viewControllerLayoutGuide type="bottom" id="OJb-0j-FJ0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yAB-Ol-KC9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="U8R-Mj-N1Q">
+                                <rect key="frame" x="49" y="106" width="240" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fbc-r6-YGw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2182" y="-573"/>
         </scene>
         <!--租書籃-->
         <scene sceneID="qKM-DB-qPn">
@@ -468,6 +497,7 @@
                         <segue destination="mE8-dU-WcX" kind="show" identifier="openPushWindow0" id="tbL-PB-G8k"/>
                         <segue destination="fRj-1g-NED" kind="show" identifier="openPushWindow1_1" id="O5H-U9-M6C"/>
                         <segue destination="3Kh-hv-8Cg" kind="show" identifier="openPushWindow1_2" id="mWG-4c-zrW"/>
+                        <segue destination="vq3-3A-GBM" kind="show" identifier="openPushWindow1_0" id="oVu-P4-mOi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -573,6 +603,7 @@
                         <segue destination="mE8-dU-WcX" kind="show" identifier="openPushWindow0" id="7re-W0-LjR"/>
                         <segue destination="fRj-1g-NED" kind="show" identifier="openPushWindow1_1" id="eGJ-Vs-dG7"/>
                         <segue destination="3Kh-hv-8Cg" kind="show" identifier="openPushWindow1_2" id="bqE-Dd-LRa"/>
+                        <segue destination="vq3-3A-GBM" kind="show" identifier="openPushWindow1_0" id="mBY-Hz-FAZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xQf-Up-Ag5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -642,6 +673,7 @@
                         <segue destination="mE8-dU-WcX" kind="show" identifier="openPushWindow0" id="dGJ-Qn-PCd"/>
                         <segue destination="fRj-1g-NED" kind="show" identifier="openPushWindow1_1" id="cZP-qm-MUU"/>
                         <segue destination="3Kh-hv-8Cg" kind="show" identifier="openPushWindow1_2" id="w3D-Db-rDo"/>
+                        <segue destination="vq3-3A-GBM" kind="show" identifier="openPushWindow1_0" id="A9n-VP-e0h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jFd-Ac-XV0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -898,7 +930,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y2b-tQ-d93" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="665"/>
+            <point key="canvasLocation" x="-474" y="683"/>
         </scene>
         <!--本店訊息-->
         <scene sceneID="acw-vB-sz0">
@@ -1035,7 +1067,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSe-7G-e92" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-170" y="1387"/>
+            <point key="canvasLocation" x="-644" y="1463"/>
         </scene>
         <!--本蟲最愛-->
         <scene sceneID="g2d-dK-lOA">
@@ -1296,7 +1328,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AD7-bi-krQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4842" y="3160"/>
+            <point key="canvasLocation" x="4714" y="3912"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="oFr-jA-1nA">
@@ -1960,6 +1992,60 @@
             </objects>
             <point key="canvasLocation" x="2132" y="6622"/>
         </scene>
+        <!--訊息發佈-->
+        <scene sceneID="Fr5-1G-pHN">
+            <objects>
+                <viewController id="vq3-3A-GBM" customClass="t1_2_NewsAddViewController" customModule="ComicBookVIP" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cV3-6B-hzp"/>
+                        <viewControllerLayoutGuide type="bottom" id="VY0-rZ-i1q"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IYd-b4-nKE">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="OjE-HE-3bt">
+                                <rect key="frame" x="0.0" y="44" width="600" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="480719669.46630597">
+                                    <!--2016-03-26 21:14:29 +0000-->
+                                </date>
+                            </datePicker>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="A9U-GF-NLK">
+                                <rect key="frame" x="20" y="260" width="560" height="291"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="A9U-GF-NLK" firstAttribute="top" secondItem="OjE-HE-3bt" secondAttribute="bottom" id="3wy-Sh-NOI"/>
+                            <constraint firstItem="OjE-HE-3bt" firstAttribute="leading" secondItem="IYd-b4-nKE" secondAttribute="leadingMargin" constant="-20" id="9oQ-zL-Kob"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OjE-HE-3bt" secondAttribute="trailing" constant="-20" id="ak2-zy-pZq"/>
+                            <constraint firstItem="A9U-GF-NLK" firstAttribute="trailing" secondItem="IYd-b4-nKE" secondAttribute="trailingMargin" id="iSW-fG-TAJ"/>
+                            <constraint firstItem="A9U-GF-NLK" firstAttribute="leading" secondItem="IYd-b4-nKE" secondAttribute="leadingMargin" id="lck-6u-fVu"/>
+                            <constraint firstItem="VY0-rZ-i1q" firstAttribute="top" secondItem="A9U-GF-NLK" secondAttribute="bottom" id="mAU-7y-Dda"/>
+                            <constraint firstItem="OjE-HE-3bt" firstAttribute="top" secondItem="cV3-6B-hzp" secondAttribute="bottom" id="nDM-vt-JHC"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="訊息發佈" id="FA0-Py-QAf">
+                        <barButtonItem key="leftBarButtonItem" image="HumburgerButton" id="WXr-vG-Fvl">
+                            <color key="tintColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="toggleMenu:" destination="vq3-3A-GBM" id="IVZ-2e-DkA"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="home" id="fLa-I8-SsP">
+                            <connections>
+                                <action selector="backHome:" destination="vq3-3A-GBM" id="2Z0-pl-QaE"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w5l-0r-nOS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4714" y="2316"/>
+        </scene>
         <!--儲值設定-->
         <scene sceneID="Ed1-Me-8Nq">
             <objects>
@@ -2030,7 +2116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6e0-Rz-NnL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4842" y="2386"/>
+            <point key="canvasLocation" x="4714" y="3138"/>
         </scene>
     </scenes>
     <resources>
@@ -2047,14 +2133,15 @@
         <image name="window" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Bh1-u5-y8B"/>
-        <segue reference="tbL-PB-G8k"/>
-        <segue reference="fs7-Hf-POu"/>
-        <segue reference="cZP-qm-MUU"/>
-        <segue reference="w3D-Db-rDo"/>
+        <segue reference="fyg-Ia-7H6"/>
+        <segue reference="ZGt-OK-Rsu"/>
+        <segue reference="o53-iR-74a"/>
+        <segue reference="zit-QD-xPi"/>
+        <segue reference="Yg1-ng-HVt"/>
+        <segue reference="eEM-n9-gsW"/>
+        <segue reference="Z1x-b4-ZDY"/>
         <segue reference="Cgc-bA-g6S"/>
-        <segue reference="bOe-Wd-Q4Q"/>
-        <segue reference="ZvE-XI-HFU"/>
         <segue reference="PyW-jE-qdX"/>
+        <segue reference="ZvE-XI-HFU"/>
     </inferredMetricsTieBreakers>
 </document>

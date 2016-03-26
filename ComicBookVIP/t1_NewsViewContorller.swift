@@ -11,8 +11,12 @@ import UIKit
 
 class t1_NewsViewContorller: TabVCTemplate, UITableViewDelegate, UITableViewDataSource {
     
+    var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var count = 0
     var name:String!
+    var addNewsButton = UIBarButtonItem()
+    var todoItems = NSMutableArray()
+    @IBOutlet weak var newsTableView: UITableView!
     
     @IBOutlet weak var headImageView: UIImageView!
     @IBOutlet weak var headImagePageControl: UIPageControl!
@@ -50,6 +54,7 @@ class t1_NewsViewContorller: TabVCTemplate, UITableViewDelegate, UITableViewData
         
     }
     
+    
     func changePic(sender:NSTimer) {
         count++
         headImagePageControl.currentPage = count % 4
@@ -63,6 +68,14 @@ class t1_NewsViewContorller: TabVCTemplate, UITableViewDelegate, UITableViewData
     
     override func viewDidAppear(animated: Bool) {
         setTabBarVisible(!tabBarIsVisible(), animated: true)
+        
+        
+        let homeImg = UIImage(named: "plus") as UIImage?
+        addNewsButton = UIBarButtonItem(image: homeImg, style: UIBarButtonItemStyle.Plain, target: self, action: "toAddNewsPage:")
+        hidePlusButton()
+        
+        
+        
     }
     //http://www.jianshu.com/p/56c8b3c1403c
     //appear Tabbar
@@ -98,116 +111,168 @@ class t1_NewsViewContorller: TabVCTemplate, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return 10
+        return todoItems.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCellWithIdentifier("NewsCell", forIndexPath: indexPath)
         //cell.textLabel?.text = sideMenu[indexPath.row]
         
-        // Configure the cell...
-        if indexPath.row == 0 {
-            //cell.postImageView.image = UIImage(named: "watchkit-intro")
-            cell.textLabel?.text = "03/08 - 本店將於3月14日進行水電陸整修，該日暫停營業一天，歸還書籍請投遞至門口還書箱，不便之處敬請見諒。"
-            //cell.authorLabel.text = "Simon Ng"
-            //cell.authorImageView.image = UIImage(named: "author")
-            
-        } else if indexPath.row == 1 {
-            cell.textLabel?.text = "02/07 - 恭賀新禧，猴年如意！本店祝各位新年快樂～"
-            
-        } else if indexPath.row == 2 {
-            cell.textLabel?.text = "02/06 - 為地震災區居民集氣！台南加油！"
-            
-        } else if indexPath.row == 3 {
-            cell.textLabel?.text = "02/02 - 本店新年期間不休店，歡迎各位光臨。"
-            
-        } else if indexPath.row == 4 {
-            cell.textLabel?.text = "01/29 - “ 第四屆TICA台北國際動漫節 ” 開跑，將於 2016/2/10 (三) 至 2016/2/14 (日) 台北世貿南港展覽館舉行，千萬別錯過！"
-            
-        } else if indexPath.row == 5 {
-            cell.textLabel?.text = "01/09 - 寒流來襲，各位顧客出門前記得注意自身保暖！"
-            
-        } else if indexPath.row == 6 {
-            cell.textLabel?.text = "01/01 - 2016 Happy New Year! 從 1/1 到 1/31 凡會員來店消費，滿百即送十二元優惠金。"
-            
-        } else if indexPath.row == 7 {
-            cell.textLabel?.text = "12/10 - 年末清倉，多本舊書作品低價出售，詳情請到本店洽詢。"
-            
-        } else if indexPath.row == 8 {
-            cell.textLabel?.text = "11/29 - 凡 12/1 至 12/31 來店會員消費累滿50元即贈送精美動漫周邊精品。"
-
-        } else {
-            cell.textLabel?.text = "11/26 - 本店 11/27 將延後一小時於 12:00 開店，不便之處敬請見諒。"
-            
-        }
+        
+        let item = todoItems[indexPath.row] as! NSDate
+        cell.textLabel?.text = item.description
+        
+        
+//        // Configure the cell...
+//        if indexPath.row == 0 {
+//            //cell.postImageView.image = UIImage(named: "watchkit-intro")
+//            cell.textLabel?.text = "03/08 - 本店將於3月14日進行水電陸整修，該日暫停營業一天，歸還書籍請投遞至門口還書箱，不便之處敬請見諒。"
+//            //cell.authorLabel.text = "Simon Ng"
+//            //cell.authorImageView.image = UIImage(named: "author")
+//            
+//        } else if indexPath.row == 1 {
+//            cell.textLabel?.text = "02/07 - 恭賀新禧，猴年如意！本店祝各位新年快樂～"
+//            
+//        } else if indexPath.row == 2 {
+//            cell.textLabel?.text = "02/06 - 為地震災區居民集氣！台南加油！"
+//            
+//        } else if indexPath.row == 3 {
+//            cell.textLabel?.text = "02/02 - 本店新年期間不休店，歡迎各位光臨。"
+//            
+//        } else if indexPath.row == 4 {
+//            cell.textLabel?.text = "01/29 - “ 第四屆TICA台北國際動漫節 ” 開跑，將於 2016/2/10 (三) 至 2016/2/14 (日) 台北世貿南港展覽館舉行，千萬別錯過！"
+//            
+//        } else if indexPath.row == 5 {
+//            cell.textLabel?.text = "01/09 - 寒流來襲，各位顧客出門前記得注意自身保暖！"
+//            
+//        } else if indexPath.row == 6 {
+//            cell.textLabel?.text = "01/01 - 2016 Happy New Year! 從 1/1 到 1/31 凡會員來店消費，滿百即送十二元優惠金。"
+//            
+//        } else if indexPath.row == 7 {
+//            cell.textLabel?.text = "12/10 - 年末清倉，多本舊書作品低價出售，詳情請到本店洽詢。"
+//            
+//        } else if indexPath.row == 8 {
+//            cell.textLabel?.text = "11/29 - 凡 12/1 至 12/31 來店會員消費累滿50元即贈送精美動漫周邊精品。"
+//
+//        } else {
+//            cell.textLabel?.text = "11/26 - 本店 11/27 將延後一小時於 12:00 開店，不便之處敬請見諒。"
+//            
+//        }
         
         return cell
     }
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if indexPath.row == 0 {
-            let optionMenu = UIAlertController(title: nil, message: "本店將於3月14日進行水電陸整修，該日暫停營業一天，歸還書籍請投遞至門口還書箱，不便之處敬請見諒。", preferredStyle: .Alert)
-            let cancelAction = UIAlertAction(title: "返    回", style: .Cancel, handler: nil)
-            optionMenu.addAction(cancelAction)
-            self.presentViewController(optionMenu, animated: true, completion: nil)
-            
-        } else if indexPath.row == 1 {
-            let optionMenu = UIAlertController(title: nil, message: "恭賀新禧，猴年如意！本店祝各位新年快樂～", preferredStyle: .Alert)
-            let cancelAction = UIAlertAction(title: "返    回", style: .Cancel, handler: nil)
-            optionMenu.addAction(cancelAction)
-            self.presentViewController(optionMenu, animated: true, completion: nil)
-            
-        } else if indexPath.row == 2 {
-            let optionMenu = UIAlertController(title: nil, message: "為地震災區居民集氣！台南加油！", preferredStyle: .Alert)
-            let cancelAction = UIAlertAction(title: "返    回", style: .Cancel, handler: nil)
-            optionMenu.addAction(cancelAction)
-            self.presentViewController(optionMenu, animated: true, completion: nil)
-            
-        } else if indexPath.row == 3 {
-            let optionMenu = UIAlertController(title: nil, message: "本店新年期間不休店，歡迎各位光臨。", preferredStyle: .Alert)
-            let cancelAction = UIAlertAction(title: "返    回", style: .Cancel, handler: nil)
-            optionMenu.addAction(cancelAction)
-            self.presentViewController(optionMenu, animated: true, completion: nil)
-            
-        } else if indexPath.row == 4 {
-            let optionMenu = UIAlertController(title: nil, message: "“ 第四屆TICA台北國際動漫節 ” 開跑，將於 2016/2/10 (三) 至 2016/2/14 (日) 台北世貿南港展覽館舉行，千萬別錯過！", preferredStyle: .Alert)
-            let cancelAction = UIAlertAction(title: "返    回", style: .Cancel, handler: nil)
-            optionMenu.addAction(cancelAction)
-            self.presentViewController(optionMenu, animated: true, completion: nil)
-            
-        } else if indexPath.row == 5 {
-            let optionMenu = UIAlertController(title: nil, message: "寒流來襲，各位顧客出門前記得注意自身保暖！", preferredStyle: .Alert)
-            let cancelAction = UIAlertAction(title: "返    回", style: .Cancel, handler: nil)
-            optionMenu.addAction(cancelAction)
-            self.presentViewController(optionMenu, animated: true, completion: nil)
-            
-        } else if indexPath.row == 6 {
-            let optionMenu = UIAlertController(title: nil, message: "2016 Happy New Year! 從 1/1 到 1/31 凡會員來店消費，滿百即送十二元優惠金。", preferredStyle: .Alert)
-            let cancelAction = UIAlertAction(title: "返    回", style: .Cancel, handler: nil)
-            optionMenu.addAction(cancelAction)
-            self.presentViewController(optionMenu, animated: true, completion: nil)
-            
-        } else if indexPath.row == 7 {
-            let optionMenu = UIAlertController(title: nil, message: "年末清倉，多本舊書作品低價出售，詳情請到本店洽詢。", preferredStyle: .Alert)
-            let cancelAction = UIAlertAction(title: "返    回", style: .Cancel, handler: nil)
-            optionMenu.addAction(cancelAction)
-            self.presentViewController(optionMenu, animated: true, completion: nil)
-            
-        } else if indexPath.row == 8 {
-            let optionMenu = UIAlertController(title: nil, message: "凡 12/1 至 12/31 來店會員消費累滿50元即贈送精美動漫周邊精品。", preferredStyle: .Alert)
-            let cancelAction = UIAlertAction(title: "返    回", style: .Cancel, handler: nil)
-            optionMenu.addAction(cancelAction)
-            self.presentViewController(optionMenu, animated: true, completion: nil)
-            
+        
+        let optionMenu = UIAlertController(title: nil, message: "A", preferredStyle: .Alert)
+        let cancelAction = UIAlertAction(title: "返    回", style: .Cancel, handler: nil)
+        optionMenu.addAction(cancelAction)
+        self.presentViewController(optionMenu, animated: true, completion: nil)
+        
+        
+//        if indexPath.row == 0 {
+//            let optionMenu = UIAlertController(title: nil, message: "本店將於3月14日進行水電陸整修，該日暫停營業一天，歸還書籍請投遞至門口還書箱，不便之處敬請見諒。", preferredStyle: .Alert)
+//            let cancelAction = UIAlertAction(title: "返    回", style: .Cancel, handler: nil)
+//            optionMenu.addAction(cancelAction)
+//            self.presentViewController(optionMenu, animated: true, completion: nil)
+        
+//        } else if indexPath.row == 1 {
+//            let optionMenu = UIAlertController(title: nil, message: "恭賀新禧，猴年如意！本店祝各位新年快樂～", preferredStyle: .Alert)
+//            let cancelAction = UIAlertAction(title: "返    回", style: .Cancel, handler: nil)
+//            optionMenu.addAction(cancelAction)
+//            self.presentViewController(optionMenu, animated: true, completion: nil)
+//            
+//        } else if indexPath.row == 2 {
+//            let optionMenu = UIAlertController(title: nil, message: "為地震災區居民集氣！台南加油！", preferredStyle: .Alert)
+//            let cancelAction = UIAlertAction(title: "返    回", style: .Cancel, handler: nil)
+//            optionMenu.addAction(cancelAction)
+//            self.presentViewController(optionMenu, animated: true, completion: nil)
+//            
+//        } else if indexPath.row == 3 {
+//            let optionMenu = UIAlertController(title: nil, message: "本店新年期間不休店，歡迎各位光臨。", preferredStyle: .Alert)
+//            let cancelAction = UIAlertAction(title: "返    回", style: .Cancel, handler: nil)
+//            optionMenu.addAction(cancelAction)
+//            self.presentViewController(optionMenu, animated: true, completion: nil)
+//            
+//        } else if indexPath.row == 4 {
+//            let optionMenu = UIAlertController(title: nil, message: "“ 第四屆TICA台北國際動漫節 ” 開跑，將於 2016/2/10 (三) 至 2016/2/14 (日) 台北世貿南港展覽館舉行，千萬別錯過！", preferredStyle: .Alert)
+//            let cancelAction = UIAlertAction(title: "返    回", style: .Cancel, handler: nil)
+//            optionMenu.addAction(cancelAction)
+//            self.presentViewController(optionMenu, animated: true, completion: nil)
+//            
+//        } else if indexPath.row == 5 {
+//            let optionMenu = UIAlertController(title: nil, message: "寒流來襲，各位顧客出門前記得注意自身保暖！", preferredStyle: .Alert)
+//            let cancelAction = UIAlertAction(title: "返    回", style: .Cancel, handler: nil)
+//            optionMenu.addAction(cancelAction)
+//            self.presentViewController(optionMenu, animated: true, completion: nil)
+//            
+//        } else if indexPath.row == 6 {
+//            let optionMenu = UIAlertController(title: nil, message: "2016 Happy New Year! 從 1/1 到 1/31 凡會員來店消費，滿百即送十二元優惠金。", preferredStyle: .Alert)
+//            let cancelAction = UIAlertAction(title: "返    回", style: .Cancel, handler: nil)
+//            optionMenu.addAction(cancelAction)
+//            self.presentViewController(optionMenu, animated: true, completion: nil)
+//            
+//        } else if indexPath.row == 7 {
+//            let optionMenu = UIAlertController(title: nil, message: "年末清倉，多本舊書作品低價出售，詳情請到本店洽詢。", preferredStyle: .Alert)
+//            let cancelAction = UIAlertAction(title: "返    回", style: .Cancel, handler: nil)
+//            optionMenu.addAction(cancelAction)
+//            self.presentViewController(optionMenu, animated: true, completion: nil)
+//            
+//        } else if indexPath.row == 8 {
+//            let optionMenu = UIAlertController(title: nil, message: "凡 12/1 至 12/31 來店會員消費累滿50元即贈送精美動漫周邊精品。", preferredStyle: .Alert)
+//            let cancelAction = UIAlertAction(title: "返    回", style: .Cancel, handler: nil)
+//            optionMenu.addAction(cancelAction)
+//            self.presentViewController(optionMenu, animated: true, completion: nil)
+//            
+//        } else {
+//            let optionMenu = UIAlertController(title: nil, message: "本店 11/27 將延後一小時於 12:00 開店，不便之處敬請見諒。", preferredStyle: .Alert)
+//            let cancelAction = UIAlertAction(title: "返    回", style: .Cancel, handler: nil)
+//            optionMenu.addAction(cancelAction)
+//            self.presentViewController(optionMenu, animated: true, completion: nil)
+//            
+//        }
+    }
+    
+    //左滑刪除
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        // Return NO if you do not want the specified item to be editable.
+        let tr:Bool
+        if appDelegate.vip == "1" {
+            tr = true
         } else {
-            let optionMenu = UIAlertController(title: nil, message: "本店 11/27 將延後一小時於 12:00 開店，不便之處敬請見諒。", preferredStyle: .Alert)
-            let cancelAction = UIAlertAction(title: "返    回", style: .Cancel, handler: nil)
-            optionMenu.addAction(cancelAction)
-            self.presentViewController(optionMenu, animated: true, completion: nil)
-            
+            tr = false
+        }
+        return tr
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            // Delete the row from the data source
+            todoItems.removeObjectAtIndex(indexPath.row)
+            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
+        } else if editingStyle == .Insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
     }
     
+    
+    
+    func toAddNewsPage(ender:UIBarButtonItem) {
+//        performSegueWithIdentifier("AddNews", sender: nil)
+        
+        todoItems.insertObject(NSDate(), atIndex: 0)
+        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+        newsTableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+    }
+    
+    func hidePlusButton() {
+        if appDelegate.vip == "1" {
+            self.navigationItem.rightBarButtonItem = addNewsButton
+        } else if appDelegate.vip == "0" || appDelegate.vip == "" {
+            self.navigationItem.rightBarButtonItem = nil
+        }
+    }
 
 }
 

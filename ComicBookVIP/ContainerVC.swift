@@ -30,7 +30,7 @@ class ContainerVC : UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         print("ContainerVC.swift")
-    NSNotificationCenter.defaultCenter().postNotificationName("openAppCheck", object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName("openAppCheck", object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "logoutCloseMenu", name: "logoutCloseMenu", object: nil)
     }
     
