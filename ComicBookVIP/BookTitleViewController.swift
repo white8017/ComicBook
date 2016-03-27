@@ -2,9 +2,7 @@ import UIKit
 private let reuseIdentifier = "Cell"
 
 class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,UIScrollViewDelegate,NSURLSessionDelegate,NSURLSessionDownloadDelegate,UIPopoverPresentationControllerDelegate,UINavigationBarDelegate{
-	
-	
-	
+
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 	var scroll:UIScrollView!
 	var scrollContent:UIScrollView!
@@ -21,9 +19,10 @@ class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,
 	
 	func setView(){
 		
-		carImage = UIImageView(image: UIImage(named: "shoppingcart"))
+		carImage = UIImageView(image:UIImage(named: "shoppingcart"))
 		
 		changeUserFunction()
+        print(1)
 		rightButton = UIBarButtonItem(customView: carImage)
 		navigationItem.rightBarButtonItem =  rightButton
 	
@@ -257,7 +256,7 @@ class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,
 			carImage.addGestureRecognizer(edittingGestureRecognizer)
 			print("changeUserSTATE:boss")
 			
-		}else{
+		}else if appDelegate.vip == "0"{
 			print("appDelegate.vip:\(appDelegate.vip)")
 			carImage.image = UIImage(named: "shoppingcart")
 			carView = UIView(frame:CGRect(x: 0, y: 0, width: 18, height: 18))
@@ -275,7 +274,14 @@ class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,
 			carImage.addGestureRecognizer(borrowGestureRecognizer)
 			print("changeUserSTATE:user")
 			
-		}
+        }else{
+            carImage.image = nil
+            carView = UIView(frame:CGRect(x: 0, y: 0, width: 18, height: 18))
+            print("appDelegate.vip:\(appDelegate.vip)")
+            let no = UITapGestureRecognizer(target: self, action: nil)
+            carImage.addGestureRecognizer(no)
+            print("changeUserSTATE:NOUser")
+        }
 		
 		
 		

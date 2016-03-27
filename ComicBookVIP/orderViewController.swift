@@ -11,21 +11,32 @@ import UIKit
 class orderViewController: UIViewController {
     var indicator:UIActivityIndicatorView!
     var enterBty = UIButton(type: UIButtonType.System)
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     override func viewDidAppear(animated: Bool) {
         let viewS = self.view.frame.size
         
         // 標題列
         let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height:self.view.frame.size.height/5))
-        self.view.addSubview(navBar);
-        let navItem = UINavigationItem(title: "謝謝借閱");
-        navBar.setItems([navItem], animated: false);
+        self.view.addSubview(navBar)
+        let navItem = UINavigationItem(title: "謝謝借閱")
+        navBar.setItems([navItem], animated: false)
+        
+        let textView:UITextField = UITextField(frame: CGRect(x:0, y: navBar.frame.maxY, width: self.view.frame.size.width, height: self.view.frame.size.height/1.5))
+        var string :String = ""
+        for a in appDelegate.orderBooktTitle{
+            string.appendContentsOf(a)
+        }
+        
+        
+        textView.text = string
+        
+        self.view.addSubview(textView)
+        
         
         // 按鈕
-
         let clearBty = UIButton(type: UIButtonType.System)
-        
-        enterBty.setTitle("ENTER", forState: UIControlState.Normal)
-        clearBty.setTitle("CLEAR", forState: UIControlState.Normal)
+        enterBty.setTitle("Agree", forState: UIControlState.Normal)
+        clearBty.setTitle("Cancel", forState: UIControlState.Normal)
         enterBty.tintColor = UIColor.redColor()
         let buttonW = viewS.width/2
         let buttonH = viewS.height/6
@@ -40,12 +51,8 @@ class orderViewController: UIViewController {
         indicator.color = UIColor.blackColor()
         indicator.transform =  CGAffineTransformMakeScale(3, 3)
         indicator.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-        
         indicator.userInteractionEnabled = false;
         self.view.addSubview(indicator)
-       
-        
-        
     }
     func clear(){
         self.dismissViewControllerAnimated(true, completion: nil)
