@@ -9,7 +9,7 @@
 
 import UIKit
 
-class t1_NewsViewContorller: TabVCTemplate, UITableViewDelegate, UITableViewDataSource {
+class t1_NewsViewContorller: TabVCTemplate, UITableViewDelegate, UITableViewDataSource, NSURLSessionDelegate,NSURLSessionDownloadDelegate {
     
     var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
     var count = 0
@@ -18,6 +18,7 @@ class t1_NewsViewContorller: TabVCTemplate, UITableViewDelegate, UITableViewData
     var todoItems = NSMutableArray()
     var txtNews : UITextField = UITextField(frame: CGRect(x: Screen.width*0.1, y: -100, width: Screen.width*0.6, height: Screen.width*0.1))
     let btnSend = UIButton(type: UIButtonType.Custom) as UIButton
+    var newsArray = [AnyObject]()
     @IBOutlet weak var newsTableView: UITableView!
     
     @IBOutlet weak var headImageView: UIImageView!
@@ -54,6 +55,8 @@ class t1_NewsViewContorller: TabVCTemplate, UITableViewDelegate, UITableViewData
         
         NSTimer.scheduledTimerWithTimeInterval(4.0, target: self, selector: Selector("changePic:"), userInfo: nil, repeats: true)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "plusChange", name: "plusChange", object: nil)
+        
+        newsDownload()
     }
     func plusChange() {
         hidePlusButton()
@@ -117,28 +120,20 @@ class t1_NewsViewContorller: TabVCTemplate, UITableViewDelegate, UITableViewData
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
-        return todoItems.count
+        return newsArray.count
 //        return 10
     }
+    
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier("NewsCell", forIndexPath: indexPath)
         //cell.textLabel?.text = sideMenu[indexPath.row]
         
-        
-        let item = todoItems[indexPath.row] as! NSDate
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "MM/dd"
-        let dateItem = dateFormatter.stringFromDate(item)
-        print(dateItem)
-        cell.textLabel?.text = item.description
-        
-        
         // Configure the cell...
 //        if indexPath.row == 0 {
 //            cell.postImageView.image = UIImage(named: "watchkit-intro")
-            cell.textLabel?.text = "\(dateItem) - \(txtNews.text!)"
+            cell.textLabel?.text = newsArray[indexPath.row]["news"] as? String
 //            cell.textLabel?.text = "03/21 - 本店將於3月14日進行水電陸整修，該日暫停營業一天，歸還書籍請投遞至門口還書箱，不便之處敬請見諒。"
 //            cell.authorLabel.text = "Simon Ng"
 //            cell.authorImageView.image = UIImage(named: "author")
@@ -172,7 +167,7 @@ class t1_NewsViewContorller: TabVCTemplate, UITableViewDelegate, UITableViewData
 //            cell.textLabel?.text = "11/26 - 本店 11/27 將延後一小時於 12:00 開店，不便之處敬請見諒。"
 
 //        }
-        
+
         return cell
     }
 
@@ -293,9 +288,23 @@ class t1_NewsViewContorller: TabVCTemplate, UITableViewDelegate, UITableViewData
     }
     
     func sendNews() {
-        todoItems.insertObject(NSDate(), atIndex: 0)
-        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
-        newsTableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+//        todoItems.insertObject(NSDate(), atIndex: 0)
+//        let indexPath = NSIndexPath(forRow: 0, inSection: 0)
+//        newsTableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+        newsUpload()
+//        txtNews.text = ""
+//        newsDownload()
+        
+        
+        
+        UIView.transitionWithView(self.view, duration: 1.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            self.txtNews.frame = CGRectMake(Screen.width*0.1, -100, Screen.width*0.8, Screen.width*0.13)
+            
+            self.btnSend.frame = CGRectMake(Screen.width*0.77, -100, Screen.width*0.13, Screen.width*0.1)
+            
+            }) { (Bool) -> Void in
+                return true
+        }
 
     }
     
@@ -308,6 +317,65 @@ class t1_NewsViewContorller: TabVCTemplate, UITableViewDelegate, UITableViewData
             self.navigationItem.rightBarButtonItem = nil
         }
     }
+    
+    func newsUpload() {
+        let url = NSURL(string: "http://sashihara.100hub.net/vip/sendNews.php")
+        let request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
+        
+        let item = NSDate()
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM/dd"
+        let dateItem = dateFormatter.stringFromDate(item)
+        print(dateItem)
+        
+        var newsData = "\(dateItem) - \(txtNews.text!)"
+        
+        let submitBody:String = "news=\(newsData)"
+        
+        request.HTTPMethod = "POST"
+        request.HTTPBody = submitBody.dataUsingEncoding(NSUTF8StringEncoding)
+        
+        let sessionWithConfigure = NSURLSessionConfiguration.defaultSessionConfiguration()
+        let session = NSURLSession(configuration: sessionWithConfigure, delegate: self, delegateQueue: NSOperationQueue.mainQueue())
+        
+        let dataTask = session.downloadTaskWithRequest(request)
+        dataTask.resume()
+    }
+    func newsDownload() {
+        let url = NSURL(string: "http://sashihara.100hub.net/vip/newsDownload.php")
+        let request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
+        
+        request.HTTPMethod = "POST"
+        
+        let sessionWithConfigure = NSURLSessionConfiguration.defaultSessionConfiguration()
+        
+        let session = NSURLSession(configuration: sessionWithConfigure, delegate: self, delegateQueue: NSOperationQueue.mainQueue())
+        
+        let dataTask = session.downloadTaskWithRequest(request)
+
+        dataTask.resume()
+    }
+
+    func URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL) {
+        if txtNews.text == "" {
+            do {
+                let dataDic = try NSJSONSerialization.JSONObjectWithData(NSData(contentsOfURL: location)!, options: NSJSONReadingOptions.MutableContainers) as! [String:AnyObject]
+                
+                newsArray = dataDic["news"]! as! [AnyObject]
+            print(newsArray)
+    //            print("\(dataArray.count) 筆資料")
+    //            print("wddd\(dataArray[dataArray.count-1]["name"] as! String)")
+                
+            }catch {
+                print("ERROR")
+            }
+            newsTableView.reloadData()
+        } else {
+            txtNews.text = ""
+            newsDownload()
+        }
+    }
+    
     deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self)
     }
