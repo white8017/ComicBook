@@ -100,7 +100,7 @@ class menuViewController: UIViewController,NSURLSessionDelegate,UITableViewDataS
 		print(appDelegate.orderBooktTitle)
       
         menuViewController.modalPresentationStyle = .Popover
-        menuViewController.preferredContentSize = CGSizeMake((self.view?.frame.size.width)!/1.5, (self.view?.frame.size.height)!/2)
+        menuViewController.preferredContentSize = CGSizeMake((self.view?.frame.size.width)!/2, (self.view?.frame.size.height)!/3)
         
         menuViewController.enterBty.addTarget(self, action: "enter", forControlEvents: UIControlEvents.AllTouchEvents)
         
@@ -118,43 +118,7 @@ class menuViewController: UIViewController,NSURLSessionDelegate,UITableViewDataS
             menuViewController,
             animated: true,
             completion: nil)
-    
-//		let alertController=UIAlertController(title: "謝謝借閱", message: "\n\n\n\n", preferredStyle: UIAlertControllerStyle.Alert)
-//		
-//		let indicator = UIActivityIndicatorView(frame: alertController.view.bounds)
-//		indicator.color = UIColor.blackColor()
-//		indicator.transform =  CGAffineTransformMakeScale(3, 3)
-//		indicator.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
-//		alertController.view.addSubview(indicator)
-//		indicator.userInteractionEnabled = false;
-//		let cancelAction = UIAlertAction(title: "取消", style: UIAlertActionStyle.Cancel, handler: nil)
-//		let enterAction = UIAlertAction(title: "確認", style: UIAlertActionStyle.Default) { (UIAlertAction) -> Void in
-//			
-//			indicator.startAnimating()
-//			for order in self.appDelegate.orderBookNumber{
-//				for a in order.1{
-//					print(self.epsoide[Int(a)!])
-//					self.updateData(5, name: self.appDelegate.account, bookName: order.0, nowStage: self.epsoide[Int(a)!])
-//				}
-//				
-//			}
-//			self.appDelegate.orderBooktTitle = []
-//			NSNotificationCenter.defaultCenter().postNotificationName("addMenu", object: self)
-//			self.appDelegate.orderBookNumber = [String:[String]]()
-//			
-//			
-//			
-//			self.dismissViewControllerAnimated(true, completion: nil)
-//			
-//		}
-//		
-//		alertController.addAction(cancelAction)
-//		alertController.addAction( enterAction)
-//		self.presentViewController(alertController, animated: true, completion: nil)
-		
-		
-		
-		
+        
 	}
     
     func enter(){
@@ -165,6 +129,7 @@ class menuViewController: UIViewController,NSURLSessionDelegate,UITableViewDataS
                 for a in order.1{
                     print(self.epsoide[Int(a)!])
                     self.updateData(5, name: self.appDelegate.account, bookName: order.0, nowStage: self.epsoide[Int(a)!])
+                    print( "+++++++++++++++bookName: \(order.0)")
                 }
                 
             }
@@ -303,7 +268,7 @@ class menuViewController: UIViewController,NSURLSessionDelegate,UITableViewDataS
 		let url = NSURL(string: "http://sashihara.100hub.net/vip/historyUpload.php")
 		let request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
 		let submitBody:String = "rentDate=\(now8)&returnDate=\(to8)&price=\(price)&name=\(name)&bookName=\(bookName)&nowStage=\(nowStage)"
-		
+		print("2222222222222222222222222222222222222222222222222222222222222222222222")
 		request.HTTPMethod = "POST"
 		request.HTTPBody = submitBody.dataUsingEncoding(NSUTF8StringEncoding)
 		

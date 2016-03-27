@@ -39,7 +39,7 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 		
 		let viewS = self.view.frame.size
 		//畫面設定
-		self.view.backgroundColor = UIColor.redColor()
+		self.view.backgroundColor = UIColor.whiteColor()
 		navigationBar.frame = CGRectMake(0, 0, self.view.frame.size.width,self.view.frame.size.height/10)
 		navigationBar.backgroundColor = UIColor.whiteColor()
 		let leftButton = UIBarButtonItem(title: "BACK", style: UIBarButtonItemStyle.Plain, target: self, action: "back:")
@@ -58,9 +58,10 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 		scrollView.tag = 1
 		
 		titleView.frame = CGRect(x: 0, y:0, width:viewS.width, height: viewS.height/2)
-		titleView.backgroundColor = UIColor.redColor()
+		titleView.backgroundColor = UIColor.whiteColor()
 		
 		
+        
 		//書本圖片
 		bookImage.frame = CGRect(x:titleView.frame.size.width/20, y: titleView.frame.size.height/20, width:titleView.frame.size.width/2.5, height:titleView.frame.size.height/1.5)
 		bookImage.contentMode = UIViewContentMode.ScaleToFill
@@ -123,7 +124,10 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 		enterBty.frame = CGRectMake(titleView.frame.midX-buttonW/2,bookImage.frame.maxY+10,buttonW,buttonH/6*8)
 		
 		titleView.addSubview(enterBty)
-		
+        let a = UIView(frame: CGRect(x: 0, y: titleView.frame.maxY, width: viewS.width, height: 10))
+        a.backgroundColor = UIColor.whiteColor()
+        self.view.addSubview(a)
+
 		// 書籍簡介
 		bookSummary.frame = CGRect(x: 0, y:titleView.frame.maxY+10, width:viewS.width, height: viewS.height/2)
 		bookSummary.backgroundColor = UIColor.orangeColor()
@@ -161,6 +165,7 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 		let stateArray = ["未完結","完結"]
 		edtingbookState = UISegmentedControl(items: stateArray)
 		edtingbookState.frame = CGRect(x:self.view.frame.size.width/4, y: 70 , width:self.view.frame.size.width/2, height: 40)
+        
 		edtingbookState.selectedSegmentIndex = stateArray.indexOf(bookState.text!)!
 		print("edtingbookState.selectedSegmentIndex:\(edtingbookState.selectedSegmentIndex)")
 		
@@ -197,12 +202,22 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 		edting.userInteractionEnabled = true
 		
 		self.view.addSubview(indicator)
+        
+        let fuckingBty = UIButton(frame:CGRect(x: edtingAuthor.frame.maxX, y: edtingAuthor.frame.minY, width: 100, height: 100))
+        
+        fuckingBty.backgroundColor = UIColor.clearColor()
+        fuckingBty.addTarget(self, action: "fucking", forControlEvents: UIControlEvents.TouchDown)
+        edting.addSubview(fuckingBty)
 	}
+    func fucking(){
+        edtingAuthor.text = "野比大雄"
+        edtingSummary.text = "大雄於1964年8月7日出生，住所在日本東京都練馬區的月見台，但時代雖然改變，卻一直以居於東京小學生的身份出現，永遠都是十歲（在漫畫中，一直都是小學四年級生，在大山版動畫早期是四年級生，中後期變成五年級生），為家中的獨生子。父母因為希望他無論在什麼地方都能安然地生活，故為其取名為「伸太」。而成人大雄在作品中會偶爾登場，多數是小學生大雄利用時光機前往未來探訪或以時光電視等儀器觀察時登場，而屆時近視也已恢復，不需要再戴眼鏡，原先是在小學二年級時近視"
+    }
 	
 	
 	//借書
 	func borrow(){
-		
+        if appDelegate.vip == "0"{
 		if borrowBook != []{
 			appDelegate.orderBookImage[bookName.text!] = bookImage.image
 			appDelegate.orderBookNumber[bookName.text!] = borrowBook
@@ -215,10 +230,16 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 		}
 		
 		NSNotificationCenter.defaultCenter().postNotificationName("addMenu", object: self)
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }else{
+            let alert = UIAlertController(title:"請先登入", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+        
+            self.presentViewController(alert, animated: true, completion: nil)
+            self.dismissViewControllerAnimated(true, completion: nil)
+        }
 		
 		
 		
-		self.dismissViewControllerAnimated(true, completion: nil)
 		
 	}
 	
@@ -247,7 +268,6 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 	
 	
 	func edting1(){
-		
 		if edting.frame.minY == self.view.frame.maxY{
 			rightButton.title = "完成"
 			UIView.transitionWithView(edting, duration: 1, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
@@ -257,28 +277,16 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 				self.edtingSummary.text = self.bookSummary.text
 				
 				self.edting.frame = CGRect(x: 0, y: self.view.frame.maxY/2, width: self.view.frame.size.width, height: self.view.frame.size.height/2)
-				
-				
 				}, completion: { (Bool) -> Void in
-					
-					
-					
 			})
-			
-			
-			
 		}else{
 			rightButton.title = "編輯"
             self.view.endEditing(true)
 			UIView.transitionWithView(edting, duration: 1, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
-				
 				self.author.text = self.edtingAuthor.text
 				self.episode.text = self.stepperlabel.text
 				self.bookState.text = self.edtingbookState.titleForSegmentAtIndex(self.edtingbookState.selectedSegmentIndex)
 				self.bookSummary.text = self.edtingSummary.text
-				
-				
-				
 				self.edting.frame = CGRect(x: 0, y: self.view.frame.maxY, width: self.view.frame.size.width, height: self.view.frame.size.height/2)
 				}, completion: { (Bool) -> Void in
 					
@@ -329,7 +337,7 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 		let keyboardFrame:NSValue = userInfo.valueForKey(UIKeyboardFrameEndUserInfoKey) as! NSValue
 		let keyboardRectangle = keyboardFrame.CGRectValue()
 		let keyboardHeight = keyboardRectangle.minY
-		UIView.transitionWithView(edting, duration: 0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+		UIView.transitionWithView(edting, duration: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
 				self.edting.frame = CGRect(x: 0, y: self.navigationBar.frame.maxY, width: self.view.frame.size.width, height: self.view.frame.size.height/2)
 			}, completion: nil)
 	
@@ -337,14 +345,14 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 	func keyboardHide(){
 		print("keyboardHide")
 		
-		UIView.transitionWithView(edting, duration: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
-			self.edtingAuthor.text = self.author.text
-			self.stepperlabel.text = self.episode.text
-			self.edtingbookState.selectedSegmentIndex = 0
-			self.edtingSummary.text = self.bookSummary.text
-			
-			self.edting.frame = CGRect(x: 0, y: self.view.frame.maxY/2, width: self.view.frame.size.width, height: self.view.frame.size.height/2)
-			}, completion: nil)
+//		UIView.transitionWithView(edting, duration: 0, options: UIViewAnimationOptions.CurveLinear, animations: { () -> Void in
+//			self.edtingAuthor.text = self.author.text
+//			self.stepperlabel.text = self.episode.text
+//			self.edtingbookState.selectedSegmentIndex = 0
+//			self.edtingSummary.text = self.bookSummary.text
+//			
+//			self.edting.frame = CGRect(x: 0, y: self.view.frame.maxY/2, width: self.view.frame.size.width, height: self.view.frame.size.height/2)
+//			}, completion: nil)
 		
 	
 	
@@ -370,7 +378,7 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 		bookAmount = test
 		setView()
 		
-		
+		tableview.dataSource = self
 		download()
 		downloadTwo()
 	}
@@ -458,10 +466,6 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 	}
 	
 	
-	
-	
-	
-	
 	//下載資料
 	func download(){
 		let url = NSURL(string: "http://sashihara.100hub.net/vip/wuBookDetailsDownload.php")
@@ -518,8 +522,7 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 				bookAmount.removeRange(Range<Int>(start: bookAmount.indexOf(episode.text!)!+1, end: bookAmount.count))
 				
 				dispatch_async(dispatch_get_main_queue(), { () -> Void in
-					self.setView()
-					
+                    self.setView()
 				})
 				
 			}else if(dataDic["rentHistory"] != nil) {
@@ -532,8 +535,8 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 				}
 				print(rentTime)
 				dispatch_async(dispatch_get_main_queue(), { () -> Void in
-					
-					self.tableview.reloadData()
+
+					self.setView()
 					self.indicator.stopAnimating()
 				})
 			}
@@ -543,7 +546,8 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 			bookAmount.removeRange(Range<Int>(start: bookAmount.indexOf(episode.text!)!+1, end: bookAmount.count))
 			print(bookAmount)
 			dispatch_async(dispatch_get_main_queue(), { () -> Void in
-				self.setView()
+                self.setView()
+			
 				self.indicator.stopAnimating()
 				
 			})

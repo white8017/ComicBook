@@ -27,14 +27,15 @@
 		196638501CA16044001310F1 /* rentArrayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638461CA16044001310F1 /* rentArrayVC.swift */; };
 		196638511CA16044001310F1 /* NSDATE.swift in Sources */ = {isa = PBXBuildFile; fileRef = 196638471CA16044001310F1 /* NSDATE.swift */; };
 		1977D5BD1CA3673B00D0F1BF /* OrderFormVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1977D5BC1CA3673B00D0F1BF /* OrderFormVC.swift */; };
-		19AE349D1CA6616C002DD18C /* BookTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AE34951CA6616C002DD18C /* BookTitleViewController.swift */; };
-		19AE349E1CA6616C002DD18C /* CostumCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AE34961CA6616C002DD18C /* CostumCollectionView.swift */; };
-		19AE349F1CA6616C002DD18C /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AE34971CA6616C002DD18C /* CollectionViewCell.swift */; };
-		19AE34A01CA6616C002DD18C /* Plasma018ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AE34981CA6616C002DD18C /* Plasma018ViewController.swift */; };
-		19AE34A11CA6616C002DD18C /* bookdetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AE34991CA6616C002DD18C /* bookdetailViewController.swift */; };
-		19AE34A21CA6616C002DD18C /* menuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AE349A1CA6616C002DD18C /* menuViewController.swift */; };
-		19AE34A31CA6616C002DD18C /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AE349B1CA6616C002DD18C /* MenuTableViewCell.swift */; };
-		19AE34A41CA6616C002DD18C /* orderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AE349C1CA6616C002DD18C /* orderViewController.swift */; };
+		19AE34BD1CA7A728002DD18C /* BookTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AE34B51CA7A728002DD18C /* BookTitleViewController.swift */; };
+		19AE34BE1CA7A728002DD18C /* CostumCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AE34B61CA7A728002DD18C /* CostumCollectionView.swift */; };
+		19AE34BF1CA7A728002DD18C /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AE34B71CA7A728002DD18C /* CollectionViewCell.swift */; };
+		19AE34C01CA7A728002DD18C /* Plasma018ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AE34B81CA7A728002DD18C /* Plasma018ViewController.swift */; };
+		19AE34C11CA7A728002DD18C /* bookdetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AE34B91CA7A728002DD18C /* bookdetailViewController.swift */; };
+		19AE34C21CA7A728002DD18C /* menuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AE34BA1CA7A728002DD18C /* menuViewController.swift */; };
+		19AE34C31CA7A728002DD18C /* MenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AE34BB1CA7A728002DD18C /* MenuTableViewCell.swift */; };
+		19AE34C41CA7A728002DD18C /* orderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AE34BC1CA7A728002DD18C /* orderViewController.swift */; };
+		19AE34C61CA7C60B002DD18C /* String-Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19AE34C51CA7C60B002DD18C /* String-Extras.swift */; };
 		A12483251C9A577800A7CE2A /* m4_OderFrorm.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12483241C9A577700A7CE2A /* m4_OderFrorm.swift */; };
 		A12483271C9A7DC300A7CE2A /* m2_TransactionHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12483261C9A7DC300A7CE2A /* m2_TransactionHistory.swift */; };
 		A12483291C9A7F3D00A7CE2A /* m3_GiftPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A12483281C9A7F3D00A7CE2A /* m3_GiftPoint.swift */; };
@@ -84,14 +85,15 @@
 		196638461CA16044001310F1 /* rentArrayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = rentArrayVC.swift; sourceTree = "<group>"; };
 		196638471CA16044001310F1 /* NSDATE.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDATE.swift; sourceTree = "<group>"; };
 		1977D5BC1CA3673B00D0F1BF /* OrderFormVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderFormVC.swift; sourceTree = "<group>"; };
-		19AE34951CA6616C002DD18C /* BookTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTitleViewController.swift; sourceTree = "<group>"; };
-		19AE34961CA6616C002DD18C /* CostumCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostumCollectionView.swift; sourceTree = "<group>"; };
-		19AE34971CA6616C002DD18C /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		19AE34981CA6616C002DD18C /* Plasma018ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plasma018ViewController.swift; sourceTree = "<group>"; };
-		19AE34991CA6616C002DD18C /* bookdetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bookdetailViewController.swift; sourceTree = "<group>"; };
-		19AE349A1CA6616C002DD18C /* menuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuViewController.swift; sourceTree = "<group>"; };
-		19AE349B1CA6616C002DD18C /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
-		19AE349C1CA6616C002DD18C /* orderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = orderViewController.swift; sourceTree = "<group>"; };
+		19AE34B51CA7A728002DD18C /* BookTitleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTitleViewController.swift; sourceTree = "<group>"; };
+		19AE34B61CA7A728002DD18C /* CostumCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CostumCollectionView.swift; sourceTree = "<group>"; };
+		19AE34B71CA7A728002DD18C /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		19AE34B81CA7A728002DD18C /* Plasma018ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Plasma018ViewController.swift; sourceTree = "<group>"; };
+		19AE34B91CA7A728002DD18C /* bookdetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = bookdetailViewController.swift; sourceTree = "<group>"; };
+		19AE34BA1CA7A728002DD18C /* menuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuViewController.swift; sourceTree = "<group>"; };
+		19AE34BB1CA7A728002DD18C /* MenuTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuTableViewCell.swift; sourceTree = "<group>"; };
+		19AE34BC1CA7A728002DD18C /* orderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = orderViewController.swift; sourceTree = "<group>"; };
+		19AE34C51CA7C60B002DD18C /* String-Extras.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String-Extras.swift"; sourceTree = "<group>"; };
 		A12483241C9A577700A7CE2A /* m4_OderFrorm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = m4_OderFrorm.swift; sourceTree = "<group>"; };
 		A12483261C9A7DC300A7CE2A /* m2_TransactionHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = m2_TransactionHistory.swift; sourceTree = "<group>"; };
 		A12483281C9A7F3D00A7CE2A /* m3_GiftPoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = m3_GiftPoint.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 		196637CF1C9BE882001310F1 /* fileHao */ = {
 			isa = PBXGroup;
 			children = (
+				19AE34C51CA7C60B002DD18C /* String-Extras.swift */,
 				1966383E1CA16044001310F1 /* signUp.swift */,
 				1966383F1CA16044001310F1 /* LoginViewController.swift */,
 				196638401CA16044001310F1 /* depositVC.swift */,
@@ -181,14 +184,14 @@
 		4AAF411D1CA22BD200D2962C /* New Group */ = {
 			isa = PBXGroup;
 			children = (
-				19AE34951CA6616C002DD18C /* BookTitleViewController.swift */,
-				19AE34961CA6616C002DD18C /* CostumCollectionView.swift */,
-				19AE34971CA6616C002DD18C /* CollectionViewCell.swift */,
-				19AE34981CA6616C002DD18C /* Plasma018ViewController.swift */,
-				19AE34991CA6616C002DD18C /* bookdetailViewController.swift */,
-				19AE349A1CA6616C002DD18C /* menuViewController.swift */,
-				19AE349B1CA6616C002DD18C /* MenuTableViewCell.swift */,
-				19AE349C1CA6616C002DD18C /* orderViewController.swift */,
+				19AE34B51CA7A728002DD18C /* BookTitleViewController.swift */,
+				19AE34B61CA7A728002DD18C /* CostumCollectionView.swift */,
+				19AE34B71CA7A728002DD18C /* CollectionViewCell.swift */,
+				19AE34B81CA7A728002DD18C /* Plasma018ViewController.swift */,
+				19AE34B91CA7A728002DD18C /* bookdetailViewController.swift */,
+				19AE34BA1CA7A728002DD18C /* menuViewController.swift */,
+				19AE34BB1CA7A728002DD18C /* MenuTableViewCell.swift */,
+				19AE34BC1CA7A728002DD18C /* orderViewController.swift */,
 			);
 			name = "New Group";
 			sourceTree = "<group>";
@@ -326,36 +329,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				1966384E1CA16044001310F1 /* rentBookBoss.swift in Sources */,
-				19AE34A01CA6616C002DD18C /* Plasma018ViewController.swift in Sources */,
 				1966382F1C9FC8FB001310F1 /* Reachability.m in Sources */,
 				A1FBC1901C99A1B900FF13E4 /* SideBarMenu.swift in Sources */,
+				19AE34BD1CA7A728002DD18C /* BookTitleViewController.swift in Sources */,
 				A124832B1C9A864E00A7CE2A /* t3_FavoriteViewController.swift in Sources */,
-				19AE349E1CA6616C002DD18C /* CostumCollectionView.swift in Sources */,
 				1966384F1CA16044001310F1 /* delayRerutnBookBoss.swift in Sources */,
 				1966384A1CA16044001310F1 /* depositVC.swift in Sources */,
+				19AE34C41CA7A728002DD18C /* orderViewController.swift in Sources */,
 				196638491CA16044001310F1 /* LoginViewController.swift in Sources */,
 				196638511CA16044001310F1 /* NSDATE.swift in Sources */,
+				19AE34C31CA7A728002DD18C /* MenuTableViewCell.swift in Sources */,
 				196638501CA16044001310F1 /* rentArrayVC.swift in Sources */,
 				A124832F1C9A925100A7CE2A /* MyAnnotation.swift in Sources */,
+				19AE34C11CA7A728002DD18C /* bookdetailViewController.swift in Sources */,
+				19AE34BE1CA7A728002DD18C /* CostumCollectionView.swift in Sources */,
 				A124832D1C9A86A000A7CE2A /* t4_StoreViewController.swift in Sources */,
 				A1883E7E1CA1299900C737F2 /* t3-2_Favorite2ViewController.swift in Sources */,
-				19AE349D1CA6616C002DD18C /* BookTitleViewController.swift in Sources */,
+				19AE34C01CA7A728002DD18C /* Plasma018ViewController.swift in Sources */,
+				19AE34BF1CA7A728002DD18C /* CollectionViewCell.swift in Sources */,
+				19AE34C61CA7C60B002DD18C /* String-Extras.swift in Sources */,
 				A12483291C9A7F3D00A7CE2A /* m3_GiftPoint.swift in Sources */,
 				1966384D1CA16044001310F1 /* rentHistoryVC.swift in Sources */,
-				19AE34A41CA6616C002DD18C /* orderViewController.swift in Sources */,
 				1966384C1CA16044001310F1 /* favoritesBookNameVC.swift in Sources */,
 				A12483251C9A577800A7CE2A /* m4_OderFrorm.swift in Sources */,
 				1966384B1CA16044001310F1 /* Page2ViewController.swift in Sources */,
 				1977D5BD1CA3673B00D0F1BF /* OrderFormVC.swift in Sources */,
+				19AE34C21CA7A728002DD18C /* menuViewController.swift in Sources */,
 				A1FFB7BF1CA729C2002FA480 /* t1-2_NewsAddViewController.swift in Sources */,
-				19AE349F1CA6616C002DD18C /* CollectionViewCell.swift in Sources */,
-				19AE34A31CA6616C002DD18C /* MenuTableViewCell.swift in Sources */,
-				19AE34A11CA6616C002DD18C /* bookdetailViewController.swift in Sources */,
 				196638481CA16044001310F1 /* signUp.swift in Sources */,
 				A1883E7C1CA0DFA200C737F2 /* UserSignUpViewController.swift in Sources */,
 				A1FBC1921C99DA6F00FF13E4 /* ContainerVC.swift in Sources */,
 				A1FEF9111C98235F0076152F /* TabVCTemplate.swift in Sources */,
-				19AE34A21CA6616C002DD18C /* menuViewController.swift in Sources */,
 				A12483271C9A7DC300A7CE2A /* m2_TransactionHistory.swift in Sources */,
 				A1FEF8FD1C97EAA60076152F /* t2_BookViewController.swift in Sources */,
 				A14EED331CA0DB5E008B2C2B /* UserLoginViewController.swift in Sources */,

@@ -49,8 +49,8 @@ class Plasma018ViewController: UIViewController,UITableViewDelegate,UITableViewD
         let enterBty = UIButton(type: UIButtonType.System)
         let clearBty = UIButton(type: UIButtonType.System)
 		
-        enterBty.setTitle("ENTER", forState: UIControlState.Normal)
-        clearBty.setTitle("CLEAR", forState: UIControlState.Normal)
+        enterBty.setTitle("Agree", forState: UIControlState.Normal)
+        clearBty.setTitle("Cancel", forState: UIControlState.Normal)
         let buttonW = viewS.width/2
         let buttonH = viewS.height/8
         enterBty.frame = CGRectMake(0,self.view.frame.maxY-buttonH,buttonW,buttonH)

@@ -23,6 +23,7 @@ class CollectionViewCell: UICollectionViewCell,UINavigationControllerDelegate,UI
     let indicator = UIActivityIndicatorView()
 	var cellID : Int!
 	var delegate : CollectionViewCellDelegate?
+    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 	override init(frame: CGRect) {
 		super.init(frame:frame)
 
@@ -115,8 +116,8 @@ class CollectionViewCell: UICollectionViewCell,UINavigationControllerDelegate,UI
 	//cell點2下的功能
 	func changePhoto(recognizer:UITapGestureRecognizer) {
 		print("touch: teice")
-		
-       let menuViewController = Plasma018ViewController()
+        if appDelegate.canEitting == true{
+        let menuViewController = Plasma018ViewController()
         menuViewController.modalPresentationStyle = .Popover
         menuViewController.preferredContentSize = CGSizeMake((self.window?.frame.size.width)!/1.5, (self.window?.frame.size.height)!/2)
 	
@@ -140,6 +141,7 @@ class CollectionViewCell: UICollectionViewCell,UINavigationControllerDelegate,UI
             menuViewController,
             animated: true,
             completion: nil)
+        }
 	}
     
     func adaptivePresentationStyleForPresentationController(

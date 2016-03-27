@@ -23,7 +23,6 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
     
     var captureSession:AVCaptureSession?
     var previewLayer:AVCaptureVideoPreviewLayer?
-    var name = ""
     
     
     @IBOutlet weak var myTableView: UITableView!
@@ -163,8 +162,9 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
     }
     func foundCode(code: String) {
         // 掃描後做的事情
-        updateOrderForm(code.componentsSeparatedByString("!")[1])
-        Checkout(code.componentsSeparatedByString("!")[0])
+
+        updateOrderForm(code.componentsSeparatedByString("!")[1].urlDecoded())
+        Checkout(code.componentsSeparatedByString("!")[0].urlDecoded())
         self.navigationController?.popToRootViewControllerAnimated(true)
         sleep(1)
         NSNotificationCenter.defaultCenter().postNotificationName("check", object: nil)
@@ -235,11 +235,13 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
         }
         
         // QRCode
+        
+        let utf8Data = "deposit=\(sum)&phoneNumber=\(appDelegate.phoneNumber)!\(appDelegate.account)".stringByAddingPercentEscapesUsingEncoding(NSUTF8StringEncoding)
+        
         if qrcodeImage == nil {
-            let data = "deposit=\(sum)&phoneNumber=\(appDelegate.phoneNumber)!\(appDelegate.account)".dataUsingEncoding(NSISOLatin1StringEncoding, allowLossyConversion: false)
+            let data = utf8Data!.dataUsingEncoding(NSISOLatin1StringEncoding, allowLossyConversion: false)
             
             let filter = CIFilter(name: "CIQRCodeGenerator")
-            print(name)
             filter!.setValue(data, forKey: "inputMessage")
             filter!.setValue("Q", forKey: "inputCorrectionLevel")
             

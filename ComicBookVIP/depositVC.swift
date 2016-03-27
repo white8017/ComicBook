@@ -31,6 +31,11 @@ class depositVC: UIViewController, NSURLSessionDelegate  {
     let img200 = UIImage(named: "200NT") as UIImage?
     let btn200   = UIButton(type: UIButtonType.Custom) as UIButton
     
+    // 點背景收起鍵盤
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
     override func viewDidAppear(animated: Bool) {
         
         setTabBarVisible(!tabBarIsVisible(), animated: true)

@@ -53,7 +53,7 @@ class CostumCollectionView: UICollectionView,UICollectionViewDataSource,UICollec
 		let state = gestureReconizer.state
 		if appDelegate.canEitting{
 		switch state{
-			case UIGestureRecognizerState.Changed:
+			case UIGestureRecognizerState.Ended:
 				if gestureReconizer.scale > 2{
 					
 					self.performBatchUpdates({ () -> Void in
