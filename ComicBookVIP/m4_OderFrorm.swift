@@ -23,7 +23,7 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
     
     var captureSession:AVCaptureSession?
     var previewLayer:AVCaptureVideoPreviewLayer?
-
+    var name = ""
     
     
     @IBOutlet weak var myTableView: UITableView!
@@ -76,8 +76,6 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
         
         
             // QRCode 掃描
-        
-//        NSNotificationCenter.defaultCenter().postNotificationName("reloadData", object: nil)
         print("vip = \(appDelegate.vip)")
         if appDelegate.vip == "1" {
             print("我跑囉")
@@ -165,9 +163,8 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
     }
     func foundCode(code: String) {
         // 掃描後做的事情
-        print(code)
-        Checkout(code)
-        updateOrderForm()
+        updateOrderForm(code.componentsSeparatedByString("!")[1])
+        Checkout(code.componentsSeparatedByString("!")[0])
         self.navigationController?.popToRootViewControllerAnimated(true)
         sleep(1)
         NSNotificationCenter.defaultCenter().postNotificationName("check", object: nil)
@@ -189,11 +186,12 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
             
 //            self.imgQRCode.image = nil
 //            self.qrcodeImage = nil
+
             }) { (Bool) -> Void in
                 return true
                 
         }
-        myTableView.reloadData()
+
     }
     
     func setTabBarVisible(visible:Bool, animated:Bool) {
@@ -238,10 +236,10 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
         
         // QRCode
         if qrcodeImage == nil {
-            let data = "deposit=\(sum)&phoneNumber=\(appDelegate.phoneNumber)".dataUsingEncoding(NSISOLatin1StringEncoding, allowLossyConversion: false)
+            let data = "deposit=\(sum)&phoneNumber=\(appDelegate.phoneNumber)!\(appDelegate.account)".dataUsingEncoding(NSISOLatin1StringEncoding, allowLossyConversion: false)
             
             let filter = CIFilter(name: "CIQRCodeGenerator")
-            
+            print(name)
             filter!.setValue(data, forKey: "inputMessage")
             filter!.setValue("Q", forKey: "inputCorrectionLevel")
             
@@ -288,6 +286,7 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
         //        let submitName = ""
         
         let submitBody: String = "name=\(appDelegate.account)"
+//        print("loadOrderForm : \(appDelegate.account)")
         
         request.HTTPMethod = "POST"
         request.HTTPBody = submitBody.dataUsingEncoding(NSUTF8StringEncoding)
@@ -301,11 +300,12 @@ class m4_OderFrorm: UIViewController, UIApplicationDelegate, UITableViewDelegate
         dataTask.resume()
         
     }
-    func updateOrderForm() {
+    func updateOrderForm(sqlName:String) {
         let url = NSURL(string: "http://sashihara.100hub.net/vip/rentHistoryOrderUpdate.php")
         let request:NSMutableURLRequest = NSMutableURLRequest(URL: url!)
         
-        let submitBody: String = "name=\(appDelegate.account)"
+        let submitBody: String = "name=\(sqlName)"
+
         
         request.HTTPMethod = "POST"
         request.HTTPBody = submitBody.dataUsingEncoding(NSUTF8StringEncoding)
