@@ -31,6 +31,7 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource,
         btnLogout.hidden = true
         NSNotificationCenter.defaultCenter().postNotificationName("reloadData", object: nil)
         NSNotificationCenter.defaultCenter().postNotificationName("UserStateChange", object: nil)
+        NSNotificationCenter.defaultCenter().postNotificationName("plusChange", object: nil)
         lblName.text = "嗨～書蟲"
         btnLogout.hidden = true
         menuTableView.reloadData()
@@ -38,7 +39,7 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource,
     
     let loginMeun = ["登        入"]
     var sideMenu = ["會  員  資  訊", "借  閱  紀  錄", "租     書     籃", "餘 額 ： "]
-    let bossMenu = ["訊  息  發  佈","儲  值  設  定", "出  借  清  單", "QRCode訂單結算"]
+    let bossMenu = ["儲  值  設  定", "出  借  清  單", "QRCode訂單結算"]
 
     
     func checkLogin() {
@@ -142,12 +143,10 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource,
         } else if appDelegate.vip == "1" {
             switch indexPath.row {
             case 0:
-                NSNotificationCenter.defaultCenter().postNotificationName("openPushWindow1_0", object: nil)
-            case 1:
                 NSNotificationCenter.defaultCenter().postNotificationName("openPushWindow1_1", object: nil)
-            case 2:
+            case 0:
                 NSNotificationCenter.defaultCenter().postNotificationName("openPushWindow1_2", object: nil)
-            case 3:
+            case 2:
                 NSNotificationCenter.defaultCenter().postNotificationName("openPushWindow2", object: nil)
             default:
                 print("indexPath.row: \(indexPath.row)")

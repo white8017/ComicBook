@@ -16,6 +16,8 @@ class t1_NewsViewContorller: TabVCTemplate, UITableViewDelegate, UITableViewData
     var name:String!
     var addNewsButton = UIBarButtonItem()
     var todoItems = NSMutableArray()
+    var txtNews : UITextField = UITextField(frame: CGRect(x: Screen.width*0.1, y: -100, width: Screen.width*0.6, height: Screen.width*0.1))
+    let btnSend = UIButton(type: UIButtonType.Custom) as UIButton
     @IBOutlet weak var newsTableView: UITableView!
     
     @IBOutlet weak var headImageView: UIImageView!
@@ -51,7 +53,10 @@ class t1_NewsViewContorller: TabVCTemplate, UITableViewDelegate, UITableViewData
         headImageView.addGestureRecognizer(rightSwipeGesture)
         
         NSTimer.scheduledTimerWithTimeInterval(4.0, target: self, selector: Selector("changePic:"), userInfo: nil, repeats: true)
-        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "plusChange", name: "plusChange", object: nil)
+    }
+    func plusChange() {
+        hidePlusButton()
     }
     
     
@@ -67,6 +72,7 @@ class t1_NewsViewContorller: TabVCTemplate, UITableViewDelegate, UITableViewData
     }
     
     override func viewDidAppear(animated: Bool) {
+
         setTabBarVisible(!tabBarIsVisible(), animated: true)
         
         
@@ -112,6 +118,7 @@ class t1_NewsViewContorller: TabVCTemplate, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // Return the number of rows in the section.
         return todoItems.count
+//        return 10
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -121,17 +128,23 @@ class t1_NewsViewContorller: TabVCTemplate, UITableViewDelegate, UITableViewData
         
         
         let item = todoItems[indexPath.row] as! NSDate
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "MM/dd"
+        let dateItem = dateFormatter.stringFromDate(item)
+        print(dateItem)
         cell.textLabel?.text = item.description
         
         
-//        // Configure the cell...
+        // Configure the cell...
 //        if indexPath.row == 0 {
-//            //cell.postImageView.image = UIImage(named: "watchkit-intro")
-//            cell.textLabel?.text = "03/08 - 本店將於3月14日進行水電陸整修，該日暫停營業一天，歸還書籍請投遞至門口還書箱，不便之處敬請見諒。"
-//            //cell.authorLabel.text = "Simon Ng"
-//            //cell.authorImageView.image = UIImage(named: "author")
-//            
-//        } else if indexPath.row == 1 {
+//            cell.postImageView.image = UIImage(named: "watchkit-intro")
+            cell.textLabel?.text = "\(dateItem) - \(txtNews.text!)"
+//            cell.textLabel?.text = "03/21 - 本店將於3月14日進行水電陸整修，該日暫停營業一天，歸還書籍請投遞至門口還書箱，不便之處敬請見諒。"
+//            cell.authorLabel.text = "Simon Ng"
+//            cell.authorImageView.image = UIImage(named: "author")
+            
+//        } else
+//            if indexPath.row == 1 {
 //            cell.textLabel?.text = "02/07 - 恭賀新禧，猴年如意！本店祝各位新年快樂～"
 //            
 //        } else if indexPath.row == 2 {
@@ -139,7 +152,7 @@ class t1_NewsViewContorller: TabVCTemplate, UITableViewDelegate, UITableViewData
 //            
 //        } else if indexPath.row == 3 {
 //            cell.textLabel?.text = "02/02 - 本店新年期間不休店，歡迎各位光臨。"
-//            
+//
 //        } else if indexPath.row == 4 {
 //            cell.textLabel?.text = "01/29 - “ 第四屆TICA台北國際動漫節 ” 開跑，將於 2016/2/10 (三) 至 2016/2/14 (日) 台北世貿南港展覽館舉行，千萬別錯過！"
 //            
@@ -155,9 +168,9 @@ class t1_NewsViewContorller: TabVCTemplate, UITableViewDelegate, UITableViewData
 //        } else if indexPath.row == 8 {
 //            cell.textLabel?.text = "11/29 - 凡 12/1 至 12/31 來店會員消費累滿50元即贈送精美動漫周邊精品。"
 //
-//        } else {
+//        } else if indexPath.row == 9 {
 //            cell.textLabel?.text = "11/26 - 本店 11/27 將延後一小時於 12:00 開店，不便之處敬請見諒。"
-//            
+
 //        }
         
         return cell
@@ -165,19 +178,16 @@ class t1_NewsViewContorller: TabVCTemplate, UITableViewDelegate, UITableViewData
 
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let optionMenu = UIAlertController(title: nil, message: "A", preferredStyle: .Alert)
-        let cancelAction = UIAlertAction(title: "返    回", style: .Cancel, handler: nil)
-        optionMenu.addAction(cancelAction)
-        self.presentViewController(optionMenu, animated: true, completion: nil)
         
         
-//        if indexPath.row == 0 {
-//            let optionMenu = UIAlertController(title: nil, message: "本店將於3月14日進行水電陸整修，該日暫停營業一天，歸還書籍請投遞至門口還書箱，不便之處敬請見諒。", preferredStyle: .Alert)
-//            let cancelAction = UIAlertAction(title: "返    回", style: .Cancel, handler: nil)
-//            optionMenu.addAction(cancelAction)
-//            self.presentViewController(optionMenu, animated: true, completion: nil)
-        
-//        } else if indexPath.row == 1 {
+        if indexPath.row == 0 {
+            let optionMenu = UIAlertController(title: nil, message: txtNews.text!, preferredStyle: .Alert)
+            let cancelAction = UIAlertAction(title: "返    回", style: .Cancel, handler: nil)
+            optionMenu.addAction(cancelAction)
+            self.presentViewController(optionMenu, animated: true, completion: nil)
+//
+//        } else 
+//        if indexPath.row == 1 {
 //            let optionMenu = UIAlertController(title: nil, message: "恭賀新禧，猴年如意！本店祝各位新年快樂～", preferredStyle: .Alert)
 //            let cancelAction = UIAlertAction(title: "返    回", style: .Cancel, handler: nil)
 //            optionMenu.addAction(cancelAction)
@@ -225,13 +235,13 @@ class t1_NewsViewContorller: TabVCTemplate, UITableViewDelegate, UITableViewData
 //            optionMenu.addAction(cancelAction)
 //            self.presentViewController(optionMenu, animated: true, completion: nil)
 //            
-//        } else {
+//        } else if indexPath.row == 9 {
 //            let optionMenu = UIAlertController(title: nil, message: "本店 11/27 將延後一小時於 12:00 開店，不便之處敬請見諒。", preferredStyle: .Alert)
 //            let cancelAction = UIAlertAction(title: "返    回", style: .Cancel, handler: nil)
 //            optionMenu.addAction(cancelAction)
 //            self.presentViewController(optionMenu, animated: true, completion: nil)
-//            
-//        }
+            
+        }
     }
     
     //左滑刪除
@@ -260,18 +270,46 @@ class t1_NewsViewContorller: TabVCTemplate, UITableViewDelegate, UITableViewData
     
     func toAddNewsPage(ender:UIBarButtonItem) {
 //        performSegueWithIdentifier("AddNews", sender: nil)
+        btnSend.alpha = 0
         
+        UIView.transitionWithView(self.view, duration: 1.0, options: UIViewAnimationOptions.CurveEaseInOut, animations: { () -> Void in
+            self.txtNews.frame = CGRectMake(Screen.width*0.1, Screen.height*0.11, Screen.width*0.8, Screen.width*0.13)
+            self.txtNews.borderStyle = UITextBorderStyle.Line
+            self.txtNews.backgroundColor = UIColor.whiteColor()
+            self.txtNews.textColor = UIColor.blackColor()
+            self.view.addSubview(self.txtNews)
+            
+            self.btnSend.frame = CGRectMake(Screen.width*0.77, Screen.height*0.182, Screen.width*0.13, Screen.width*0.1)
+            self.btnSend.backgroundColor = UIColor.blueColor()
+            self.btnSend.layer.cornerRadius = 10
+            self.btnSend.alpha = 1
+            self.btnSend.setTitle("送出", forState: .Normal)
+            self.btnSend.addTarget(self, action: "sendNews", forControlEvents: UIControlEvents.TouchUpInside)
+            self.view.addSubview(self.btnSend)
+            
+            }) { (Bool) -> Void in
+                return true
+        }
+    }
+    
+    func sendNews() {
         todoItems.insertObject(NSDate(), atIndex: 0)
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
         newsTableView.insertRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+
     }
     
     func hidePlusButton() {
+        print("ssss\(appDelegate.vip)")
+        
         if appDelegate.vip == "1" {
             self.navigationItem.rightBarButtonItem = addNewsButton
         } else if appDelegate.vip == "0" || appDelegate.vip == "" {
             self.navigationItem.rightBarButtonItem = nil
         }
+    }
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
 
 }
