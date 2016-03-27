@@ -990,13 +990,8 @@
                                 <color key="shadowColor" red="0.80000001192092896" green="0.80000001192092896" blue="0.80000001192092896" alpha="1" colorSpace="calibratedRGB"/>
                                 <size key="shadowOffset" width="-2" height="4"/>
                             </label>
-<<<<<<< HEAD
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tvl-Wr-aOU">
                                 <rect key="frame" x="197" y="25" width="55" height="21"/>
-=======
-                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tvl-Wr-aOU">
-                                <rect key="frame" x="200" y="25" width="52" height="21"/>
->>>>>>> 8fc8f72ea3cf866c0c42809a9cd9f62c841ec54b
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Tvl-Wr-aOU" secondAttribute="height" multiplier="176:70" id="lcG-LK-rGf"/>
                                 </constraints>
@@ -1224,7 +1219,6 @@
                                         <rect key="frame" x="0.0" y="72" width="560" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6jR-9L-gOE" id="P66-7z-ve0">
-<<<<<<< HEAD
                                             <rect key="frame" x="0.0" y="0.0" width="560" height="96.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
@@ -1242,25 +1236,7 @@
                                                 </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="102" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="dnM-uJ-gK1">
                                                     <rect key="frame" x="361" y="13" width="186" height="71"/>
-=======
-                                            <rect key="frame" x="0.0" y="0.0" width="560" height="63"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="101" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="book name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlk-4N-x7G">
-                                                    <rect key="frame" x="28" y="13" width="224" height="37"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                    <color key="textColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" tag="103" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="第000集" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USs-pQ-wx9">
-                                                    <rect key="frame" x="257" y="13" width="90" height="37"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                    <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="102" contentMode="scaleToFill" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="dnM-uJ-gK1">
-                                                    <rect key="frame" x="357" y="13" width="175" height="37"/>
->>>>>>> 8fc8f72ea3cf866c0c42809a9cd9f62c841ec54b
+
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. m odioque civiuda.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
