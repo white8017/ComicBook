@@ -253,6 +253,8 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
         self.loadData()
         
         txtPasswd.secureTextEntry = true
+        txtPhone.text = "0931520406"
+        txtPasswd.text = "123"
         
         if appDelegate.phoneNumber != "" {
             btnLogin.hidden = true
