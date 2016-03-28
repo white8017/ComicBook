@@ -72,6 +72,7 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
                 self.txtPhone.layer.addSublayer(borderPhone)
                 self.txtPhone.layer.masksToBounds = true
                 self.txtPhone.textColor = UIColor.whiteColor()
+                self.txtPhone.font = UIFont.italicSystemFontOfSize(30)
                 self.txtPhone.attributedPlaceholder = NSAttributedString(string: "電話", attributes: [NSForegroundColorAttributeName: UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 0.85)])
                 self.txtPhone.alpha = 1
                 self.borderStyle(self.txtPhone, borderNom: borderPhone)
@@ -81,12 +82,13 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
                 self.txtPasswd.frame = CGRectMake(Screen.width / 5, Screen.height / 5 * 1.5, Screen.width / 5 * 3, 40)
                 self.txtPasswd.layer.addSublayer(borderPasswd)
                 self.txtPasswd.layer.masksToBounds = true
-                
+                self.txtPasswd.font = UIFont.italicSystemFontOfSize(30)
                 self.txtPasswd.textColor = UIColor.whiteColor()
                 self.txtPasswd.attributedPlaceholder = NSAttributedString(string: "密碼", attributes: [NSForegroundColorAttributeName: UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 0.85)])
                 self.txtPasswd.alpha = 1
                 self.borderStyle(self.txtPasswd, borderNom: borderPasswd)
                 self.view.addSubview(self.txtPasswd)
+
                 
                 }) { (Bool) -> Void in
                     return true
