@@ -183,9 +183,11 @@ class t3_FavoriteViewController: TabVCTemplate, UITableViewDelegate, UITableView
     
     
     func loadData() {
-        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.White)
-        activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+
+        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.Gray)
+        activityIndicator.frame = CGRect(x: Screen.width*0.252, y: Screen.height*0.3, width: Screen.width*0.5, height: Screen.width*0.5)
         activityIndicator.startAnimating()
+        self.view.addSubview(activityIndicator)
         
         switch authorORbookName{
             // 作者名稱
@@ -306,7 +308,7 @@ class t3_FavoriteViewController: TabVCTemplate, UITableViewDelegate, UITableView
             print("didFinish xx")
             
         }
-//        activityIndicator.stopAnimating()
+        activityIndicator.stopAnimating()
     }
     
     
