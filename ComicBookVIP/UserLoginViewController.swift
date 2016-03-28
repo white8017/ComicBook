@@ -19,9 +19,9 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
     
     var txtPhone: UITextField = UITextField(frame: CGRect(x: Screen.width / 2, y: Screen.height / 5, width:20, height: 40))
     var txtPasswd: UITextField = UITextField(frame: CGRect(x: Screen.width / 2, y: Screen.height / 5 * 1.5, width:20, height: 40))
-    var txtName: UITextField = UITextField(frame: CGRect(x: Screen.width * 0.2, y: Screen.height * 0.3, width: Screen.width * 0.6, height: 40))
-    var txtBirth: UITextField = UITextField(frame: CGRect(x: Screen.width * 0.2, y: Screen.height * 0.5, width: Screen.width * 0.6, height: 40))
-    var txtAddress:UITextField = UITextField(frame: CGRect(x: Screen.width * 0.2, y: Screen.height * 0.6, width: Screen.width * 0.6, height: 40))
+    var txtName: UITextField = UITextField(frame: CGRect(x: Screen.width * 0.1, y: Screen.height * 0.3, width: Screen.width * 0.8, height: 40))
+    var txtBirth: UITextField = UITextField(frame: CGRect(x: Screen.width * 0.1, y: Screen.height * 0.5, width: Screen.width * 0.8, height: 40))
+    var txtAddress:UITextField = UITextField(frame: CGRect(x: Screen.width * 0.1, y: Screen.height * 0.6, width: Screen.width * 0.8, height: 40))
     
     let loginW = Screen.width * 0.25
     let loginH = Screen.width * 0.25 / 43 * 16
@@ -107,25 +107,29 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
             txtName.text = "姓名：\(appDelegate.account)"
             txtName.borderStyle = UITextBorderStyle.None
             txtName.textColor = UIColor.whiteColor()
+            txtName.font = UIFont.italicSystemFontOfSize(18)
             txtName.enabled = false
             self.view.addSubview(txtName)
             
-            self.txtPhone.frame = CGRectMake(Screen.width * 0.2, Screen.height * 0.4, Screen.width * 0.6, 40)
+            self.txtPhone.frame = CGRectMake(Screen.width * 0.1, Screen.height * 0.4, Screen.width * 0.8, 40)
             txtPhone.text = "電話：\(appDelegate.phoneNumber)"
             txtPhone.borderStyle = UITextBorderStyle.None
             txtPhone.textColor = UIColor.whiteColor()
+            txtPhone.font = UIFont.italicSystemFontOfSize(18)
             txtPhone.enabled = false
             self.view.addSubview(txtPhone)
             
             txtBirth.text = "生日：\(appDelegate.birth)"
             txtBirth.borderStyle = UITextBorderStyle.None
             txtBirth.textColor = UIColor.whiteColor()
+            txtBirth.font = UIFont.italicSystemFontOfSize(18)
             txtBirth.enabled = false
             self.view.addSubview(txtBirth)
             
             txtAddress.text = "住址：\(appDelegate.address)"
             txtAddress.borderStyle = UITextBorderStyle.None
             txtAddress.textColor = UIColor.whiteColor()
+            txtAddress.font = UIFont.italicSystemFontOfSize(18)
             txtAddress.enabled = false
             self.view.addSubview(txtAddress)
         }
