@@ -20,7 +20,9 @@ class t3_FavoriteViewController: TabVCTemplate, UITableViewDelegate, UITableView
     var name = ""
     var authorORbookName:String!
     var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-
+    var activityIndicator = UIActivityIndicatorView()
+    
+    
     @IBAction func toggleMenu(sender: AnyObject) {
         NSNotificationCenter.defaultCenter().postNotificationName("toggleMenu", object: nil)
     }
@@ -181,6 +183,9 @@ class t3_FavoriteViewController: TabVCTemplate, UITableViewDelegate, UITableView
     
     
     func loadData() {
+        activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.White)
+        activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        activityIndicator.startAnimating()
         
         switch authorORbookName{
             // 作者名稱
@@ -240,6 +245,7 @@ class t3_FavoriteViewController: TabVCTemplate, UITableViewDelegate, UITableView
             self.deleteData()
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         }
+
         
     }
     
@@ -300,6 +306,7 @@ class t3_FavoriteViewController: TabVCTemplate, UITableViewDelegate, UITableView
             print("didFinish xx")
             
         }
+//        activityIndicator.stopAnimating()
     }
     
     
