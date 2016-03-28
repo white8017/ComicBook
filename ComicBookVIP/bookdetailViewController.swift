@@ -405,6 +405,9 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
         //bug
 		cell.title.text = bookAmount[indexPath.row]
 		cell.date.text = rentTime[bookAmount[indexPath.row]]
+		if cell.date.text != nil{
+		cell.state.text = "借出"
+		}
 		for a in rentTime{
 			if a.0 == bookAmount[indexPath.row]{
 				cell.userInteractionEnabled = false
@@ -560,10 +563,12 @@ class bookdetailViewController: UIViewController,UIScrollViewDelegate,UITableVie
 class cellView: UITableViewCell {
 	var title = UILabel()
 	var date = UILabel()
+	var state = UILabel()
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 		self.addSubview(title)
 		self.addSubview(date)
+		self.addSubview(state)
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -575,7 +580,8 @@ class cellView: UITableViewCell {
 		title.font = UIFont.systemFontOfSize(25)
 		date.frame =  CGRect(x:title.frame.maxX, y: 0, width: self.bounds.size.width/2, height: self.bounds.size.height)
 		date.font = UIFont.systemFontOfSize(25)
-		
+		state.frame = CGRect(x: date.frame.maxX, y: 0, width: self.bounds.size.width/6, height: self.bounds.size.height)
+		state.textColor = UIColor.redColor()
 	}
 	
 	

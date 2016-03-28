@@ -6,7 +6,7 @@ class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,
 	let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
 	var scroll:UIScrollView!
 	var scrollContent:UIScrollView!
-	var mydb:COpaquePointer=nil;
+	var mydb:COpaquePointer=nil
 	var items = [String]()
 	var customSC = UISegmentedControl()
 	var bookContent:[CostumCollectionView] = []
@@ -20,7 +20,6 @@ class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,
 	func setView(){
 		
 		carImage = UIImageView(image:UIImage(named: "shoppingcart"))
-		
 		changeUserFunction()
         print(1)
 		rightButton = UIBarButtonItem(customView: carImage)
@@ -133,10 +132,12 @@ class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,
 				
 				print(items.count)
 				let alertController=UIAlertController(title: "漫畫分類", message: "", preferredStyle: UIAlertControllerStyle.Alert)
+				
 				alertController.addTextFieldWithConfigurationHandler { (textField:UITextField) -> Void in
 					textField.placeholder="分類名稱"
+					textField.text = "熱血漫畫"
 				}
-				let cancelAction=UIAlertAction(title: "add", style: UIAlertActionStyle.Cancel) { (sender:UIAlertAction) -> Void in
+				let cancelAction=UIAlertAction(title: "新增", style: UIAlertActionStyle.Cancel) { (sender:UIAlertAction) -> Void in
 					var newItem = "預設"
 					
 					if (alertController.textFields?.first?.text)! != ""{
@@ -175,7 +176,7 @@ class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,
 					self.upload(newItem)
 					
 				}
-    let clearAction=UIAlertAction(title: "cancel", style: UIAlertActionStyle.Default, handler:nil)
+    let clearAction=UIAlertAction(title: "取消", style: UIAlertActionStyle.Default, handler:nil)
 				alertController.addAction(cancelAction)
 				alertController.addAction(clearAction)
 				
