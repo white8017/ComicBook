@@ -19,6 +19,9 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
     
     var txtPhone: UITextField = UITextField(frame: CGRect(x: Screen.width / 2, y: Screen.height / 5, width:20, height: 40))
     var txtPasswd: UITextField = UITextField(frame: CGRect(x: Screen.width / 2, y: Screen.height / 5 * 1.5, width:20, height: 40))
+    var txtName: UITextField = UITextField(frame: CGRect(x: Screen.width * 0.2, y: Screen.height * 0.3, width: Screen.width * 0.6, height: 40))
+    var txtBirth: UITextField = UITextField(frame: CGRect(x: Screen.width * 0.2, y: Screen.height * 0.5, width: Screen.width * 0.6, height: 40))
+    var txtAddress:UITextField = UITextField(frame: CGRect(x: Screen.width * 0.2, y: Screen.height * 0.6, width: Screen.width * 0.6, height: 40))
     
     let loginW = Screen.width * 0.25
     let loginH = Screen.width * 0.25 / 43 * 16
@@ -94,17 +97,25 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
             //hide tabbar
             setTabBarVisible(!tabBarIsVisible(), animated: true)
             
-        }else { // 已登入
+        } else { // 已登入
             //背景
             self.view.backgroundColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 0.9)
             
-            self.txtPhone.frame = CGRectMake(Screen.width / 5, Screen.height / 5, Screen.width / 5 * 3, 40)
-            txtPhone.text = "姓名 ： \(appDelegate.account)"
+//            self.txtName.frame = CGRectMake(Screen.width * 0.2, Screen.height * 0.2, Screen.width * 0.6, 40)
+            txtName.text = "姓名：\(appDelegate.account)"
+            txtName.borderStyle = UITextBorderStyle.None
+            txtName.textColor = UIColor.whiteColor()
+            txtName.enabled = false
+            self.view.addSubview(txtName)
+            
+            self.txtPhone.frame = CGRectMake(Screen.width * 0.2, Screen.height * 0.4, Screen.width * 0.6, 40)
+            txtPhone.text = "電話：\(appDelegate.phoneNumber)"
             txtPhone.borderStyle = UITextBorderStyle.None
             txtPhone.textColor = UIColor.whiteColor()
             txtPhone.enabled = false
             self.view.addSubview(txtPhone)
             
+//            txtBirth.text = "住址：\()"
         }
         
         
