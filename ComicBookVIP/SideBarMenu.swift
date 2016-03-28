@@ -37,9 +37,9 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource,
         menuTableView.reloadData()
     }
     
-    let loginMeun = ["登        入"]
+    let loginMeun = ["登          入"]
     var sideMenu = ["會  員  資  訊", "借  閱  紀  錄", "租     書     籃", "餘 額 ： "]
-    let bossMenu = ["儲  值  設  定", "出  借  清  單", "QRCode訂單結算"]
+    let bossMenu = ["儲  值  設  定", "出  借  清  單", "QRcode訂單"]
 
     
     func checkLogin() {
@@ -108,7 +108,7 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource,
         let cell = tableView.dequeueReusableCellWithIdentifier("MenuCell", forIndexPath: indexPath)
         
         if appDelegate.vip == "0"{
-            sideMenu[3] = "剩餘：\(nowMoney)"
+            sideMenu[3] = "餘 額 ： \(nowMoney)"
             cell.textLabel?.text = sideMenu[indexPath.row]
         }else if appDelegate.vip == ""{
             cell.textLabel?.text = loginMeun[indexPath.row]
@@ -144,7 +144,7 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource,
             switch indexPath.row {
             case 0:
                 NSNotificationCenter.defaultCenter().postNotificationName("openPushWindow1_1", object: nil)
-            case 0:
+            case 1:
                 NSNotificationCenter.defaultCenter().postNotificationName("openPushWindow1_2", object: nil)
             case 2:
                 NSNotificationCenter.defaultCenter().postNotificationName("openPushWindow2", object: nil)
