@@ -26,9 +26,9 @@ class BookTitleViewController: TabVCTemplate,UICollectionViewDelegateFlowLayout,
 		navigationItem.rightBarButtonItem =  rightButton
 	
 		//增加左側之 NavigationBar Button Item//
-		let homeImg = UIImage(named: "HumburgerButton") as UIImage?
+		let homeImg = UIImage(named: "HumburgerButton(red)") as UIImage?
 		let leftButton = UIBarButtonItem(image: homeImg, style: UIBarButtonItemStyle.Plain, target: self, action: "theToggleMenu:")
-        UIBarButtonItem.appearance().tintColor = UIColor.redColor()
+        //UIBarButtonItem.appearance().tintColor = UIColor.redColor()
 		navigationItem.leftBarButtonItem = leftButton
 
 		self.navigationController!.navigationBar.translucent = false
