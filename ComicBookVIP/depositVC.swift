@@ -163,6 +163,9 @@ class depositVC: UIViewController, NSURLSessionDelegate  {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        txtPhone.text = "0931520406"
+        
         // Do any additional setup after loading the view.
     }
     
