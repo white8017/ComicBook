@@ -1,10 +1,7 @@
-//
 //  orderViewController.swift
 //  ComicBookVIP
-//
 //  Created by plasma018 on 2016/3/26.
 //  Copyright © 2016年 Mako. All rights reserved.
-//
 
 import UIKit
 
@@ -35,8 +32,8 @@ class orderViewController: UIViewController {
         
         // 按鈕
         let clearBty = UIButton(type: UIButtonType.System)
-        enterBty.setTitle("Agree", forState: UIControlState.Normal)
-        clearBty.setTitle("Cancel", forState: UIControlState.Normal)
+        enterBty.setTitle("送出", forState: UIControlState.Normal)
+        clearBty.setTitle("取消", forState: UIControlState.Normal)
         enterBty.tintColor = UIColor.redColor()
         let buttonW = viewS.width/2
         let buttonH = viewS.height/6
@@ -68,16 +65,6 @@ class orderViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+	
 
 }

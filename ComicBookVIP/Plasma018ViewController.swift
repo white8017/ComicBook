@@ -39,18 +39,20 @@ class Plasma018ViewController: UIViewController,UITableViewDelegate,UITableViewD
 		orderBookName = booktextfield.text!
         // 標題列
 		let navBar: UINavigationBar = UINavigationBar(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height:self.view.frame.size.height/5))
-		self.view.addSubview(navBar);
-		let navItem = UINavigationItem(title: "編輯");
-		let doneItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "changeImage:");
-		navItem.rightBarButtonItem = doneItem;
-		navBar.setItems([navItem], animated: false);
+		self.view.addSubview(navBar)
+		let navItem = UINavigationItem(title: "編輯")
+//		let doneItem = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Done, target: self, action: "changeImage:")
+		
+		let doneItem = UIBarButtonItem(title: "照片", style: UIBarButtonItemStyle.Done, target: self, action: "changeImage:")
+		navItem.rightBarButtonItem = doneItem
+		navBar.setItems([navItem], animated: false)
 		
         // 按鈕
         let enterBty = UIButton(type: UIButtonType.System)
         let clearBty = UIButton(type: UIButtonType.System)
 		
-        enterBty.setTitle("Agree", forState: UIControlState.Normal)
-        clearBty.setTitle("Cancel", forState: UIControlState.Normal)
+        enterBty.setTitle("新增", forState: UIControlState.Normal)
+        clearBty.setTitle("取消", forState: UIControlState.Normal)
         let buttonW = viewS.width/2
         let buttonH = viewS.height/8
         enterBty.frame = CGRectMake(0,self.view.frame.maxY-buttonH,buttonW,buttonH)
@@ -95,8 +97,19 @@ class Plasma018ViewController: UIViewController,UITableViewDelegate,UITableViewD
 
 		self.view.addSubview(imageView)
 		imageView.addSubview(booktextfield)
-
+		
+		
+		let bty = UIButton(frame: CGRect(x: imageView.frame.maxX, y:navBar.frame.maxY , width: 200, height: 130))
+//		bty.backgroundColor = UIColor.redColor()
+		self.view.addSubview(bty)
+		bty.addTarget(self, action: "fucking", forControlEvents: UIControlEvents.AllTouchEvents)
     }
+	func fucking(){
+		booktextfield.text = "一拳超人"
+	
+	
+	}
+	
 	func clear(){
 		self.dismissViewControllerAnimated(true, completion: nil)
 	}
