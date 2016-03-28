@@ -103,7 +103,7 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
             //背景
             self.view.backgroundColor = UIColor(red: 0.15, green: 0.15, blue: 0.15, alpha: 0.9)
             
-//            self.txtName.frame = CGRectMake(Screen.width * 0.2, Screen.height * 0.2, Screen.width * 0.6, 40)
+            //            self.txtName.frame = CGRectMake(Screen.width * 0.2, Screen.height * 0.2, Screen.width * 0.6, 40)
             txtName.text = "姓名：\(appDelegate.account)"
             txtName.borderStyle = UITextBorderStyle.None
             txtName.textColor = UIColor.whiteColor()
@@ -117,7 +117,17 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
             txtPhone.enabled = false
             self.view.addSubview(txtPhone)
             
-//            txtBirth.text = "住址：\()"
+            txtBirth.text = "生日：\(appDelegate.birth)"
+            txtBirth.borderStyle = UITextBorderStyle.None
+            txtBirth.textColor = UIColor.whiteColor()
+            txtBirth.enabled = false
+            self.view.addSubview(txtBirth)
+            
+            txtAddress.text = "住址：\(appDelegate.address)"
+            txtAddress.borderStyle = UITextBorderStyle.None
+            txtAddress.textColor = UIColor.whiteColor()
+            txtAddress.enabled = false
+            self.view.addSubview(txtAddress)
         }
         
         
@@ -180,6 +190,10 @@ class UserLoginViewController: UIViewController, NSURLSessionDelegate, NSURLSess
                     self.appDelegate.userDefault.setObject(self.dataArray[self.i]["phoneNumber"] as! String, forKey: "phoneNumber")
                     self.appDelegate.userDefault.setObject(self.dataArray[self.i]["name"] as! String, forKey: "name")
                     self.appDelegate.userDefault.setObject(self.dataArray[self.i]["VIP"], forKey: "vip")
+                    
+                    self.appDelegate.userDefault.setObject(self.dataArray[self.i]["birthday"], forKey: "birthday")
+                    
+                    self.appDelegate.userDefault.setObject(self.dataArray[self.i]["adess"], forKey: "adess")
                     self.appDelegate.userDefault.synchronize()
                     
                     //                    var storedNumber = self.userDefault.objectForKey("phoneNumber")
