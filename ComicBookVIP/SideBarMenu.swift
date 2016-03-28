@@ -110,6 +110,10 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource,
         if appDelegate.vip == "0"{
             sideMenu[3] = "餘 額 ： \(nowMoney)"
             cell.textLabel?.text = sideMenu[indexPath.row]
+            if indexPath.row == 3 {
+                cell.accessoryType = .None
+                cell.userInteractionEnabled = false
+            }
         }else if appDelegate.vip == ""{
             cell.textLabel?.text = loginMeun[indexPath.row]
         }else if appDelegate.vip == "1" {
@@ -135,8 +139,8 @@ class SideBarMenu: UIViewController, UITableViewDelegate, UITableViewDataSource,
                 NSNotificationCenter.defaultCenter().postNotificationName("openPushWindow1", object: nil)
             case 2:
                 NSNotificationCenter.defaultCenter().postNotificationName("openPushWindow2", object: nil)
-            case 3:
-                NSNotificationCenter.defaultCenter().postNotificationName("openPushWindow3", object: nil)
+//            case 3:
+//                NSNotificationCenter.defaultCenter().postNotificationName("openPushWindow3", object: nil)
             default:
                 print("indexPath.row: \(indexPath.row)")
             }
