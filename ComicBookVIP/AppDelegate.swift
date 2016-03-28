@@ -22,10 +22,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var vip = ""
     var userDefault = NSUserDefaults.standardUserDefaults() // 就像是在 Android 上的 SharedPreference一樣，暫存於 App 中，直到程式被移除才會消失
     
+    var birth = ""
+    var address = ""
+    
     func reloadData() {
         var storedNumber = userDefault.objectForKey("phoneNumber")
         var storedName = userDefault.objectForKey("name")
         var storedVIP = userDefault.objectForKey("vip")
+        
+        var storedBirth = userDefault.objectForKey("birthday")
+        var storedAddress = userDefault.objectForKey("adess")
         
         if storedName != nil {
             account = storedName! as! String
@@ -38,9 +44,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             vip = storedVIP! as! String
         }
         
+        if storedBirth != nil {
+            birth = storedBirth! as! String
+        }
+        if storedAddress != nil {
+            address = storedAddress! as! String
+        }
+        
         print("app:name = \(account)")
         print("app:phone = \(phoneNumber)")
         print("app:vip = \(vip)")
+        
+        print("appp:birth = \(birth)")
+        print("appp:address = \(address)")
 
     }
     
